@@ -28,8 +28,23 @@ port and Causal-HalBench scorer; it does not include real benchmark images.
   in the reviewed prototype at that stage.
 
 Run `python -m pytest -q` and `ruff check src tests` for the current exact test
-count. The latest final implementation verification is recorded in the Git
-commit and GitHub Actions run; passing tests do not validate research efficacy.
+count. Passing tests do not validate research efficacy.
+
+## GitHub verification status
+
+The implementation was pushed to the private repository
+`jinuk0211/vlm-grounding-steering` at commit
+`596c0dd5cf2d666335723ca3485e443d08d30cd7`. Repository visibility and remote
+upload were confirmed.
+
+The initial push and one explicit workflow dispatch both ended with
+`startup_failure` before creating any jobs. GitHub's API returned no check runs
+or execution logs, so the underlying cause has not been established. These
+are **not passing CI runs**; the 57-test result above is the local CPU result.
+The workflow remains available for a later run.
+
+- [Initial push run](https://github.com/jinuk0211/vlm-grounding-steering/actions/runs/39420075754)
+- [Explicit dispatch run](https://github.com/jinuk0211/vlm-grounding-steering/actions/runs/39420507174)
 
 ## Required before scientific claims
 
