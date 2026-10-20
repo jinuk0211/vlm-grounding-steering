@@ -1,0 +1,152 @@
+import contextlib
+import io
+import json
+from pathlib import Path
+import tempfile
+from types import SimpleNamespace
+import unittest
+from unittest.mock import patch
+
+from vlm_grounding.cli import (
+    _model_signature, _prediction_rows, _select, _validate_artifact, build_parser, main,
+)
+
+
+class MockAdapter:
+    def __init__(self):
+        self.model = SimpleNamespace(config=SimpleNamespace(_commit_hash="test-commit"))
+        self.last_generated_tokens = 1
+
+    def prepare(self, image, prompt):
+        return {"image": image, "prompt": prompt}
+
+    def generate(self, batch, max_new_tokens):
+        return "Yes."
+
+
+class CliTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary.name)
+        self.image = self.root / "image.png"
+        self.image.write_bytes(b"test-only")
+        self.config = {"model": {"checkpoint": "tiny-test", "device": "cpu",
+                                 "family": "llava", "dtype": "float32"},
+                       "generation": {"max_new_tokens": 4}}
+        self.config_path = self.root / "config.json"
+        self.config_path.write_text(json.dumps(self.config), encoding="utf-8")
+        self.record = {"id": "question:1", "group_id": "image:1", "image": str(self.image),
+                       "prompt": "Is a cat present?", "label": "yes", "task": "pope",
+                       "split": "test"}
+        self.manifest = self.root / "test.jsonl"
+        self.manifest.write_text(json.dumps(self.record) + "\n", encoding="utf-8")
+
+    def tearDown(self):
+        self.temporary.cleanup()
+
+    def command(self, extra):
+        return ["run", "--config", str(self.config_path), "--manifest", str(self.manifest),
+                "--output", str(self.root / "predictions.jsonl"), *extra]
+
+    def test_parser_exposes_required_pipeline(self):
+        parser = build_parser()
+        args = parser.parse_args(["compare", "--predictions", "a.jsonl", "b.jsonl",
+                                  "--output-dir", "report"])
+        self.assertEqual(args.predictions, ["a.jsonl", "b.jsonl"])
+        self.assertEqual(args.baseline, "base")
+
+    def test_base_run_without_gpu_and_complete_provenance(self):
+        with patch("vlm_grounding.cli._load_adapter", return_value=MockAdapter()) as loader, \
+                contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(main(self.command(["--method", "base"])), 0)
+        loader.assert_called_once_with(self.config["model"])
+        path = self.root / "predictions.jsonl"
+        rows = _prediction_rows(str(path))
+        self.assertEqual(rows[0]["prediction"], "Yes.")
+        self.assertEqual(rows[0]["generated_tokens"], 1)
+        metadata = json.loads(Path(str(path) + ".metadata.json").read_text(encoding="utf-8"))
+        self.assertEqual(metadata["status"], "complete")
+        self.assertEqual(metadata["checkpoint_revision"], "test-commit")
+        self.assertEqual(metadata["record_ids"], ["question:1"])
+        self.assertIsNone(metadata["artifact_sha256"])
+        self.assertEqual(rows[0]["protocol_fingerprint"], metadata["protocol_fingerprint"])
+        self.assertFalse(metadata["evaluation_protocol"]["generation"]["do_sample"])
+
+    def test_prevents_overwrite_before_model_load(self):
+        (self.root / "predictions.jsonl").write_text("existing", encoding="utf-8")
+        with patch("vlm_grounding.cli._load_adapter") as loader, \
+                contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(main(self.command(["--method", "base"])), 2)
+        loader.assert_not_called()
+
+    def test_refuses_partial_test_run_before_model_load(self):
+        with patch("vlm_grounding.cli._load_adapter") as loader, \
+                contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(main(self.command(["--method", "base", "--limit", "1"])), 2)
+        loader.assert_not_called()
+
+    def test_rejects_artifact_training_group_leakage_and_model_mismatch(self):
+        artifact = {"_provenance": {"model_config": self.config["model"],
+                                     "training_group_ids": ["image:1"]}}
+        with self.assertRaisesRegex(ValueError, "overlap"):
+            _validate_artifact(artifact, self.config["model"], [self.record])
+        with self.assertRaisesRegex(ValueError, "model config"):
+            _validate_artifact(artifact, {**self.config["model"], "checkpoint": "different"})
+        self.assertEqual(_model_signature(self.config["model"]),
+                         _model_signature({**self.config["model"], "device": "cuda"}))
+
+    def test_rejects_resolved_revision_drift(self):
+        artifact = {"_provenance": {"model_config": self.config["model"],
+                                     "checkpoint_revision": "different-commit"}}
+        with self.assertRaisesRegex(ValueError, "revision"):
+            _validate_artifact(artifact, self.config["model"], adapter=MockAdapter())
+
+    def test_failed_generation_is_marked_and_not_comparable(self):
+        adapter = MockAdapter()
+        adapter.generate = lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("failed"))
+        with patch("vlm_grounding.cli._load_adapter", return_value=adapter), \
+                contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(main(self.command(["--method", "base"])), 2)
+        with self.assertRaisesRegex(ValueError, "did not complete"):
+            _prediction_rows(str(self.root / "predictions.jsonl"))
+
+    def test_select_filters_fit_preferences_without_test_leakage(self):
+        records = [{**self.record, "id": "fit", "split": "fit", "chosen": "yes", "rejected": "no"},
+                   self.record]
+        self.assertEqual([row["id"] for row in _select(records, "fit", None, preferences=True)],
+                         ["fit"])
+
+    def test_compare_two_complete_prediction_files(self):
+        paths = []
+        for method in ("base", "ephs"):
+            path = self.root / f"{method}.jsonl"
+            path.write_text(json.dumps({**self.record, "prediction": "Yes.", "method": method}) + "\n",
+                            encoding="utf-8")
+            paths.append(str(path))
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(main(["compare", "--predictions", *paths,
+                                   "--output-dir", str(self.root / "report"),
+                                   "--bootstrap-samples", "10"]), 0)
+        report = json.loads((self.root / "report" / "comparison.json").read_text(encoding="utf-8"))
+        self.assertEqual(set(report["methods"]), {"base", "ephs"})
+        self.assertFalse(report["all_protocols_verified"])
+        self.assertTrue((self.root / "report" / "metrics.csv").is_file())
+
+    def test_compare_rejects_different_generation_budgets(self):
+        paths = []
+        for method, tokens in (("base", 64), ("ephs", 128)):
+            path = self.root / f"{method}.jsonl"
+            path.write_text(json.dumps({**self.record, "prediction": "Yes.", "method": method}) + "\n",
+                            encoding="utf-8")
+            metadata = {"status": "complete", "record_ids": [self.record["id"]],
+                        "config": {**self.config, "generation": {"max_new_tokens": tokens}}}
+            Path(str(path) + ".metadata.json").write_text(json.dumps(metadata), encoding="utf-8")
+            paths.append(str(path))
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(main(["compare", "--predictions", *paths,
+                                   "--output-dir", str(self.root / "report")]), 2)
+        self.assertFalse((self.root / "report" / "comparison.json").exists())
+
+
+if __name__ == "__main__":
+    unittest.main()
