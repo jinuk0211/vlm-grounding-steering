@@ -1,0 +1,228 @@
+{
+  "scope": "synthetic differential probes; not pretrained-model parity",
+  "python": "3.12.14",
+  "torch": "2.8.0+cpu",
+  "sources": {
+    "revis": {
+      "commit": "75f4d29d402d4c1c4dbb2c69e88e3aa50cd0c9cc",
+      "url": "https://github.com/antgroup/Revis.git"
+    },
+    "rudder": {
+      "commit": "bd149d8dbde6a9097dd02aea80f83d0bd8876761",
+      "url": "https://github.com/Akko000/RUDDER-Residual-Update-Directed-DEcoding-Regulation-.git"
+    },
+    "grains": {
+      "commit": "8ad78db3040fbb7b0aec9e544a3dcc7b9c050b5b",
+      "url": "https://github.com/duykhuongnguyen/GrAInS.git"
+    },
+    "vti": {
+      "commit": "bb5dfee33a9e555f22af9faa7b3495c0ac3df69e",
+      "url": "https://github.com/shengliu66/VTI.git"
+    }
+  },
+  "probes": {
+    "revis_vector": {
+      "upstream": [
+        0.0,
+        -0.0,
+        1.51612389087677
+      ],
+      "local": [
+        -0.23529410362243652,
+        0.9411764740943909,
+        0.5
+      ],
+      "cosine": 0.4581228494644165,
+      "max_abs_difference": 1.01612389087677,
+      "note": "Upstream PCA prior, samplewise purification, scaled PCA vs local means."
+    },
+    "revis_prefill": {
+      "same_last_token_formula": true,
+      "upstream_changed_positions": 2,
+      "local_changed_positions": 1
+    },
+    "rudder_card": {
+      "upstream": [
+        [
+          -0.9099603295326233,
+          -0.41469547152519226
+        ]
+      ],
+      "local": [
+        [
+          0.5457181930541992,
+          0.8379688262939453
+        ]
+      ],
+      "cosine": -0.8440837860107422
+    },
+    "rudder_gate": {
+      "same_beta_formula_with_same_similarity": true,
+      "upstream_gate_on_attention_output": 0.5,
+      "local_gate_on_block_input_for_example": 0.9969853758811951
+    },
+    "vti_injection": {
+      "original_norm": [
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "upstream_norm": [
+        [
+          5.00054931640625,
+          4.999834060668945
+        ]
+      ],
+      "local_norm": [
+        [
+          5.0,
+          5.315073013305664
+        ]
+      ],
+      "max_abs_difference": 0.34765625,
+      "note": "Same tensor input only; real hook boundaries also differ (MLP vs block)."
+    },
+    "vti_text_pca": {
+      "upstream": [
+        [
+          0.9685119390487671,
+          2.4738929271698,
+          1.4712810516357422
+        ],
+        [
+          2.6025264263153076,
+          1.768997073173523,
+          1.418633222579956
+        ]
+      ],
+      "local": [
+        [
+          -0.5656709671020508,
+          0.8100717067718506,
+          -0.15427380800247192
+        ],
+        [
+          0.8431392312049866,
+          -0.2810456454753876,
+          -0.4583989381790161
+        ]
+      ],
+      "cosine": 0.3500497341156006,
+      "note": "Original flattened-layer PC1+mean vs independent unit PC1 for each layer."
+    },
+    "vti_mask": {
+      "max_abs_difference": 40.5,
+      "upstream_replacement": "per-channel image mean",
+      "local_replacement": 0
+    },
+    "grains_single_token_hook": {
+      "upstream": [
+        [
+          [
+            3.0,
+            4.0
+          ]
+        ]
+      ],
+      "local": [
+        [
+          [
+            2.773500919342041,
+            4.160251140594482
+          ]
+        ]
+      ],
+      "upstream_change": 0.0,
+      "local_change": 0.22649908065795898,
+      "note": "Public dim=1 norm can cancel positive same-sign updates at decode length 1."
+    },
+    "grains_objective": {
+      "upstream_last_input_token_at_final_logit": -3.0949230194091797,
+      "local_shifted_completion_log_probability": -0.18984583020210266,
+      "note": "Numerical illustration of inspected objectives, not full upstream IG execution."
+    },
+    "upstream_entrypoint_gaps": {
+      "grains_generation_imports_missing_definitions": [
+        "generate_answer_dataset_vlm",
+        "steer_and_generate_dataset_vlm"
+      ],
+      "revis_missing_local_modules": [
+        "utils/text_halu.py",
+        "utils/mmhal_bench.py"
+      ],
+      "rudder_chair_import_target_exists": false
+    }
+  },
+  "local_commit": "3d5359edc741449f715be6d5d7ea26c5e9510720",
+  "versions": {
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.2",
+    "transformers": "5.20.2"
+  },
+  "local_file_sha256": {
+    "src/vlm_grounding/baselines.py": "447eee8ac59b9f4df05c885fcfaed5bf8731fa554979c9cadca1f3e6ad8fe554",
+    "scripts/audit_baseline_parity.py": "e5dc38adbac821a3d189a7eb4808b49363ff6bb6c6d8ea83a36ebb9900c41949"
+  },
+  "source_file_sha256": {
+    "grains/src/attribution/gradient/llm_grad.py": "b87242e6525ecc8e3c9cd46c206baa5846fc2f4de96447e0cf29a2d1441c8c93",
+    "grains/src/attribution/gradient/utils.py": "f83deca71c89d216986a1739a870665c8221d990ca1777c5ac3bb47d91178c70",
+    "grains/src/attribution/gradient/vlm_grad.py": "3726104f82a9b3ebe2f1a04b7731cf677fcce342ec70f21482e78297b834dbe0",
+    "grains/src/steering_generation.py": "29be936bd78a4667a00107165210b8ffee8dcba29b00eb7d5620f6fdcce7a449",
+    "grains/src/steering_generation_vlm.py": "b0c37c07b50e6bc67dbfd2c5d7d7451ef5d0b64d559508c6dd88b1d4994c76d1",
+    "grains/src/steering_mc.py": "89e2c3052be2a43dcc8033609dbf3c99e6cc2b781415e5e46a897e533f763152",
+    "grains/src/steering_mc_vlm.py": "0e29197ab4e6507017e6f9cd2702e2b65e71cb4cf756e87de721070af3c25cd1",
+    "grains/src/token_ablation.py": "53788f08f42e083be4f18e5fc6bd22c7f62b618492b75a64c4530920e41084aa",
+    "grains/src/token_ablation_vlm.py": "6abc6417fdf53cd55f1ef9e8946bbb1be5e67a5b36bd26d79388e0c1ca913abe",
+    "grains/src/utils/config.py": "a6a08fb03c7166eab2a0bb22be18a9ae32332d245018985298a713147729ae0a",
+    "grains/src/utils/data.py": "21877db7a41e0ee2eef8a7ca9783c6e05a2853641570cc29f2b713bfa398d0b7",
+    "grains/src/utils/model.py": "0390fc6c7f505925a061320afbd4e2c5f8e84165b6c0790ba5166bc2b3bc2484",
+    "grains/src/utils/steering.py": "dd6556fae37dfab48bfcc8adb28c74c01728bd6ea04415c11fd6115d815dcfd9",
+    "revis/layer_select.py": "34ab877cc66638634c849c181c8b9076b5542ef587dc32ac860be55086b300f0",
+    "revis/main_all_ori.py": "aec691f65f55abfa019ea1869c90a17cb66d6778d9ef33b9c3eb1488d64091c5",
+    "revis/main_all_visual_only.py": "b3e867633f4b919e349e04baac0c6e075856e8d17ffd19da2914831cdd2851a5",
+    "revis/steering_utils/__init__.py": "132f0194815ff9b3453ccbf2c749e430a49690e4699f26a7be5fe232f888c703",
+    "revis/steering_utils/data_loader.py": "e0a38ec9670e92a987b731e6fcffda598286b2024e016e30b19a89fb4c57a97d",
+    "revis/steering_utils/llm_layers.py": "3919cc53f30fbbb81a4b6903f5d476e39b6c8c65417b962e34729b19421ce908",
+    "revis/steering_utils/pca.py": "d340e01519159052d5039042004212d660f74f854d1c6025f842311f923248d0",
+    "revis/steering_utils/vector_calculator.py": "6de0d0915fddbc1ddfc7add1118db847492d4f23e319f810f06efe9f58b7b6eb",
+    "revis/utils/__init__.py": "f8bf6be8798d29346d2256497c89384f4bff685c076c732724b0fd459b814923",
+    "revis/utils/chair.py": "61eab560181e300b6efd85a74ea1c86a69bd826e7c632398b946373a2e1c7a54",
+    "revis/utils/mme.py": "a6a048e0ac751bda497f52097e4bd2713f99dece3e1f94c01ee0cf0a17ea25c2",
+    "revis/utils/mmvet_judge_only.py": "54dd61f25780488617cd86f234bc84417ff44a27cd1c4f382d330630f1a4679b",
+    "revis/utils/mmvet_ori.py": "cfb1c7af4e3d908c4724c39d59c36d40516d7c273c5effb3c4349f664098d5d6",
+    "rudder/config.py": "a2ccc08d4c264292b43514a15ca10558f768db49b748c4307c8d3debb45933c9",
+    "rudder/Idefics2/ide_chair.py": "d3d1b9582685fc1320e5382b2b218dfdd2dd1a12b2842ceb6a89e11f487bbd98",
+    "rudder/Idefics2/ide_methods.py": "35e6c345c2fc99778f1bf3a48385381f1c9fe51e88ca5bd24c2319c38d01c1bc",
+    "rudder/Idefics2/ide_pope.py": "87ffa6c7881866ea40a11b59a8a2fb0cc474ea30b2c4132c80ab8e255823ea53",
+    "rudder/InstructBlip/blip_chair.py": "18aaaeebcb9ab3aaf47e4b9bae0771cb214598edf4553e2ee2ca49816ffb9ded",
+    "rudder/InstructBlip/blip_methods.py": "31abd8c512de131a18a06b602540e54a5afcc8da734e4a16a5193c301b865770",
+    "rudder/InstructBlip/blip_pope.py": "4c64f2bc07070a2234876c12176486a770e4fc398a11da79d91753edc77b9d29",
+    "rudder/LLaVA/llava_chair.py": "294201fd3ba38afd99b538dc69ee91c3e10cfba16a9f61395a4f0702655e9aed",
+    "rudder/LLaVA/llava_methods.py": "103001b250665427d9fa4fabe00840abc6028fc065872bceca9fe7cc871f0400",
+    "rudder/LLaVA/llava_pope.py": "0145511ed7fd8436388fa610b6cd45b0b6ee1d06fe4251917175797a42ff3bf5",
+    "rudder/Qwen/qwen_chair.py": "a06791cc6ad29f6f7bb49ae91be782c95cf81b0bdcc8cfc4d58661d06b675285",
+    "rudder/Qwen/qwen_methods.py": "022f862a0407a7f9226907bf7ef70ab59b3000df475a9b83e511a95461eea1cd",
+    "rudder/Qwen/qwen_pope.py": "fd07ef2526882ef33f9dd61befadae0e8928b9c06aff1c34baea50b17a67ea8b",
+    "vti/experiments/eval/eval_mmhal.py": "42c901008ddff9d10a4e9d1ec06bf0a3fa73555120cad8ddb6491782894c6b69",
+    "vti/experiments/eval/run_mmhal_vti.py": "5a2953054bce21fbcefd560f9f1f40e8539aab8b5158b8dcfef85eb1dac88703",
+    "vti/vti_utils/.ipynb_checkpoints/augmentation-checkpoint.py": "53740b69b122e7c25d6efafc9fe59902040c7fefd23582f8638eec68718c8a02",
+    "vti/vti_utils/.ipynb_checkpoints/image_corruptions-checkpoint.py": "75a75ddb639cf45d4f5e74ad696d9053bc0c78de978a797a7b0752bba720ac71",
+    "vti/vti_utils/.ipynb_checkpoints/vcd_sample-checkpoint.py": "f32c636232ea786a1aeab239bde36dc9eda75b704aa5f91ae4d22d89da9a84b1",
+    "vti/vti_utils/.ipynb_checkpoints/visualizing_utils-checkpoint.py": "86a4465859cb8861d43530d92028ddca1fdf26a1e3fa2911b4c83a1451115958",
+    "vti/vti_utils/icv_utils.py": "2af89a49c53b1271681a711252db0a6754b7f3da4cdf5c195675b495ce1b9822",
+    "vti/vti_utils/llm_layers.py": "45105d1954441d3a303d96352fb5bed33e7f098c60c4574ebaca9b36b6f6238f",
+    "vti/vti_utils/pca.py": "e09c4d71140b24b0059a9cd3b346ade80405101471f0c0bfcd6ea9a1aed43c61",
+    "vti/vti_utils/utils.py": "025a72084b3b82a59b24f69929415109de65b6e0f5753c628a38397cd1c6a1ed"
+  },
+  "mismatched_probes": [
+    "revis_vector",
+    "revis_prefill",
+    "rudder_card",
+    "vti_injection",
+    "vti_text_pca",
+    "vti_mask",
+    "grains_single_token_hook"
+  ],
+  "conclusion": "not_equivalent; successful audit execution is not a parity pass"
+}

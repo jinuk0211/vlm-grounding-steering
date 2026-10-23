@@ -8,6 +8,11 @@ Each artifact records the source, extraction IDs, configuration, and adaptation
 status. CPU tests validate mathematical properties and hook behavior, not the
 published scores.
 
+The [2026-10-23 source re-audit](baseline_audit_2026-10-23_ko.md) includes pinned
+source links, numerical counterexamples and a guide to the current code. All
+four implementations differ materially from the public author code. Passing
+the 86 CPU checks does not establish author-code parity.
+
 See the [three-model audit](model_compatibility.md) for specific upstream-code
 departures, including VTI normalization/PCA and REVIS prefill-cache behavior.
 
@@ -42,6 +47,16 @@ from another paper's table. Extraction stores CPU tensors; load artifacts only
 from trusted sources, with `torch.load(..., weights_only=True)`.
 
 ## REVIS
+
+The pinned public code uses PCA for the prior direction, removes that direction
+from each visual sample, then applies norm-scaled PCA to the purified samples.
+Our implementation orthogonalizes two mean contrasts, following the paper's
+Appendix G formulation. These operations are not equivalent. Public calibration
+captures the final prompt state on the first generation forward and groups
+POPE examples by actual TP/TN/FP predictions. Our calibration uses teacher-forced
+chosen/rejected completion-ending states. Public inference gates all prefill
+positions; ours gates only the last. Treat these as separate reproduction gaps,
+not just differences in the neutral response or hyperparameters.
 
 Extraction requires `image`, `prompt`, `chosen`, and `rejected` for every row.
 `neutral` may specify an explicit no-image uncertainty response. Otherwise a
