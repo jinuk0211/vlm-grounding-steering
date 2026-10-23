@@ -49,12 +49,15 @@ class ModelAdapter:
                 "model.layers",
             ),
         )
-        if self.model_type == "qwen2_5_vl":
+        if self.model_type in ("qwen2_5_vl", "qwen3_vl"):
             self.vision_layers = _first_path(model, ("model.visual.blocks", "visual.blocks"))
+        elif self.model_type == "gemma4":
+            self.vision_layers = _first_path(model, ("model.vision_tower.encoder.layers",))
         elif self.model_type == "llava":
             self.vision_layers = _first_path(
                 model,
                 (
+                    "model.vision_tower.encoder.layers",
                     "model.vision_tower.vision_model.encoder.layers",
                     "vision_tower.vision_model.encoder.layers",
                 ),
@@ -65,6 +68,9 @@ class ModelAdapter:
         self.num_heads = int(text_config.num_attention_heads)
         self.hidden_size = int(text_config.hidden_size)
         self.attn_projections = [layer.self_attn.o_proj for layer in self.layers]
+        # RUDDER acts on the actual attention residual update, after Gemma's norm.
+        self.attn_updates = ([layer.post_attention_layernorm for layer in self.layers]
+                             if self.model_type == "gemma4" else self.attn_projections)
         for projection in self.attn_projections:
             if projection.in_features % self.num_heads:
                 raise ValueError("Attention projection input is not divisible by query head count")
@@ -160,13 +166,17 @@ def load_adapter(config: Mapping[str, Any]) -> ModelAdapter:
     """Load a user-selected checkpoint. Only this function can download weights."""
     from transformers import (
         AutoProcessor,
+        Gemma4ForConditionalGeneration,
         LlavaForConditionalGeneration,
         Qwen2_5_VLForConditionalGeneration,
+        Qwen3VLForConditionalGeneration,
     )
 
     family = config.get("family", "qwen2_5_vl")
     classes = {
         "qwen2_5_vl": Qwen2_5_VLForConditionalGeneration,
+        "qwen3_vl": Qwen3VLForConditionalGeneration,
+        "gemma4": Gemma4ForConditionalGeneration,
         "llava": LlavaForConditionalGeneration,
     }
     if family not in classes:
@@ -175,7 +185,7 @@ def load_adapter(config: Mapping[str, Any]) -> ModelAdapter:
     device = str(config.get("device", "cuda"))
     if device.startswith("cuda") and not torch.cuda.is_available():
         raise RuntimeError(
-            "CUDA is unavailable. Run CPU tests now; use a GPU machine for the 7B experiment."
+            "CUDA is unavailable. Run CPU tests now; use a GPU machine for pretrained checkpoints."
         )
     dtype_name = str(config.get("dtype", "bfloat16"))
     dtypes = {"float32": torch.float32, "float16": torch.float16, "bfloat16": torch.bfloat16}

@@ -1,0 +1,22 @@
+\begin{abstract}
+Object grounding requires a vision--language model to distinguish evidence of
+an object's presence from contextual cues that merely make the object likely.
+Reducing hallucinations by making a model more reluctant to answer positively
+can obscure this distinction and increase omissions of genuinely visible
+objects. We study whether a small intervention in attention-head outputs can
+improve this tradeoff. We propose Evidence-Preserving Head Steering
+(\method), which separates offline causal localization from supervised
+intervention fitting. Localization contrasts activation-patching effects on
+target-occluded images with effects on matched background controls. The
+selected heads receive bounded scalar gains, fitted with balanced
+object-existence supervision and a distribution-preservation objective while
+the pretrained backbone remains frozen. Inference requires only the input
+image and question, without donor activations or object annotations. We
+specify an evaluation protocol that separates sensitivity to object presence
+from sensitivity to surrounding context, alongside natural-image
+hallucination, object recall, and capability measurements. The central
+hypothesis is that control-adjusted head selection improves object grounding
+beyond response-threshold calibration and equally sized arbitrary
+interventions. This draft presents the implemented method and the protocol
+for testing that hypothesis; empirical performance remains to be established.
+\end{abstract}

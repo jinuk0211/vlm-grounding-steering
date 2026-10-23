@@ -1,0 +1,132 @@
+\section{Results and Analysis Plan}
+\label{sec:results}
+\draftnote{No pretrained checkpoint from the three-model protocol has been
+evaluated for this study.
+The tables below are reporting layouts and contain no measured model
+performance.}
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccccc}
+\toprule
+ & \multicolumn{4}{c}{Condition accuracy $\uparrow$}
+ & \multicolumn{3}{c}{Grounding diagnostic}\\
+\cmidrule(lr){2-5}\cmidrule(lr){6-8}
+Method & $O^+C^+$ & $O^-C^+$ & $O^+C^-$ & $O^-C^-$
+ & All four $\uparrow$ & FPR $\downarrow$
+ & Achieved TPR $\uparrow$\\
+\midrule
+Base & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+Base + threshold & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+VTI (adapted) & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+GrAInS (adapted) & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+REVIS (adapted) & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+RUDDER (adapted) & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+HONES (pending) & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+Random heads + gain fit & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+\method & \pending & \pending & \pending & \pending & \pending & \pending & \pending\\
+\bottomrule
+\end{tabular}
+\caption{Planned forced-choice comparison on Qwen2.5-VL-7B. $O$ denotes target
+presence and $C$ associated-context presence. All four requires every
+condition in a complete original-image group to be correct. Condition and
+group accuracy use the zero margin threshold, except for the calibrated
+Base + threshold control. FPR and achieved TPR use separately
+development-selected operating points for every method. Generated-answer
+and caption metrics are reported separately. No entries have been measured.
+Additional close comparators in Sec.~\ref{sec:related} remain necessary
+before finalizing the table.}
+\label{tab:main}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llccccc}
+\toprule
+Model & Method & POPE F1 $\uparrow$ & CHAIR$_i$ $\downarrow$
+ & Obj. recall $\uparrow$ & MME $\uparrow$ & MMHal $\uparrow$\\
+\midrule
+Qwen2.5-VL-7B & Base & \pending & \pending & \pending & \pending & \pending\\
+ & Best adapted baseline & \pending & \pending & \pending & \pending & \pending\\
+ & \method & \pending & \pending & \pending & \pending & \pending\\
+Qwen3-VL-8B & Base & \pending & \pending & \pending & \pending & \pending\\
+ & Best adapted baseline & \pending & \pending & \pending & \pending & \pending\\
+ & \method & \pending & \pending & \pending & \pending & \pending\\
+Gemma 4 E4B & Base & \pending & \pending & \pending & \pending & \pending\\
+ & Best adapted baseline & \pending & \pending & \pending & \pending & \pending\\
+ & \method & \pending & \pending & \pending & \pending & \pending\\
+\bottomrule
+\end{tabular}
+\caption{Planned three-model transfer comparison. The strongest adapted
+baseline is selected separately on development data for each model; the
+full method-wise results and output lengths will also be reported. Model
+capacities differ, so conclusions concern within-model changes from Base.
+All entries are unmeasured.}
+\label{tab:transfer}
+\end{table*}
+
+\subsection{Implementation verification}
+The implementation has passed 74 local CPU correctness tests and static
+code checks. Tests include tensor interventions, gradient flow to bounded
+gains, restoration of hooks and base weights, data-group separation, and
+evaluation adapters. Small randomly initialized instances of the actual
+Qwen2.5-VL, Qwen3-VL, Gemma 4, and LLaVA architecture classes exercise image inputs,
+grouped-query head slicing, and cached generation. These tests establish
+software behavior under their test conditions. They do not reproduce
+published baseline scores, establish usefulness of the selected heads, or
+predict pretrained-model performance.
+
+\subsection{Does the intervention improve grounding?}
+Table~\ref{tab:main} is designed to expose whether fewer false positives
+come at the expense of real-object recognition. The intended supporting
+pattern is improved performance in the target-absent, associated-context
+condition without deterioration when a target is present without its usual
+context. A stronger claim requires improvement in complete-group
+correctness and in discrimination beyond the base threshold control.
+If only the operating point changes, we will report that narrower outcome.
+
+\subsection{Does causal selection matter?}
+The crucial comparison holds gain fitting fixed and changes only head
+selection. We will inspect whether control-adjusted selection outperforms
+random and magnitude-based choices across discovery samples. We will also
+compare localization scores with held-out intervention effects, rather
+than infer the latter from patch recovery. Unstable selected sets, uniformly
+nonpositive scores, or no advantage over random heads would weaken the
+proposed mechanism.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lcccc}
+\toprule
+Variant & CHAIR$_i$ $\downarrow$ & Rec.\ $\uparrow$
+ & Length & All four $\uparrow$\\
+\midrule
+Base & \pending & \pending & \pending & \pending\\
+Best baseline & \pending & \pending & \pending & \pending\\
+\method & \pending & \pending & \pending & \pending\\
+No KL & \pending & \pending & \pending & \pending\\
+No control penalty & \pending & \pending & \pending & \pending\\
+Random heads & \pending & \pending & \pending & \pending\\
+\bottomrule
+\end{tabular}
+\caption{Planned preservation and selection ablations. Rec.\ denotes object
+recall. The strongest steering baseline is selected using development
+data. Actual caption length is reported because an identical maximum token
+budget does not ensure equally informative outputs. All values are pending.}
+\label{tab:ablation}
+\end{table}
+
+\subsection{Does information preservation transfer?}
+Table~\ref{tab:ablation} tests whether first-token regularization transfers
+to descriptions. Lower CHAIR with substantially shorter captions or lower
+object recall would not demonstrate the intended benefit. We will inspect
+hallucination--recall curves and MME changes across all three models, and
+report mixed or negative outcomes explicitly. Semantic-context, natural-image,
+and capability results should support compatible conclusions before
+describing \method as context-robust.

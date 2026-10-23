@@ -1,0 +1,36 @@
+\section{Limitations}
+\label{sec:limitations}
+
+The most immediate limitation is the absence of pretrained-model results.
+The current implementation and protocol cannot support a claim of improved
+hallucination, generalization, efficiency, or competitive performance.
+Comparison to close methods and verification of adapted baselines remain
+substantial experimental requirements.
+
+Architecture support does not establish baseline parity. Our GrAInS variant
+holds Qwen3 DeepStack features and Gemma per-layer inputs fixed during
+first-stream attribution. The current VTI port also differs from author code
+in normalization, masking, and PCA. These departures require validation before
+any claim of superiority over the published methods.
+
+The localization intervention is also imperfect. Gray occlusion creates a
+distribution shift, and a translated background mask cannot match every
+property of an object-region edit. Unannotated objects and small residual
+target fragments can invalidate labels. Semantic-context edits introduce
+their own artifacts, so conclusions must also hold on natural images.
+Even a successful controlled comparison does not uniquely attribute the
+failure to a language prior rather than a visual co-occurrence shortcut.
+
+Selected heads are aggregates of many computations. A head-level causal
+effect does not imply a monosemantic feature or a complete circuit.
+Moreover, selection is based on positive clean examples and margin drops;
+the resulting sample may underrepresent difficult targets. Fixed gains
+can act differently across questions and image conditions. A useful oracle
+patching effect does not establish that a fixed deployable gain exists.
+
+Finally, preserving the next-token distribution on correct development
+examples does not guarantee preservation of multi-token descriptions,
+counting, spatial relations, or reasoning. Our claims are restricted to the
+tested tasks and controlled data. The study uses public image datasets
+under their applicable terms, and neither diagnostic edits nor aggregate
+metrics should be presented as a general reliability guarantee.

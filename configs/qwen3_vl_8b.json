@@ -1,0 +1,33 @@
+{
+  "model": {
+    "family": "qwen3_vl",
+    "checkpoint": "Qwen/Qwen3-VL-8B-Instruct",
+    "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "attn_implementation": "eager",
+    "image_size": 448,
+    "yes_token": "Yes",
+    "no_token": "No"
+  },
+  "generation": {"max_new_tokens": 128, "seed": 42},
+  "discovery": {
+    "layers": [8, 12, 16, 20, 24],
+    "top_k": 8,
+    "selection_mode": "causal",
+    "max_examples": 100,
+    "min_margin_drop": 0.05,
+    "normalization_floor": 1.0,
+    "control_penalty": 1.0,
+    "seed": 42
+  },
+  "fit": {"epochs": 2, "lr": 0.03, "max_gain": 0.25, "kl_weight": 1.0, "l2_weight": 0.01, "seed": 42},
+  "methods": {
+    "base": {},
+    "ephs": {"strength": 1.0},
+    "revis": {"alpha": 1.6, "risk_quantile": 0.8},
+    "rudder": {"layer": 20, "alpha": 0.5},
+    "grains": {"alpha": 0.5, "ig_steps": 16},
+    "vti": {"alpha": 0.5, "vision_alpha": 0.5, "vision_pooling": "position"}
+  }
+}

@@ -60,6 +60,7 @@ class TinyAdapter:
         self.layers = self.model.blocks
         self.vision_layers = [self.model.vision]
         self.attn_projections = [block.projection for block in self.layers]
+        self.attn_updates = self.attn_projections
         self.device = torch.device("cpu")
 
     def prepare(self, image, prompt, answer=None):
@@ -140,7 +141,7 @@ class BaselineTests(unittest.TestCase):
 
     def test_rudder_uses_prompt_direction_then_cached_decode(self):
         block = Block()
-        adapter = SimpleNamespace(layers=[block], attn_projections=[block.projection])
+        adapter = SimpleNamespace(layers=[block], attn_updates=[block.projection])
         with build_baseline("rudder", adapter, config={"layer": 0, "alpha": 2.}):
             prompt = torch.tensor([[[1., 0.], [1., 0.]]])
             result = block(prompt)[0]

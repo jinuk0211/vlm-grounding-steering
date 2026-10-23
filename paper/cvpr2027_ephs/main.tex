@@ -1,0 +1,36 @@
+% Working draft targeting CVPR 2027, updated 2026-10-23.
+% Uses the unmodified official CVPR 2026 author-kit style provisionally.
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[review]{cvpr}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+\def\paperID{*****}
+\def\confName{CVPR}
+\def\confYear{2027}
+\newcommand{\method}{EPHS\xspace}
+\newcommand{\pending}{\textcolor{gray}{--}}
+\newcommand{\draftnote}[1]{\par\noindent{\small\color{cvprblue}\textbf{Draft status.} #1}\par}
+\title{Evidence-Preserving Head Steering\\for Context-Robust Object Grounding}
+\author{Anonymous Authors}
+\begin{document}
+\maketitle
+\input{sections/00_abstract}
+\draftnote{Research draft, October 23, 2026. Benchmark experiments are pending.
+Dashed table entries are unmeasured, not zero. The official 2026 author kit is
+used provisionally for a 2027 submission; the 2027 format must be rechecked.}
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experiments}
+\input{sections/05_results}
+\input{sections/06_limitations}
+\input{sections/07_conclusion}
+\clearpage
+{\small
+\bibliographystyle{ieeenat_fullname}
+\bibliography{references}
+}
+\end{document}

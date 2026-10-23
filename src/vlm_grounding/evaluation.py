@@ -127,6 +127,31 @@ def evaluate_predictions(records: Sequence[Mapping[str, Any]]) -> dict[str, Any]
         else:
             metrics["chair_status"] = "not_scored"
         return metrics
+    if task == "mmhal":
+        has_score = ["mmhal_score" in row for row in records]
+        if any(has_score) and not all(has_score):
+            raise ValueError("Partial MMHal coverage: every response needs a judge rating")
+        if not all(has_score):
+            metrics["mmhal_status"] = "not_scored"
+            return metrics
+        scores = [row["mmhal_score"] for row in records]
+        if any(type(score) is not int or score not in range(7) for score in scores):
+            raise ValueError("MMHal ratings must be integers from 0 through 6")
+        by_type: defaultdict[str, list[int]] = defaultdict(list)
+        for row, score in zip(records, scores):
+            category = row.get("metadata", {}).get("question_type")
+            if not isinstance(category, str) or not category:
+                raise ValueError("MMHal records require metadata.question_type")
+            by_type[category].append(score)
+        metrics.update({
+            "mmhal_status": "scored",
+            "mmhal_average_score": sum(scores) / len(scores),
+            "mmhal_hallucination_rate": sum(score < 3 for score in scores) / len(scores),
+            "mmhal_type_scores": {
+                category: sum(values) / len(values) for category, values in sorted(by_type.items())
+            },
+        })
+        return metrics
     if any(row.get("label") not in {"yes", "no"} for row in records):
         raise ValueError("Binary-task evaluation requires yes/no ground truth")
     parsed = [parse_yes_no(row["prediction"]) for row in records]
@@ -324,6 +349,87 @@ def run_official_causal(
     }
 
 
+def mmhal_responses(
+    records: Sequence[Mapping[str, Any]], template: str | Path
+) -> list[Record]:
+    """Restore the official 96-row response schema in its required original order."""
+    _validate_predictions(records)
+    rows = json.loads(Path(template).read_text(encoding="utf-8-sig"))
+    if not isinstance(rows, list) or len(rows) != 96 or any(not isinstance(r, dict) for r in rows):
+        raise ValueError("Official MMHal response_template.json must contain 96 objects")
+    if len(records) != 96 or any(row["task"] != "mmhal" for row in records):
+        raise ValueError("MMHal export requires all 96 benchmark predictions")
+    methods = {row.get("method", "base") for row in records}
+    if len(methods) != 1:
+        raise ValueError("MMHal export requires predictions from one method")
+    indexed = {row.get("metadata", {}).get("mmhal_index"): row for row in records}
+    if len(indexed) != 96 or set(indexed) != set(range(96)):
+        raise ValueError("MMHal predictions must cover every original template index")
+    output = []
+    for index, source in enumerate(rows):
+        prediction = indexed[index]
+        metadata = prediction.get("metadata", {})
+        fields = {
+            "image_id": metadata.get("image_id"),
+            "image_src": metadata.get("image_src"),
+            "image_content": metadata.get("image_content"),
+            "gt_answer": metadata.get("gt_answer"),
+            "question_type": metadata.get("question_type"),
+            "question_topic": metadata.get("question_topic"),
+            "question": prediction["prompt"],
+        }
+        if any(source.get(field) != value for field, value in fields.items()):
+            raise ValueError(f"MMHal template differs from prediction at index {index}")
+        output.append({**source, "model_answer": prediction["prediction"]})
+    return output
+
+
+def attach_mmhal_scores(
+    records: Sequence[Mapping[str, Any]],
+    response_path: str | Path,
+    evaluation_path: str | Path,
+) -> list[Record]:
+    """Join ordered official GPT-4 raw responses only after verifying exact model answers."""
+    _validate_predictions(records)
+    responses = json.loads(Path(response_path).read_text(encoding="utf-8-sig"))
+    evaluations = json.loads(Path(evaluation_path).read_text(encoding="utf-8-sig"))
+    if not isinstance(responses, list) or len(responses) != 96:
+        raise ValueError("MMHal response file must contain 96 ordered entries")
+    if not isinstance(evaluations, list) or len(evaluations) != 96:
+        raise ValueError("MMHal judge output must contain 96 ordered entries")
+    if len(records) != 96 or any(row["task"] != "mmhal" for row in records):
+        raise ValueError("MMHal scoring requires all 96 benchmark predictions")
+    indexed = {row.get("metadata", {}).get("mmhal_index"): row for row in records}
+    if len(indexed) != 96 or set(indexed) != set(range(96)):
+        raise ValueError("MMHal scoring requires all original template indices")
+    scored = []
+    for index, (response, evaluation) in enumerate(zip(responses, evaluations)):
+        prediction = indexed[index]
+        metadata = prediction.get("metadata", {})
+        if not isinstance(response, dict) or any((
+            response.get("model_answer") != prediction["prediction"],
+            response.get("question") != prediction["prompt"],
+            response.get("image_id") != metadata.get("image_id"),
+            response.get("image_src") != metadata.get("image_src"),
+            response.get("image_content") != metadata.get("image_content"),
+            response.get("gt_answer") != metadata.get("gt_answer"),
+            response.get("question_type") != metadata.get("question_type"),
+            response.get("question_topic") != metadata.get("question_topic"),
+        )):
+            raise ValueError(f"MMHal judged response differs from prediction at index {index}")
+        try:
+            judge_text = evaluation["choices"][0]["message"]["content"]
+        except (TypeError, KeyError, IndexError) as exc:
+            raise ValueError(f"MMHal judge entry {index} has no response text") from exc
+        if not isinstance(judge_text, str):
+            raise ValueError(f"MMHal judge entry {index} must be text")
+        ratings = re.findall(r"\brating\s*:\s*([0-6])\b", judge_text, flags=re.IGNORECASE)
+        if len(ratings) != 1:
+            raise ValueError(f"MMHal judge entry {index} needs exactly one rating 0-6")
+        scored.append({**dict(prediction), "mmhal_score": int(ratings[0])})
+    return scored
+
+
 def _cohort(record: Mapping[str, Any]) -> str:
     subset = record.get("metadata", {}).get("subset")
     return f"{record['task']}:{subset}" if subset else str(record["task"])
@@ -388,10 +494,11 @@ def compare_methods(
             for identifier, row in base_rows.items():
                 groups[str(row["group_id"])].append(identifier)
             group_ids = sorted(groups)
+            task = next(iter(base_rows.values()))["task"]
             metric_names = (
-                ("CHAIR_s", "CHAIR_i", "object_recall", "mean_words")
-                if next(iter(base_rows.values()))["task"] == "caption"
-                else ("accuracy", "recall", "F1")
+                ("CHAIR_s", "CHAIR_i", "object_recall", "mean_words") if task == "caption"
+                else ("mmhal_average_score", "mmhal_hallucination_rate", "mean_words")
+                if task == "mmhal" else ("accuracy", "recall", "F1")
             )
             distributions: defaultdict[str, list[float]] = defaultdict(list)
             # Duplicated sampled groups receive distinct IDs for validation.

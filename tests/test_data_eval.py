@@ -13,6 +13,7 @@ from PIL import Image
 from vlm_grounding.data import (
     image_group_id,
     prepare_coco,
+    prepare_mmhal,
     prepare_pope,
     read_manifest,
     validate_disjoint,
@@ -20,9 +21,11 @@ from vlm_grounding.data import (
 )
 from vlm_grounding.evaluation import (
     attach_chair_scores,
+    attach_mmhal_scores,
     compare_methods,
     evaluate_predictions,
     match_predictions,
+    mmhal_responses,
     parse_yes_no,
     run_official_chair,
     run_official_causal,
@@ -79,6 +82,55 @@ class DataEvalTests(unittest.TestCase):
         source.write_text(json.dumps([malicious]), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "escapes"):
             prepare_pope(source, self.root)
+
+    def test_mmhal_official_template_round_trip_and_judge_alignment(self):
+        template = self.root / "response_template.json"
+        rows = [{
+            "question_type": ("attribute", "adversarial")[index % 2],
+            "question_topic": "outdoor", "image_id": "fixture-image",
+            "image_src": f"https://example.org/{self.image.name}",
+            "image_content": ["Bird"], "question": f"Question {index}?",
+            "gt_answer": "A bird.", "model_answer": "",
+        } for index in range(96)]
+        template.write_text(json.dumps(rows), encoding="utf-8")
+        manifest = prepare_mmhal(template, self.root)
+        self.assertEqual(len(manifest), 96)
+        self.assertEqual(manifest[0]["image"], str(self.image))
+        self.assertNotIn("label", manifest[0])
+        manifest_path = self.root / "mmhal.jsonl"
+        write_manifest(manifest, manifest_path)
+        self.assertEqual(read_manifest(manifest_path), manifest)
+
+        predictions = [{**row, "prediction": "A bird.", "method": "revis"}
+                       for row in manifest]
+        response_path = self.root / "responses.json"
+        response_path.write_text(json.dumps(mmhal_responses(predictions, template)),
+                                 encoding="utf-8")
+        judgement_path = self.root / "judgements.json"
+        judgement_path.write_text(json.dumps([
+            {"choices": [{"message": {"content": f"Explanation. Rating: {index % 7}"}}]}
+            for index in range(96)
+        ]), encoding="utf-8")
+        scored = attach_mmhal_scores(predictions, response_path, judgement_path)
+        metrics = evaluate_predictions(scored)
+        self.assertEqual(metrics["mmhal_status"], "scored")
+        self.assertAlmostEqual(metrics["mmhal_average_score"], sum(i % 7 for i in range(96)) / 96)
+        self.assertAlmostEqual(metrics["mmhal_hallucination_rate"],
+                               sum(i % 7 < 3 for i in range(96)) / 96)
+        self.assertEqual(set(metrics["mmhal_type_scores"]), {"attribute", "adversarial"})
+        self.assertEqual(evaluate_predictions(predictions)["mmhal_status"], "not_scored")
+        responses = json.loads(response_path.read_text(encoding="utf-8"))
+        responses[0]["model_answer"] = "a different model"
+        response_path.write_text(json.dumps(responses), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "differs"):
+            attach_mmhal_scores(predictions, response_path, judgement_path)
+        responses[0]["model_answer"] = "A bird."
+        response_path.write_text(json.dumps(responses), encoding="utf-8")
+        judgments = json.loads(judgement_path.read_text(encoding="utf-8"))
+        judgments[0]["choices"][0]["message"]["content"] = "No rating available"
+        judgement_path.write_text(json.dumps(judgments), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "exactly one rating"):
+            attach_mmhal_scores(predictions, response_path, judgement_path)
 
     def test_coco_real_polygon_mask_matched_background_and_balanced_labels(self):
         image_records, annotations = [], []

@@ -49,7 +49,8 @@ def _reserve(paths: list[str | Path], overwrite: bool) -> None:
 
 def _versions() -> dict:
     result = {"python": platform.python_version(), "platform": platform.platform()}
-    for name in ("torch", "transformers", "numpy", "Pillow", "vlm-grounding-steering"):
+    for name in ("torch", "torchvision", "transformers", "numpy", "Pillow",
+                 "vlm-grounding-steering"):
         try:
             result[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:
@@ -189,7 +190,7 @@ def _doctor(_args) -> dict:
                        "model_downloaded": False})
     except ImportError:
         result.update({"cuda_available": False, "model_downloaded": False})
-    result["status"] = "CPU checks available; 7B experiments require configured compute."
+    result["status"] = "CPU checks available; pretrained model experiments require configured compute."
     print(json.dumps(result, indent=2))
     return result
 
@@ -203,6 +204,8 @@ def _prepare(args) -> dict:
         records = data.prepare_causal(args.input, args.image_root, args.split)
     elif args.command == "prepare-mme":
         records = data.prepare_mme(args.input, args.split)
+    elif args.command == "prepare-mmhal":
+        records = data.prepare_mmhal(args.input, args.image_root, args.split)
     else:
         excluded = set()
         for path in args.exclude_manifests:
@@ -393,8 +396,22 @@ def _prediction_rows(path: str) -> list[dict]:
     return rows
 
 
+def _export_mmhal(args) -> dict:
+    from .evaluation import mmhal_responses
+
+    _reserve([args.output], args.overwrite)
+    rows = mmhal_responses(_prediction_rows(args.predictions), args.template)
+    _write_json(args.output, rows)
+    result = {"output": str(Path(args.output).resolve()), "responses": len(rows)}
+    print(json.dumps(result, indent=2))
+    return result
+
+
 def _compare(args) -> dict:
-    from .evaluation import compare_methods, run_official_causal, run_official_chair, write_comparison_csv
+    from .evaluation import (
+        attach_mmhal_scores, compare_methods, run_official_causal, run_official_chair,
+        write_comparison_csv,
+    )
     output_dir = Path(args.output_dir)
     report_path, csv_path = output_dir / "comparison.json", output_dir / "metrics.csv"
     _reserve([report_path, csv_path], args.overwrite)
@@ -423,6 +440,24 @@ def _compare(args) -> dict:
     by_method = defaultdict(list)
     for record in records:
         by_method[record.get("method", "base")].append(record)
+    mmhal_evaluations = {}
+    for method, response, judgement in args.mmhal_evaluation:
+        if method in mmhal_evaluations:
+            raise ValueError(f"Duplicate MMHal evaluation for {method}")
+        mmhal_evaluations[method] = (response, judgement)
+    mmhal_methods = {method for method, rows in by_method.items()
+                     if any(row["task"] == "mmhal" for row in rows)}
+    if mmhal_evaluations and set(mmhal_evaluations) != mmhal_methods:
+        raise ValueError("MMHal evaluations must cover every method with MMHal predictions")
+    judge_models = {}
+    for method, (_, judgement) in mmhal_evaluations.items():
+        output = json.loads(Path(judgement).read_text(encoding="utf-8-sig"))
+        models = {entry.get("model") for entry in output if isinstance(entry, dict)}
+        if len(models) != 1:
+            raise ValueError(f"{method}: MMHal judge responses must declare one model")
+        judge_models[method] = models.pop()
+    if len({model for model in judge_models.values() if model}) > 1:
+        raise ValueError("MMHal judge model differs across methods")
     enriched, official = [], {}
     for method, rows in by_method.items():
         captions = [row for row in rows if row["task"] == "caption"]
@@ -432,12 +467,27 @@ def _compare(args) -> dict:
         causal = [row for row in rows if row["task"] == "causal"]
         if causal and args.causal_module:
             official[method] = run_official_causal(causal, args.causal_module)
+        if method in mmhal_evaluations:
+            response, judgement = mmhal_evaluations[method]
+            scored = attach_mmhal_scores(
+                [row for row in rows if row["task"] == "mmhal"], response, judgement
+            )
+            rows = [row for row in rows if row["task"] != "mmhal"] + scored
         enriched.extend(rows)
     report = compare_methods(enriched, baseline=args.baseline,
                              bootstrap_samples=args.bootstrap_samples, seed=args.seed)
     report["prediction_files"] = [{"path": str(Path(path).resolve()), "sha256": _sha(path)}
                                   for path in args.predictions]
     report["official_causal"] = official
+    report["mmhal_evaluations"] = {
+        method: {"responses": {"path": str(Path(response).resolve()), "sha256": _sha(response)},
+                 "judge_output": {"path": str(Path(judgement).resolve()),
+                                  "sha256": _sha(judgement)},
+                 "judge_model": judge_models[method],
+                 "protocol": "MMHal-Bench official eval_gpt4.py raw response format; rating 0-6"}
+        for method, (response, judgement) in mmhal_evaluations.items()
+    }
+    report["mmhal_judge_model_verified"] = bool(judge_models) and all(judge_models.values())
     report["versions"] = _versions()
     report["run_protocol_metadata"] = sidecars
     report["all_protocols_verified"] = len(sidecars) == len(args.predictions)
@@ -451,7 +501,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="vlm-grounding", description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("doctor", help="Inspect dependencies and CUDA without loading a model.").set_defaults(func=_doctor)
-    for name in ("pope", "causal", "mme"):
+    for name in ("pope", "causal", "mme", "mmhal"):
         sub = subparsers.add_parser(f"prepare-{name}", help=f"Convert locally downloaded {name} data.")
         sub.add_argument("--input", required=True)
         if name != "mme":
@@ -481,6 +531,12 @@ def build_parser() -> argparse.ArgumentParser:
                      choices=("revis", "rudder", "grains", "vti", "chair", "causal"))
     sub.add_argument("--output-dir", default="upstream")
     sub.set_defaults(func=_fetch)
+    sub = subparsers.add_parser("export-mmhal", help="Make the official MMHal response JSON.")
+    sub.add_argument("--predictions", required=True)
+    sub.add_argument("--template", required=True)
+    sub.add_argument("--output", required=True)
+    sub.add_argument("--overwrite", action="store_true")
+    sub.set_defaults(func=_export_mmhal)
     for command, function in (("extract", _extract), ("discover", _discover),
                               ("fit", _fit), ("run", _run)):
         sub = subparsers.add_parser(command)
@@ -498,7 +554,7 @@ def build_parser() -> argparse.ArgumentParser:
             sub.add_argument("--method", choices=METHODS, required=True)
             sub.add_argument("--artifact")
             sub.add_argument("--split", choices=SPLITS, default="test")
-            sub.add_argument("--task", choices=("pope", "caption", "causal", "mme"))
+            sub.add_argument("--task", choices=("pope", "caption", "causal", "mme", "mmhal"))
         sub.set_defaults(func=function)
     sub = subparsers.add_parser("compare", help="Paired image-group bootstrap and optional upstream scorers.")
     sub.add_argument("--predictions", nargs="+", required=True)
@@ -509,6 +565,9 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_argument("--chair-module")
     sub.add_argument("--annotations")
     sub.add_argument("--causal-module")
+    sub.add_argument("--mmhal-evaluation", nargs=3, action="append", default=[],
+                     metavar=("METHOD", "RESPONSES", "JUDGE_OUTPUT"),
+                     help="Repeat per method; consumes official eval_gpt4.py raw JSON outputs.")
     sub.add_argument("--overwrite", action="store_true")
     sub.set_defaults(func=_compare)
     return parser

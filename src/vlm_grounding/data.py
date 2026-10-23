@@ -9,10 +9,11 @@ import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
+from urllib.parse import urlsplit
 
 Record = dict[str, Any]
 SPLITS = {"discovery", "fit", "tune", "test"}
-TASKS = {"pope", "caption", "causal", "mme"}
+TASKS = {"pope", "caption", "causal", "mme", "mmhal"}
 CAPTION_PROMPT = "Please describe this image in detail."
 YES_NO_SUFFIX = " Answer yes or no."
 
@@ -226,6 +227,39 @@ def prepare_mme(root: str | Path, split: str = "test") -> list[Record]:
                 )
     if not records:
         raise ValueError(f"No MME question files found below {root}")
+    validate_disjoint(records)
+    return records
+
+
+def prepare_mmhal(
+    input_path: str | Path, image_root: str | Path, split: str = "test"
+) -> list[Record]:
+    """Convert the ordered official MMHal-Bench response_template.json and local images."""
+    records = []
+    for index, row in enumerate(_read_json_records(input_path)):
+        required = {"image_id", "image_src", "image_content", "question",
+                    "gt_answer", "question_type", "question_topic"}
+        if required - row.keys():
+            raise ValueError(f"MMHal entry {index} missing {sorted(required - row.keys())}")
+        image_name = urlsplit(row["image_src"]).path.rsplit("/", 1)[-1]
+        if not image_name:
+            raise ValueError(f"MMHal entry {index} has no image filename")
+        records.append({
+            "id": f"mmhal:{index:03d}",
+            "group_id": f"mmhal:{row['image_id']}",
+            "image": _local_image(image_root, image_name),
+            "prompt": row["question"],
+            "task": "mmhal", "split": split,
+            "metadata": {
+                "mmhal_index": index,
+                "image_id": row["image_id"], "image_src": row["image_src"],
+                "image_content": row["image_content"], "gt_answer": row["gt_answer"],
+                "question_type": row["question_type"],
+                "question_topic": row["question_topic"],
+            },
+        })
+    if not records:
+        raise ValueError("MMHal template is empty")
     validate_disjoint(records)
     return records
 

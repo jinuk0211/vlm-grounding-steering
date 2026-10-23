@@ -1,0 +1,170 @@
+\section{Evidence-Preserving Head Steering}
+\label{sec:method}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=cvprblue,rounded corners=2pt,fill=cvprblue!5,
+    align=center,text width=0.28\textwidth,minimum height=2.1cm,
+    inner sep=6pt,font=\small},
+  link/.style={-{Latex[length=2.5mm]},thick,color=cvprblue}]
+\node[box] (discover) {
+  \textbf{1. Localize heads}\\[3pt]
+  Paired development images\\
+  Target patch effect\\
+  minus background-control effect};
+\node[box,right=0.025\textwidth of discover] (fit) {
+  \textbf{2. Fit bounded gains}\\[3pt]
+  Separate balanced Yes/No data\\
+  Frozen backbone; few scalars\\
+  Preserve correct-answer distribution};
+\node[box,right=0.025\textwidth of fit] (infer) {
+  \textbf{3. Infer from one image}\\[3pt]
+  Fixed head indices and gains\\
+  Normal cached generation\\
+  No donor, masks, or test labels};
+\draw[link] (discover) -- (fit);
+\draw[link] (fit) -- (infer);
+\end{tikzpicture}
+\caption{The implemented \method pipeline. Localization and fitting use
+disjoint development images. Patching is an offline oracle diagnostic,
+whereas deployment applies learned scalar gains to a single input.
+Semantic-context robustness is an evaluation hypothesis, not a property
+guaranteed by the localization score.}
+\label{fig:pipeline}
+\end{figure*}
+
+\subsection{Task and intervention site}
+Given an image $x$ and a question $q$ about the existence of a target
+category, let $m(x,q)=z_{\mathrm{Yes}}-z_{\mathrm{No}}$ denote the base model's
+first-answer-token logit margin. The configured affirmative and negative
+strings must each correspond to one distinct token. This forced-choice
+quantity is used for localization and fitting; it is distinct from the
+accuracy of freely generated answers.
+
+At decoder layer $\ell$, let $u_{\ell,h,t}$ be the output of query head $h$
+at position $t$, before the attention output projection mixes heads. The
+implementation hooks the concatenated input of that projection and selects
+the corresponding head slice. For grouped-query attention, the split uses
+the number of query heads, not the number of key/value heads. We do not
+modify attention probabilities or claim that the selected head is an
+independent semantic feature.
+
+\subsection{Control-adjusted causal localization}
+\label{sec:localize}
+Each discovery record provides a clean image $x$, a target-occluded image
+$x^{-}$, a background-control image $x^{c}$, and the same question $q$.
+The current COCO builder unions the segmentation masks of all annotated
+instances of the target category and fills the union with gray. A control
+is created by translating the same mask shape onto background that excludes
+annotated objects. Records without a valid matched control are unsuitable
+for this analysis. Annotation incompleteness and the limits of occlusion
+as an intervention must be assessed separately.
+
+We retain positive records for which the base model's clean forced-choice
+answer is correct, $m(x,q)>0$, and target occlusion decreases the margin by
+$d=m(x,q)-m(x^{-},q)>\epsilon$. For each candidate head, we replace its final
+prompt-position activation in $x^{-}$ with the corresponding activation
+from $x$, and repeat this operation for $x^{c}$. Writing the resulting
+margin changes as $r_{\ell,h}$ and $c_{\ell,h}$, respectively, the score is
+\begin{equation}
+ s_{\ell,h}(x,q)=
+ \frac{r_{\ell,h}-\lambda_c |c_{\ell,h}|}
+      {\max(d,\eta)}.
+ \label{eq:score}
+\end{equation}
+The denominator floor $\eta$ avoids treating tiny margin changes as strong
+evidence. The control penalty discourages heads whose clean substitution
+also strongly changes the matched control input. Scores are averaged over
+questions from each original image, then aggregated by their median across
+image groups. The top $K$ heads form the selected set $\mathcal{S}$.
+
+The current selector always returns the top $K$ candidates; it does not
+require positive scores. Therefore, selection alone must not be interpreted
+as proof that useful heads were discovered. We inspect score signs,
+between-image variability, and stability across discovery samples before
+interpreting a selected set. Random-head and clean-activation-RMS selectors
+use the same candidate pool for controlled comparisons.
+
+\paragraph{What this intervention establishes.}
+A clean donor carries information about an object that the occluded input
+does not contain. Successful patching can consequently increase an
+\emph{incorrect} positive answer on the occluded image. Its role is to
+identify a route by which the clean input affects the answer, not to count
+a corrected prediction. The background control only adjusts for some
+occlusion-related effects. It neither identifies a unique causal pathway
+nor proves invariance to semantic context. The usefulness of
+Eq.~\eqref{eq:score} is tested by subsequent single-input intervention,
+not assumed.
+
+\subsection{Bounded gains with distribution preservation}
+\label{sec:fit}
+On a separate fitting split, we freeze the pretrained model and optimize
+one scalar $a_{\ell,h}$ per selected head. Its bounded gain is
+$\delta_{\ell,h}=\rho\tanh(a_{\ell,h})$, initialized at zero, and its output
+is transformed as
+\begin{equation}
+ \widetilde u_{\ell,h,t}=
+ \begin{cases}
+ (1+\delta_{\ell,h})u_{\ell,h,t},
+       &(\ell,h)\in\mathcal{S},\\
+ u_{\ell,h,t},&\text{otherwise}.
+ \end{cases}
+ \label{eq:gain}
+\end{equation}
+With $\rho=0.25$, the multiplier remains between $0.75$ and $1.25$.
+The intervention cannot reverse or eliminate a head. Both amplification
+and attenuation are learned; a high patch score does not prescribe their
+sign.
+
+Let $y\in\{-1,+1\}$ be the object-existence label, $m_\delta$ the steered
+margin, and $p_0$ and $p_\delta$ the full-vocabulary next-token distributions
+at the final prompt position. The fitting objective is
+\begin{equation}
+\begin{split}
+\mathcal{L}={}&
+ \mathbb{E}_{\mathrm{bal}}\left[
+ \operatorname{softplus}(-y m_\delta)
+ +\lambda_{\mathrm{KL}} I_{\mathrm{keep}}
+   D_{\mathrm{KL}}(p_0\Vert p_\delta)\right]\\
+ &+\frac{\lambda_2}{K}
+   \sum_{(\ell,h)\in\mathcal{S}}\delta_{\ell,h}^{\,2}.
+\end{split}
+\label{eq:loss}
+\end{equation}
+Balanced sampling pairs positive and negative examples, cycling the smaller
+class to give both labels equal exposure. $I_{\mathrm{keep}}$ is one only
+when the base forced-choice answer is correct and the record is eligible
+for preservation. Eligibility is fixed by the data protocol, not chosen
+after inspecting intervention outcomes.
+
+The KL term regularizes a single next-token distribution; it does not
+guarantee preservation of a generated caption or general reasoning.
+Those properties require held-out evaluation. Although the backbone is
+frozen, fitting uses supervision and backpropagation, so \method is not
+training-free.
+
+\subsection{Deployment and computational requirements}
+The default intervention affects only the final prefill token and the
+current token at each cached decoding step. Earlier prompt positions are
+unchanged. An all-prefill-position variant is a separate ablation, and its
+setting must match between fitting and deployment. The deployed artifact
+contains the head indices, gains, and intervention-position setting.
+
+Inference uses the original image and question, without edited images,
+clean donors, ground-truth labels, or a per-example backward pass. It uses
+one normal generation path, but hooks and head-wise operations still incur
+overhead; no latency benefit is assumed. Localization is more expensive:
+each discovery record requires three base forwards and each retained
+record requires two additional forwards per candidate head. Fitting also
+requires backward computation through the frozen network. We report these
+offline costs separately from inference cost.
+
+\subsection{Semantic-context robustness as a testable hypothesis}
+The implemented method does not optimize an explicit semantic-context
+invariance loss. Its proposed connection to context robustness is that
+target-selective localization may expose intervention sites that help
+preserve useful visual evidence. This connection is falsifiable. If gains
+selected by Eq.~\eqref{eq:score} fail on semantic-context edits, or perform
+no better than gains on arbitrary heads, the motivating mechanism is
+unsupported even if a standard hallucination score improves.

@@ -261,6 +261,12 @@ def _masked_pixels(batch: dict, generator: torch.Generator, fraction: float,
         count = pixels.shape[0]
         chosen = torch.randperm(count, generator=generator)[:max(1, round(count * fraction))]
         masked[chosen.to(masked.device)] = 0
+    elif pixels.ndim == 3 and pixels.shape[0] == 1:
+        # Gemma 4 keeps image patches in a batch dimension.
+        valid = (batch["image_position_ids"][0] != -1).all(dim=-1).nonzero().flatten().cpu()
+        count = len(valid)
+        chosen = valid[torch.randperm(count, generator=generator)[:max(1, round(count * fraction))]]
+        masked[:, chosen.to(masked.device)] = 0
     elif pixels.ndim == 4 and pixels.shape[0] == 1:
         height, width = pixels.shape[-2:]
         rows, cols = (height + patch_size - 1) // patch_size, (width + patch_size - 1) // patch_size
@@ -270,7 +276,7 @@ def _masked_pixels(batch: dict, generator: torch.Generator, fraction: float,
             masked[..., row * patch_size:(row + 1) * patch_size,
                    col * patch_size:(col + 1) * patch_size] = 0
     else:
-        raise ValueError("VTI masking supports Qwen patch rows or a single [1,C,H,W] image.")
+        raise ValueError("VTI masking supports Qwen/Gemma patch rows or a single [1,C,H,W] image.")
     return {**batch, "pixel_values": masked}
 
 
@@ -311,7 +317,7 @@ def _vti_extract(adapter: Any, records: list[dict], config: dict) -> dict:
     return {**_metadata("vti", records, config),
             "vectors": {i: principal_direction(torch.stack(v)) for i, v in text_deltas.items()},
             "vision_vectors": {i: principal_direction(torch.stack(v)) for i, v in visual_deltas.items()},
-            "vision_pooling": pooling, "pixel_mask_baseline": "zero-in-processor-normalized-space"}
+            "vision_pooling": pooling, "pixel_mask_baseline": "zero-in-processor-output-space"}
 
 
 def _fused_embeddings(adapter: Any, batch: dict) -> Tensor:
@@ -486,7 +492,7 @@ def _rudder(adapter: Any, config: dict) -> Iterator[None]:
         changed[:, -1:, :] += float(config.get("alpha", 8.0)) * gate.to(update) * card
         return _replace(output, changed)
     with _hook(adapter.layers[layer], capture_input, pre=True), \
-            _hook(adapter.attn_projections[layer], steer):
+            _hook(adapter.attn_updates[layer], steer):
         yield
 
 

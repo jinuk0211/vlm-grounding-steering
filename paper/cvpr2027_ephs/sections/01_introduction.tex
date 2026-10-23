@@ -1,0 +1,85 @@
+\section{Introduction}
+\label{sec:intro}
+
+An image of a tennis racket can make a ball plausible without making it
+visible. A grounded vision--language model (VLM) should distinguish these
+cases: it should recognize a clearly visible ball even without familiar
+surrounding objects, and reject its presence when only those contextual cues
+remain. This distinction matters for descriptions and visual question
+answering, where a plausible but unsupported object can change the meaning
+of a response. Object hallucination has been documented in image captioning
+and modern VLMs~\cite{chair,pope}. Counterfactual removal and contextual
+interventions further expose failures that aggregate accuracy can
+conceal~\cite{removedobjects,causalhalbench}.
+
+We focus on a narrow requirement: \emph{object-presence judgments should
+respond to changes in the target object while remaining correct under
+changes to surrounding context that preserve its presence}. These are
+complementary requirements. A model that answers \emph{no} more often may
+reduce false positives while missing more real objects. A model that repeats
+the same answer across edited images may appear context-invariant while
+being consistently wrong. Evaluation must therefore measure both sides of
+the decision, and correctness across related images, rather than rewarding
+invariance or lower hallucination in isolation.
+
+Recent steering approaches offer alternatives to updating all model
+parameters. VTI intervenes in visual and textual representations, GrAInS uses
+gradient-based attribution, REVIS aims to restore suppressed visual
+information, and RUDDER reinforces evidence extracted from residual
+updates~\cite{vti,grains,revis,rudder}. These approaches motivate studying
+where an intervention should act. However, their existence also raises the
+standard for a new method: stronger visual features or sparse intervention
+alone is not a sufficient methodological contribution.
+HONES already connects causal head localization to sparse neuron
+scaling~\cite{hones}, and recent work explicitly investigates visual-context
+sensitivity and spurious associations~\cite{seeingknowing,purge}.
+
+Our hypothesis concerns the \emph{selection criterion} and the
+\emph{preservation-constrained intervention}. We ask whether heads selected
+for a target-specific information-transfer effect provide more useful
+intervention sites than equally many randomly chosen or high-magnitude
+heads. Evidence-Preserving Head Steering (\method) first substitutes clean
+head activations into target-occluded inputs and into matched background
+controls. It ranks heads by the former effect after penalizing the latter,
+then learns small head-wise gains on separate, balanced examples. A
+preservation term discourages changes to the base model's next-token
+distribution on examples it originally answers correctly.
+
+Crucially, these steps have different meanings. Restoring a clean activation
+to an object-occluded image is a diagnostic of information transfer; it can
+restore an answer that is incorrect for the edited image. It does not show
+that amplifying the same head improves deployment. Likewise, a matched
+background occlusion controls some edit-related effects but does not isolate
+semantic context. We therefore evaluate the learned gains using single
+images, without donors, and reserve semantic-context interventions as a
+separate test of the motivating hypothesis.
+
+This work is organized around three proposed contributions: a
+control-adjusted head-localization criterion; bounded gain fitting with
+balanced supervision and preservation of correct base-model distributions;
+and a comparison protocol that tests whether any improvement exceeds answer
+bias calibration, arbitrary head interventions, and existing steering
+methods. The first two have a CPU-tested implementation. Their empirical
+benefit, the semantic-context protocol, and the adequacy of the comparison
+to close prior work remain to be established. We do not claim a new
+hallucination phenomenon or a new benchmark.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Target object & Associated context & Correct answer \\
+\midrule
+Present & Present & Yes \\
+Absent & Present & No \\
+Present & Absent & Yes \\
+Absent & Absent & No \\
+\bottomrule
+\end{tabular}
+\caption{The intended diagnostic distinguishes target evidence from
+associated context. Each question asks about the same target category.
+These are experimental conditions, not observed model results. Correctness
+must be assessed in every condition; constant answers are insufficient.}
+\label{tab:conditions}
+\end{table}

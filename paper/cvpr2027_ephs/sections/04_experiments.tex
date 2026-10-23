@@ -1,0 +1,123 @@
+\section{Experimental Protocol}
+\label{sec:experiments}
+\draftnote{This section specifies intended experiments. Dataset sizes and
+hyperparameters below are pilot configurations, not completed runs or
+validated choices.}
+
+\subsection{Models and disjoint development splits}
+The primary model is Qwen2.5-VL-7B-Instruct~\cite{qwen25vl}. We will test
+transfer to Qwen3-VL-8B-Instruct~\cite{qwen3vl} and Gemma 4 E4B-it~\cite{gemma4}.
+The two Qwen models test transfer across generations, while Gemma 4 tests
+a different model family. E4B has 4.5B effective parameters and 8B total
+including embeddings; absolute scores across models are not capacity-matched.
+We will pin exact model and
+processor revisions and use the same image preprocessing, prompts, decoding
+settings, and evaluation examples for every method on a given model.
+Current configurations use batch size one, BF16, eager attention, a
+448-square input preprocessing step, and greedy cached generation.
+The model-specific processor may apply further resizing; the effective
+image and token dimensions must be recorded.
+
+COCO train images~\cite{coco} supply disjoint discovery, fitting, and
+hyperparameter-tuning groups. An initial development allocation is 200
+original images per split, with at most 100 discovery records processed
+by the starting configuration. All questions and edited variants of an
+original image remain in the same group. COCO validation images and
+external evaluations are checked for original-image overlap rather than
+assumed independent because benchmark names differ.
+
+Initial \method settings are $K=8$, $\lambda_c=1$, $\eta=1$, and
+$\epsilon=0.05$. Candidate decoder layers are $\{8,12,16,20,24\}$ for the
+two Qwen models and $\{5,11,23,35,41\}$ for Gemma 4 E4B; the latter five
+are full-attention layers. All query heads in these layers are considered.
+Gains use Adam for two balanced epochs
+with learning rate $0.03$, $\rho=0.25$, $\lambda_{\mathrm{KL}}=1$, and
+$\lambda_2=0.01$. These settings are starting points. Any tuning will use
+development data and a declared budget before final evaluation.
+
+\subsection{Evidence and context diagnostics}
+The primary diagnostic follows Table~\ref{tab:conditions}. Each original
+image group should support target-present and target-absent conditions,
+crossed with the presence or absence of an associated contextual cue.
+Target identity, visibility, and position should be preserved when changing
+context; context should be preserved as far as possible when removing the
+target. Image edits require quality checks for residual objects, boundary
+artifacts, unintended semantic changes, and ambiguous labels.
+
+This semantic-context diagnostic is a \emph{planned addition}; the current
+gray-occlusion builder does not supply it. We will also evaluate the
+unchanged Causal-HalBench test material and its official metrics rather
+than repurpose that benchmark as method-selection data~\cite{causalhalbench}.
+Native benchmark fields and metric names will be preserved.
+
+We will report accuracy for each condition and the fraction of complete
+four-condition groups for which every answer is correct. For controlled
+target changes, both answers must be correct; merely flipping the answer
+does not count as success. For context-only changes, both answers must
+again be correct; constant wrong answers receive no credit.
+
+\paragraph{Separating discrimination from response bias.}
+For forced-choice answers, we will compare false-positive rates at
+development-calibrated operating points with similar true-positive rates,
+and report the achieved test rates rather than assume exact matching.
+Thresholds are chosen only on the tuning split. ROC curves provide a
+complementary threshold-sweep diagnostic. A base-model margin-offset
+baseline changes the Yes/No threshold without changing representations.
+This control is essential: a global score shift must not be mistaken for
+improved evidence discrimination.
+
+\subsection{Natural images, information retention, and capability}
+POPE random, popular, and adversarial subsets provide natural-image
+object-existence evaluation~\cite{pope}. We report accuracy, precision,
+recall, F1, affirmative-answer rate, and invalid-response rate. Generated
+answers use the same parser; malformed or noncommittal answers are not
+silently discarded.
+
+On an intended 2,000-image COCO validation subset, we will measure
+CHAIR$_s$ and CHAIR$_i$ alongside correct object recall, distinct correct
+object mentions, and actual caption length~\cite{chair,coco}.
+Generation limits are matched, and multiple steering strengths are used to
+inspect the hallucination--recall relationship. The CHAIR object taxonomy
+does not establish correctness of every attribute or relation.
+MME supplies an additional capability-retention check~\cite{mme}.
+MMHal-Bench supplies 96 free-response hallucination questions~\cite{mmhal}.
+We will use its official response format and one fixed judge version and
+scoring prompt for all methods on a model. Judge outputs and response
+lengths will be retained; its score is not treated as a Yes/No accuracy.
+
+\subsection{Baselines and implementation parity}
+The comparison includes the unmodified model, threshold calibration,
+VTI, GrAInS, REVIS, and RUDDER. HONES and the steering method studied in
+Seeing or Knowing? are close mechanistic comparators; PURGE and
+object-focused preference optimization provide relevant training-based
+comparisons where computational and data budgets permit.
+
+The current four steering ports use a common runtime but contain material
+adaptations. GrAInS attributes fused decoder-input embeddings from a zero
+baseline; VTI uses a fixed visual grid; REVIS uses a fixed neutral-response
+choice; and RUDDER exposes an explicit first-token intervention choice.
+Common COCO Yes/No preference pairs also differ from original caption
+preference data. Therefore, the present ports must be labeled
+\emph{adapted}, and checked against author implementations on shared small
+inputs before results are presented as reproductions.
+
+Every method receives a declared development and tuning budget. We account
+for \method's segmentation masks, paired edits, labels, and discovery
+computation, not only the number of fitted parameters. Published scores
+from different experimental settings will not be inserted into the same
+comparison table.
+
+\subsection{Ablations and uncertainty}
+Required ablations replace causal selection with random or activation-RMS
+selection while keeping the same $K$, candidate pool, fitting data, and
+optimization budget. Further tests remove the control penalty or the KL
+term, vary $K$ and the gain bound, and compare last-token with all-prefill
+intervention. A residual-scaling control tests whether a generic magnitude
+change explains the effect.
+
+We will repeat discovery and fitting with at least three specified seeds
+and report all runs. Paired confidence intervals resample original image
+groups, keeping correlated questions and variants together; seed
+variability is reported separately. Inference timing uses synchronized GPU
+measurements after warm-up and is accompanied by peak memory, output
+length, and the actual device configuration.

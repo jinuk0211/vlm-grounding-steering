@@ -8,6 +8,9 @@ Each artifact records the source, extraction IDs, configuration, and adaptation
 status. CPU tests validate mathematical properties and hook behavior, not the
 published scores.
 
+See the [three-model audit](model_compatibility.md) for specific upstream-code
+departures, including VTI normalization/PCA and REVIS prefill-cache behavior.
+
 | Method | Implemented core | Source |
 |---|---|---|
 | REVIS | Image/no-image visual contrast; blind rejected/neutral prior contrast; Gram–Schmidt purification; deepest separable layer; factual-risk quantile; low-alignment gate | [Sections 4.1–4.3, Eqs. 3–7](https://arxiv.org/html/2602.11824v2) |
@@ -52,8 +55,11 @@ silently selecting the last layer. The vector retains its original magnitude.
 
 ## RUDDER
 
-No offline direction is needed. The `o_proj` output is the self-attention
-residual update for the supported pre-norm decoders. A block pre-hook captures
+No offline direction is needed. CARD extraction and steering use the attention
+residual update: `o_proj` output for Qwen/LLaVA, and
+`post_attention_layernorm` output for Gemma 4. Gemma normalizes the projected
+attention output before adding it to the residual, so steering `o_proj` output
+would define a different intervention. A block pre-hook captures
 the unnormalized residual input for the gate. During normal prefill, CARD pools
 all image and prompt positions, using norm weighting by default or `pooling:
 "mean"`. It is reused on cached decode steps. Higher cosine alignment gives a
@@ -68,8 +74,10 @@ hyperparameter search or claim the paper's recall constraint has been met.
 
 ## VTI
 
-Masks replace a sampled spatial patch with zero **in processor-normalized pixel
-space**. Qwen's flattened patch rows and LLaVA's `[1,C,H,W]` tensors are supported.
+Masks replace a sampled spatial patch with zero **in processor output space**.
+Qwen's flattened patch rows, Gemma 4's batched patch rows, and LLaVA's
+`[1,C,H,W]` tensors are supported. Gemma 4 receives patches in [0,1], so
+zero is a black patch; this differs from zero in Qwen's normalized space.
 The original vision hidden states are subtracted from the mean corrupted states,
 not the reverse. Text contrasts use the same real image with both captions.
 
@@ -104,6 +112,14 @@ through the vision encoder to input pixels. No external attribution API,
 reference model, extra test-time preference labels, or generated fake vectors
 are used. Extraction needs real preference data and may be expensive even though
 inference is cheap. Eager attention and gradient-enabled forwards are required.
+
+This boundary does not intercept every input-dependent path on the new models.
+Qwen3-VL retains its later DeepStack visual injections. Gemma 4 retains the
+per-layer inputs computed before the first decoder block. Those auxiliary inputs
+are held fixed during IG and token masking. The resulting attribution is
+conditional on these paths, not complete removal of image/text evidence. Treat
+these runs as architecture-specific adaptations; full-path attribution requires
+an explicit new definition and validation before claiming GrAInS parity.
 
 ## Before reporting a comparison
 

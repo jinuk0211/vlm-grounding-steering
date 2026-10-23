@@ -1,0 +1,49 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Object hallucination and contextual shortcuts.}
+CHAIR measures unsupported object mentions in captions, while POPE evaluates
+object existence with controlled negative-object sampling~\cite{chair,pope}.
+Their complementary response formats make it possible to inspect both
+generated descriptions and binary decisions. They do not, by themselves,
+identify the computational origin of a failure. He
+et al.~\cite{removedobjects} evaluate hallucinations after object removal and
+propose object-focused preference optimization. Causal-HalBench formalizes
+co-occurrence-induced spurious correlations and evaluates counterfactual
+images~\cite{causalhalbench}. We build on these problem formulations; target
+removal and contextual evaluation are not introduced here.
+
+\paragraph{Activation steering in VLMs.}
+VTI modifies visual and textual latent representations to reduce
+hallucination~\cite{vti}. GrAInS derives steering directions from
+gradient-based attribution of preferred versus dispreferred
+outputs~\cite{grains}. REVIS constructs a purified visual direction and
+calibrates sparse intervention, while RUDDER obtains an evidence direction
+from prefill residual updates and applies adaptive
+reinforcement~\cite{revis,rudder}. \method instead fits scalar gains on
+selected, pre-projection attention-head outputs. This architectural
+difference is an experimental choice, not evidence of superiority. It
+requires comparison at matched preprocessing, decoding, calibration budget,
+and object recall.
+
+\paragraph{Localization and targeted parameter changes.}
+HONES localizes task-relevant heads, attributes their downstream effects to
+FFN neurons, and learns sparse neuron scaling~\cite{hones}. It is especially
+close to our localization-then-scaling design. Seeing or
+Knowing?~\cite{seeingknowing} examines visual-context sensitivity and connects
+internal intervention analysis with steering. PURGE studies partition-aware
+unlearning of spurious associations while preserving object
+reasoning~\cite{purge}. Consequently, neither causal localization, selective
+scaling, nor evidence--context separation is a first-of-its-kind claim for
+\method. Its narrower candidate contribution is whether the
+target-versus-control patch score selects better sites for bounded
+head-output gains under information-preserving evaluation.
+
+\paragraph{Scope of the comparison.}
+Frozen-backbone steering and unlearning or preference optimization incur
+different training costs and use different supervision. We report those
+differences rather than treating all methods as equally resource-free.
+Our four existing steering implementations are local adaptations, not
+verified reproductions of published scores. Comparisons to HONES, the
+visual-context steering method, and PURGE require additional implementation
+or integration before a scientific claim can be made.

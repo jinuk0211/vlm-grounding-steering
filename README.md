@@ -4,7 +4,9 @@
 
 제안 방법 **EPHS (Evidence-Preserving Head Steering)**와 Base, REVIS, RUDDER,
 GrAInS, VTI를 같은 모델·데이터·평가 코드에서 비교합니다. 기본 모델은
-`Qwen/Qwen2.5-VL-7B-Instruct`, 두 번째 모델은 `llava-hf/llava-1.5-7b-hf`입니다.
+`Qwen/Qwen2.5-VL-7B-Instruct`이며, 세 모델 실험 계획에는
+`Qwen/Qwen3-VL-8B-Instruct`와 `google/gemma-4-E4B-it`을 포함합니다.
+`llava-hf/llava-1.5-7b-hf` 어댑터는 기존 호환성 확인용으로 남아 있습니다.
 
 ## 연구 질문과 방법
 
@@ -35,10 +37,12 @@ HONES 등과 겹치므로, 실제 기여를 주장하려면 가까운 방법과 
 |---|---|
 | EPHS discovery / gain fitting / single-input inference | 구현, CPU 행동 테스트 |
 | REVIS / RUDDER / GrAInS / VTI | 논문 기반 독립 구현, **local adaptation** |
-| 실제 Qwen2.5-VL / LLaVA 아키텍처의 hook·cached decoding | 작은 무작위 모델로 CPU 검증 |
-| COCO / POPE / Causal-HalBench / MME 변환 | 로컬 데이터 입력용 구현 |
+| 실제 Qwen2.5-VL / Qwen3-VL / Gemma 4 / LLaVA 아키텍처의 hook·cached decoding | 작은 무작위 모델로 CPU 검증 |
+| Qwen3-VL-8B 및 Gemma 4 E4B 공식 processor·Yes/No 토큰화 | 가중치 없이 로컬 이미지로 확인 |
+| COCO / POPE / Causal-HalBench / MME / MMHal-Bench 변환 | 로컬 데이터 입력용 구현 |
+| MMHal-Bench 자유서술 생성·공식 응답 형식·GPT 판정 결과 결합 | 구현, 합성 96문항 CPU 테스트 |
 | 공통 지표·원본 이미지 단위 bootstrap·CSV/JSON 비교표 | 구현 |
-| 7B checkpoint의 실제 GPU 실행·원논문 점수 재현 | **미실행** |
+| 세 checkpoint의 실제 GPU 실행·원논문 점수 재현 | **미실행** |
 | 제안 방법의 baseline 우월성 | **결과 없음** |
 
 baseline 네 개는 저자 코드를 그대로 실행한 결과가 아닙니다. GrAInS의 fused-embedding
@@ -57,7 +61,7 @@ Python 3.11 또는 3.12를 사용합니다. 아래 설치는 새 가상환경에
 python -m venv .venv
 source .venv/bin/activate
 # Windows PowerShell: .\.venv\Scripts\Activate.ps1
-pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
 pip install -e ".[test,eval]"
 python -m vlm_grounding doctor
 python -m pytest -q
@@ -68,9 +72,24 @@ ruff check src tests
 작은 무작위 설정으로 생성해 시각 입력, GQA head, prefill/decode, gradient와 hook
 복원을 검사합니다. 합성 테스트 정답률은 연구 성능으로 보고하지 않습니다.
 
-GPU 서버에서는 해당 CUDA에 맞는 PyTorch 2.8을 먼저 설치하고
-`pip install -e ".[test,eval]"`를 실행합니다. 7B 실행은 `extract`, `discover`,
+GPU 서버에서는 해당 CUDA에 맞는 PyTorch 2.8과 torchvision 0.23을 함께 설치하고
+`pip install -e ".[test,eval]"`를 실행합니다. 모델 가중치는 `extract`, `discover`,
 `fit`, `run` 명령을 호출할 때만 모델을 로드합니다.
+
+Qwen3-VL-8B는 [별도 설정](configs/qwen3_vl_8b.json), Gemma 4 E4B-it은
+[Gemma 설정](configs/gemma4_e4b.json)으로 실행합니다. 같은
+`prepare-*` manifest와 `run --task mmhal` 등을 사용할 수 있지만, REVIS 방향과
+EPHS/GrAInS/VTI artifact는 **모델별로 다시 추출·학습**해야 합니다. 비교는 각
+모델 안에서 Base와 동일한 전처리·출력 토큰 예산으로 수행합니다. 세 모델의
+GPU 가중치 실행은 아직 검증하지 않았습니다. Gemma 4 E4B는 full-attention
+층 5개를 초기 discovery 후보로 사용하며, 448px 입력에서 이미지 processor가
+추가 변환한 실제 패치 수와 토큰 수를 기록해야 합니다. 이 지원을 위해
+Transformers 5.20.2로 갱신했습니다.
+
+[세 모델 비교 감사](docs/model_compatibility.md)에 모델별 개입 위치와 원 baseline
+코드의 차이를 기록했습니다. Gemma RUDDER는 attention 출력 정규화 뒤에 개입합니다.
+GrAInS의 Qwen3 DeepStack/Gemma per-layer 입력 경로와 VTI의 공식 구현 차이는
+추가 검증이 필요하므로, 현재 결과로 원논문 baseline을 이겼다고 주장할 수 없습니다.
 
 ## 데이터 준비
 
@@ -101,6 +120,9 @@ vlm-grounding prepare-pope \
 vlm-grounding prepare-causal \
   --input data/causal/qa.json --image-root data/causal/images \
   --output data/causal_test.jsonl
+
+vlm-grounding prepare-mme \
+  --input data/MME_Benchmark_release_version --output data/mme_test.jsonl
 
 vlm-grounding verify-splits \
   --manifests data/development.jsonl data/coco_test.jsonl data/pope_adversarial.jsonl
@@ -158,8 +180,8 @@ RUDDER는 매 입력의 정상 prefill에서 방향을 만들기 때문에 offli
 설정 파일의 layer·alpha·gain·표본 수는 **미튜닝 시작값**입니다. 모든 방법에 동일하게
 정한 개발 예산으로 튜닝하고, 설정을 고정한 뒤 test를 실행해야 합니다.
 기본 이미지는 448×448로 변환됩니다. Qwen의 VTI 위치별 방향을 고정하기 위한 공통
-전처리이며 원논문 해상도와 다를 수 있습니다. LLaVA processor는 자체 입력 크기로
-추가 변환합니다. 다른 해상도 실험은 별도 프로토콜로 기록합니다.
+전처리이며 원논문 해상도와 다를 수 있습니다. Gemma 4와 LLaVA processor도
+자체 입력 크기로 추가 변환합니다. 다른 해상도 실험은 별도 프로토콜로 기록합니다.
 
 ## 실제 CHAIR와 공통 비교표
 
@@ -181,6 +203,56 @@ CHAIR adapter는 원 CHAIR의 Python 3 포트를 사용합니다. 외부 scorer�
 `chair_status=not_scored`이며 가짜 CHAIR 값을 만들지 않습니다. 패키지별
 추가 의존성은 [데이터 안내](docs/data.md)를 확인하세요. Causal-HalBench 공식 지표는
 `--causal-module upstream/causal/metric.py`로 연결합니다.
+
+## MMHal-Bench에서 REVIS·RUDDER 비교
+
+[공식 MMHal-Bench 자료](https://huggingface.co/datasets/Shengcao1006/MMHal-Bench)의
+`response_template.json`과 `test_data.zip`의 `images/`를 로컬에 준비합니다.
+MMHal은 96개의 **자유서술형** 질문이므로 POPE/MME의 yes/no 채점기를 사용하지 않습니다.
+REVIS 방향은 개발 자료에서 미리 추출하고, RUDDER는 추론 시마다 계산합니다.
+
+```bash
+vlm-grounding prepare-mmhal --input data/mmhal/response_template.json \
+  --image-root data/mmhal/images --output data/mmhal_test.jsonl
+
+vlm-grounding run --method base --task mmhal --config configs/qwen2_5_vl_7b.json \
+  --manifest data/mmhal_test.jsonl --output outputs/mmhal_base.jsonl
+vlm-grounding run --method revis --artifact artifacts/revis.pt --task mmhal \
+  --config configs/qwen2_5_vl_7b.json --manifest data/mmhal_test.jsonl \
+  --output outputs/mmhal_revis.jsonl
+vlm-grounding run --method rudder --task mmhal --config configs/qwen2_5_vl_7b.json \
+  --manifest data/mmhal_test.jsonl --output outputs/mmhal_rudder.jsonl
+
+vlm-grounding export-mmhal --predictions outputs/mmhal_base.jsonl \
+  --template data/mmhal/response_template.json --output outputs/mmhal_base_responses.json
+vlm-grounding export-mmhal --predictions outputs/mmhal_revis.jsonl \
+  --template data/mmhal/response_template.json --output outputs/mmhal_revis_responses.json
+vlm-grounding export-mmhal --predictions outputs/mmhal_rudder.jsonl \
+  --template data/mmhal/response_template.json --output outputs/mmhal_rudder_responses.json
+```
+
+각 `*_responses.json`을 공식 [`eval_gpt4.py`](https://huggingface.co/datasets/Shengcao1006/MMHal-Bench/blob/main/eval_gpt4.py)의
+`--response`에 넣고, `--evaluation`으로 원시 판정 JSON을 각각 저장합니다.
+공식 스크립트는 구형 `openai.ChatCompletion.create` API를 사용하며 기본
+`gpt-4-0314` 모델의 이용 가능 여부는 별도로 확인해야 합니다. 사용 가능한
+**동일한 판정 모델·프롬프트·설정**을 모든 방법에 적용하고 모델 버전을 기록하세요.
+판정 API는 유료이며 이 저장소의 명령은 판정 API를 호출하지 않습니다.
+
+```bash
+vlm-grounding compare \
+  --predictions outputs/mmhal_base.jsonl outputs/mmhal_revis.jsonl outputs/mmhal_rudder.jsonl \
+  --mmhal-evaluation base outputs/mmhal_base_responses.json outputs/mmhal_base_judge.json \
+  --mmhal-evaluation revis outputs/mmhal_revis_responses.json outputs/mmhal_revis_judge.json \
+  --mmhal-evaluation rudder outputs/mmhal_rudder_responses.json outputs/mmhal_rudder_judge.json \
+  --output-dir outputs/mmhal_comparison
+```
+
+원시 판정에는 각 문항의 `Rating: 0`부터 `Rating: 6`이 **정확히 한 번** 있어야 합니다.
+누락·중복 판정은 0점으로 대체하지 않고 실패합니다. 점수 평균, 점수 0–2의 환각률,
+질문 유형별 평균, 이미지 단위 paired bootstrap 신뢰구간을 기록합니다. 판정 JSON이
+없으면 `mmhal_status=not_scored`로 표시합니다. 이 비교는 **우리 REVIS/RUDDER
+local adaptation을 MMHal에 확장한 실험**이며 원논문 MMHal 결과 재현은 아닙니다.
+96문항과 판정 모델의 변동성을 감안해 POPE·CHAIR·MME 결과도 함께 보고하세요.
 
 비교표에는 CHAIR_s/i, annotation 기준 객체 recall, 정확한 객체 언급 수,
 출력 길이, yes/no 지표, invalid 비율, MME 점수, 이미지 단위 신뢰구간을 포함합니다.

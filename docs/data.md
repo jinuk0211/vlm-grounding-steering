@@ -17,7 +17,7 @@ One JSONL object per question or caption:
 - `group_id` identifies the **original image**, including all edited derivatives.
   COCO `...000000001171.jpg` and Causal-HalBench
   `...000000001171_001.jpg` both map to `coco:1171`.
-- `task` is `pope`, `caption`, `causal`, or `mme`. Caption labels are omitted.
+- `task` is `pope`, `caption`, `causal`, `mme`, or `mmhal`. Caption and MMHal labels are omitted.
 - `split` is `discovery`, `fit`, `tune`, or `test`. Split names describe research
   roles, not COCO's train/val names.
 - Images may have multiple questions or tasks in the **same** split. Reusing any
@@ -35,7 +35,7 @@ detection. Keep original IDs when adding new datasets.
 
 ```python
 from vlm_grounding.data import (
-    prepare_coco, prepare_pope, prepare_causal, prepare_mme,
+    prepare_coco, prepare_pope, prepare_causal, prepare_mme, prepare_mmhal,
     read_manifest, validate_disjoint, write_manifest,
 )
 
@@ -43,6 +43,7 @@ pope = prepare_pope("/data/pope/coco_pope_adversarial.json",
                     "/data/val2014", subset="adversarial")
 causal = prepare_causal("/data/causal/qa.json", "/data/causal/images")
 mme = prepare_mme("/data/MME_Benchmark_release_version")
+mmhal = prepare_mmhal("/data/mmhal/response_template.json", "/data/mmhal/images")
 development = prepare_coco(
     "/data/annotations/instances_train2014.json", "/data/train2014",
     "data/derived", seed=42, discovery_count=200, fit_count=200,
@@ -78,6 +79,23 @@ that makes the supplied image names resolve.
 `prepare_mme` reads category directories with `images/` and
 `questions_answers_YN/`, or categories containing images and text side by side.
 Question files contain `question<TAB>yes/no`. Preserve the official categories.
+
+`prepare_mmhal` reads the ordered official 96-question `response_template.json`
+and local images from the official `test_data.zip`. It preserves the original
+question index, image ID, question type, image contents and reference answer in
+metadata. Only the question and local image are supplied to model inference;
+reference answers are for external judging. `export-mmhal` requires all 96
+predictions in original order and writes the official response JSON schema.
+`compare --mmhal-evaluation METHOD RESPONSES JUDGE_OUTPUT` consumes the raw JSON
+list saved by the official `eval_gpt4.py` for each method. It verifies the
+judged responses match the model outputs before computing mean rating (0–6),
+hallucination rate (rating 0–2), and question-type means. Ambiguous or missing
+ratings fail instead of silently becoming zero. The code cannot verify that a
+supplied judgement file used the official prompt or the same judge model for
+all methods; retain the judge model/version and scorer script in experiment
+provenance. When raw judge responses declare their model, comparison rejects
+different model labels across methods and records the value. The official script uses a legacy OpenAI SDK call, so check its
+runtime and selected judge model before running paid evaluations.
 
 ## Diagnostic image construction
 

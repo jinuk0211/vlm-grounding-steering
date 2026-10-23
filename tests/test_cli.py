@@ -147,6 +147,72 @@ class CliTests(unittest.TestCase):
                                    "--output-dir", str(self.root / "report")]), 2)
         self.assertFalse((self.root / "report" / "comparison.json").exists())
 
+    def test_mmhal_revis_rudder_export_and_scored_compare(self):
+        template = self.root / "response_template.json"
+        template.write_text(json.dumps([{
+            "question_type": ("attribute", "adversarial")[i % 2],
+            "question_topic": "outdoor", "image_id": "one-image",
+            "image_src": f"https://example.org/{self.image.name}",
+            "image_content": ["Cat"], "question": f"Question {i}?",
+            "gt_answer": "A cat.", "model_answer": "",
+        } for i in range(96)]), encoding="utf-8")
+        mmhal_manifest = self.root / "mmhal.jsonl"
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(main(["prepare-mmhal", "--input", str(template),
+                                   "--image-root", str(self.root),
+                                   "--output", str(mmhal_manifest)]), 0)
+        rows = [json.loads(line) for line in mmhal_manifest.read_text(encoding="utf-8").splitlines()]
+        smoke = self.root / "mmhal_smoke.jsonl"
+        with patch("vlm_grounding.cli._load_adapter", return_value=MockAdapter()), \
+                contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(main(["run", "--method", "base", "--task", "mmhal",
+                                   "--config", str(self.config_path),
+                                   "--manifest", str(mmhal_manifest),
+                                   "--output", str(smoke)]), 0)
+        self.assertEqual(len(_prediction_rows(str(smoke))), 96)
+        files, judge_args = [], []
+        for method, rating in (("base", 3), ("revis", 5), ("rudder", 2)):
+            predictions = self.root / f"{method}.jsonl"
+            predictions.write_text("".join(json.dumps({**row, "prediction": method,
+                                                        "method": method}) + "\n"
+                                           for row in rows), encoding="utf-8")
+            responses = self.root / f"{method}_responses.json"
+            with contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(main(["export-mmhal", "--predictions", str(predictions),
+                                       "--template", str(template),
+                                       "--output", str(responses)]), 0)
+            self.assertEqual(json.loads(responses.read_text(encoding="utf-8"))[0]["model_answer"],
+                             method)
+            judged = self.root / f"{method}_judge.json"
+            judged.write_text(json.dumps([{"model": "fixture-gpt-4", "choices": [{"message": {
+                "content": f"Explanation. Rating: {rating}"}}]} for _ in range(96)]),
+                encoding="utf-8")
+            files.append(str(predictions))
+            judge_args.extend(["--mmhal-evaluation", method, str(responses), str(judged)])
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(main(["compare", "--predictions", *files,
+                                   "--output-dir", str(self.root / "mmhal_report"),
+                                   "--bootstrap-samples", "3", *judge_args]), 0)
+        report = json.loads((self.root / "mmhal_report" / "comparison.json")
+                            .read_text(encoding="utf-8"))
+        self.assertEqual(report["methods"]["revis"]["mmhal"]["mmhal_average_score"], 5)
+        self.assertEqual(report["methods"]["rudder"]["mmhal"]["mmhal_hallucination_rate"], 1)
+        self.assertTrue(report["mmhal_judge_model_verified"])
+        deltas = {(row["method"], row["metric"]): row["delta"]
+                  for row in report["paired_deltas"]}
+        self.assertEqual(deltas[("revis", "mmhal_average_score")], 2)
+        self.assertEqual(deltas[("rudder", "mmhal_average_score")], -1)
+        rudder_judge = self.root / "rudder_judge.json"
+        changed = json.loads(rudder_judge.read_text(encoding="utf-8"))
+        for entry in changed:
+            entry["model"] = "different-judge"
+        rudder_judge.write_text(json.dumps(changed), encoding="utf-8")
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(main(["compare", "--predictions", *files,
+                                   "--output-dir", str(self.root / "mismatched_judge"),
+                                   "--bootstrap-samples", "0", *judge_args]), 2)
+        self.assertFalse((self.root / "mismatched_judge" / "comparison.json").exists())
+
 
 if __name__ == "__main__":
     unittest.main()
