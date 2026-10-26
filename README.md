@@ -5,6 +5,8 @@
 [선정표와 소스·설정 선택 설명](docs/baseline_selection_20261026.md),
 [고정 프로필 JSON](configs/baseline_selection_20261026.json),
 [검증된 pilot 점수](docs/results/qwen_pilot_20261026.json)를 추가했습니다.
+[전체 실험 결과 보고서](docs/results/all_experiments_20261026_1954_KST.md)는
+2026-10-26 19:54 KST 기준의 보존본으로, 이전 실험·누적 점수·실패 이력까지 정리합니다.
 [RUDDER·GrAInS 원본 clone과 실행 코드](reproduction/clone_baselines_20261026/README.md)에는
 두 원저자 저장소의 고정 submodule과 실제 사용한 실행기·수정 파일을 분리해 두었습니다.
 REVIS·VTI의 저자 코드 출처와 설정 선택을 구분하고 RUDDER의 개선 없는 결과,

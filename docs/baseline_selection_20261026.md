@@ -1,6 +1,7 @@
 # Qwen baseline 선정과 pilot 결과 — 2026-10-26
 
 선정한 baseline은 REVIS·RUDDER·GrAInS·VTI 네 개다. 공통 모델은 Qwen2.5-VL-7B-Instruct이며, 모델 revision·저자 commit·고정 프로필은 [선정 JSON](../configs/baseline_selection_20261026.json), 수치와 원본 검증파일 SHA는 [pilot 결과 JSON](results/qwen_pilot_20261026.json)에 기록했다.
+이전 Qwen/Gemma 실행과 누적·실패 결과는 [전체 실험 결과 보고서](results/all_experiments_20261026_1954_KST.md)에 작성 시점 기준으로 보존했다.
 
 상태와 점수는 보존된 검증 기록 기준이며 실시간 서버 관측이 아니다.
 
