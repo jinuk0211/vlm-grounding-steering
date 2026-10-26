@@ -1,0 +1,58 @@
+{
+  "checked_at": "2026-10-25T15:59:19.781602+00:00",
+  "snapshot": "original_baselines_20261025\\server_evidence\\compat_20261025T155639Z",
+  "source_files": 48,
+  "files_verified": 93,
+  "methods": {
+    "rudder": {
+      "raw_rows": 200,
+      "chain_and_inputs_verified": true,
+      "paired_tensor_hashes_equal": true,
+      "last_row_sha256": "26b6a416879df644e04bfb372bd1181732b47466293539bd588e9bd97ab38293"
+    },
+    "grains": {
+      "raw_rows": 0,
+      "chain_and_inputs_verified": true,
+      "paired_tensor_hashes_equal": true,
+      "last_row_sha256": null
+    }
+  },
+  "new_milestones": [
+    {
+      "method": "rudder",
+      "completed_pairs": 100,
+      "metrics": {
+        "base": {
+          "caption_n": 50,
+          "pope_n": 50,
+          "accuracy": 0.82,
+          "official_F1": 0.7804878048780487,
+          "CHAIRs": 0.24,
+          "CHAIRi": 0.05128205128205128,
+          "object_recall": 0.7054794520547946,
+          "invalid_pope": 0,
+          "flags": {
+            "empty": 0,
+            "token_cap_reached": 0,
+            "repeated": 0
+          }
+        },
+        "rudder": {
+          "caption_n": 50,
+          "pope_n": 50,
+          "accuracy": 0.8,
+          "official_F1": 0.7619047619047621,
+          "CHAIRs": 0.26,
+          "CHAIRi": 0.05904059040590406,
+          "object_recall": 0.7054794520547946,
+          "invalid_pope": 0,
+          "flags": {
+            "empty": 0,
+            "token_cap_reached": 0,
+            "repeated": 0
+          }
+        }
+      }
+    }
+  ]
+}

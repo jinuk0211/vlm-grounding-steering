@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-25T17:22:19.946995+00:00",
+  "source_files": 7,
+  "manifest": {
+    "tuple_bridge.py": "f46c9049257a1ca79cfb4c6b827044c6e04636ecaf557f26707ecf6e5e74b13a",
+    "check_tuple_bridge.py": "0f00a4b570c1f2c424cc1dc1f98052bc413b9cd4bb584a89a91ce4e51ab2771a",
+    "check_extraction_reuse.py": "4b3f9d3f1a98083cdd6a32febdd6a90c89b60fcd14b2af5bc9fd5213e140b81d",
+    "run_generation.py": "c916af17a404ce7963e720f9a21abdd17b015b629c8d08c267109f5f1925e6cd",
+    "queue_generation_contract.py": "f63287de5916b38f2039ab55ceff3f79b04aae68ba6463e79d5f855d329a18af",
+    "run_generation.sh": "0b17bc07fc4c0538bdbaa4c0602e91b3cd6db4dcd2b7a1fdecc2a0e7334f4f4f",
+    "provenance.json": "d13c101bd90e316dcbda3ac26e261eaff1f7a6a52c25e0a6f29ddcffcd2660a9"
+  },
+  "manifest_sha256": "3b8dbb8f45624bf44c6838bfe7d354f43ff75d751a4c70574fb0e5f4f662ab0a",
+  "tests": [
+    {
+      "name": "check_tuple_bridge.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_native_qwen_cached_decode_matches_original_tuple_oracle (__main__.BridgeTests.test_native_qwen_cached_decode_matches_original_tuple_oracle) ... ok\ntest_removes_all_handles_after_error (__main__.BridgeTests.test_removes_all_handles_after_error) ... ok\ntest_tuple_oracle_prefill_decode_batch_and_zero_alpha (__main__.BridgeTests.test_tuple_oracle_prefill_decode_batch_and_zero_alpha) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.075s\n\nOK\n"
+    },
+    {
+      "name": "check_extraction_reuse.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_all_fifty_artifacts_reconstruct_npz_and_original_pca (__main__.ReuseTests.test_all_fifty_artifacts_reconstruct_npz_and_original_pca) ... ok\ntest_changed_raw_artifact_is_rejected_before_deserialization (__main__.ReuseTests.test_changed_raw_artifact_is_rejected_before_deserialization) ... ok\ntest_forty_nine_examples_cannot_be_reused_as_fifty (__main__.ReuseTests.test_forty_nine_examples_cannot_be_reused_as_fifty) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.271s\n\nOK\n"
+    }
+  ],
+  "uses_gpu": false,
+  "native7b_started": false,
+  "queue_manifest_guard_added": true,
+  "queue_syntax_verified": true
+}

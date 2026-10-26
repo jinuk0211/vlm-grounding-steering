@@ -42,7 +42,7 @@ REVIS의 문장 반복/512상한1건과 VTI의 문장 반복/512상한/미EOS1�
 
 전체 봉인 입력은 caption2000 + POPE9000(random/popular/adversarial 각3000) + MMHal96 = 11,096개다. fit50과 개발/보정 입력은 시험 개수에 포함하지 않는다. MMHal judge가 끝나지 않았으면 전체 채점 완료로 표시하지 않는다.
 
-이 업로드는 선정·설정·검증 점수 기록이다. 기존 CLI의 독립 adaptation 구현을 위 원저자 호출 실행기로 교체하지 않는다. 선정 JSON은 기존 CLI에 바로 전달하는 runtime 설정 파일이 아니다. 전체 네 방법의 재현 성공, 완료 full 성능, EPHS 우월성을 보고하지 않는다. 원문·가중치·데이터·대형 raw IG 백업을 이 문서 업로드에 포함하지 않는다.
+선정·설정·검증 점수 기록과 별도로 [RUDDER·GrAInS 원본 clone·실행 코드](../reproduction/clone_baselines_20261026/README.md)를 보존했다. 기존 CLI의 독립 adaptation 구현을 원저자 호출 실행기로 교체하지 않는다. 선정 JSON은 기존 CLI에 바로 전달하는 runtime 설정 파일이 아니다. 전체 네 방법의 재현 성공, 완료 full 성능, EPHS 우월성을 보고하지 않는다. 원문·가중치·데이터·대형 raw IG 백업은 GitHub에 포함하지 않는다.
 
 ## 고정 원저자 코드
 

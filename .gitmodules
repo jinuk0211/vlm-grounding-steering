@@ -1,0 +1,6 @@
+[submodule "RUDDER"]
+	path = reproduction/clone_baselines_20261026/author/RUDDER
+	url = https://github.com/Akko000/RUDDER-Residual-Update-Directed-DEcoding-Regulation-.git
+[submodule "GrAInS"]
+	path = reproduction/clone_baselines_20261026/author/GrAInS
+	url = https://github.com/duykhuongnguyen/GrAInS.git

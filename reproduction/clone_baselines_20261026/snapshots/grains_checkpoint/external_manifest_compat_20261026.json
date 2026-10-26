@@ -1,0 +1,12 @@
+{
+  "/workspace/qwen-author-check-20261024/scripts/run_qwen_revis_author.py": "026b94efc371f60a194ca8ab53da1141c3613da870d6fec08b003931db44085b",
+  "/workspace/qwen-author-check-20261024/scripts/run_gemma_experiment.py": "17177a3fdde7f6f2f873a17095fbb5fd554a4b017d2237b99916184542c393a2",
+  "/workspace/qwen-author-check-20261024/protocols/vti_selected_generation_20261025/runtime/vlm_grounding/data.py": "bc0869a45f4d9833d89b3ff9ded42e3af95e6c94bec514ec1e439600d6a3cf77",
+  "/workspace/qwen-author-check-20261024/protocols/vti_selected_generation_20261025/runtime/vlm_grounding/evaluation.py": "be7e0912e24a73d481a494c8beefe7b63a7f93155cc86f0fd8106d8e85100a8d",
+  "/workspace/qwen-author-check-20261024/protocols/vti_selected_generation_20261025/runtime/vlm_grounding/generation_health.py": "347b419b64a94558b003f87c29b1af4b5ba83697a7f19a28fadddc6b1323ce13",
+  "/workspace/vlm-baselines-20261024/upstream/chair/chair.py": "98728cd2b7fb8b97420b5f3bf14789dcad1d7d980de9c089b82856217387770d",
+  "/workspace/qwen-author-check-20261024/annotations/instances_val2014.json": "5c52ae1faec7ae321f8b7f15011f4f3bcfb47d2b40360352acc62f37a560c72f",
+  "/workspace/qwen-author-check-20261024/annotations/captions_val2014.json": "58fd662d9590fd4a40852fc55ed91d705b7e3bf369ea76c2b32104300bff37e8",
+  "/workspace/vlm-baselines-20261024/experiment_data/test.jsonl": "b4d54c29a79d594f31993da6688dabd0b27542f5387131e9ab04f9774df992a6",
+  "/workspace/vlm-baselines-20261024/experiment_data/grains_fit.jsonl": "337eab2990250a275f969df6e0889d0e014a0a832cfba914fca95df53ff55d39"
+}

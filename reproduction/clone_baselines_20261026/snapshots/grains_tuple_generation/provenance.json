@@ -1,0 +1,8 @@
+{
+  "parent_manifest_sha256": "0d13094bc81018e8aa51a2fbea4fe44e80594c90a6da5265fb3f72f96215f7eb",
+  "extraction_header_sha256": "bc1db9504cf0658708fe448290d86f50dfc200657f55799ba9e3dc0472c36ffe",
+  "reason": "Preserve original transformers4.51 tuple-based hook normalization on native transformers5.20 Tensor output; same original formula and settings; no test tuning",
+  "upstream_current_generation_profile": "Native Tensor contract diagnostic, separate from original tuple contract continuation",
+  "test_pairs": 100,
+  "fit_examples": 50
+}

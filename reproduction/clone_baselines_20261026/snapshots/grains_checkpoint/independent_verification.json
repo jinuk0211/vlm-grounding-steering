@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-26T06:08:48.329716+00:00",
+  "snapshot": "original_baselines_20261025\\server_evidence\\grains_checkpoint_20261026T055936Z",
+  "source_files": 50,
+  "files_verified": 123,
+  "methods": {
+    "grains": {
+      "raw_rows": 70,
+      "chain_and_inputs_verified": true,
+      "paired_tensor_hashes_equal": true,
+      "last_row_sha256": "730896d02f56b11141070cc4cdbbaeed43e495864ca2159d558d31601c8a9f7c"
+    }
+  },
+  "new_milestones": []
+}
