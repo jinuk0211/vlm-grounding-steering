@@ -1,5 +1,15 @@
 # VLM Grounding Steering
 
+## 2026-10-26 baseline 선정과 실제 pilot 기록
+
+[선정표와 소스·설정 선택 설명](docs/baseline_selection_20261026.md),
+[고정 프로필 JSON](configs/baseline_selection_20261026.json),
+[검증된 pilot 점수](docs/results/qwen_pilot_20261026.json)를 추가했습니다.
+REVIS·VTI의 저자 코드 출처와 설정 선택을 구분하고 RUDDER의 개선 없는 결과,
+GrAInS의 반환계약 진단과 대기 중인 평가, VTI의 실패 포함 부분 결과를 표시합니다.
+아래 기존 CLI 구현 상태와 별도의 원저자 호출 실험 기록이며, 이 문서 추가가
+실행 코드 교체·네 방법 전체 재현 성공·full 평가 완료를 뜻하지 않습니다.
+
 **GPU 실험을 준비하는 연구 구현입니다. 성능 개선이나 논문 재현 성공을 보고하는 저장소가 아닙니다.**
 
 제안 방법 **EPHS (Evidence-Preserving Head Steering)**와 Base, REVIS, RUDDER,
