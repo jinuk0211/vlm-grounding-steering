@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "kind": "baseline_selection_record",
+  "date": "2026-10-26",
+  "runtime_cli_config": false,
+  "model": {
+    "name": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5"
+  },
+  "test_manifest_sha256": "b4d54c29a79d594f31993da6688dabd0b27542f5387131e9ab04f9774df992a6",
+  "full_input_counts": {
+    "caption": 2000,
+    "pope": 9000,
+    "mmhal": 96,
+    "total": 11096
+  },
+  "pilot_counts": {
+    "caption": 50,
+    "pope": 50,
+    "paired_inputs": 100
+  },
+  "whole_reproduction_complete": false,
+  "selection_context": {
+    "selection_date_after_pilot_observation": true,
+    "best_test_milestone_chosen": false,
+    "report_pilot_excluded_confirmation_subset": true,
+    "source_provenance_separate_from_parameter_selection": true
+  },
+  "methods": {
+    "revis": {
+      "upstream": {
+        "repository": "https://github.com/antgroup/Revis",
+        "commit": "75f4d29d402d4c1c4dbb2c69e88e3aa50cd0c9cc"
+      },
+      "profile": "released_code",
+      "decision": "selected_for_completed_pilot_comparison",
+      "parameters": {
+        "layer": 27,
+        "alpha": 2.5,
+        "risk_percentile": 85,
+        "calibrated_threshold": -0.111376953125
+      },
+      "dtype": "bfloat16",
+      "source_path": "Existing author-call pilot; normalized source/AST and supplied vector match pinned full Git clone",
+      "selection_basis": "Released-code profile selected with paper/code pilot observations available. Alpha/percentile were not retuned on test. Not a fresh clone full-run result.",
+      "pretrained_pilot_pairs": 100,
+      "confirmed_repetition_outputs": 1,
+      "full_eligible": false,
+      "full_eligibility_reason": "Output-quality review pending; exploratory benefit, not statistically confirmed"
+    },
+    "rudder": {
+      "upstream": {
+        "repository": "https://github.com/Akko000/RUDDER-Residual-Update-Directed-DEcoding-Regulation-",
+        "commit": "bd149d8dbde6a9097dd02aea80f83d0bd8876761"
+      },
+      "profile": "cloned_released_beta_defaults",
+      "decision": "selected_for_completed_pilot_comparison",
+      "parameters": {
+        "caption": {
+          "layer": 25,
+          "alpha": 5,
+          "k": 5,
+          "c": 1,
+          "max_new_tokens": 512
+        },
+        "pope": {
+          "layer": 1,
+          "alpha": 8,
+          "k": 5,
+          "c": 1,
+          "max_new_tokens": 8
+        }
+      },
+      "dtype": "bfloat16",
+      "decoding": {
+        "do_sample": false,
+        "num_beams": 1,
+        "use_cache": true
+      },
+      "selection_basis": "Completed direct cloned-function pilot; no improvement retained as a valid comparison result. Not a calibrated winner.",
+      "compatibility_changes": "Native Qwen image/role placeholders plus preserved import/plumbing changes; original CARD/gate calculations called",
+      "pretrained_pilot_pairs": 100,
+      "full_eligible": false
+    },
+    "grains": {
+      "upstream": {
+        "repository": "https://github.com/duykhuongnguyen/GrAInS",
+        "commit": "8ad78db3040fbb7b0aec9e544a3dcc7b9c050b5b"
+      },
+      "profile": "original_tuple_contract",
+      "decision": "profile_selected_test_result_pending",
+      "parameters": {
+        "fit_examples": 50,
+        "ig_steps": 20,
+        "top_k": 50,
+        "mode": "pos",
+        "vector_method": "pca",
+        "layer": 27,
+        "alpha": 10,
+        "released_scale_multiplier": 10,
+        "max_new_tokens": 256
+      },
+      "dtype": "float32",
+      "decoding": {
+        "do_sample": false,
+        "num_beams": 1,
+        "use_cache": true
+      },
+      "fit_artifacts_verified": true,
+      "pretrained_pilot_pairs": 0,
+      "decoder_contract": "Tensor-to-tuple, unchanged author hook, tuple-to-Tensor; original dim=1 normalization retained",
+      "adapter_limits": [
+        "Missing public VLM generation helpers replaced by explicit native-generation connection",
+        "Released token-only attribution/ablation path retained; no certification of native image-path equivalence"
+      ],
+      "excluded_diagnostic": "nativeTensor contract 30-pair diagnostic",
+      "full_eligible": false
+    },
+    "vti": {
+      "upstream": {
+        "repository": "https://github.com/shengliu66/VTI",
+        "commit": "bb5dfee33a9e555f22af9faa7b3495c0ac3df69e"
+      },
+      "profile": "corrected_mask_development_selected_released_code",
+      "decision": "profile_selected_final_coverage_pending",
+      "parameters": {
+        "caption": {
+          "vision_alpha": 0.2,
+          "text_alpha": 0.5,
+          "max_new_tokens": 512
+        },
+        "pope": {
+          "vision_alpha": 0.1,
+          "text_alpha": 0.1,
+          "max_new_tokens": 256
+        }
+      },
+      "dtype": "float16",
+      "decoding": {
+        "do_sample": false,
+        "num_beams": 1,
+        "use_cache": true,
+        "repetition_penalty": 1
+      },
+      "strength_selection": {
+        "development_inputs": 20,
+        "caption": 10,
+        "annotation_derived_yes_no": 10,
+        "official_pope_benchmark": false,
+        "candidate_combinations": 100,
+        "development_generations": 2040,
+        "strengths_selected_using_test_scores": false
+      },
+      "source_path": "Existing selected author-wrapper pilot; normalized source/AST equals pinned full Git clone; continuation not yet completed",
+      "pretrained_pilot_pairs": 62,
+      "confirmed_repetition_outputs": 1,
+      "failed_outputs_retained": true,
+      "full_eligible": false
+    }
+  }
+}

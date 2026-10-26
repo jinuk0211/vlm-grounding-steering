@@ -1,0 +1,3 @@
+snapshots/** -text
+support/** -text
+publication_sha256.json -text

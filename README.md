@@ -1,5 +1,19 @@
 # VLM Grounding Steering
 
+## 2026-10-26 baseline 선정과 실제 pilot 기록
+
+[선정표와 소스·설정 선택 설명](docs/baseline_selection_20261026.md),
+[고정 프로필 JSON](configs/baseline_selection_20261026.json),
+[검증된 pilot 점수](docs/results/qwen_pilot_20261026.json)를 추가했습니다.
+[전체 실험 결과 보고서](docs/results/all_experiments_20261026_1954_KST.md)는
+2026-10-26 19:54 KST 기준의 보존본으로, 이전 실험·누적 점수·실패 이력까지 정리합니다.
+[RUDDER·GrAInS 원본 clone과 실행 코드](reproduction/clone_baselines_20261026/README.md)에는
+두 원저자 저장소의 고정 submodule과 실제 사용한 실행기·수정 파일을 분리해 두었습니다.
+REVIS·VTI의 저자 코드 출처와 설정 선택을 구분하고 RUDDER의 개선 없는 결과,
+GrAInS의 반환계약 진단과 대기 중인 평가, VTI의 실패 포함 부분 결과를 표시합니다.
+아래 기존 CLI 구현 상태와 별도의 원저자 호출 실험 기록이며, 이 문서 추가가
+실행 코드 교체·네 방법 전체 재현 성공·full 평가 완료를 뜻하지 않습니다.
+
 **GPU 실험을 준비하는 연구 구현입니다. 성능 개선이나 논문 재현 성공을 보고하는 저장소가 아닙니다.**
 
 제안 방법 **EPHS (Evidence-Preserving Head Steering)**와 Base, REVIS, RUDDER,
@@ -45,12 +59,13 @@ HONES 등과 겹치므로, 실제 기여를 주장하려면 가까운 방법과 
 | 세 checkpoint의 실제 GPU 실행·원논문 점수 재현 | **미실행** |
 | 제안 방법의 baseline 우월성 | **결과 없음** |
 
-baseline 네 개는 저자 코드를 그대로 실행한 결과가 아닙니다. GrAInS의 fused-embedding
+기존 CLI의 baseline 네 개는 저자 코드를 그대로 실행한 결과가 아닙니다. GrAInS의 fused-embedding
 IG, VTI의 고정 visual grid, prefill 개입 범위 등 차이를
 [baseline_implementation.md](docs/baseline_implementation.md)에 명시했습니다.
 기록에는 `author_reproduction=false`를 남깁니다.
 
-원 저장소는 `fetch-upstream` 명령으로 고정한 커밋을 별도 다운로드할 수 있습니다.
+원 저장소는 `fetch-upstream` 명령으로 다운로드하거나 위 RUDDER·GrAInS
+submodule의 고정 commit에서 확인할 수 있습니다.
 타인 코드·데이터·모델 가중치를 이 저장소에 복사해서 배포하지 않습니다.
 
 ## CPU에서 지금 확인하기
