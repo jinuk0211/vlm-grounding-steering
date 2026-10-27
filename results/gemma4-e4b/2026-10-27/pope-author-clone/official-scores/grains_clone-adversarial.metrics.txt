@@ -1,0 +1,7 @@
+TP	FP	TN	FN	
+1239	219	1281	261
+Accuracy: 0.84
+Precision: 0.8497942386831275
+Recall: 0.826
+F1 score: 0.8377281947261663
+Yes ratio: 0.486

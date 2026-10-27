@@ -1,0 +1,127 @@
+{
+  "benchmark": "MMVP",
+  "dataset_repo": "MMVP/MMVP",
+  "dataset_revision": "37eafecab8a3940c50c2ade5b36de69dbc99a8cf",
+  "questions_sha256": "f10b751410b678f8c922124c2b6dd0d6370d78d3dffc9e83458d109b0746e12f",
+  "evaluation_records": 300,
+  "evaluation_pairs": 150,
+  "fit_records": 32,
+  "calibration_records": 32,
+  "development_source": "COCO train2017 via Ultralytics COCO128",
+  "seed": 42,
+  "development_archive_sha256": "61e5e3028863d8ffc3b81d6a514603954889f0edd5e4b44c4ce60b2da99aeb8e",
+  "exact_image_hash_overlap": 0,
+  "protocol": "Original MMVP questions/options, direct A/B answer; greedy max_new_tokens=128",
+  "label_policy": "Original author answers; corrected-label sensitivity reported separately",
+  "known_corrected_indices": {
+    "99": "B",
+    "100": "A",
+    "279": "B",
+    "280": "A"
+  },
+  "config": {
+    "model": {
+      "family": "gemma4",
+      "checkpoint": "google/gemma-4-E4B-it",
+      "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+      "device": "cuda",
+      "dtype": "bfloat16",
+      "attn_implementation": "eager",
+      "image_size": 448,
+      "yes_token": "Yes",
+      "no_token": "No",
+      "local_files_only": true
+    },
+    "generation": {
+      "max_new_tokens": 128,
+      "seed": 42
+    },
+    "discovery": {
+      "layers": [
+        5,
+        11,
+        23,
+        35,
+        41
+      ],
+      "top_k": 8,
+      "selection_mode": "causal",
+      "max_examples": 100,
+      "min_margin_drop": 0.05,
+      "normalization_floor": 1.0,
+      "control_penalty": 1.0,
+      "seed": 42
+    },
+    "fit": {
+      "epochs": 2,
+      "lr": 0.03,
+      "max_gain": 0.25,
+      "kl_weight": 1.0,
+      "l2_weight": 0.01,
+      "seed": 42
+    },
+    "methods": {
+      "base": {},
+      "ephs": {
+        "strength": 1.0
+      },
+      "revis": {
+        "alpha": 1.6,
+        "risk_quantile": 0.8
+      },
+      "rudder": {
+        "layer": 23,
+        "alpha": 0.5
+      },
+      "grains": {
+        "alpha": 0.5,
+        "ig_steps": 16
+      },
+      "vti": {
+        "alpha": 0.5,
+        "vision_alpha": 0.5,
+        "vision_pooling": "position"
+      }
+    }
+  },
+  "config_sha256": "6e3cde3fa3ff91a730af77ae1ee04737efcc19303922531a20462025159734a2",
+  "fit_sha256": "5669848c741d7195ea3b06f02a970bbf4ea158d3f9f3a21c041a191348bd2123",
+  "calibration_sha256": "22140f25d7638885437f6b4d87db66e51c80a175b997a78e597c32ee6533cc68",
+  "evaluation_sha256": "e3f1dce1117a876d94a38fd87ebf0bcdc909f73430dac44c358615bc567bc43c",
+  "source_commit": "1683e86223cdc491a2223d61ec63403bf37f7513",
+  "source_hashes": {
+    "src/vlm_grounding/backend.py": "b696d4bbd478800b7b8becd338745a78f652fdade678ff5e0194b1937887d4c9",
+    "src/vlm_grounding/baselines.py": "6f694520a98a44ba609443b49b2dd25cf2f0aa03ba16678fb2468bf384f88141",
+    "scripts/run_mmvp_full.py": "4f80373b2d8238cb63204da70f46820eefc031c44a76f4345b8bb0ce167f26ec"
+  },
+  "expected_methods": [
+    "base",
+    "revis",
+    "rudder",
+    "grains",
+    "vti"
+  ],
+  "author_reproduction": false,
+  "started_at": 1793082137.383297,
+  "supersedes": "/home/project-b/LJW/vlm-grounding-steering/outputs/mmvp-full-20261027-150336",
+  "numerical_repair": {
+    "grains_quadrature": "gauss-legendre",
+    "ig_steps": 16,
+    "finite_checks": true,
+    "regression_tests": "74 passed, 2 skipped",
+    "real_checkpoint_verification": {
+      "status": "passed",
+      "quadrature": "gauss-legendre",
+      "counts": [
+        {
+          "id": "coco-dev:71",
+          "positive": 10,
+          "negative": 10
+        }
+      ],
+      "max_vector_norm": 1.721583604812622,
+      "nonzero_layers": 42
+    }
+  },
+  "sha256": "f11e7c4c45c245575e8a8f5ba2799899be5616c54c9e99e6fafca4e27d0b1be2"
+}

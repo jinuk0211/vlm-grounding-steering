@@ -1,0 +1,7 @@
+TP	FP	TN	FN	
+1194	180	1320	306
+Accuracy: 0.838
+Precision: 0.868995633187773
+Recall: 0.796
+F1 score: 0.8308977035490606
+Yes ratio: 0.458

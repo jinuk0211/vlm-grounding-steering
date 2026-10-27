@@ -1,0 +1,31 @@
+{
+  "status": "paused_outputs_preserved_processes_terminated",
+  "paused_at_kst": "2026-10-27T18:36:40.972727+09:00",
+  "counts": {
+    "chair:base": 136,
+    "chair:base_fp32": 12,
+    "chair:grains_clone": 8,
+    "chair:revis": 134,
+    "chair:rudder_clone": 130,
+    "chair:vti": 132,
+    "pope:base": 3000,
+    "pope:base_fp32": 3000,
+    "pope:grains_clone": 3000,
+    "pope:revis": 3000,
+    "pope:rudder_clone": 3000,
+    "pope:vti": 3000
+  },
+  "chair_captions_preserved": 552,
+  "chair_captions_target": 3000,
+  "all_experiment_processes_exited": true,
+  "gpu_memory_released": true,
+  "gpu0_memory_used_mib": 2,
+  "incomplete_task_count": 4,
+  "incomplete_tasks": [
+    "chair-base_fp32-00008",
+    "chair-revis-00128",
+    "chair-rudder_clone-00128",
+    "chair-vti-00128"
+  ],
+  "resume_notes": "Validate saved prefixes before resuming. Detailed private process identities, server paths and execution commands are retained locally and on the experiment server, not published here."
+}
