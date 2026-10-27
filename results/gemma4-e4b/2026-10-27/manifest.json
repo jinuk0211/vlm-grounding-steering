@@ -1,0 +1,89 @@
+{
+  "date_kst": "2026-10-27",
+  "model": "google/gemma-4-E4B-it",
+  "implementation": "paper-derived-local-adaptation",
+  "author_reproduction": false,
+  "status": {
+    "pope_adversarial": "verified_complete",
+    "mmvp": "verified_complete",
+    "chair": "paused_incomplete",
+    "mmhal": "scoring_deferred"
+  },
+  "files": [
+    {
+      "path": "DIAGNOSIS_KO.md",
+      "bytes": 3788,
+      "sha256": "b3ea891bc9c32fc50453c28da2f5c93a11f43ceb65d58527f7578c82888352b5"
+    },
+    {
+      "path": "mmvp/config.json",
+      "bytes": 1169,
+      "sha256": "6e3cde3fa3ff91a730af77ae1ee04737efcc19303922531a20462025159734a2"
+    },
+    {
+      "path": "mmvp/metrics.csv",
+      "bytes": 799,
+      "sha256": "6100540b38921ee462cbde13d72979a841a151910998847d26d7ff4b8879e93c"
+    },
+    {
+      "path": "mmvp/protocol.json",
+      "bytes": 3691,
+      "sha256": "2e05c45fa351fc601b94ccbe601ba8073c6623c9931ffbf91f65ef23efa47df2"
+    },
+    {
+      "path": "mmvp/report.json",
+      "bytes": 9462,
+      "sha256": "68d5302dc3173308f78d5689afe34456f654b281bbdd94327577613b2e5498a4"
+    },
+    {
+      "path": "mmvp/responses/base.jsonl",
+      "bytes": 215399,
+      "sha256": "dd1156880067f030a8d2b1de79b9b216d35e7f6cccab935c738c4a8b52cd2499"
+    },
+    {
+      "path": "mmvp/responses/grains.jsonl",
+      "bytes": 215973,
+      "sha256": "2403aa80a0855a1da8f8f69f245d0f478ce1c60d757d20580a3c03d03aeb265f"
+    },
+    {
+      "path": "mmvp/responses/revis.jsonl",
+      "bytes": 215707,
+      "sha256": "b7ac3da944e5d3278d1346fa8467f92d6adf216becf1256518a881764c93cbac"
+    },
+    {
+      "path": "mmvp/responses/rudder.jsonl",
+      "bytes": 215971,
+      "sha256": "c618a5b505372f15bd6f748aab5eef501c2d4e1b543d0e6d6b54f4b16683ad8f"
+    },
+    {
+      "path": "mmvp/responses/vti.jsonl",
+      "bytes": 215094,
+      "sha256": "98b67c376819f87f2ae2b09ffb4a64e35aafb086f0499413c5dc451d9e676e32"
+    },
+    {
+      "path": "pope-adversarial/config.json",
+      "bytes": 1169,
+      "sha256": "6e3cde3fa3ff91a730af77ae1ee04737efcc19303922531a20462025159734a2"
+    },
+    {
+      "path": "pope-adversarial/metrics.csv",
+      "bytes": 722,
+      "sha256": "4ea1ffce30375ca98e2f4d7bfdfb998f9ff61fd89996ddf52bb61e9200c847a6"
+    },
+    {
+      "path": "pope-adversarial/protocol.json",
+      "bytes": 7922,
+      "sha256": "a8f55381b8fb174c950843863df8a8395150ca0bad341928b3628f718f9447e7"
+    },
+    {
+      "path": "pope-adversarial/report.json",
+      "bytes": 16649,
+      "sha256": "f029a613b5662d5fa709a341dfa36e4cce3ba3f1a2c49e6c63f56383b720b494"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4486,
+      "sha256": "8c2a5edb72b77a7d861cd57dbc8eb1ecf5c5c88cada65ac77d02eb335bd41c42"
+    }
+  ]
+}

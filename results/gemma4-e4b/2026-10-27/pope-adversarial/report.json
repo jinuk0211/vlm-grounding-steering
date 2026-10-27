@@ -1,0 +1,522 @@
+{
+  "status": "verified_complete",
+  "benchmark": "pope",
+  "protocol": {
+    "model": {
+      "family": "gemma4",
+      "checkpoint": "google/gemma-4-E4B-it",
+      "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+      "device": "cuda",
+      "dtype": "bfloat16",
+      "attn_implementation": "eager",
+      "image_size": 448,
+      "yes_token": "Yes",
+      "no_token": "No",
+      "local_files_only": true
+    },
+    "methods": [
+      "base",
+      "revis",
+      "rudder",
+      "grains",
+      "vti"
+    ],
+    "method_parameters": {
+      "base": {},
+      "ephs": {
+        "strength": 1.0
+      },
+      "revis": {
+        "alpha": 1.6,
+        "risk_quantile": 0.8
+      },
+      "rudder": {
+        "layer": 23,
+        "alpha": 0.5
+      },
+      "grains": {
+        "alpha": 0.5,
+        "ig_steps": 16
+      },
+      "vti": {
+        "alpha": 0.5,
+        "vision_alpha": 0.5,
+        "vision_pooling": "position"
+      }
+    },
+    "generation": {
+      "do_sample": false,
+      "num_beams": 1,
+      "use_cache": true,
+      "seed_per_example": 42,
+      "batch_size_per_worker": 1,
+      "pope_max_new_tokens": 128,
+      "chair_mmhal_max_new_tokens": 512,
+      "selected_max_new_tokens": 128
+    },
+    "evaluation_records_per_method": {
+      "pope": 3000
+    },
+    "dataset_provenance": {
+      "sources": {
+        "pope_commit": "08d957b917e5a378a2f99d35b6293c536a66298b",
+        "mmhal_commit": "f5f49a938f45ed99e235b8519ba28f76832a2add",
+        "coco_pope_random.json": {
+          "sha256": "ac25245170b975a5bdf9080b23fd431dfe6be458bc038259c1f4f09a6bef7994",
+          "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_random.json"
+        },
+        "coco_pope_popular.json": {
+          "sha256": "72c1a8ad45d0c13514f5f22598261df41d3b533854d29682e924db50ed8aa753",
+          "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_popular.json"
+        },
+        "coco_pope_adversarial.json": {
+          "sha256": "420b3407db1fa9f1187a805dca41cb7b97fd91504e6c2179706188c107fb8ef8",
+          "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_adversarial.json"
+        },
+        "mmhal_template_sha256": "28ed24e19ffef292597c35f1dad37760b2e0a088b3b40ca3b50f105fc1b951bb",
+        "coco_annotations": {
+          "url": "https://s3.amazonaws.com/images.cocodataset.org/annotations/annotations_trainval2014.zip",
+          "sha256": "031296bbc80c45a1d1f76bf9a90ead27e94e99ec629208449507a4917a3bf009"
+        }
+      },
+      "records": {
+        "pope": 9000,
+        "pope_unique": 5127,
+        "chair": 500,
+        "mmhal": 96
+      },
+      "chair_selection": {
+        "population": "COCO val2014 excluding fixed development image IDs",
+        "count": 500,
+        "seed": 42,
+        "algorithm": "random.Random(42).sample(sorted_by_image_id, 500)",
+        "fixed_metric_cohort": true,
+        "entire_COCO_validation": false
+      },
+      "development": {
+        "source": "/home/project-b/LJW/vlm-grounding-steering/data/mmvp-full",
+        "fit_images": 32,
+        "calibration_images": 32,
+        "image_id_overlap": 0,
+        "exact_image_hash_overlap": 0
+      },
+      "prompt_and_decoding": {
+        "caption": "Please describe this image in detail.",
+        "pope_suffix": "Please answer yes or no.",
+        "do_sample": false,
+        "num_beams": 1,
+        "pope_max_new_tokens": 128,
+        "caption_mmhal_max_new_tokens": 512
+      },
+      "mmhal_scoring": "official GPT-4 scoring deferred at explicit user request; generation only",
+      "completed_at": 1793083202.853687
+    },
+    "source_commit": "1683e86223cdc491a2223d61ec63403bf37f7513",
+    "source_hashes": {
+      "src/vlm_grounding/backend.py": "b696d4bbd478800b7b8becd338745a78f652fdade678ff5e0194b1937887d4c9",
+      "src/vlm_grounding/baselines.py": "6f694520a98a44ba609443b49b2dd25cf2f0aa03ba16678fb2468bf384f88141",
+      "src/vlm_grounding/evaluation.py": "b6a7e9994601d0e579fd46b9e961804f79a238f6b29bcaaf2ca9ed5644993265",
+      "scripts/run_single_gpu_benchmark_worker.py": "c9bdb3e9df591e8916d1b6140080977a800cf59186a27f74c2908d52ecff035b",
+      "scripts/launch_single_gpu_benchmark.py": "efa7699a6bb4a61f7dbb2714020f6c3413a7e16299c831842f97692b540268ad"
+    },
+    "manifest_hashes": {
+      "chair.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pope-unique.jsonl": "6fa6d2250989c94e7163f9f9f837968d5195d1bc2ce5af7e259cf361cc0ad7d6",
+      "mmhal.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifact_hashes": {
+      "revis": "a4bb25b23e73c673d8fa9d453bce8c680933e4752269c91ee97bec32020302bf",
+      "grains": "8e9a91b8afd427b8044e7616a47634c07670b4c415bd1bd5c4b7da5d9113f056",
+      "vti": "f477b7bc0d1cde35fa8cea02fa36f106d11eb5887667d9912097f395eb4d6759"
+    },
+    "artifact_source": "/home/project-b/LJW/vlm-grounding-steering/outputs/mmvp-full-igfix-20261027-152217",
+    "adaptation": "repository paper-derived Gemma local adaptations; not author reproductions",
+    "development_budget": {
+      "fit_images": 32,
+      "revis_calibration_images": 32,
+      "source": "COCO128 train2017",
+      "artifact_reuse_across_benchmarks": true
+    },
+    "pope_scoring": "official first-sentence No/not/no parser, plus separately reported strict leading yes/no metrics",
+    "chair_scoring": {
+      "port_commit": "4087a26211aa2339b9a76307cb8f0321ef691d0a",
+      "cohort_images": 500,
+      "seed": 42
+    },
+    "mmhal_scoring": "deferred by explicit user request; all96 responses per method exported in official schema",
+    "gpu_uuids": {
+      "0": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12"
+    },
+    "workers_per_gpu": 4,
+    "selected_benchmark": "pope",
+    "data_directory": "/home/project-b/LJW/vlm-grounding-steering/outputs/pope-selected-20261027-161933/data",
+    "pope_subset": "adversarial",
+    "max_new_tokens": 128,
+    "parent_protocol_sha256": "8f62464fcb96333568ebdb9e0196085e1f8ce0f334e3c06fe5582b57785cbf56",
+    "parent_output": "/home/project-b/LJW/vlm-grounding-steering/outputs/pope-selected-20261027-155655",
+    "adopted_hashes": {
+      "base.jsonl": "d1dbdfb7fa5aa20ed7d2f0a723a2d71e4ce5a11173118c530434a88347b2b090",
+      "vti.jsonl": "eb8826cb2c2923d4b2fc39cb5074bdbdacf5f815079a1f1a14e0a74fd5b14ec1",
+      "rudder.jsonl": "9b52dd1977b8401778f2f63d4df7165979c352b9ba1070641e50413536c3a44c",
+      "grains.jsonl": "023d65d35291b01a228e33691599011a88122f9a3447582dab394ab7af3e9376",
+      "revis.jsonl": "b10e9b0dab28278d1298e3e5826e9ce1f3d97a356d6f5d8ca52f5891f8b1efdd"
+    },
+    "adopted_counts": {
+      "base": 1740,
+      "revis": 1740,
+      "rudder": 1714,
+      "grains": 1697,
+      "vti": 1684
+    },
+    "user_scope_change": "POPE adversarial only plus CHAIR first; other POPE types and MMHal deferred",
+    "resource_policy": {
+      "gpu_index": 0,
+      "gpu_uuid": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+      "automatic_other_gpu_fallback": false
+    },
+    "vector_device_cache": {
+      "preserve_source_dtype": true,
+      "value_update_checks": 410,
+      "actual_generation_token_ids_identical": true,
+      "actual_generation_proof": {
+        "status": "passed",
+        "all_generated_token_ids_identical": true,
+        "development_image_used": "/home/project-b/LJW/vlm-grounding-steering/data/mmvp-full/coco128/images/train2017/000000000071.jpg",
+        "results": [
+          {
+            "method": "revis",
+            "generated_token_ids_identical": true,
+            "max_new_tokens": 48,
+            "cpu_vector_seconds": 4.67466998193413,
+            "gpu_vector_seconds": 3.904064587317407
+          },
+          {
+            "method": "grains",
+            "generated_token_ids_identical": true,
+            "max_new_tokens": 48,
+            "cpu_vector_seconds": 4.491717308759689,
+            "gpu_vector_seconds": 4.42467575520277
+          },
+          {
+            "method": "vti",
+            "generated_token_ids_identical": true,
+            "max_new_tokens": 48,
+            "cpu_vector_seconds": 4.169743456877768,
+            "gpu_vector_seconds": 4.086461111903191
+          }
+        ]
+      }
+    },
+    "sha256": "fd6abd72efde84845e0b5216504f6094e12c51e175b57ba837e433120b950dee"
+  },
+  "metrics": {
+    "base": {
+      "n": 3000,
+      "accuracy": 0.8383333333333334,
+      "precision": 0.8690909090909091,
+      "recall": 0.7966666666666666,
+      "f1": 0.831304347826087,
+      "yes_ratio": 0.4583333333333333,
+      "invalid": 0,
+      "tp": 1195,
+      "tn": 1320,
+      "fp": 180,
+      "fn": 305,
+      "strict": {
+        "n": 3000,
+        "n_image_groups": 500,
+        "mean_words": 1.0,
+        "mean_seconds": 0.3815220393794589,
+        "tokens_per_second": 5.242161116702397,
+        "mean_generated_tokens": 2.0,
+        "accuracy": 0.8383333333333334,
+        "precision": 0.8690909090909091,
+        "recall": 0.7966666666666666,
+        "F1": 0.831304347826087,
+        "yes_ratio": 0.4583333333333333,
+        "invalid_count": 0,
+        "invalid_ratio": 0.0,
+        "positive_accuracy": 0.7966666666666666,
+        "negative_accuracy": 0.88
+      },
+      "at_token_cap": 0,
+      "generated_tokens_mean": 2.0
+    },
+    "revis": {
+      "n": 3000,
+      "accuracy": 0.8393333333333334,
+      "precision": 0.8709912536443148,
+      "recall": 0.7966666666666666,
+      "f1": 0.8321727019498607,
+      "yes_ratio": 0.4573333333333333,
+      "invalid": 0,
+      "tp": 1195,
+      "tn": 1323,
+      "fp": 177,
+      "fn": 305,
+      "strict": {
+        "n": 3000,
+        "n_image_groups": 500,
+        "mean_words": 1.0,
+        "mean_seconds": 0.3845508866055558,
+        "tokens_per_second": 5.200872159349496,
+        "mean_generated_tokens": 2.0,
+        "accuracy": 0.8393333333333334,
+        "precision": 0.8709912536443148,
+        "recall": 0.7966666666666666,
+        "F1": 0.8321727019498607,
+        "yes_ratio": 0.4573333333333333,
+        "invalid_count": 0,
+        "invalid_ratio": 0.0,
+        "positive_accuracy": 0.7966666666666666,
+        "negative_accuracy": 0.882
+      },
+      "at_token_cap": 0,
+      "generated_tokens_mean": 2.0
+    },
+    "rudder": {
+      "n": 3000,
+      "accuracy": 0.8376666666666667,
+      "precision": 0.8683636363636363,
+      "recall": 0.796,
+      "f1": 0.8306086956521739,
+      "yes_ratio": 0.4583333333333333,
+      "invalid": 0,
+      "tp": 1194,
+      "tn": 1319,
+      "fp": 181,
+      "fn": 306,
+      "strict": {
+        "n": 3000,
+        "n_image_groups": 500,
+        "mean_words": 1.0,
+        "mean_seconds": 0.3816802820217175,
+        "tokens_per_second": 5.23998774420891,
+        "mean_generated_tokens": 2.0,
+        "accuracy": 0.8376666666666667,
+        "precision": 0.8683636363636363,
+        "recall": 0.796,
+        "F1": 0.8306086956521739,
+        "yes_ratio": 0.4583333333333333,
+        "invalid_count": 0,
+        "invalid_ratio": 0.0,
+        "positive_accuracy": 0.796,
+        "negative_accuracy": 0.8793333333333333
+      },
+      "at_token_cap": 0,
+      "generated_tokens_mean": 2.0
+    },
+    "grains": {
+      "n": 3000,
+      "accuracy": 0.8283333333333334,
+      "precision": 0.8968573730862208,
+      "recall": 0.742,
+      "f1": 0.8121123677489968,
+      "yes_ratio": 0.4136666666666667,
+      "invalid": 0,
+      "tp": 1113,
+      "tn": 1372,
+      "fp": 128,
+      "fn": 387,
+      "strict": {
+        "n": 3000,
+        "n_image_groups": 500,
+        "mean_words": 1.0,
+        "mean_seconds": 0.49169690886714185,
+        "tokens_per_second": 4.067546417177918,
+        "mean_generated_tokens": 2.0,
+        "accuracy": 0.8283333333333334,
+        "precision": 0.8968573730862208,
+        "recall": 0.742,
+        "F1": 0.8121123677489968,
+        "yes_ratio": 0.4136666666666667,
+        "invalid_count": 0,
+        "invalid_ratio": 0.0,
+        "positive_accuracy": 0.742,
+        "negative_accuracy": 0.9146666666666666
+      },
+      "at_token_cap": 0,
+      "generated_tokens_mean": 2.0
+    },
+    "vti": {
+      "n": 3000,
+      "accuracy": 0.8373333333333334,
+      "precision": 0.8635057471264368,
+      "recall": 0.8013333333333333,
+      "f1": 0.8312586445366529,
+      "yes_ratio": 0.464,
+      "invalid": 0,
+      "tp": 1202,
+      "tn": 1310,
+      "fp": 190,
+      "fn": 298,
+      "strict": {
+        "n": 3000,
+        "n_image_groups": 500,
+        "mean_words": 1.0,
+        "mean_seconds": 0.5061037561868628,
+        "tokens_per_second": 3.95175885488106,
+        "mean_generated_tokens": 2.0,
+        "accuracy": 0.8373333333333334,
+        "precision": 0.8635057471264368,
+        "recall": 0.8013333333333333,
+        "F1": 0.8312586445366529,
+        "yes_ratio": 0.464,
+        "invalid_count": 0,
+        "invalid_ratio": 0.0,
+        "positive_accuracy": 0.8013333333333333,
+        "negative_accuracy": 0.8733333333333333
+      },
+      "at_token_cap": 0,
+      "generated_tokens_mean": 2.0
+    }
+  },
+  "uncertainty": {
+    "base": {
+      "accuracy": {
+        "value": 0.8383333333333334,
+        "ci95": [
+          0.825,
+          0.8513333333333334
+        ],
+        "delta_vs_base": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "f1": {
+        "value": 0.831304347826087,
+        "ci95": [
+          0.8165966253745255,
+          0.8453538541830504
+        ],
+        "delta_vs_base": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "revis": {
+      "accuracy": {
+        "value": 0.8393333333333334,
+        "ci95": [
+          0.826,
+          0.8523333333333334
+        ],
+        "delta_vs_base": 0.0010000000000000009,
+        "delta_ci95": [
+          -0.0020000000000000018,
+          0.0043333333333333
+        ]
+      },
+      "f1": {
+        "value": 0.8321727019498607,
+        "ci95": [
+          0.8175746924428823,
+          0.8463949843260188
+        ],
+        "delta_vs_base": 0.0008683541237737291,
+        "delta_ci95": [
+          -0.0024005047085440185,
+          0.004329674106370781
+        ]
+      }
+    },
+    "rudder": {
+      "accuracy": {
+        "value": 0.8376666666666667,
+        "ci95": [
+          0.8243333333333334,
+          0.8506666666666667
+        ],
+        "delta_vs_base": -0.0006666666666667043,
+        "delta_ci95": [
+          -0.0020000000000000018,
+          0.0006666666666665932
+        ]
+      },
+      "f1": {
+        "value": 0.8306086956521739,
+        "ci95": [
+          0.8160551471258916,
+          0.8447377561653352
+        ],
+        "delta_vs_base": -0.0006956521739130972,
+        "delta_ci95": [
+          -0.002299957811982889,
+          0.0008093881573098259
+        ]
+      }
+    },
+    "grains": {
+      "accuracy": {
+        "value": 0.8283333333333334,
+        "ci95": [
+          0.8153333333333334,
+          0.841
+        ],
+        "delta_vs_base": -0.010000000000000009,
+        "delta_ci95": [
+          -0.017333333333333423,
+          -0.0023333333333334094
+        ]
+      },
+      "f1": {
+        "value": 0.8121123677489968,
+        "ci95": [
+          0.7960233807175153,
+          0.8272859216255443
+        ],
+        "delta_vs_base": -0.01919198007709022,
+        "delta_ci95": [
+          -0.027702672736740413,
+          -0.01081954952108619
+        ]
+      }
+    },
+    "vti": {
+      "accuracy": {
+        "value": 0.8373333333333334,
+        "ci95": [
+          0.824,
+          0.8503333333333334
+        ],
+        "delta_vs_base": -0.0010000000000000009,
+        "delta_ci95": [
+          -0.004666666666666708,
+          0.002666666666666706
+        ]
+      },
+      "f1": {
+        "value": 0.8312586445366529,
+        "ci95": [
+          0.816950329975686,
+          0.845156889495225
+        ],
+        "delta_vs_base": -4.570328943409585e-05,
+        "delta_ci95": [
+          -0.004081812045313019,
+          0.00406206623710715
+        ]
+      }
+    }
+  },
+  "cases_per_method": 3000,
+  "total_responses": 15000,
+  "audit": {
+    "all_five_methods_complete": true,
+    "identical_cohorts": true,
+    "source_and_input_hashes_verified": true,
+    "adopted_responses_verified": true,
+    "development_test_exact_hash_overlap": 0,
+    "actual_workers_exited": true,
+    "official_scorer_used": true
+  },
+  "analysis_hashes": {
+    "auditor": "d928a22bbc4e3dbce2b2e102765151bd7e726e95cac73d066e3356601364c74e",
+    "helper": "b620f4f7e56d2064cd9351e73469d67410db9e4f329bf9dd4055e1189765661f"
+  },
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/pope-selected-20261027-161933"
+}
