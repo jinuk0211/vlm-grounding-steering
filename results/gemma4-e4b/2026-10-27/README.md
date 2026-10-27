@@ -1,63 +1,62 @@
 # Gemma E4B 실험 결과 · 2026-10-27
 
-**참고용 결과다. REVIS·RUDDER·GrAInS·VTI는 이 저장소의 Gemma 적용 구현이며, 논문 저자 원본의 성능 재현 결과가 아니다.**
+## 오늘 마감 상태
 
-| 평가 | 상태 | 방법당 평가량 |
-|---|---|---:|
-| POPE COCO adversarial | 완료·독립 검증 | 3,000문항 / 500장 |
-| MMVP | 완료·독립 검증 | 300문항 / 150쌍 |
-| CHAIR | 사용자 요청으로 일시 정지·미완료 | 고정 COCO val2014 500장 계획 |
-| MMHal-Bench | 공식 채점 보류 | 추가 생성도 현재 보류 |
+- POPE adversarial: 저자 원본 함수를 Gemma에 연결한 RUDDER·GrAInS를 포함해 6조건 × 3,000문항 생성·공식 채점 완료.
+- MMVP: 이전 Gemma 적용 구현 5방법 × 300문항·150쌍 평가 완료. 원본 clone으로 다시 평가한 결과는 아니다.
+- CHAIR: COCO val2014 고정 500장 × 6조건·최대512토큰. 생성된 캡션 552/3,000개를 보존하고 사용자 요청으로 실험 프로세스를 종료해 GPU0 메모리까지 해제했다. 최종 점수는 아직 없다.
+- POPE random/popular 및 MMHal 추가 생성·공식 채점은 보류.
 
-CHAIR와 MMHal의 최종 점수는 아직 없다. 이 업로드는 실험을 재개하지 않는다.
+[내일 이어서 할 일](HANDOFF_KO.md) · [정지 상태 요약](run-state/PAUSED_SUMMARY.json) · [재개 안내](run-state/RESUME_NOTES_KO.md)
 
-## POPE adversarial
+## POPE adversarial — 최신 원본 clone 실행
 
-| 방법 | 정확도 ↑ | F1 ↑ | Precision ↑ | Recall ↑ |
+각 조건 3,000문항이며 표의 단위는 %다. GrAInS는 Base FP32와, 나머지 방법은 Base BF16과 비교한다.
+
+| 방법 | Accuracy ↑ | F1 ↑ | Precision ↑ | Recall ↑ |
 |---|---:|---:|---:|---:|
-| base | 83.83% | 83.13% | 86.91% | 79.67% |
-| revis | 83.93% | 83.22% | 87.10% | 79.67% |
-| rudder | 83.77% | 83.06% | 86.84% | 79.60% |
-| grains | 82.83% | 81.21% | 89.69% | 74.20% |
-| vti | 83.73% | 83.13% | 86.35% | 80.13% |
+| Base BF16 | 83.83 | 83.13 | 86.91 | 79.67 |
+| REVIS 기존 | 83.93 | 83.22 | 87.10 | 79.67 |
+| VTI 기존 | 83.73 | 83.13 | 86.35 | 80.13 |
+| RUDDER 원본 clone | 83.80 | 83.09 | 86.90 | 79.60 |
+| Base FP32 | 83.90 | 83.23 | 86.82 | 79.93 |
+| GrAInS 원본 clone | 84.00 | 83.77 | 84.98 | 82.60 |
 
-REVIS의 정확도 차이는 Base 대비 +0.10%p이며 이미지 단위 paired bootstrap 10,000회의 95% 구간은 -0.20~0.43%p다. 전반적인 성능 개선을 확인했다고 해석하지 않는다.
-GrAInS는 이 설정의 POPE에서 Base보다 정확도와 F1이 낮았다. 응답 형식 오류는 다섯 방법 모두 0개다.
+GrAInS는 FP32 Base 대비 Acc +0.10%p, F1 +0.54%p다. 답이 달라진 83문항 중 43개 개선·40개 악화로 정답이 3개 늘었다. Precision은 −1.84%p, Recall은 +2.67%p다.
+이미지 단위 paired bootstrap 10,000회에서 차이의 95% 구간은 Acc −0.50~+0.70%p, F1 −0.08~+1.19%p로 두 구간 모두 0을 포함한다. 뚜렷한 개선이 입증됐다고 해석하지 않는다.
 
-[점수 CSV](pope-adversarial/metrics.csv) · [상세 보고서와 불확실성](pope-adversarial/report.json) · [프로토콜](pope-adversarial/protocol.json)
+[최신 CSV](pope-author-clone/metrics.csv) · [공식 보고서·신뢰구간](pope-author-clone/report.json) · [문항별 비교](pope-author-clone/paired-comparison.json) · [실행 프로토콜](pope-author-clone/protocol.json)
 
-## MMVP
+[원본 응답 18,000개·공식 채점 자료 ZIP](pope-author-clone/pope-complete-delivery.zip)에는 여섯 조건의 JSONL을 원래 형식으로 보존했다. 전달된 모든 응답을 독립 재채점해 공식 보고서와 일치함을 확인했다.
 
-| 방법 | 문항 정확도 ↑ | 쌍 정확도 ↑ |
-|---|---:|---:|
-| base | 212/300 (70.67%) | 68/150 (45.33%) |
-| revis | 214/300 (71.33%) | 70/150 (46.67%) |
-| rudder | 213/300 (71.00%) | 69/150 (46.00%) |
-| grains | 216/300 (72.00%) | 72/150 (48.00%) |
-| vti | 214/300 (71.33%) | 70/150 (46.67%) |
+### 구현과 검증
 
-쌍의 두 문항을 모두 맞혀야 해당 쌍을 정답으로 센다. 원래 MMVP 정답을 주 지표로 사용했고, 알려진 4문항의 정답 수정에 대한 민감도 분석은 CSV와 JSON에 별도 보관했다. 이 결과만으로 방법의 우월성을 확정할 수 없다.
+- RUDDER 저자 고정 커밋 `bd149d8dbde6a9097dd02aea80f83d0bd8876761`, GrAInS `8ad78db3040fbb7b0aec9e544a3dcc7b9c050b5b`의 원본 핵심 함수를 실제 호출했다.
+- 모델은 `google/gemma-4-E4B-it`, revision `ee0ef6023621cff504d758262d4e04895a5af4a2`. Gemma 입력·PLE·출력 반환형 연결은 별도 adapter이므로 저자 checkpoint와 환경 전체를 재현한 결과는 아니다.
+- GrAInS는 겹치지 않는 개발 이미지 50장, 원본 IG20/top50/PCA layer27·alpha10·FP32다. 벡터·원본 추출물은 독립 재검증했다.
+- REVIS·VTI는 이전 서버의 Gemma 적용 구현·벡터를 유지했다. 해당 방법까지 저자 원본 clone으로 재실행했다는 의미는 아니다.
+- greedy 생성, seed42, POPE 최대128토큰, CHAIR 최대512토큰. 테스트와 개발 이미지 해시 중복0개.
+- 실행 소스의 해시와 호환성 증거는 [source-hashes.json](pope-author-clone/source-hashes.json)과 [proofs](pope-author-clone/proofs/)에 보관했다. 전체 protocol의 소스·입력·캐시 해시는 원본 그대로 유지했다. 실행 소스 코드 본체는 이번 결과 업로드에서 제외했다.
 
-[점수 CSV](mmvp/metrics.csv) · [상세 보고서](mmvp/report.json) · [문항별 원본 응답](mmvp/responses/) · [프로토콜](mmvp/protocol.json)
+## MMVP — 이전 Gemma 적용 구현
 
-## 실행 조건과 구현 제한
+| 방법 | 문항 정답 / 300 | 문항 정확도 | 쌍 정답 / 150 | 쌍 정확도 |
+|---|---:|---:|---:|---:|
+| base | 212 | 70.67% | 68 | 45.33% |
+| revis | 214 | 71.33% | 70 | 46.67% |
+| rudder | 213 | 71.00% | 69 | 46.00% |
+| grains | 216 | 72.00% | 72 | 48.00% |
+| vti | 214 | 71.33% | 70 | 46.67% |
 
-- 모델: `google/gemma-4-E4B-it`, revision `ee0ef6023621cff504d758262d4e04895a5af4a2`, BF16, 이미지 크기 448, greedy 생성, seed 42.
-- COCO train2017의 별도 개발 이미지 32장으로 벡터를 추출하고 REVIS는 추가 32장으로 보정했다. 테스트 이미지와 개발 이미지의 정확한 해시 중복은 0개다.
-- 방법별 강도는 고정된 초기 설정이다. Gemma용 최적 하이퍼파라미터를 찾았다는 의미가 아니다. 테스트 정답으로 벡터·보정·강도를 선택하지 않았다.
-- REVIS의 추출·보정·prefill 범위, VTI의 PCA·주입 방식 등은 저자 코드와 다르다. [구현 차이와 POPE 답변 변화](DIAGNOSIS_KO.md)를 함께 참고한다.
-- GrAInS IG는 BF16의 비유한 gradient를 막기 위해 Gauss–Legendre 16단계를 사용했다. 실행 소스·입력·벡터 해시와 검증 내역은 상세 보고서에 보관했다.
-- POPE는 공식 evaluate.py 결과와 독립 재채점이 일치했다. MMVP는 전체 응답을 독립 재채점했다.
+쌍의 두 문항을 모두 맞혀야 해당 쌍이 정답이다. 원래 MMVP 정답을 주 지표로 쓰며 알려진 4문항 수정의 민감도 분석은 기존 상세 보고서에 보존했다.
+[MMVP CSV](mmvp/metrics.csv) · [상세 보고서](mmvp/report.json) · [원본 응답 1,500개](mmvp/responses/)
 
-## 저장 범위와 원본 위치
+## 이전 결과와 진단 보존
 
-이 폴더에는 완료된 두 평가의 CSV·원본 JSON 보고서·설정·프로토콜, MMVP의 문항별 응답 1,500개를 보관한다. POPE의 문항별 응답 15,000개와 CHAIR의 중간 생성물은 서버 원본에 보존돼 있다.
+이전 로컬 RUDDER·GrAInS 구현의 POPE 결과는 [pope-adversarial](pope-adversarial/)에 그대로 보존했다. 새 원본 clone 점수와 섞지 않는다.
+[이전 요약](legacy/README_BEFORE_AUTHOR_CLONE.md) · [이전 POPE 진단](DIAGNOSIS_KO.md) · [RUDDER 원본 clone 진단](pope-author-clone/diagnostics/WHY_RUDDER_CLONE_FLAT.md)
 
-- POPE: `/home/project-b/LJW/vlm-grounding-steering/outputs/pope-selected-20261027-161933/merged/`
-- MMVP: `/home/project-b/LJW/vlm-grounding-steering/outputs/mmvp-full-igfix-20261027-152217/`
-- CHAIR 중간 출력: `/home/project-b/LJW/vlm-grounding-steering/outputs/chair-selected-20261027-163104/`
-
-원본 보고서의 실행 완료 상태는 각 벤치마크 범위에만 해당한다. 전체 벤치마크 계획의 완료를 뜻하지 않는다. 현재 GPU0 한 장에서 실행하던 CHAIR와 자동 실행은 사용자 요청으로 일시 정지 상태다. 이전 실행의 하드웨어 정보는 각 원본 보고서에 남아 있다.
+GitHub에는 완료된 결과·식별 정보를 뺀 정지 상태 요약과 [CHAIR 부분 응답 백업 ZIP](run-state/chair-paused-delivery.zip)을 보관한다. 벡터·원본 추출물은 실험 서버에 보존돼 있다. 개인 서버 경로·프로세스 식별 정보·정확한 재개 명령을 포함한 상세 정지 원본은 로컬에 별도로 보관했다.
 
 파일 무결성은 [manifest.json](manifest.json)의 SHA-256으로 확인할 수 있다.
 

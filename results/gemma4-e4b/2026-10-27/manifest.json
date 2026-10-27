@@ -1,19 +1,45 @@
 {
   "date_kst": "2026-10-27",
-  "model": "google/gemma-4-E4B-it",
-  "implementation": "paper-derived-local-adaptation",
+  "snapshot_kst": "2026-10-27T18:49:08.725796+09:00",
+  "model": {
+    "family": "gemma4",
+    "checkpoint": "google/gemma-4-E4B-it",
+    "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "attn_implementation": "eager",
+    "image_size": 448,
+    "yes_token": "Yes",
+    "no_token": "No",
+    "local_files_only": true
+  },
+  "implementation": "author-core-functions-with-explicit-Gemma-architecture-adapters; retained local REVIS/VTI",
   "author_reproduction": false,
   "status": {
-    "pope_adversarial": "verified_complete",
-    "mmvp": "verified_complete",
-    "chair": "paused_incomplete",
+    "pope_author_clone": "verified_complete",
+    "pope_previous_local": "verified_complete",
+    "mmvp_previous_local": "verified_complete",
+    "chair": "paused_processes_terminated_outputs_preserved",
     "mmhal": "scoring_deferred"
   },
+  "protocol_sha256": "a70c1b06f65bb4f7c3a1373c0972b9813c98e201e77e8f2e928b14fccad3c35d",
+  "chair_captions_preserved": 552,
+  "gpu_memory_released": true,
   "files": [
     {
       "path": "DIAGNOSIS_KO.md",
       "bytes": 3788,
       "sha256": "b3ea891bc9c32fc50453c28da2f5c93a11f43ceb65d58527f7578c82888352b5"
+    },
+    {
+      "path": "HANDOFF_KO.md",
+      "bytes": 2386,
+      "sha256": "f3e6a8119e90bdb3ff76b9709c9d2651b4510b4f6d2c564ffa4bf5d992db531e"
+    },
+    {
+      "path": "legacy/README_BEFORE_AUTHOR_CLONE.md",
+      "bytes": 4513,
+      "sha256": "8807f168f8936d29f5f49867bf19eb42010659028e14e36ea4a6a04d8e566d75"
     },
     {
       "path": "mmvp/config.json",
@@ -81,9 +107,119 @@
       "sha256": "f029a613b5662d5fa709a341dfa36e4cce3ba3f1a2c49e6c63f56383b720b494"
     },
     {
+      "path": "pope-author-clone/diagnostics/RUDDER_SCALE_DIAGNOSTIC.json",
+      "bytes": 8630,
+      "sha256": "03311c9b7127eb32857acd06a04c5d1d04277d19e251e2feb07a0ae631e48989"
+    },
+    {
+      "path": "pope-author-clone/diagnostics/WHY_RUDDER_CLONE_FLAT.md",
+      "bytes": 1109,
+      "sha256": "e244ed406b3478963ddec082f817948d741875466c07f71c87f94a28bbd424f9"
+    },
+    {
+      "path": "pope-author-clone/execution-amendment.json",
+      "bytes": 491,
+      "sha256": "027ed8da1a3ed773a1bb94763a0e3ad4ec2bdc41116d8bbad79521679568575d"
+    },
+    {
+      "path": "pope-author-clone/metrics.csv",
+      "bytes": 538,
+      "sha256": "2cd12871de0de28e9ccdc3e1b495ab61d0e3476df76bac5905e3b94ee9056cdd"
+    },
+    {
+      "path": "pope-author-clone/official-scores/base-adversarial.metrics.txt",
+      "bytes": 176,
+      "sha256": "576878b8203ddf3f766f64252b7217035798e10d2ec4b7bba01d52a0753ed409"
+    },
+    {
+      "path": "pope-author-clone/official-scores/base_fp32-adversarial.metrics.txt",
+      "bytes": 163,
+      "sha256": "e0c82fd13ada00352ad65516ea5438d6de2a1a35d65f4102e689af2c30b34fa0"
+    },
+    {
+      "path": "pope-author-clone/official-scores/grains_clone-adversarial.metrics.txt",
+      "bytes": 136,
+      "sha256": "454c5f1503bdf3428e3c9cf70ca2fad16f2128e24e2dae0a7883938c91410ec7"
+    },
+    {
+      "path": "pope-author-clone/official-scores/revis-adversarial.metrics.txt",
+      "bytes": 176,
+      "sha256": "559ea77ede36bb19d5657da9e3015df73d06f642090ca42e677893188e48da14"
+    },
+    {
+      "path": "pope-author-clone/official-scores/rudder_clone-adversarial.metrics.txt",
+      "bytes": 136,
+      "sha256": "728ac2ba84eb52bbd75ea74e958dab4c9fb3409aa9955b02b8d03b8060b16689"
+    },
+    {
+      "path": "pope-author-clone/official-scores/vti-adversarial.metrics.txt",
+      "bytes": 163,
+      "sha256": "e59898d6aeb824b97a27850a9d9c73432cb684aa2172100673e3547981a18b50"
+    },
+    {
+      "path": "pope-author-clone/paired-comparison.json",
+      "bytes": 1278,
+      "sha256": "3a27bf93ca933e1bbadbdfac88337e47871371299e9a3bd260389117fc612909"
+    },
+    {
+      "path": "pope-author-clone/pope-complete-delivery.zip",
+      "bytes": 2013818,
+      "sha256": "ffeabc42a7dbb54c9ec014f02a244e13a0067bf577c2745f215aa6c4c2657c16"
+    },
+    {
+      "path": "pope-author-clone/proofs/bridge-validation.json",
+      "bytes": 5388,
+      "sha256": "1282ef424594ffff412612e27f8130af4d6106de1653ad7f5ea65516f95759f1"
+    },
+    {
+      "path": "pope-author-clone/proofs/result.json",
+      "bytes": 2136,
+      "sha256": "fd02030e249e9c83b542bf9a2015aa5cbddaee288f0479a166e3f2cea66de9e7"
+    },
+    {
+      "path": "pope-author-clone/protocol.json",
+      "bytes": 1032078,
+      "sha256": "850ea635a4464163585497f23bb2b2c05774a83f379c275ed0cc3e95e67f69de"
+    },
+    {
+      "path": "pope-author-clone/README.md",
+      "bytes": 1705,
+      "sha256": "4237b7a09b9e7a6e3b42cee6ccc5af8ea0d83c6ddfa9b1ad1896fecd52aa427b"
+    },
+    {
+      "path": "pope-author-clone/report.json",
+      "bytes": 9802,
+      "sha256": "0839e947158dd9ec0cdb605ab7854b7d99992b36855b5c603b9011879f86e91a"
+    },
+    {
+      "path": "pope-author-clone/source-hashes.json",
+      "bytes": 1935,
+      "sha256": "43dcf2be35bb9692edbfdd35948c47a9c7a859b3d4166d76a70723a4e32605c7"
+    },
+    {
       "path": "README.md",
-      "bytes": 4486,
-      "sha256": "8c2a5edb72b77a7d861cd57dbc8eb1ecf5c5c88cada65ac77d02eb335bd41c42"
+      "bytes": 5097,
+      "sha256": "a3f1a277bbe12f79023375a073fc0a0ceeacedac1c81cec37e7fd7a91572538f"
+    },
+    {
+      "path": "run-state/backup-verification.json",
+      "bytes": 539,
+      "sha256": "4165dfe38bc338a2aef282c07288afa49bf55357640ca66db65ac0f785b927cf"
+    },
+    {
+      "path": "run-state/chair-paused-delivery.zip",
+      "bytes": 506887,
+      "sha256": "0f291aff47a68accc7df448f6ea6bfc90a60589211ef2de21168f034d7eb615d"
+    },
+    {
+      "path": "run-state/PAUSED_SUMMARY.json",
+      "bytes": 996,
+      "sha256": "9b73148904f0aa3753a47c80016a3fcc5d8cbcffd7e4732725d3494a8dca7e97"
+    },
+    {
+      "path": "run-state/RESUME_NOTES_KO.md",
+      "bytes": 1387,
+      "sha256": "432ff5bcd83918cdfa896de28c090154d1df304f1a2e636137a0b353d0dc5925"
     }
   ]
 }

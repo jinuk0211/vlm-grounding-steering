@@ -1,0 +1,57 @@
+[
+  {
+    "path": "author_clone_bridge.py",
+    "sha256": "fbd67ccd5517eca9c3c339752deb4767884b9a990dd9eb1f7b84fab236143ddb",
+    "pinned_execution_hash_matched": true
+  },
+  {
+    "path": "run_author_clone_suite.py",
+    "sha256": "19e4f684396621487547e524cc7a897e29530027b76553c075eb3e1827cf7caa",
+    "pinned_execution_hash_matched": true
+  },
+  {
+    "path": "run_author_clone_worker.py",
+    "sha256": "87b21ed6a5d687ef73690d61e91dd54a93068e83d019fa43c2c2c71ebd5ceab0",
+    "pinned_execution_hash_matched": true
+  },
+  {
+    "path": "extract_author_grains.py",
+    "sha256": "ef1ff2c9ad97b841d3b815528d02d0cdb581e35cc8c46a8cb409b114995f08ba",
+    "pinned_execution_hash_matched": true
+  },
+  {
+    "path": "audit_hallucination_suite.py",
+    "sha256": "b620f4f7e56d2064cd9351e73469d67410db9e4f329bf9dd4055e1189765661f",
+    "pinned_execution_hash_matched": true
+  },
+  {
+    "path": "author_clone_worker_entry.py",
+    "sha256": "ec2d79528c88a2c8ce438852f8632698ba4ebe60774f585d4942cd49446e8e65",
+    "pinned_execution_hash_matched": true
+  },
+  {
+    "path": "resume_author_clone_suite.py",
+    "sha256": "86a209c4cf2fe4fa2fd1cf265894a479e26d96e2852c7b1899641a3b959660f6",
+    "pinned_execution_hash_matched": true
+  },
+  {
+    "path": "finish_author_clone_pope.py",
+    "sha256": "3b93da5eedcb7e2f3a30601f0d3d65036e91d69c7ed5211a40b7eced36cbc3ac",
+    "pinned_execution_hash_matched": false
+  },
+  {
+    "path": "audit_author_clone_suite.py",
+    "sha256": "587c0adce94eb96a765f2b4a6997e3d083148f1e6bb9575db7aec994c9a3caf8",
+    "pinned_execution_hash_matched": false
+  },
+  {
+    "path": "verify_author_clone_bridge.py",
+    "sha256": "7b28d225af29f336027e0efd5c652f33cfb33e5eb140fa5c89b99cd960a23b86",
+    "pinned_execution_hash_matched": false
+  },
+  {
+    "path": "preflight_author_clone.py",
+    "sha256": "482a6a171bfb3857d8cdbe2eb802f99c6c2e3bec305756eb26bf3f13f0064b16",
+    "pinned_execution_hash_matched": false
+  }
+]

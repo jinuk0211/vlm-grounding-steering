@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "model": {
+    "family": "gemma4",
+    "checkpoint": "google/gemma-4-E4B-it",
+    "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "device": "cuda",
+    "dtype": "float32",
+    "attn_implementation": "eager",
+    "image_size": 448,
+    "yes_token": "Yes",
+    "no_token": "No",
+    "local_files_only": true
+  },
+  "results": {
+    "rudder_pope": {
+      "response": "Yes",
+      "generated_tokens": 2,
+      "diagnostics": {
+        "calls": 2,
+        "active_positions": 2,
+        "positions": 281,
+        "max_gate": 0.9635199308395386,
+        "card_norm": 1.0,
+        "layer": 1,
+        "alpha": 8.0,
+        "hook_source": "/home/project-b/LJW/vlm-grounding-steering/upstream-author-20261026/RUDDER/Qwen/qwen_methods.py"
+      }
+    },
+    "rudder_chair": {
+      "response": "This is a photograph taken from an elevated perspective, likely from an overpass or a tall building, looking down onto a large railway yard or station area on a",
+      "generated_tokens": 32,
+      "diagnostics": {
+        "calls": 32,
+        "active_positions": 305,
+        "positions": 305,
+        "max_gate": 0.6541985869407654,
+        "card_norm": 0.9999999403953552,
+        "layer": 25,
+        "alpha": 5.0,
+        "hook_source": "/home/project-b/LJW/vlm-grounding-steering/upstream-author-20261026/RUDDER/Qwen/qwen_methods.py"
+      }
+    },
+    "ig": {
+      "seconds": 10.10422945022583,
+      "steps": 20,
+      "positive_abs_max": 1.5988599061965942,
+      "negative_abs_max": 1.8605197668075562
+    },
+    "grains": {
+      "response": "This image appears to be a photograph taken from an elevated vantage point, likely a bridge or an overpass, looking down onto a railway yard and a train.",
+      "generated_tokens": 32,
+      "diagnostics": {
+        "calls": 32,
+        "changed_elements": 733338,
+        "total_elements": 780800,
+        "max_abs_delta": 9.899240493774414,
+        "layer": 27,
+        "alpha": 10.0,
+        "hook_source": "/home/project-b/LJW/vlm-grounding-steering/upstream-author-20261026/GrAInS/src/utils/steering.py"
+      },
+      "vector_norm": 1.0
+    }
+  }
+}

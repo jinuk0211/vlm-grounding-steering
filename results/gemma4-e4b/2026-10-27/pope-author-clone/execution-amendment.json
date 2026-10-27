@@ -1,0 +1,10 @@
+{
+  "reason": "HF model.config lost revision metadata; validated pinned cache snapshot and restored metadata only",
+  "source_hashes": {
+    "scripts/author_clone_worker_entry.py": "ec2d79528c88a2c8ce438852f8632698ba4ebe60774f585d4942cd49446e8e65",
+    "scripts/resume_author_clone_suite.py": "86a209c4cf2fe4fa2fd1cf265894a479e26d96e2852c7b1899641a3b959660f6"
+  },
+  "original_protocol_unchanged": true,
+  "original_author_functions_unchanged": true,
+  "live_extraction_preserved": 806394
+}
