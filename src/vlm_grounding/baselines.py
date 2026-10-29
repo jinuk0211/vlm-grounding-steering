@@ -9,6 +9,7 @@ from __future__ import annotations
 from contextlib import ExitStack, contextmanager
 from typing import Any, Iterator
 
+from numpy.polynomial.legendre import leggauss
 import torch
 from torch import Tensor
 from torch.nn import functional as F
@@ -365,10 +366,14 @@ def _preference_attributions(adapter: Any, positive: dict, negative: dict, steps
     if not torch.allclose(prompt, neg_embeddings[:, :length], atol=1e-5, rtol=1e-4):
         raise ValueError("Preference pair fused prompt embeddings differ.")
     accumulated = torch.zeros_like(prompt, dtype=torch.float32)
-    # Trapezoidal integration includes both the neutral and actual endpoints.
+    # Gauss-Legendre integrates the same zero-baseline path without evaluating
+    # alpha=0, where real BF16 Gemma checkpoints can have non-finite gradients.
+    # This is also Captum IntegratedGradients' default quadrature.
+    nodes, weights = leggauss(steps)
     with torch.enable_grad():
-        for step in range(steps + 1):
-            variable = (prompt * (step / steps)).detach().requires_grad_(True)
+        for node, weight in zip(nodes, weights):
+            alpha = float((node + 1) / 2)
+            variable = (prompt * alpha).detach().requires_grad_(True)
             gradient = torch.zeros_like(variable, dtype=torch.float32)
             for batch, embeddings, sign in ((positive, pos_embeddings, 1.0),
                                              (negative, neg_embeddings, -1.0)):
@@ -379,10 +384,17 @@ def _preference_attributions(adapter: Any, positive: dict, negative: dict, steps
                     output = adapter.forward(batch)
                     logits = output["logits"] if isinstance(output, dict) else output.logits
                     objective = sequence_log_probability(logits, batch["labels"])
-                    gradient += sign * torch.autograd.grad(objective, variable)[0].float()
-            weight = 0.5 if step in (0, steps) else 1.0
-            accumulated += weight * gradient
-    return (prompt.float() * accumulated / steps).sum(-1)[0].detach()
+                    if not torch.isfinite(objective):
+                        raise ValueError(f"Non-finite GrAInS objective at IG alpha={alpha:.6g}.")
+                    current = torch.autograd.grad(objective, variable)[0].float()
+                    if not torch.isfinite(current).all():
+                        raise ValueError(f"Non-finite GrAInS gradient at IG alpha={alpha:.6g}.")
+                    gradient += sign * current
+            accumulated += float(weight / 2) * gradient
+    scores = (prompt.float() * accumulated).sum(-1)[0].detach()
+    if not torch.isfinite(scores).all():
+        raise ValueError("Non-finite GrAInS token attributions.")
+    return scores
 
 
 def _grains_extract(adapter: Any, records: list[dict], config: dict) -> dict:
@@ -424,6 +436,7 @@ def _grains_extract(adapter: Any, records: list[dict], config: dict) -> dict:
             "positive_vectors": plus, "negative_vectors": minus,
             "attribution_token_counts": counts,
             "attribution_space": "fused-input-embeddings-zero-baseline",
+            "ig_quadrature": "gauss-legendre",
             "objective": "sum-logp-chosen-minus-sum-logp-rejected"}
 
 
