@@ -1,5 +1,9 @@
 # VLM Grounding Steering
 
+2026-10-23 재감사: **CPU 86개 테스트 통과**, 원본 네 저장소와는 중요한 구현 차이 확인.
+현재 baseline은 저자 코드 재현본이 아닙니다.
+[원본 비교 결과·수치 반례·한국어 코드 설명](docs/baseline_audit_2026-10-23_ko.md)을 확인하세요.
+
 **GPU 실험을 준비하는 연구 구현입니다. 성능 개선이나 논문 재현 성공을 보고하는 저장소가 아닙니다.**
 
 제안 방법 **EPHS (Evidence-Preserving Head Steering)**와 Base, REVIS, RUDDER,

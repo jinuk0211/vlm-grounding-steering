@@ -8,10 +8,20 @@ scores, superiority claims, or author reproduction claims are available.
 
 ## Completed CPU checks
 
-Local final check: **74 passed, no skips**, with Python 3.12.11,
+Local final check: **86 passed, no skips**, with Python 3.12.14,
 PyTorch 2.8.0+cpu and Transformers 5.20.2. Ruff passed for `src`, `tests`,
 and `scripts`. This includes fixture executions of the unmodified pinned CHAIR
 port and Causal-HalBench scorer; it does not include real benchmark images.
+
+The 2026-10-23 re-audit fetched all four pinned author repositories again and
+confirmed their commits also matched the remote HEADs at inspection time.
+Seven synthetic differential probes demonstrate non-equivalence to the public
+implementations. This is **not** an upstream parity pass. Twelve new tests cover
+offline extraction through cached generation on the four tiny HF architectures,
+zero-strength restoration and preservation of existing HF hooks and weights.
+See the [Korean audit and code guide](docs/baseline_audit_2026-10-23_ko.md),
+[raw differential results](docs/audits/baseline_parity_2026-10-23.json), and
+`scripts/audit_baseline_parity.py`. Baseline runtime code was not changed by this audit.
 
 - Pure tensor transformations and actual differentiable extraction for the four
   local adapted baselines.
@@ -52,7 +62,7 @@ upload were confirmed.
 The initial push and one explicit workflow dispatch both ended with
 `startup_failure` before creating any jobs. GitHub's API returned no check runs
 or execution logs, so the underlying cause has not been established. These
-are **not passing CI runs**; the 74-test result above is the local CPU result.
+are **not passing CI runs**; the 86-test result above is the local CPU result.
 The workflow remains available for a later run.
 
 - [Initial push run](https://github.com/jinuk0211/vlm-grounding-steering/actions/runs/39420075754)

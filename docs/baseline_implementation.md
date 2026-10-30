@@ -109,7 +109,9 @@ sign handling can differ from original VTI and require parity checks.
 
 The first decoder-block input contains the already merged visual and textual
 embeddings. A pre-hook integrates from a zero prompt embedding to that fused
-prompt using trapezoidal IG. The objective is the sum of teacher-forced chosen
+prompt using Gauss-Legendre IG. This avoids the singular zero endpoint observed
+in BF16 Gemma gradients and matches Captum's default quadrature. Non-finite
+objectives, gradients or attribution scores fail explicitly. The objective is the sum of teacher-forced chosen
 response log probabilities minus the sum for the rejected response. Only prompt
 tokens are attributed; response embeddings remain fixed. Labels must mask
 prompt positions with -100 and align with the expanded multimodal sequence.
