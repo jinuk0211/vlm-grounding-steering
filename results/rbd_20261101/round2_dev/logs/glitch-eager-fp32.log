@@ -1,0 +1,15 @@
+[32mActivated conda/uv virtual environment at [36m/venv/main[0m
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  67%|██████▋   | 486/729 [00:00<00:00, 4857.21it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 4520.49it/s]
+chair:661 140 tok 8s ok | The image shows a close-up of a sandwich or burger that is partially wrapped in white paper. The bread appears
+chair:764 196 tok 11s GLITCH | The image depicts a lively outdoor scene, likely in a park during springtime, as evidenced by the blossoming c
+chair:1647 142 tok 8s GLITCH | The image shows a pair of blue  addCriterion issors with blue  addCriterion blue plastic handles and silver bl
+chair:2142 125 tok 7s ok | The image depicts a lively urban scene where a person is sitting on a bench, surrounded by numerous pigeons. T
+chair:3217 131 tok 7s ok | The image depicts a serene outdoor scene featuring a wooden bench situated on a dirt path surrounded by lush g
+chair:3690 130 tok 7s ok | The image shows a homemade pizza with a thin, slightly puffed crust. The pizza is topped with a generous layer
+chair:6397 139 tok 8s ok | The image shows a tabby cat lying comfortably inside an open black suitcase. The suitcase is placed on a chair
+chair:6949 296 tok 16s ok | The image shows a close-up of a bowl filled with a colorful and fresh-looking salad. The salad appears to be a
+chair:7511 66 tok 4s ok | The image shows a beach scene on a sunny day with scattered clouds in the sky. A man is standing on the sandy 
+chair:8853 159 tok 9s ok | The image depicts a skiering scene on a snowy mountain slope under a clear blue sky. A skierer is captured mid
+chair:9186 340 tok 19s ok | The image shows a display case in what appears to be a store or museum setting, showcasing a collection of gla
+chair:10822 123 tok 7s ok | The image depicts a natural scene featuring three zebras standing in a grassy area, likely in a savanna or a s
+eager vision-fp32: glitch 2/12

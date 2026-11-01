@@ -1,0 +1,26 @@
+{
+ "stage": "complete",
+ "pid": 15626,
+ "args": {
+  "model": "qwen",
+  "data": "/workspace/sets/amber_dev60.jsonl",
+  "output": "/workspace/vdd/amber_dev60",
+  "tag": "s16a3",
+  "start": "0",
+  "end": "60",
+  "lam": "0.0",
+  "clip": "5.0",
+  "pen": "0.0",
+  "bsched": "decay",
+  "alpha": "3.0",
+  "layer": "16",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "log_belief": "False"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793542215.132357,
+ "vobj": 3167,
+ "done": 60
+}

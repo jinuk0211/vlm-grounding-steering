@@ -1,0 +1,4 @@
+== chair base: hallucinated mentions 29 in 23 captions; position fraction median 0.49; approx token idx median 107; in first 30 tokens 4, 30-100 10, >=100 15
+== chair s16a1: hallucinated mentions 22 in 21 captions; position fraction median 0.48; approx token idx median 96; in first 30 tokens 3, 30-100 9, >=100 10
+== chair s16a3: hallucinated mentions 17 in 15 captions; position fraction median 0.57; approx token idx median 100; in first 30 tokens 1, 30-100 7, >=100 9
+== chair s16a1bl1: hallucinated mentions 16 in 15 captions; position fraction median 0.46; approx token idx median 103; in first 30 tokens 2, 30-100 5, >=100 9

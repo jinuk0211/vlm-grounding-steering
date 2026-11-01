@@ -1,0 +1,26 @@
+{
+ "stage": "complete",
+ "pid": 14614,
+ "args": {
+  "model": "qwen",
+  "data": "/workspace/chair_test100.jsonl",
+  "output": "/workspace/vdd/check",
+  "tag": "s16a1b1",
+  "start": "0",
+  "end": "6",
+  "lam": "1.0",
+  "clip": "5.0",
+  "pen": "0.0",
+  "bsched": "decay",
+  "alpha": "1.0",
+  "layer": "16",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "log_belief": "True"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793540672.3193808,
+ "vobj": 3167,
+ "done": 6
+}

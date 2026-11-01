@@ -1,0 +1,30 @@
+
+== amber base: hallucinated mentions 22 in 16 captions; position fraction median 0.63; approx token idx median 75; in first 30 tokens 0, 30-100 22, >=100 0
+   ('amber:107', 'surfboard', 0.49, 'In the middle ground, another individual is sitting on a surfboard in the calm sea.')
+   ('amber:108', 'sky', 0.88, 'The sky and ocean are clear, suggesting a sunny day.')
+   ('amber:109', 'shore', 0.53, 'In the background, there are lush green trees lining the far shore, creating a serene and natural setting.')
+   ('amber:111', 'phone', 0.47, 'They appear to be looking down at something in their hands, possibly a phone or another small object.')
+   ('amber:111', 'grass', 0.76, 'The steps have some graffiti on them that reads "MOOSE RVS." The ground around the steps is paved, and there are patches of grass growing between the cracks.')
+   ('amber:116', 'tie', 0.38, 'The child on the left is sitting on the ground, wearing a white shirt with a bow tie and dark pants.')
+   ('amber:116', 'collar', 0.78, 'The child on the right is standing and appears to be in motion, possibly running or dancing, dressed in a colorful blue and green plaid dress with a white colla')
+   ('amber:125', 'bag', 0.52, 'The person on the left is wearing a black jacket, blue jeans, and a pink scarf, while the person on the right is dressed in a dark hoodie, blue jeans, and carry')
+   ('amber:126', 'tree', 0.74, 'The horizon is flat, and there are no visible trees or structures, emphasizing the openness of the area.')
+   ('amber:127', 'bag', 0.83, 'There are some rocks and gear scattered around the tent, including what looks like a sleeping bag or backpack.')
+   ('amber:127', 'backpack', 0.86, 'There are some rocks and gear scattered around the tent, including what looks like a sleeping bag or backpack.')
+   ('amber:135', 'sun', 0.53, 'They appear to be throwing or catching an orange frisbee with a sun design on it.')
+   ('amber:138', 'island', 0.74, 'In the distance, there is a small landmass or island visible across the water, adding depth to the landscape.')
+   ('amber:140', 'collar', 0.47, 'It has a slender build and is wearing a red collar.')
+   ('amber:146', 'track', 0.81, 'The background reveals a vast expanse of desert with sparse vegetation and winding tracks or paths.')
+   ('amber:146', 'path', 0.83, 'The background reveals a vast expanse of desert with sparse vegetation and winding tracks or paths.')
+   ('amber:147', 'carpet', 0.34, 'The apples are hanging from the branches, and some have fallen to the ground, creating a carpet of apples beneath the trees.')
+   ('amber:147', 'path', 0.53, 'The orchard is well-maintained, with evenly spaced trees and a clear path between them.')
+   ('amber:155', 'net', 0.51, 'The hoop is mounted on a tall, metal stand, and the net is clearly visible.')
+   ('amber:157', 'glass', 0.62, 'A dark gray or black egg is placed on a small gold plate, and another similar egg is in a glass container filled with blueberries.')
+   ('amber:157', 'container', 0.64, 'A dark gray or black egg is placed on a small gold plate, and another similar egg is in a glass container filled with blueberries.')
+   ('amber:158', 'water', 0.64, 'There is a wooden stick or piece of debris inside the boat, and some water is visible in the back part of the boat.')
+
+== amber s16a1: hallucinated mentions 17 in 15 captions; position fraction median 0.68; approx token idx median 73; in first 30 tokens 0, 30-100 16, >=100 1
+
+== amber s16a3: hallucinated mentions 24 in 19 captions; position fraction median 0.64; approx token idx median 73; in first 30 tokens 1, 30-100 20, >=100 3
+
+== amber s16a1bl1: hallucinated mentions 18 in 16 captions; position fraction median 0.64; approx token idx median 70; in first 30 tokens 0, 30-100 14, >=100 4

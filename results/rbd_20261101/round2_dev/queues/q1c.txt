@@ -1,0 +1,2 @@
+amber_dev60L bl1 --lam 1
+amber_dev60L s16a3 --alpha 3 --layer 16

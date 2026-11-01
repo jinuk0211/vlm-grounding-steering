@@ -1,0 +1,31 @@
+base    truth objects covered 203  hallucinated nouns 22  words/caption 85
+s16a3   truth objects covered 210  hallucinated nouns 26  words/caption 85
+s16a1bl1 truth objects covered 202  hallucinated nouns 18  words/caption 84
+s16a3bl1 truth objects covered 199  hallucinated nouns 14  words/caption 86
+bl1     truth objects covered 197  hallucinated nouns 15  words/caption 85
+
+position (fraction of Base caption) of all Base-covered objects: median 0.16
+
+s16a3 vs base: truth objects lost 10 gained 17
+  lost words in V_obj 9/10;  in COCO-80 list 2/10
+  lost: median position in Base caption 0.46; in last half 4/9
+  top lost [('cloud', 2), ('sky', 2), ('surfboard', 1), ('man', 1), ('road', 1), ('sea', 1), ('forest', 1), ('drawing', 1)]
+  hallucinated nouns removed 13 added 15; added [('track', 2), ('hill', 2), ('tire', 1), ('cloud', 1), ('path', 1), ('piano', 1), ('building', 1), ('island', 1)]
+
+s16a1bl1 vs base: truth objects lost 13 gained 12
+  lost words in V_obj 11/13;  in COCO-80 list 2/13
+  lost: median position in Base caption 0.46; in last half 5/11
+  top lost [('road', 2), ('surfboard', 1), ('man', 1), ('glass', 1), ('stage', 1), ('sea', 1), ('mountain', 1), ('cloud', 1), ('drawing', 1), ('sky', 1), ('goal', 1), ('tree', 1)]
+  hallucinated nouns removed 11 added 7; added [('string', 1), ('ground', 1), ('cream', 1), ('duck', 1), ('opener', 1), ('board', 1), ('bench', 1)]
+
+s16a3bl1 vs base: truth objects lost 15 gained 11
+  lost words in V_obj 13/15;  in COCO-80 list 2/15
+  lost: median position in Base caption 0.63; in last half 9/14
+  top lost [('sky', 4), ('cloud', 3), ('road', 2), ('surfboard', 1), ('man', 1), ('stage', 1), ('sea', 1), ('forest', 1), ('sun', 1)]
+  hallucinated nouns removed 18 added 10; added [('cloud', 1), ('hill', 1), ('building', 1), ('piano', 1), ('cream', 1), ('opener', 1), ('sun', 1), ('bag', 1)]
+
+bl1 vs base: truth objects lost 12 gained 6
+  lost words in V_obj 12/12;  in COCO-80 list 1/12
+  lost: median position in Base caption 0.61; in last half 7/10
+  top lost [('sea', 2), ('man', 1), ('road', 1), ('mountain', 1), ('glass', 1), ('grass', 1), ('sky', 1), ('goal', 1), ('cloud', 1), ('tree', 1), ('plate', 1)]
+  hallucinated nouns removed 10 added 3; added [('stone', 1), ('window', 1), ('support', 1)]

@@ -1,0 +1,6 @@
+chair_dev60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+amber_dev60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+chair_dev60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5
+amber_dev60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_dev60 s20a2bl1 --alpha 2 --layer 20 --lam 1
+amber_dev60 s20a2bl1 --alpha 2 --layer 20 --lam 1

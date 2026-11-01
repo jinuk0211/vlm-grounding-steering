@@ -1,0 +1,26 @@
+{
+ "stage": "complete",
+ "pid": 31065,
+ "args": {
+  "model": "qwen",
+  "data": "/workspace/sets/chair_dev60.jsonl",
+  "output": "/workspace/vdd/chair_dev60",
+  "tag": "s20a2bl1",
+  "start": "0",
+  "end": "60",
+  "lam": "1.0",
+  "clip": "5.0",
+  "pen": "0.0",
+  "bsched": "decay",
+  "alpha": "2.0",
+  "layer": "20",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "log_belief": "False"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793551005.7210681,
+ "vobj": 3167,
+ "done": 60
+}

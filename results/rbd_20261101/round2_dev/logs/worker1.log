@@ -1,0 +1,31 @@
+13:45:51 start chair_dev60 s16a3 --alpha 3 --layer 16
+14:00:54 end chair_dev60 s16a3
+14:00:54 start amber_dev60 s16a3 --alpha 3 --layer 16
+14:10:16 end amber_dev60 s16a3
+14:10:16 start chair_dev60 s24a2 --alpha 2 --layer 24
+14:26:21 end chair_dev60 s24a2
+14:26:21 start amber_dev60 s24a2 --alpha 2 --layer 24
+14:35:49 end amber_dev60 s24a2
+14:35:49 start chair_dev60 s16a1bl1 --alpha 1 --layer 16 --lam 1
+14:52:17 end chair_dev60 s16a1bl1
+14:52:17 start amber_dev60 s16a1bl1 --alpha 1 --layer 16 --lam 1
+15:01:29 end amber_dev60 s16a1bl1
+15:01:29 start chair_dev60 pen1 --pen 1
+15:18:49 end chair_dev60 pen1
+15:18:49 start amber_dev60 pen1 --pen 1
+15:28:44 end amber_dev60 pen1
+15:28:44 WORKER_DONE
+15:28:58 start chair_dev60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+15:44:17 end chair_dev60 s16a3bl1
+15:44:17 start amber_dev60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+15:53:52 end amber_dev60 s16a3bl1
+15:53:52 start chair_dev60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5
+16:10:13 end chair_dev60 s16a2bl1p05
+16:10:13 start amber_dev60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5
+16:19:45 end amber_dev60 s16a2bl1p05
+16:19:45 start chair_dev60 s20a2bl1 --alpha 2 --layer 20 --lam 1
+16:36:46 end chair_dev60 s20a2bl1
+16:36:46 start amber_dev60 s20a2bl1 --alpha 2 --layer 20 --lam 1
+16:46:22 end amber_dev60 s20a2bl1
+16:46:22 WORKER_DONE
+16:46:41 start amber_dev60L bl1 --lam 1

@@ -1,0 +1,10 @@
+chair_test60 base
+amber_test60 base
+throne_test60 base
+amber_test60L base
+chair_test60 noSteer --lam 1 --pen 0.5
+amber_test60 noSteer --lam 1 --pen 0.5
+throne_test60 noSteer --lam 1 --pen 0.5
+amber_test60L noSteer --lam 1 --pen 0.5
+chair_test60 constSched --alpha 1 --layer 16 --lam 1 --pen 0.5 --ssched const --bsched const
+amber_test60 constSched --alpha 1 --layer 16 --lam 1 --pen 0.5 --ssched const --bsched const
