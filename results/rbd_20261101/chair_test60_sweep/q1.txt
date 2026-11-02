@@ -1,0 +1,6 @@
+bpos_s16a1 --alpha 1 --layer 16 --lam 1 --bpos
+s16a1 --alpha 1 --layer 16
+pen1 --pen 1
+s16a2bl1 --alpha 2 --layer 16 --lam 1
+s20a2bl1 --alpha 2 --layer 20 --lam 1
+s16a1bl2p1 --alpha 1 --layer 16 --lam 2 --pen 1

@@ -122,3 +122,35 @@ rule-based mode is CHAIR's COCO-80 matching under other prompts.
   `vdd_decode.py` (round-2 decoder), `worker.sh`/`vrun.sh`/`chain.sh` (queues), `score_sets.py` (CHAIR/AMBER),
   `score_throne.py` (THRONE), `queue.sh` + `score_chair100.py` + `score_amber100.py` (round 1),
   `prep*.py`, `bench_setup.sh`, `fetchx.py`, `pdl.py`, `wheels.py`, `install.sh` (data, models, environments).
+
+## 6. Added on 2026-11-02 (after 5d8ec3e)
+
+The rows and score.json files behind these numbers are on the server (`/workspace/vdd/`), which was unreachable when
+this was committed; the numbers are copied from the scorer output.
+
+AMBER dev with the long prompt (amber_dev60L: AMBER 101-160, "Please describe this image in detail."; analysis
+only, not the AMBER protocol):
+
+| config | CHAIR | Cover | Hal | Cog | tokens |
+|---|---:|---:|---:|---:|---:|
+| Base | 5.4 | 72.9 | 38.3 | 3.5 | 153 |
+| bl1 | 5.4 | 68.8 | 38.3 | 4.2 | 156 |
+| s16a1bl1 | 4.1 | 68.5 | 33.3 | 2.8 | 153 |
+| s16a3 | 5.4 | 71.6 | 43.3 | 4.2 | 150 |
+
+Only the Cover drops of bl1 [-6.9, -1.6] and s16a1bl1 [-7.5, -1.6] exclude zero. Longer captions did not make the
+belief lower Hal (bl1 38.3, the same as Base).
+
+chair_test60, base and main (the first runs of the queued test look):
+
+| run | CHAIR_s | CHAIR_i | recall | F1 | tokens |
+|---|---:|---:|---:|---:|---:|
+| base | 38.3 | 12.9 | 68.4 | 76.7 | 173 |
+| main | 30.0 | 11.6 | 63.6 | 74.0 | 177 |
+
+dCHAIR_s [-20.0, +3.3], drecall [-10.0, +0.5]. On dev, main kept recall (+1.0); on test, recall fell 4.8, the same
+direction as round 1 on CHAIR test 100 (CHAIR_s -12, recall -3.6).
+
+No results here for the rest of the test queue (amber_test60, throne_test60, amber_test60L, ablations) or for the
+chair_test60 sweep ([chair_test60_sweep/README.md](chair_test60_sweep/README.md); `scripts/rbd2/sweep.sh`,
+`scripts/rbd2/sweep_decode.py` with `--bpos`).
