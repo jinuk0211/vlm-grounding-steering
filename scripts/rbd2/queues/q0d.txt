@@ -1,0 +1,13 @@
+# 13:05 user: settings sweep on amber_test60 and throne_test60 first, ablations after
+amber_test60 s16a3 --alpha 3 --layer 16
+amber_test60 bpos_s16a3 --alpha 3 --layer 16 --lam 1 --bpos
+amber_test60 s16a1bl1 --alpha 1 --layer 16 --lam 1
+amber_test60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+amber_test60 bl1 --lam 1
+amber_test60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5
+throne_test60 s16a3 --alpha 3 --layer 16
+throne_test60 bpos_s16a3 --alpha 3 --layer 16 --lam 1 --bpos
+throne_test60 s16a1bl1 --alpha 1 --layer 16 --lam 1
+throne_test60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+throne_test60 bl1 --lam 1
+throne_test60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5

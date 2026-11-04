@@ -1,0 +1,3 @@
+amber_dev60 base
+amber_dev60 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+amber_dev60 mainMed --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median

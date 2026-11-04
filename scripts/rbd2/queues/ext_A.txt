@@ -1,0 +1,2 @@
+main --alpha 1 --layer 16 --lam 1 --pen 0.5
+s16a1bl1 --alpha 1 --layer 16 --lam 1

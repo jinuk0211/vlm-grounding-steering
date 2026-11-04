@@ -1,0 +1,21 @@
+# dev pick s24a1bl2p1 (F0.5 90.9, base 88.7)
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 0 50 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 50 100 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 100 150 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 150 200 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 200 250 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 250 300 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 300 350 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 350 400 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 400 450 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 450 500 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 500 550 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 550 600 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 600 650 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 650 700 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 700 750 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 750 800 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 800 850 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 850 900 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 900 950 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_full1000 gemma_throne1000_parts s24a1bl2p1 950 1000 --alpha 1 --layer 24 --lam 2 --pen 1

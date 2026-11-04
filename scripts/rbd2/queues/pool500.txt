@@ -1,0 +1,43 @@
+# 12:00 user: 500 images, Base + CHAIR s16a2bl1p05 / THRONE s16a1bl2p1 / AMBER mainMed; rows 0-149 reused, 150-499 here.
+throne_test500 throne_test500 s16a1bl2p1 150 200 --alpha 1 --layer 16 --lam 2 --pen 1
+throne_test500 throne_test500 base 150 200
+chair_test500 chair_test500 s16a2bl1p05 150 200 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 chair_test500 base 150 200
+amber_test500 amber_test500 mainMed 150 200 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_test500 amber_test500 base 150 200
+throne_test500 throne_test500 s16a1bl2p1 200 250 --alpha 1 --layer 16 --lam 2 --pen 1
+throne_test500 throne_test500 base 200 250
+chair_test500 chair_test500 s16a2bl1p05 200 250 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 chair_test500 base 200 250
+amber_test500 amber_test500 mainMed 200 250 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_test500 amber_test500 base 200 250
+throne_test500 throne_test500 s16a1bl2p1 250 300 --alpha 1 --layer 16 --lam 2 --pen 1
+throne_test500 throne_test500 base 250 300
+chair_test500 chair_test500 s16a2bl1p05 250 300 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 chair_test500 base 250 300
+amber_test500 amber_test500 mainMed 250 300 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_test500 amber_test500 base 250 300
+throne_test500 throne_test500 s16a1bl2p1 300 350 --alpha 1 --layer 16 --lam 2 --pen 1
+throne_test500 throne_test500 base 300 350
+chair_test500 chair_test500 s16a2bl1p05 300 350 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 chair_test500 base 300 350
+amber_test500 amber_test500 mainMed 300 350 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_test500 amber_test500 base 300 350
+throne_test500 throne_test500 s16a1bl2p1 350 400 --alpha 1 --layer 16 --lam 2 --pen 1
+throne_test500 throne_test500 base 350 400
+chair_test500 chair_test500 s16a2bl1p05 350 400 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 chair_test500 base 350 400
+amber_test500 amber_test500 mainMed 350 400 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_test500 amber_test500 base 350 400
+throne_test500 throne_test500 s16a1bl2p1 400 450 --alpha 1 --layer 16 --lam 2 --pen 1
+throne_test500 throne_test500 base 400 450
+chair_test500 chair_test500 s16a2bl1p05 400 450 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 chair_test500 base 400 450
+amber_test500 amber_test500 mainMed 400 450 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_test500 amber_test500 base 400 450
+throne_test500 throne_test500 s16a1bl2p1 450 500 --alpha 1 --layer 16 --lam 2 --pen 1
+throne_test500 throne_test500 base 450 500
+chair_test500 chair_test500 s16a2bl1p05 450 500 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 chair_test500 base 450 500
+amber_test500 amber_test500 mainMed 450 500 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_test500 amber_test500 base 450 500

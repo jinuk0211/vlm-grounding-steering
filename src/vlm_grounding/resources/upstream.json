@@ -1,0 +1,35 @@
+{
+  "checked_on": "2026-10-20",
+  "sources": {
+    "revis": {
+      "url": "https://github.com/antgroup/Revis.git",
+      "commit": "75f4d29d402d4c1c4dbb2c69e88e3aa50cd0c9cc",
+      "license_observed": "Apache-2.0"
+    },
+    "rudder": {
+      "url": "https://github.com/Akko000/RUDDER-Residual-Update-Directed-DEcoding-Regulation-.git",
+      "commit": "bd149d8dbde6a9097dd02aea80f83d0bd8876761",
+      "license_observed": "No explicit license found in inspected root"
+    },
+    "grains": {
+      "url": "https://github.com/duykhuongnguyen/GrAInS.git",
+      "commit": "8ad78db3040fbb7b0aec9e544a3dcc7b9c050b5b",
+      "license_observed": "MIT"
+    },
+    "vti": {
+      "url": "https://github.com/shengliu66/VTI.git",
+      "commit": "bb5dfee33a9e555f22af9faa7b3495c0ac3df69e",
+      "license_observed": "No explicit license found in inspected root"
+    },
+    "chair": {
+      "url": "https://github.com/Maxlinn/CHAIR-metric-standalone.git",
+      "commit": "4087a26211aa2339b9a76307cb8f0321ef691d0a",
+      "role": "Python 3 port of the original CHAIR evaluator; not the original authors' repository"
+    },
+    "causal": {
+      "url": "https://github.com/zhexu-ustc/Causal-HalBench.git",
+      "commit": "c99730d453fde88c1bc4cf583a21cb399b3df7bb",
+      "role": "Official Causal-HalBench evaluator and inference examples"
+    }
+  }
+}
