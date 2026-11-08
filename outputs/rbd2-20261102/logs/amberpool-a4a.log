@@ -1,0 +1,29 @@
+15:16:39 start amber_full1004 rudder_clone 0-100 sdpa
+15:23:12 end amber_full1004 rudder_clone 0-100
+15:23:12 start amber_full1004 base 100-200 sdpa
+15:29:43 end amber_full1004 base 100-200
+15:29:43 start amber_full1004 rudder_clone 100-200 sdpa
+15:36:59 end amber_full1004 rudder_clone 100-200
+15:36:59 start amber_full1004 base 200-300 sdpa
+15:44:03 end amber_full1004 base 200-300
+15:44:03 start amber_full1004 vtiws_v0.9_t0.9 200-300 eager
+15:57:31 end amber_full1004 vtiws_v0.9_t0.9 200-300
+15:57:32 start amber_full1004 base 400-500 sdpa
+16:04:24 end amber_full1004 base 400-500
+16:04:25 start amber_full1004 rudder_clone 400-500 sdpa
+16:11:54 end amber_full1004 rudder_clone 400-500
+16:11:54 start amber_full1004 base 500-600 sdpa
+16:18:56 end amber_full1004 base 500-600
+16:18:56 start amber_full1004 vtiws_v0.9_t0.9 500-600 eager
+16:32:37 end amber_full1004 vtiws_v0.9_t0.9 500-600
+16:32:38 start amber_full1004 rudder_clone 700-800 sdpa
+16:40:05 end amber_full1004 rudder_clone 700-800
+16:40:06 start amber_full1004 base 800-900 sdpa
+16:47:03 end amber_full1004 base 800-900
+16:47:04 start amber_full1004 base 900-1000 sdpa
+16:54:27 end amber_full1004 base 900-1000
+16:54:28 start amber_full1004 vtiws_v0.9_t0.9 900-1000 eager
+17:08:10 end amber_full1004 vtiws_v0.9_t0.9 900-1000
+17:08:10 start amber_full1004 revis 600-700 sdpa
+17:17:02 end amber_full1004 revis 600-700
+17:17:02 AMBERPOOL_DONE

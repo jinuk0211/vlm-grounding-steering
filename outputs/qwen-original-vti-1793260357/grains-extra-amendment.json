@@ -1,0 +1,26 @@
+{
+  "user_request": "Use remaining GPU0 VRAM for remaining experiments",
+  "parent_protocol_sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7",
+  "vti_protocol_sha256": "3d550cc8146b2e4a5c6d1ab5ac3f43187ddd266f5094234ca7423e5f9f3352a0",
+  "gpu_indices": [
+    0
+  ],
+  "same_lease_epoch": "gpu0-stable-fp16-1793256418",
+  "replicas": 2,
+  "initial_free_mib": 62974,
+  "controller_source_file": "scripts/run_qwen_grains_extra_workers.py",
+  "source_hashes": {
+    "scripts/qwen_fp16_stable_stage.py": "1bb412b51745560e59fbb85f848a146c1ea5e7a57298edebf659dc4f52c501fb",
+    "scripts/run_qwen_grains_extra_workers.py": "550b0537832d106f27bb7f10ae300a05650042bafeb5bc53d5902027b6391b47",
+    "scripts/audit_qwen_vti_replacement.py": "e6c270dbab97a202a0b07982aa48e188bda378efa11582ad43f11058db44f52e",
+    "scripts/finalize_qwen_vti_replacement.py": "2e8c11d19620756619c03b1652dfe9253c7bf57703ffbea897ca49b35434918e"
+  },
+  "source_snapshot_dir": "grains-extra-source-snapshot",
+  "original_worker_identity": {
+    "pid": 2839015,
+    "start_ticks": 330746100
+  },
+  "previous_finalizer_stop_proof_sha256": "da92d2c7079250ff1d8fc2dcd36cfb126f4ecfc4af0beb96fc796bc588976ba4",
+  "model_math_data_vector_precision_unchanged": true,
+  "created_at": 1793264376.6392016
+}

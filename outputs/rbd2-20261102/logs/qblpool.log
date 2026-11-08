@@ -1,0 +1,44 @@
+20:26:56 q4a start grains_clone-0-50
+20:26:56 q5a start grains_clone-50-100
+20:29:26 q4b start grains_clone-100-150
+20:29:26 q5b start grains_clone-150-200
+20:50:54 q4a end grains_clone-0-50
+20:50:54 q4a start grains_clone-200-250
+20:52:00 q5a end grains_clone-50-100
+20:52:01 q5a start grains_clone-250-300
+20:53:48 q5b end grains_clone-150-200
+20:53:49 q5b start grains_clone-300-350
+20:53:51 q4b end grains_clone-100-150
+20:53:51 q4b start grains_clone-350-400
+21:15:49 q4a end grains_clone-200-250
+21:15:49 q4a start grains_clone-400-450
+21:17:44 q5a end grains_clone-250-300
+21:17:45 q5a start grains_clone-450-500
+21:18:35 q4b end grains_clone-350-400
+21:18:36 q4b start revis_official-0-50
+21:18:45 q5b end grains_clone-300-350
+21:18:46 q5b start revis_official-50-100
+21:34:36 q4b end revis_official-0-50
+21:34:37 q4b start revis_official-100-150
+21:35:24 q5b end revis_official-50-100
+21:35:25 q5b start revis_official-150-200
+21:48:29 q4a end grains_clone-400-450
+21:48:30 q4a start revis_official-200-250
+21:50:34 q4b end revis_official-100-150
+21:50:35 q4b start revis_official-250-300
+21:50:51 q5b end revis_official-150-200
+21:50:53 q5b start revis_official-300-350
+21:51:16 q5a end grains_clone-450-500
+21:51:16 q5a start revis_official-350-400
+22:09:07 q4a end revis_official-200-250
+22:09:08 q4a start revis_official-400-450
+22:10:55 q4b end revis_official-250-300
+22:10:56 q4b start revis_official-450-500
+22:11:03 q5b end revis_official-300-350
+22:11:35 q5a end revis_official-350-400
+22:30:04 q4a end revis_official-400-450
+22:31:37 q4b end revis_official-450-500
+22:31:37 q4b POOL_DONE
+22:31:37 q5a POOL_DONE
+22:32:04 q4a POOL_DONE
+22:32:05 q5b POOL_DONE

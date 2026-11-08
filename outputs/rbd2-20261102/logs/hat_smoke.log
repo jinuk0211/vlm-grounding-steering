@@ -1,0 +1,22 @@
+=== 19:49:52 smoke start, GPU 3
+20:04:11 qwen revis rc 0 rows 2 in 26s  
+20:04:36 qwen rudder_clone rc 0 rows 2 in 25s  
+20:05:06 qwen grains_clone rc 0 rows 2 in 30s  
+20:05:37 qwen vtiws_v0.9_t0.9 rc 0 rows 2 in 31s  
+20:06:43 gemma base rc 0 rows 2 in 65s  
+20:07:44 gemma revis rc 0 rows 2 in 61s  
+20:08:47 gemma rudder_clone rc 0 rows 2 in 63s  
+20:09:40 gemma grains_clone rc 0 rows 2 in 53s  
+20:10:46 gemma vti rc 0 rows 2 in 66s  
+20:12:03 gemma cf_a3bl2p1 rc 0 rows 2 in 77s  
+_gemma base 2 rows tok [275, 278] | This is a close-up, outdoor photograph featuring a bright red road sign with the
+_gemma cf_a3bl2p1 2 rows tok [304, 274] | This is a close-up, outdoor photograph featuring a bright red traffic sign.  **S
+_gemma grains_clone 2 rows tok [185, 190] |  This is a close-up photograph of a bright red traffic sign mounted on a metal p
+_gemma revis 2 rows tok [238, 280] | This is a close-up, outdoor photograph featuring a prominent red warning sign mo
+_gemma rudder_clone 2 rows tok [288, 269] | This is a close-up, outdoor photograph featuring a bright red traffic sign again
+_gemma vti 2 rows tok [304, 276] | This is a close-up, outdoor photograph featuring a bright red road sign with the
+_qwen grains_clone 2 rows tok [121, 112] | The image shows a red and black traffic sign with the word "DETOUR" written in b
+_qwen revis 2 rows tok [141, 122] | The image shows a red and black traffic sign with the word "DETOUR" written in b
+_qwen rudder_clone 2 rows tok [93, 122] | The image shows a red and black "DETOUR" sign with an arrow pointing to the righ
+_qwen vtiws_v0.9_t0.9 2 rows tok [133, 120] | The image shows a traffic sign that is red with the word "DETOUR" written on it 
+=== 20:12:03 HAT_SMOKE_DONE

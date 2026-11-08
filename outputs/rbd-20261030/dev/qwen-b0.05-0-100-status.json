@@ -1,0 +1,23 @@
+{
+ "stage": "running",
+ "pid": 3456079,
+ "args": {
+  "model": "qwen",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/data/chair-dev-train2014-100/chair.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/dev",
+  "tag": "qwen-b0.05",
+  "start": "0",
+  "end": "100",
+  "lam": "0.05",
+  "clip": "10.0",
+  "alpha": "0.0",
+  "layer": "16",
+  "r": "measured",
+  "uniform": "False"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793367988.0343986,
+ "error": "Traceback (most recent call last):\n  File \"/home/project-b/LJW/vlm-grounding-steering/scripts/rbd_decode.py\", line 61, in main\n    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer\n            ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/vlm_grounding/backend.py\", line 206, in load_adapter\n    ).to(device)\n      ^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py\", line 3710, in to\n    return super().to(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1369, in to\n    return self._apply(convert)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 928, in _apply\n    module._apply(fn)\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 928, in _apply\n    module._apply(fn)\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 928, in _apply\n    module._apply(fn)\n  [Previous line repeated 3 more times]\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 955, in _apply\n    param_applied = fn(param)\n                    ^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1355, in convert\n    return t.to(\n           ^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 31.94 MiB is free. Process 3367225 has 16.39 GiB memory in use. Process 3368238 has 16.39 GiB memory in use. Process 3369308 has 16.39 GiB memory in use. Process 3380858 has 16.39 GiB memory in use. Process 3429268 has 16.37 GiB memory in use. Including non-PyTorch memory, this process has 12.98 GiB memory in use. Of the allocated memory 12.44 GiB is allocated by PyTorch, and 2.54 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n",
+ "vobj": 3167,
+ "done": 31
+}

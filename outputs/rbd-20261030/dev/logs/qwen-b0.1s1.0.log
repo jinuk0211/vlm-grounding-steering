@@ -1,0 +1,30 @@
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  70%|██████▉   | 508/729 [00:00<00:00, 5055.38it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5316.29it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd_decode.py", line 95, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd_decode.py", line 61, in main
+    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/vlm_grounding/backend.py", line 206, in load_adapter
+    ).to(device)
+      ^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3710, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 29.94 MiB is free. Process 3367225 has 16.39 GiB memory in use. Process 3368238 has 16.39 GiB memory in use. Process 3369308 has 16.39 GiB memory in use. Process 3380858 has 16.39 GiB memory in use. Process 3429268 has 16.37 GiB memory in use. Including non-PyTorch memory, this process has 12.98 GiB memory in use. Of the allocated memory 12.44 GiB is allocated by PyTorch, and 2.54 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -1,0 +1,64 @@
+{
+  "status": "sealed_original_author_vti_subrun",
+  "parent_output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+  "parent_protocol_sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7",
+  "author_commit": "bb5dfee33a9e555f22af9faa7b3495c0ac3df69e",
+  "author_sources": {
+    "README.md": "658b3e2a60cc2290987f3467faa581aa20edd4e16ee35d73e661829551bd7475",
+    "experiments/.DS_Store": "7d5f0a35cff7832c2ccb19a164616c02983771c7faa07cd584075c5dcfcf4aa7",
+    "experiments/data/hallucination_vti_demos.jsonl": "5ce467817fc2a29735715fd6793b4927268cfff030e798f9f3a60a1fcb575d0d",
+    "experiments/eval/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+    "experiments/eval/eval_mmhal.py": "5c14832dafa51c4da36a8969abde78940453ecb4cc1f044b4249ae604ef4ce95",
+    "experiments/eval/run_mmhal_vti.py": "ebfc65b1c7f6e7c3dd2a125f3d51d1076fb5c2fcd5fecf6607d91dd789f2c3f6",
+    "images/vti_overview.png": "fe5ed543412c6bb8dc652eca86ef9978c50bd50615bbc6efdc8fcd2fb47c922d",
+    "requirement.txt": "a3c91ba61d2cb9a988f7f6b9f80a325a0aedfa618136cf846212854f0f454b5f",
+    "vti_utils/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+    "vti_utils/.ipynb_checkpoints/augmentation-checkpoint.py": "53740b69b122e7c25d6efafc9fe59902040c7fefd23582f8638eec68718c8a02",
+    "vti_utils/.ipynb_checkpoints/image_corruptions-checkpoint.py": "d7c179791631fad9b7a2346eadf4ee6cd032b9daedbf47c05e00331d58aed018",
+    "vti_utils/.ipynb_checkpoints/vcd_sample-checkpoint.py": "b07a0400726691949eae0247bd63943a9f4a1e265bf733cda74697aaedaae386",
+    "vti_utils/.ipynb_checkpoints/visualizing_utils-checkpoint.py": "86a4465859cb8861d43530d92028ddca1fdf26a1e3fa2911b4c83a1451115958",
+    "vti_utils/icv_utils.py": "bd254fe5f726774c407363d0e8454cd5adc2fde4267ccf067b3c62aa5e631f98",
+    "vti_utils/llm_layers.py": "46327bc4a8d2e99c935ecbf6a422f49e977da28ca6af3849aa770d2448979f1d",
+    "vti_utils/pca.py": "35d389079272441b992dbe537641c96eeafbda7698ab0f3a7e0905117c664524",
+    "vti_utils/utils.py": "dc83be9694575a44d24ed0312f582947efd7ae35c9e596b36152a77c676a2a62"
+  },
+  "worker_source_sha256": "948a4708327d2061940a12c2fdf5e58cd92211a5cd6d58210d122cb05269a304",
+  "model": {
+    "family": "qwen2_5_vl",
+    "checkpoint": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+    "device": "cuda",
+    "dtype": "float16",
+    "attn_implementation": "eager",
+    "image_size": 448,
+    "yes_token": "Yes",
+    "no_token": "No",
+    "local_files_only": true
+  },
+  "gpu_indices": [
+    0
+  ],
+  "method": "vti_author",
+  "data_manifest_hashes": {
+    "pope": "6fa6d2250989c94e7163f9f9f837968d5195d1bc2ce5af7e259cf361cc0ad7d6",
+    "chair": "0bd0957cd66e1e4e00d2272b9ed0f237255d75c027bcc58ea33f33f67c0fc278"
+  },
+  "demo_manifest_sha256": "8d8ee56c54f20e4e967b830a6be212448b23a00b8fe7e55b81f8b590ff917090",
+  "alpha_image": 0.9,
+  "alpha_text": 0.9,
+  "rank": 1,
+  "num_demos": 70,
+  "num_trials": 50,
+  "mask_ratio": 0.99,
+  "hyperparameters_source": "author README MMHal invocation; Qwen2.5 POPE/CHAIR were not supplied by authors",
+  "adaptations": [
+    "Qwen2.5 processor/native chat inputs",
+    "Qwen ViT patch grid and hidden-state output facade",
+    "Qwen ViT MLP batch-axis adapter around unchanged original VTILayer",
+    "explicit separate text/vision ModuleList views",
+    "FP16 weights and original half output; FP32 eager attention score arithmetic as in documented Qwen amendment"
+  ],
+  "attention_amendment_sha256": "972eb00b132d99976460d0cfc4a59eda66a4c5661a7ac1e2ffc3a7ece733b8be",
+  "created_at": 1793260378.0623417,
+  "sha256": "5f8bfcdb1ad3cb469d55b4685bad18c036f8f84b8448b76311f114360c43119b"
+}

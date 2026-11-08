@@ -1,0 +1,13 @@
+{
+  "status": "verified_complete",
+  "records": 14000,
+  "methods": [
+    "base",
+    "revis",
+    "vti",
+    "rudder_clone"
+  ],
+  "original_raw_bytes_unchanged": true,
+  "source_protocol_sha256": "a70c1b06f65bb4f7c3a1373c0972b9813c98e201e77e8f2e928b14fccad3c35d",
+  "created_at": 1793246512.0701838
+}

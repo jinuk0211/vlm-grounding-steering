@@ -1,0 +1,4 @@
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  37%|███▋      | 777/2076 [00:00<00:00, 7767.51it/s]Loading weights:  75%|███████▍  | 1554/2076 [00:00<00:00, 5035.75it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6111.19it/s]
+/home/project-b/LJW/vlm-grounding-steering/scripts/visual_reliance.py:37: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  return float(a[img[:upto]].sum()/a.sum().clamp_min(1e-12)),float(grad.float()[0,:upto][img[:upto]].norm()/grad.float()[0,:upto].norm().clamp_min(1e-12))

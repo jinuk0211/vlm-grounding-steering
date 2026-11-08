@@ -1,0 +1,53 @@
+{
+  "pid": 1440572,
+  "start_ticks": 331721180,
+  "stage": "generating",
+  "ranges": [
+    [
+      0,
+      167
+    ],
+    [
+      167,
+      334
+    ],
+    [
+      334,
+      500
+    ]
+  ],
+  "source_sha256": "d93fd0dde94367b0e922f4937fe2faff9bca6f627d7082f98034a9cf1c16c931",
+  "gpu_uuid": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+  "original_worker_sha256": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+  "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+  "jobs": [
+    {
+      "pid": 1441487,
+      "start_ticks": 331721646,
+      "range": [
+        0,
+        167
+      ],
+      "log": "outputs/qwen-original-vti-1793260357/chair-parallel/000-167.log"
+    },
+    {
+      "pid": 1441489,
+      "start_ticks": 331721646,
+      "range": [
+        167,
+        334
+      ],
+      "log": "outputs/qwen-original-vti-1793260357/chair-parallel/167-334.log"
+    },
+    {
+      "pid": 1441490,
+      "start_ticks": 331721646,
+      "range": [
+        334,
+        500
+      ],
+      "log": "outputs/qwen-original-vti-1793260357/chair-parallel/334-500.log"
+    }
+  ],
+  "updated_at": 1793266174.642775
+}

@@ -1,0 +1,44 @@
+{
+  "pid": 4106112,
+  "start_ticks": 331186949,
+  "started_at": 1793260831.796417,
+  "recovery_adopted": {
+    "pid": 4051717,
+    "start_ticks": 331167290,
+    "kind": "donor_bf16_recovery",
+    "args": [
+      "scripts/qwen_gpu0_stage_v2.py",
+      "--output",
+      "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+      "--stage",
+      "generation",
+      "--worker",
+      "gpu0-vti-author-recovery-1793260631",
+      "--dtype",
+      "bfloat16",
+      "--lease-epoch",
+      "gpu0-bf16-priority-1793255934"
+    ],
+    "folder": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+    "state_file": "worker-gpu0-vti-author-recovery-1793260631.json",
+    "gpu_uuid": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+    "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/donor_bf16_recovery.log",
+    "source_sha256": "b7660b69c526fbe41bd4587d26f3680bc8bc00dbfbdd46dd9eb2061011bd28d8"
+  },
+  "original_vti": {
+    "pid": 4107032,
+    "start_ticks": 331187361,
+    "kind": "original_vti",
+    "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/original-vti-resume-1793260831.log",
+    "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357",
+    "gpu_uuid": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+    "source_sha256": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553"
+  },
+  "stage": "running",
+  "author_stage": "generating_original_vti",
+  "author_completed": 2851,
+  "recovery_live": false,
+  "recovery_stage": "complete",
+  "recovery_completed": 241,
+  "updated_at": 1793268422.5638561
+}

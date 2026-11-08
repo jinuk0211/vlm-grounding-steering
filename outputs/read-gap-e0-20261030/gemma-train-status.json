@@ -1,0 +1,24 @@
+{
+ "stage": "complete",
+ "pid": 1776787,
+ "model": "gemma",
+ "mode": "images",
+ "config": {
+  "family": "gemma4",
+  "checkpoint": "google/gemma-4-E4B-it",
+  "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attn_implementation": "eager",
+  "image_size": 448,
+  "yes_token": "Yes",
+  "no_token": "No",
+  "local_files_only": true
+ },
+ "gpu_uuid": "GPU-4c593ff4-fcc4-39c9-d7b4-981dabee1cb3",
+ "updated_at": 1793348785.890953,
+ "gpu_name": "NVIDIA RTX A5000",
+ "yes_id": 10784,
+ "no_id": 3771,
+ "done": 5000
+}

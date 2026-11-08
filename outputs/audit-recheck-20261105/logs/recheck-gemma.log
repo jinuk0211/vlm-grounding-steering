@@ -1,0 +1,2 @@
+{"model": "gemma", "bad_captions": 0, "position": {"0-31": {"hall": 6, "correct": 373, "share": 0.0158311345646438, "hall_per100": 0.0375, "correct_per100": 2.33125, "tokens": 16000}, "32-63": {"hall"
+done gemma

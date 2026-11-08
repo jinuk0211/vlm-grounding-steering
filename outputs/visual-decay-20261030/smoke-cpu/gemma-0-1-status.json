@@ -1,0 +1,55 @@
+{
+ "stage": "complete",
+ "pid": 2266499,
+ "model": "gemma",
+ "gpu_uuid": "",
+ "argv": [
+  "scripts/visual_decay_collect.py",
+  "--model",
+  "gemma",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/visual-decay-20261030/smoke-cpu",
+  "--start",
+  "0",
+  "--end",
+  "1",
+  "--cpu-smoke"
+ ],
+ "config": {
+  "family": "gemma4",
+  "checkpoint": "google/gemma-4-E4B-it",
+  "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+  "device": "cpu",
+  "dtype": "float32",
+  "attn_implementation": "eager",
+  "image_size": 448,
+  "yes_token": "Yes",
+  "no_token": "No",
+  "local_files_only": true
+ },
+ "updated_at": 1793357737.9441855,
+ "gpu_name": "cpu",
+ "n_layers": 42,
+ "probe_layers": [
+  10,
+  21,
+  32,
+  42
+ ],
+ "conditions": [
+  "swap",
+  "ko0",
+  "ko32",
+  "ko64",
+  "ko128",
+  "ko0_early",
+  "ko0_late"
+ ],
+ "softcap": 30.0,
+ "done": 1,
+ "sec_per_caption": 321.1435089111328,
+ "max_gpu_gb": null,
+ "lens_last_layer_max_err": 0.0,
+ "greedy_reproduced": 0.9841269850730896,
+ "records": 1
+}

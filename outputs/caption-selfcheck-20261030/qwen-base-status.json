@@ -1,0 +1,25 @@
+{
+ "stage": "complete",
+ "pid": 2018104,
+ "model": "qwen",
+ "method": "base",
+ "n_queries": 1757,
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "updated_at": 1793352669.848809,
+ "gpu_name": "NVIDIA RTX A5000",
+ "variants": {
+  "yes": [
+   7414,
+   9454,
+   9693,
+   9834
+  ],
+  "no": [
+   902,
+   2152,
+   2308,
+   2753
+  ]
+ },
+ "done": 1757
+}

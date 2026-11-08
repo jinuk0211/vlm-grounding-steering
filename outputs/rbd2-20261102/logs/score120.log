@@ -1,0 +1,61 @@
+=== 17:23:08 chair_test120
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_sets.py", line 75, in <module>
+    if __name__=='__main__':SET=sys.argv[1];main(sys.argv[2])
+                                            ^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_sets.py", line 67, in main
+    res=(chair if SET.startswith('chair') else amber)(refs,runs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_sets.py", line 28, in chair
+    d=sc.compute_chair(f.name,'image_id','caption');m=d['overall_metrics'];P=1-m['CHAIRi'];Rc=m['Recall']
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/upstream/chair/chair.py", line 317, in compute_chair
+    words, node_words, idxs, raw_words = self.caption_to_words(cap) 
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/upstream/chair/chair.py", line 207, in caption_to_words
+    words = nltk.word_tokenize(caption.lower())
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 166, in word_tokenize
+    sentences = [text] if preserve_line else sent_tokenize(text, language)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 143, in sent_tokenize
+    tokenizer = _get_punkt_tokenizer(language)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 105, in _get_punkt_tokenizer
+    return PunktTokenizer(language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1812, in __init__
+    self.load_lang(lang)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1821, in load_lang
+    lang_dir = find(f"tokenizers/punkt_tab/{lang}/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/data.py", line 1636, in find
+    raise exc
+LookupError: 
+**********************************************************************
+  Resource 'punkt_tab' not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  >>> import nltk
+  >>> nltk.download('punkt_tab')
+
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load 'tokenizers/punkt_tab/english/'
+
+  Searched in:
+    - '/home/project-b/nltk_data'
+    - '/home/project-b/LJW/vlm-grounding-steering/.venv/nltk_data'
+    - '/home/project-b/LJW/vlm-grounding-steering/.venv/share/nltk_data'
+    - '/home/project-b/LJW/vlm-grounding-steering/.venv/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+=== 18:36:20 throne_test120
+base                         P  85.2 R  80.6 F1  86.2 F0.5  88.4  tok  202  
+s16a1                        P  86.9 R  83.1 F1  89.0 F0.5  90.9  tok  185  dP[-3.3,+6.7] dR[-1.1,+6.2] dF0.5[-0.0,+5.0]
+s16a1bl2p1                   P  87.3 R  79.5 F1  89.8 F0.5  92.9  tok  194  dP[-2.6,+6.7] dR[-5.1,+2.6] dF0.5[+2.3,+6.8]
+=== 18:36:39 SCORE120_DONE

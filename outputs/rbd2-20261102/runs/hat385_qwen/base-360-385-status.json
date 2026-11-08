@@ -1,0 +1,14 @@
+{
+ "stage": "complete",
+ "pid": 3417568,
+ "method": "base",
+ "set": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/hat385.jsonl",
+ "dtype": "bfloat16",
+ "attn": "sdpa",
+ "total": 25,
+ "done": 25,
+ "resumed_from": 0,
+ "updated_at": 1793890692.551623,
+ "gpu": "NVIDIA RTX A5000",
+ "fp16_attention_calls": null
+}

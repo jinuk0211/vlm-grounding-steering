@@ -1,0 +1,103 @@
+{
+  "user_request": "Continue the user-stopped author-VTI run on GPU 1 and finish merge, scoring and verification",
+  "parent_protocol_sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7",
+  "vti_protocol_sha256": "3d550cc8146b2e4a5c6d1ab5ac3f43187ddd266f5094234ca7423e5f9f3352a0",
+  "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+  "shards": {
+    "0": [
+      [
+        "pope",
+        2851,
+        3000
+      ],
+      [
+        "chair",
+        45,
+        60
+      ],
+      [
+        "chair",
+        115,
+        167
+      ],
+      [
+        "chair",
+        211,
+        227
+      ]
+    ],
+    "1": [
+      [
+        "chair",
+        281,
+        334
+      ],
+      [
+        "chair",
+        378,
+        413
+      ]
+    ],
+    "2": [
+      [
+        "chair",
+        413,
+        500
+      ]
+    ]
+  },
+  "stop_proof_sha256": "f7ecf5decb4f11d4d939b02d53d837cdc31356e5b32b6c884bbdd45d4ee06387",
+  "preserved_prefix_files": {
+    "chair-gpu23/gpu2.jsonl": "7e03c1dd8773267a89275795428c9c63c63ea188dd892c78a86bd122dfcc4c35",
+    "chair-gpu23/gpu3.jsonl": "26f33f81f070b5784398e3fa500b98d48c7821564bd9bc55582e147eb7b74f7c",
+    "chair-parallel/000-167.jsonl": "3548110b37e323aa84a099de61a766d79e0c971206e9307c219e733352321ef4",
+    "chair-parallel/167-334.jsonl": "fd1187ac940099a66f403ee42d1f7b82fd0d4826d1a7f921db2ceae67e82519d",
+    "chair-parallel/334-500.jsonl": "3c7f1649080813b99fada7c775995f65195cc88617db2f57ff70ed2834a05512",
+    "pope.jsonl": "f5ec68e4d8d81b3bd2ee1c397e9ec20ec67b3c2e8e6fd32ef417e4616dd62d74"
+  },
+  "preserved_chair_indices": {
+    "gpu0": [
+      [
+        0,
+        45
+      ],
+      [
+        167,
+        211
+      ],
+      [
+        334,
+        378
+      ]
+    ],
+    "gpu2": [
+      [
+        60,
+        115
+      ]
+    ],
+    "gpu3": [
+      [
+        227,
+        281
+      ]
+    ]
+  },
+  "preserved_pope_indices": [
+    [
+      0,
+      2851
+    ]
+  ],
+  "source_hashes": {
+    "scripts/qwen_vti_gpu1.py": "8d56450c7b00ab844250bbbb3bab4675a7abbc08175855e00b555d23915d0a20",
+    "scripts/run_qwen_original_vti.py": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+    "scripts/launch_qwen_vti_gpu1.py": "c654c8fdcc10eacf166c178c39287168bed9961f58c46eb1dc56bf06d0404d93"
+  },
+  "source_snapshot_dir": "gpu1-source-snapshot",
+  "model_math_data_vector_precision_unchanged": true,
+  "note": "GPU 1 is a different GPU model from GPU 0 and GPUs 2/3; fp16 numerics may differ slightly. Each row records gpu_uuid.",
+  "created_at": 1793330453.138156
+}

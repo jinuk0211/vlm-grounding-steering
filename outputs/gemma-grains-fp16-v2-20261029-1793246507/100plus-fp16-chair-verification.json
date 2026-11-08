@@ -1,0 +1,21 @@
+{
+  "status": "verified_100plus_fp16_chair_progress",
+  "chair_n": 104,
+  "workers": {
+    "gpu3-grains-fp16-1793246562": {
+      "n": 53,
+      "max_generated_tokens": 422,
+      "at_512_cap": 0
+    },
+    "gpu2-shared-fp16-1793247038": {
+      "n": 51,
+      "max_generated_tokens": 405,
+      "at_512_cap": 0
+    }
+  },
+  "token_cap": 512,
+  "gpu2_allocator_fraction": 0.7,
+  "gpu": "2, 16123, 7990, 35\n3, 16123, 7990, 36\n",
+  "checked_at": 1793248453.3178852,
+  "final_complete": false
+}

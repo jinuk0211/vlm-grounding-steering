@@ -1,0 +1,98 @@
+{
+  "label": "diskfull-20261030-1301",
+  "reason": "Shared /home/project-b filesystem reached 100% at 13:01; all three shard writes failed (ENOSPC), status could not record failure",
+  "recorded_at": 1793335053.0371113,
+  "previous_jobs": [
+    {
+      "pid": 1308758,
+      "start_ticks": 338155519,
+      "shard": 0,
+      "tasks": [
+        [
+          "pope",
+          2851,
+          3000
+        ],
+        [
+          "chair",
+          45,
+          60
+        ],
+        [
+          "chair",
+          115,
+          167
+        ],
+        [
+          "chair",
+          211,
+          227
+        ]
+      ],
+      "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/gpu1/shard0.log",
+      "visible_devices": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+      "source_sha256": "8d56450c7b00ab844250bbbb3bab4675a7abbc08175855e00b555d23915d0a20"
+    },
+    {
+      "pid": 1308759,
+      "start_ticks": 338155519,
+      "shard": 1,
+      "tasks": [
+        [
+          "chair",
+          281,
+          334
+        ],
+        [
+          "chair",
+          378,
+          413
+        ]
+      ],
+      "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/gpu1/shard1.log",
+      "visible_devices": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+      "source_sha256": "8d56450c7b00ab844250bbbb3bab4675a7abbc08175855e00b555d23915d0a20"
+    },
+    {
+      "pid": 1308760,
+      "start_ticks": 338155519,
+      "shard": 2,
+      "tasks": [
+        [
+          "chair",
+          413,
+          500
+        ]
+      ],
+      "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/gpu1/shard2.log",
+      "visible_devices": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+      "source_sha256": "8d56450c7b00ab844250bbbb3bab4675a7abbc08175855e00b555d23915d0a20"
+    }
+  ],
+  "shards": {
+    "0": {
+      "bytes_before": 462848,
+      "sha256_before": "4a4279b64f78b63f474e723c4965b1ecb9ce9b459502c803cdd9a8ec4cb4c140",
+      "bytes_kept": 462105,
+      "complete_rows_kept": 197,
+      "unterminated_tail_bytes": 743,
+      "sha256_after": "1f1972041bdea58dfdab5ed49a9c1fe66457448c8a49e461f7b29afc4df7bd23"
+    },
+    "1": {
+      "bytes_before": 241664,
+      "sha256_before": "54613167b067ee18eb9c8d6085cd4cda9422c46bb59153d891a7c063223c1e2c",
+      "bytes_kept": 240892,
+      "complete_rows_kept": 50,
+      "unterminated_tail_bytes": 772,
+      "sha256_after": "619190c8c255ab8f498469809b69268ed990bcc2f26fa2ff2dc2d48083053263"
+    },
+    "2": {
+      "bytes_before": 229376,
+      "sha256_before": "a3a6acb64114d15b05344d576c7302c33449b3ac0d441f1ce2fcf76041f55432",
+      "bytes_kept": 228332,
+      "complete_rows_kept": 49,
+      "unterminated_tail_bytes": 1044,
+      "sha256_after": "d0ac0a361a1909a49101c517c489bb2d1a91cdae3f38b9568b3b53bae8ba7abc"
+    }
+  }
+}

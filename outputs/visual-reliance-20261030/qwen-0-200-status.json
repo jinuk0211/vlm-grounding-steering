@@ -1,0 +1,9 @@
+{
+ "stage": "complete",
+ "pid": 2228615,
+ "model": "qwen",
+ "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+ "updated_at": 1793357543.5249984,
+ "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+ "done": 200
+}

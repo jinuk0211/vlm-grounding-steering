@@ -18,7 +18,8 @@ from vlm_grounding.backend import load_adapter
 
 ROOT=Path('/home/project-b/LJW/vlm-grounding-steering')
 MODELS={'qwen':ROOT/'outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386',
-        'gemma':ROOT/'outputs/gemma-grains-fp16-v2-20261029-1793246507'}
+        'gemma':ROOT/'outputs/gemma-grains-fp16-v2-20261029-1793246507',
+        'qwen3':ROOT/'outputs/qwen3-vl8b'}
 BASE_POPE={'qwen':MODELS['qwen']/'original-vti-gpu1-final/pope/base.jsonl',
            'gemma':MODELS['gemma']/'pope-complete/base.jsonl'}
 

@@ -1,0 +1,31 @@
+12:36:42 amber venv
+amber env ok 3.8.18
+12:36:46 THRONE repo
+THRONE 45badbb71c2b3e8d6619f6b45cccdac24dd20b46
+12:36:47 throne venv
+The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+throne env ok 2.8.0+cu128 4.37.2
+12:37:04 coco2017 annotations
+12:37:22 judges
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/huggingface_hub/file_download.py:1212: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.
+For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.
+  warnings.warn(
+Fetching 7 files:  14%|█▍        | 1/7 [00:00<00:01,  3.40it/s]Fetching 7 files:  86%|████████▌ | 6/7 [00:01<00:00,  4.11it/s]Fetching 7 files:  86%|████████▌ | 6/7 [00:20<00:03,  3.33s/it]Fetching 7 files: 100%|██████████| 7/7 [00:31<00:00,  4.45s/it]Fetching 7 files: 100%|██████████| 7/7 [00:31<00:00,  4.45s/it]
+judge ok /home/project-b/LJW/bench/models/flan-t5-base
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/huggingface_hub/file_download.py:1212: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.
+For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.
+  warnings.warn(
+Fetching 7 files:  14%|█▍        | 1/7 [00:00<00:01,  3.58it/s]Fetching 7 files:  86%|████████▌ | 6/7 [00:01<00:00,  3.84it/s]Fetching 7 files:  86%|████████▌ | 6/7 [00:20<00:03,  3.33s/it]Fetching 7 files: 100%|██████████| 7/7 [01:33<00:00, 13.30s/it]Fetching 7 files: 100%|██████████| 7/7 [01:33<00:00, 13.30s/it]
+judge ok /home/project-b/LJW/bench/models/flan-t5-large
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/huggingface_hub/file_download.py:1212: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.
+For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.
+  warnings.warn(
+Fetching 9 files:  78%|███████▊  | 7/9 [00:20<00:05,  2.86s/it]Fetching 9 files:  89%|████████▉ | 8/9 [01:57<00:14, 14.66s/it]Fetching 9 files: 100%|██████████| 9/9 [05:34<00:00, 37.18s/it]Fetching 9 files: 100%|██████████| 9/9 [05:34<00:00, 37.18s/it]
+judge ok /home/project-b/LJW/bench/models/flan-t5-xl
+948M	/home/project-b/LJW/bench/models/flan-t5-base
+3.0G	/home/project-b/LJW/bench/models/flan-t5-large
+11G	/home/project-b/LJW/bench/models/flan-t5-xl
+723M	/home/project-b/LJW/venvs/amber
+6.6G	/home/project-b/LJW/venvs/throne
+12:45:03 BENCH_SETUP_DONE

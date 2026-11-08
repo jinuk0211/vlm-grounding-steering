@@ -1,0 +1,29 @@
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 1/729 [00:00<01:48,  6.70it/s]Loading weights:   0%|          | 2/729 [00:02<18:57,  1.56s/it]Loading weights:  15%|█▌        | 112/729 [00:02<00:11, 52.47it/s]Loading weights:  18%|█▊        | 132/729 [00:03<00:12, 47.69it/s]Loading weights:  20%|██        | 146/729 [00:04<00:13, 42.00it/s]Loading weights:  21%|██▏       | 156/729 [00:04<00:13, 41.02it/s]Loading weights:  22%|██▏       | 164/729 [00:04<00:16, 33.64it/s]Loading weights:  24%|██▎       | 172/729 [00:05<00:22, 24.30it/s]Loading weights:  24%|██▍       | 177/729 [00:05<00:21, 25.93it/s]Loading weights:  25%|██▌       | 184/729 [00:06<00:25, 21.03it/s]Loading weights:  26%|██▌       | 188/729 [00:06<00:28, 18.85it/s]Loading weights:  27%|██▋       | 196/729 [00:07<00:28, 18.57it/s]Loading weights:  27%|██▋       | 199/729 [00:07<00:29, 18.22it/s]Loading weights:  29%|██▊       | 208/729 [00:07<00:31, 16.67it/s]Loading weights:  30%|███       | 220/729 [00:08<00:26, 19.18it/s]Loading weights:  32%|███▏      | 232/729 [00:08<00:19, 25.16it/s]Loading weights:  32%|███▏      | 236/729 [00:08<00:21, 23.43it/s]Loading weights:  33%|███▎      | 244/729 [00:09<00:19, 24.82it/s]Loading weights:  35%|███▌      | 256/729 [00:09<00:20, 22.70it/s]Loading weights:  37%|███▋      | 268/729 [00:10<00:18, 24.34it/s]Loading weights:  38%|███▊      | 280/729 [00:10<00:21, 21.16it/s]Loading weights:  40%|████      | 292/729 [00:11<00:16, 27.01it/s]Loading weights:  42%|████▏     | 304/729 [00:11<00:14, 28.79it/s]Loading weights:  42%|████▏     | 308/729 [00:11<00:16, 25.60it/s]Loading weights:  45%|████▍     | 328/729 [00:11<00:10, 37.59it/s]Loading weights:  46%|████▌     | 333/729 [00:12<00:10, 37.95it/s]Loading weights:  53%|█████▎    | 389/729 [00:12<00:03, 105.84it/s]Loading weights:  56%|█████▌    | 406/729 [00:12<00:02, 114.42it/s]Loading weights:  59%|█████▊    | 427/729 [00:12<00:02, 131.67it/s]Loading weights:  64%|██████▍   | 469/729 [00:12<00:01, 181.51it/s]Loading weights:  72%|███████▏  | 523/729 [00:12<00:00, 253.42it/s]Loading weights:  79%|███████▊  | 573/729 [00:12<00:00, 303.98it/s]Loading weights:  85%|████████▍ | 619/729 [00:12<00:00, 308.75it/s]Loading weights:  90%|████████▉ | 653/729 [00:12<00:00, 310.06it/s]Loading weights:  94%|█████████▍| 687/729 [00:13<00:00, 317.31it/s]Loading weights:  99%|█████████▉| 721/729 [00:13<00:00, 315.05it/s]Loading weights: 100%|██████████| 729/729 [00:13<00:00, 54.95it/s] 
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/qwen_vti_gpu1.py", line 131, in main
+    sink.write(json.dumps(row,allow_nan=False)+'\n');sink.flush()
+                                                     ^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/qwen_vti_gpu1.py", line 115, in main
+    with rows_file.open('a' if prefix else 'x') as sink:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/qwen_vti_gpu1.py", line 144, in <module>
+    args=parser.parse_args();main(args.output,args.shard)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

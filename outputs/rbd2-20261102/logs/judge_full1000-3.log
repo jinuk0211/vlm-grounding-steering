@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/pb_throne_judge.py", line 16, in <module>
+    S.judge(gpu,d);print('judged',tag,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:10<00:10, 10.93s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:11<00:11, 11.40s/it]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/bench/THRONE/throne/throne_aqa_evaluation.py", line 189, in <module>
+    run_extractive_qa(args)
+  File "/home/project-b/LJW/bench/THRONE/throne/throne_aqa_evaluation.py", line 66, in run_extractive_qa
+    qa_model = AutoModelForSeq2SeqLM.from_pretrained(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 566, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3850, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4284, in _load_pretrained_model
+    new_error_msgs, offload_index, state_dict_index = _load_state_dict_into_meta_model(
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/modeling_utils.py", line 805, in _load_state_dict_into_meta_model
+    set_module_tensor_to_device(model, param_name, param_device, **set_module_kwargs)
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/accelerate/utils/modeling.py", line 298, in set_module_tensor_to_device
+    new_value = value.to(device)
+                ^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 20.25 MiB is free. Process 3051099 has 18.25 GiB memory in use. Including non-PyTorch memory, this process has 5.27 GiB memory in use. Of the allocated memory 4.58 GiB is allocated by PyTorch, and 497.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+

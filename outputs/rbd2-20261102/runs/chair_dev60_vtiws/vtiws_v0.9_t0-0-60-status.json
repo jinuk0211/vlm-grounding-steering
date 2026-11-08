@@ -1,0 +1,13 @@
+{
+ "stage": "complete",
+ "pid": 1582103,
+ "total": 60,
+ "done": 60,
+ "artifact": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/vti_fix/vti-author-ws.pt",
+ "artifact_sha256": "04a65ace97ef732a8d20ca0505f69b8e60e8a8b2466fc37a24f9ad4fd5e4053c",
+ "alpha_visual": 0.9,
+ "alpha_textual": 0.0,
+ "updated_at": 1793682843.3965483,
+ "gpu": "NVIDIA RTX A5000",
+ "fp16_attention_calls": 307232
+}

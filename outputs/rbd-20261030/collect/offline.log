@@ -1,0 +1,34 @@
+qwen: 1105 first mentions, 778 with the first token in V_obj (643 correct / 135 hallucinated)
+  logp+0.1belief_measured      AUROC 0.754 [0.711,0.796]  vs logp [-0.028,+0.077]  pos-matched 0.573
+  logp+0.3belief_measured      AUROC 0.748 [0.705,0.790]  vs logp [-0.035,+0.074]  pos-matched 0.560
+  logp+1.0belief_measured      AUROC 0.746 [0.702,0.789]  vs logp [-0.038,+0.073]  pos-matched 0.556
+  logp+0.1belief_const         AUROC 0.745 [0.703,0.786]  vs logp [-0.036,+0.068]  pos-matched 0.543
+  logp+0.3belief_const         AUROC 0.742 [0.700,0.784]  vs logp [-0.040,+0.066]  pos-matched 0.537
+  belief_measured              AUROC 0.742 [0.697,0.785]  vs logp [-0.042,+0.069]  pos-matched 0.554
+  logp+1.0belief_const         AUROC 0.742 [0.699,0.784]  vs logp [-0.042,+0.066]  pos-matched 0.536
+  logp+0.1belief_step0         AUROC 0.740 [0.689,0.790]  vs logp [-0.005,+0.028]  pos-matched 0.684
+  belief_prev_measured         AUROC 0.740 [0.694,0.784]  vs logp [-0.045,+0.067]  pos-matched 0.553
+  belief_const                 AUROC 0.739 [0.695,0.781]  vs logp [-0.044,+0.062]  pos-matched 0.535
+  belief_prev_const            AUROC 0.737 [0.692,0.781]  vs logp [-0.047,+0.062]  pos-matched 0.534
+  logp                         AUROC 0.730 [0.675,0.782]  vs logp [+0.000,+0.000]  pos-matched 0.667
+  logp+0.3belief_step0         AUROC 0.715 [0.665,0.764]  vs logp [-0.053,+0.025]  pos-matched 0.669
+  logp+1.0belief_step0         AUROC 0.638 [0.584,0.689]  vs logp [-0.155,-0.029]  pos-matched 0.620
+  belief_prev_step0            AUROC 0.575 [0.518,0.629]  vs logp [-0.232,-0.079]  pos-matched 0.576
+  belief_step0                 AUROC 0.575 [0.518,0.629]  vs logp [-0.232,-0.079]  pos-matched 0.576
+gemma: 1269 first mentions, 814 with the first token in V_obj (638 correct / 176 hallucinated)
+  logp+0.1belief_const         AUROC 0.698 [0.658,0.736]  vs logp [-0.040,+0.061]  pos-matched 0.503
+  logp+0.1belief_step0         AUROC 0.698 [0.655,0.743]  vs logp [-0.021,+0.043]  pos-matched 0.685
+  logp+0.3belief_const         AUROC 0.697 [0.657,0.735]  vs logp [-0.041,+0.060]  pos-matched 0.502
+  logp+1.0belief_const         AUROC 0.697 [0.657,0.735]  vs logp [-0.042,+0.060]  pos-matched 0.502
+  belief_prev_const            AUROC 0.696 [0.656,0.735]  vs logp [-0.043,+0.060]  pos-matched 0.502
+  belief_const                 AUROC 0.696 [0.656,0.735]  vs logp [-0.043,+0.059]  pos-matched 0.502
+  logp+0.1belief_measured      AUROC 0.693 [0.652,0.731]  vs logp [-0.046,+0.055]  pos-matched 0.520
+  logp+0.3belief_measured      AUROC 0.691 [0.651,0.730]  vs logp [-0.048,+0.053]  pos-matched 0.517
+  logp+1.0belief_measured      AUROC 0.691 [0.650,0.729]  vs logp [-0.049,+0.053]  pos-matched 0.516
+  belief_measured              AUROC 0.690 [0.649,0.728]  vs logp [-0.050,+0.052]  pos-matched 0.516
+  belief_prev_measured         AUROC 0.688 [0.647,0.727]  vs logp [-0.052,+0.051]  pos-matched 0.515
+  logp                         AUROC 0.687 [0.647,0.730]  vs logp [+0.000,+0.000]  pos-matched 0.694
+  logp+0.3belief_step0         AUROC 0.669 [0.623,0.714]  vs logp [-0.064,+0.034]  pos-matched 0.641
+  logp+1.0belief_step0         AUROC 0.640 [0.593,0.688]  vs logp [-0.103,+0.013]  pos-matched 0.608
+  belief_prev_step0            AUROC 0.625 [0.577,0.673]  vs logp [-0.124,+0.002]  pos-matched 0.590
+  belief_step0                 AUROC 0.625 [0.577,0.673]  vs logp [-0.124,+0.002]  pos-matched 0.590

@@ -1,0 +1,11 @@
+{
+  "previous_finalizer": {
+    "pid": 945378,
+    "start_ticks": 331551996
+  },
+  "all_selected_instances_exited": true,
+  "source_sha256": "2e8c11d19620756619c03b1652dfe9253c7bf57703ffbea897ca49b35434918e",
+  "status_sha256": "bc3169685dd85ad53327a79b275e5a9737526454d1c27742b50c1c26cd23fb5a",
+  "stopped_at": 1793266411.560628,
+  "reason": "Add disjoint GPU0 author-VTI CHAIR provenance and correct PCA wrapper source check"
+}

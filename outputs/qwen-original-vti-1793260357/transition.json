@@ -1,0 +1,71 @@
+{
+  "user_requested_original_vti": true,
+  "stopped_jobs": [
+    {
+      "pid": 2777858,
+      "start_ticks": 330724897,
+      "script": "scripts/qwen_gpu0_stage_v2.py",
+      "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+      "kind": "generation",
+      "visible_devices": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+      "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/gpu0-extra-bf16-0-1793256207.log",
+      "state_file": "worker-gpu0-extra-bf16-0-1793256207.json",
+      "device_proof": "gpu0-extra-bf16-0-1793256207-device-map.json",
+      "dtype": "bfloat16",
+      "gpu0_migration": true,
+      "worker": "gpu0-extra-bf16-0-1793256207",
+      "supplemental_replica": true
+    },
+    {
+      "pid": 2777860,
+      "start_ticks": 330724897,
+      "script": "scripts/qwen_gpu0_stage_v2.py",
+      "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+      "kind": "generation",
+      "visible_devices": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+      "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/gpu0-extra-bf16-1-1793256207.log",
+      "state_file": "worker-gpu0-extra-bf16-1-1793256207.json",
+      "device_proof": "gpu0-extra-bf16-1-1793256207-device-map.json",
+      "dtype": "bfloat16",
+      "gpu0_migration": true,
+      "worker": "gpu0-extra-bf16-1-1793256207",
+      "supplemental_replica": true
+    }
+  ],
+  "stopped_controller": {
+    "controller_pid": 2776610,
+    "controller_start_ticks": 330724412,
+    "gpu_indices": [
+      0
+    ],
+    "stage": "generating_gpu0_bf16_supplemental",
+    "jobs": [
+      {
+        "pid": 2777858,
+        "stage": "generating",
+        "completed": 2772,
+        "task": "chair-rudder_clone-00248"
+      },
+      {
+        "pid": 2777860,
+        "stage": "generating",
+        "completed": 2774,
+        "task": "chair-revis-00248"
+      }
+    ],
+    "updated_at": 1793260537.6909127
+  },
+  "all_selected_instances_exited": true,
+  "released_incomplete_tasks": [
+    {
+      "task": "chair-revis-00248",
+      "prefix_sha256": "2c41db9434edd11fbc809e87050176a19e7acf885882ff9624da2f796eb4219b"
+    },
+    {
+      "task": "chair-rudder_clone-00248",
+      "prefix_sha256": "b3f283ba9fad78ab01758827ca746d09d92d178de0d5692c775aae49826f92a5"
+    }
+  ],
+  "retained_all_completed_predictions": true,
+  "created_at": 1793260542.629787
+}

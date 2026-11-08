@@ -1,0 +1,23 @@
+{
+  "controller_pid": 2776610,
+  "controller_start_ticks": 330724412,
+  "gpu_indices": [
+    0
+  ],
+  "stage": "generating_gpu0_bf16_supplemental",
+  "jobs": [
+    {
+      "pid": 2777858,
+      "stage": "generating",
+      "completed": 2772,
+      "task": "chair-rudder_clone-00248"
+    },
+    {
+      "pid": 2777860,
+      "stage": "generating",
+      "completed": 2774,
+      "task": "chair-revis-00248"
+    }
+  ],
+  "updated_at": 1793260537.6909127
+}

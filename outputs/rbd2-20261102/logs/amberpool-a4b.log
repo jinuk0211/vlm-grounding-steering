@@ -1,0 +1,23 @@
+15:19:10 start amber_full1004 grains_clone 0-100 eager
+15:34:28 end amber_full1004 grains_clone 0-100
+15:34:29 start amber_full1004 vtiws_v0.9_t0.9 100-200 eager
+15:48:16 end amber_full1004 vtiws_v0.9_t0.9 100-200
+15:48:16 start amber_full1004 base 300-400 sdpa
+15:55:19 end amber_full1004 base 300-400
+15:55:19 start amber_full1004 grains_clone 300-400 eager
+16:10:09 end amber_full1004 grains_clone 300-400
+16:10:09 start amber_full1004 vtiws_v0.9_t0.9 400-500 eager
+16:24:15 end amber_full1004 vtiws_v0.9_t0.9 400-500
+16:24:15 start amber_full1004 base 600-700 sdpa
+16:31:19 end amber_full1004 base 600-700
+16:31:19 start amber_full1004 vtiws_v0.9_t0.9 600-700 eager
+16:46:46 end amber_full1004 vtiws_v0.9_t0.9 600-700
+16:46:46 start amber_full1004 vtiws_v0.9_t0.9 800-900 eager
+17:00:15 end amber_full1004 vtiws_v0.9_t0.9 800-900
+17:00:16 start amber_full1004 revis 100-200 sdpa
+17:06:57 end amber_full1004 revis 100-200
+17:06:57 start amber_full1004 revis 500-600 sdpa
+17:15:47 end amber_full1004 revis 500-600
+17:15:48 start amber_full1004 revis 1000-1004 sdpa
+17:16:30 end amber_full1004 revis 1000-1004
+17:16:30 AMBERPOOL_DONE

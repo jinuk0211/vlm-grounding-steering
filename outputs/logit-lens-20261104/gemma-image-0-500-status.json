@@ -1,0 +1,34 @@
+{
+ "stage": "complete",
+ "pid": 1098352,
+ "model": "gemma",
+ "mode": "image",
+ "gpu_uuid": "GPU-09bbc4d6-59a6-d5f2-203a-d7abd4a586b5",
+ "argv": [
+  "scripts/logit_lens.py",
+  "image",
+  "--model",
+  "gemma",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104"
+ ],
+ "updated_at": 1793850474.3181112,
+ "n_layers": 42,
+ "nodes": 77,
+ "objects_without_token": [
+  "frisbee",
+  "hot dog",
+  "teddy bear"
+ ],
+ "tokens_per_node": 10.012987012987013,
+ "depths": [
+  10,
+  21,
+  32,
+  42
+ ],
+ "done": 481,
+ "sec_per_image": 0.5529787039806342,
+ "last_layer_max_prob_err": 0.0,
+ "records": 500
+}

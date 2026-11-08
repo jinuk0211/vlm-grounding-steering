@@ -1,0 +1,19 @@
+13:55:27 start amber_test500 mainMed 300-350
+13:59:58 end amber_test500 mainMed 300-350
+13:59:58 start amber_test500 base 300-350
+14:04:28 end amber_test500 base 300-350
+14:04:28 start chair_test500 s16a2bl1p05 350-400
+14:12:21 end chair_test500 s16a2bl1p05 350-400
+14:12:21 start amber_test500 base 350-400
+14:17:12 end amber_test500 base 350-400
+14:17:12 start throne_test500 s16a1bl2p1 400-450
+14:25:40 end throne_test500 s16a1bl2p1 400-450
+14:25:40 start throne_test500 base 400-450
+14:34:16 end throne_test500 base 400-450
+14:34:16 start amber_test500 base 400-450
+14:38:52 end amber_test500 base 400-450
+14:38:52 start throne_test500 s16a1bl2p1 450-500
+14:47:05 end throne_test500 s16a1bl2p1 450-500
+14:47:05 start chair_test500 base 450-500
+14:55:35 end chair_test500 base 450-500
+14:55:35 POOL_DONE

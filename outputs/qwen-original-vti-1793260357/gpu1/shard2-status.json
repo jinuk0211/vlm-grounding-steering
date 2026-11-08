@@ -1,0 +1,30 @@
+{
+  "pid": 132872,
+  "start_ticks": 338609487,
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+  "shard": 2,
+  "tasks": [
+    [
+      "chair",
+      413,
+      500
+    ]
+  ],
+  "stage": "complete",
+  "completed_records": 87,
+  "resumed_from": 49,
+  "expected_records": 87,
+  "source_sha256": "8d56450c7b00ab844250bbbb3bab4675a7abbc08175855e00b555d23915d0a20",
+  "original_worker_sha256": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+  "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+  "amendment_sha256": "5a935f8c9ee810e2d05d44ca90cdfb0ca3bbf4b6a317dceda3ccc77d38700350",
+  "updated_at": 1793336800.144981,
+  "last": [
+    "chair",
+    499
+  ],
+  "output_sha256": "80efdf635a296383af8a9aed5b05b19015e758dd77c65370e6915a5779a83a42",
+  "device_proof_sha256": "81052d9c3a8abe7b020c7b6e658b402c0148fd827f7346e84c60a2937f887d68",
+  "completed_at": 1793336800.1449802
+}

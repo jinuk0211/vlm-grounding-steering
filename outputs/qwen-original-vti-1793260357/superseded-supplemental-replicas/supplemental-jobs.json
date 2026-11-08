@@ -1,0 +1,32 @@
+[
+  {
+    "pid": 2777858,
+    "start_ticks": 330724897,
+    "script": "scripts/qwen_gpu0_stage_v2.py",
+    "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+    "kind": "generation",
+    "visible_devices": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+    "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/gpu0-extra-bf16-0-1793256207.log",
+    "state_file": "worker-gpu0-extra-bf16-0-1793256207.json",
+    "device_proof": "gpu0-extra-bf16-0-1793256207-device-map.json",
+    "dtype": "bfloat16",
+    "gpu0_migration": true,
+    "worker": "gpu0-extra-bf16-0-1793256207",
+    "supplemental_replica": true
+  },
+  {
+    "pid": 2777860,
+    "start_ticks": 330724897,
+    "script": "scripts/qwen_gpu0_stage_v2.py",
+    "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+    "kind": "generation",
+    "visible_devices": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+    "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/gpu0-extra-bf16-1-1793256207.log",
+    "state_file": "worker-gpu0-extra-bf16-1-1793256207.json",
+    "device_proof": "gpu0-extra-bf16-1-1793256207-device-map.json",
+    "dtype": "bfloat16",
+    "gpu0_migration": true,
+    "worker": "gpu0-extra-bf16-1-1793256207",
+    "supplemental_replica": true
+  }
+]

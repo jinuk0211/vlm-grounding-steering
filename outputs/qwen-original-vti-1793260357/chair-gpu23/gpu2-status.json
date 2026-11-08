@@ -1,0 +1,24 @@
+{
+  "pid": 1625866,
+  "start_ticks": 331785675,
+  "gpu_index": 2,
+  "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+  "ranges": [
+    [
+      60,
+      167
+    ],
+    [
+      394,
+      447
+    ]
+  ],
+  "stage": "generating",
+  "completed_records": 55,
+  "source_sha256": "27042ce1088b5c5300ebafedc1263aac92cda200f114a3bf54df93f81cf180b5",
+  "original_worker_sha256": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+  "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+  "amendment_sha256": "9b3e9f27ea9806fa83a1ae319e57c784703638b14c8f567dfc55bcf823b1deae",
+  "updated_at": 1793268429.3734357,
+  "last_index": 114
+}

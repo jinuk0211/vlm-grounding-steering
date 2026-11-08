@@ -1,0 +1,43 @@
+00:43:35 start throne_full_bl base 0-100 sdpa
+01:00:07 end throne_full_bl base 0-100
+01:00:07 start throne_full_bl grains_clone 0-100 eager
+01:22:15 end throne_full_bl grains_clone 0-100
+01:22:15 start throne_full_bl rudder_clone 100-200 sdpa
+01:34:01 end throne_full_bl rudder_clone 100-200
+01:34:01 start throne_full_bl grains_clone 100-200 eager
+01:50:28 end throne_full_bl grains_clone 100-200
+01:50:28 start throne_full_bl vti_author 200-300 eager
+03:22:10 end throne_full_bl vti_author 200-300
+03:22:10 start throne_full_bl rudder_clone 400-500 sdpa
+03:40:57 end throne_full_bl rudder_clone 400-500
+03:40:57 start throne_full_bl grains_clone 400-500 eager
+04:06:15 end throne_full_bl grains_clone 400-500
+04:06:15 start throne_full_bl rudder_clone 500-600 sdpa
+04:18:02 end throne_full_bl rudder_clone 500-600
+04:18:02 start throne_full_bl grains_clone 500-600 eager
+04:33:32 end throne_full_bl grains_clone 500-600
+04:33:32 start throne_full_bl rudder_clone 600-700 sdpa
+04:44:50 end throne_full_bl rudder_clone 600-700
+04:44:50 start throne_full_bl base 600-700 sdpa
+04:55:36 end throne_full_bl base 600-700
+04:55:36 start throne_full_bl grains_clone 600-700 eager
+05:11:34 end throne_full_bl grains_clone 600-700
+05:11:34 start throne_full_bl revis 600-700 sdpa
+05:22:25 end throne_full_bl revis 600-700
+05:22:25 start throne_full_bl rudder_clone 700-800 sdpa
+05:33:50 end throne_full_bl rudder_clone 700-800
+05:33:50 start throne_full_bl base 700-800 sdpa
+05:44:35 end throne_full_bl base 700-800
+05:44:35 start throne_full_bl grains_clone 700-800 eager
+06:00:04 end throne_full_bl grains_clone 700-800
+06:00:04 start throne_full_bl revis 700-800 sdpa
+06:10:51 end throne_full_bl revis 700-800
+06:10:51 start throne_full_bl rudder_clone 800-900 sdpa
+06:27:48 end throne_full_bl rudder_clone 800-900
+06:27:48 start throne_full_bl grains_clone 800-900 eager
+06:50:47 end throne_full_bl grains_clone 800-900
+06:50:47 start throne_full_bl rudder_clone 900-1000 sdpa
+07:01:23 end throne_full_bl rudder_clone 900-1000
+07:01:23 start throne_full_bl grains_clone 900-1000 eager
+07:16:59 end throne_full_bl grains_clone 900-1000
+07:17:00 BLPOOL_DONE

@@ -1,0 +1,13 @@
+{
+  "pid": 197501,
+  "stage": "passed",
+  "started_at": 1793261857.3917468,
+  "records": {
+    "pope": 3000,
+    "chair": 500
+  },
+  "development_images": 64,
+  "parent_protocol_sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7",
+  "auditor_sha256": "a44352e25a093269f5521d7d2dc48dfc7554566df689730d77d338f602c2c5e4",
+  "completed_at": 1793261861.8560104
+}

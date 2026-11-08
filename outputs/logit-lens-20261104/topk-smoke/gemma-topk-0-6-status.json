@@ -1,0 +1,27 @@
+{
+ "stage": "complete",
+ "pid": 823742,
+ "model": "gemma",
+ "mode": "topk",
+ "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+ "argv": [
+  "scripts/logit_lens.py",
+  "topk",
+  "--model",
+  "gemma",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104/topk-smoke",
+  "--start",
+  "0",
+  "--end",
+  "6"
+ ],
+ "updated_at": 1793872711.6347325,
+ "n_layers": 42,
+ "nodes": 77,
+ "done": 1,
+ "sec_per_caption": 5.095059394836426,
+ "last_layer_max_logp_err": 0.0,
+ "max_gpu_gb": 15.84715223312378,
+ "records": 6
+}

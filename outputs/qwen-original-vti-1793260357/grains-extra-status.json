@@ -1,0 +1,29 @@
+{
+  "controller_pid": 914732,
+  "controller_start_ticks": 331541344,
+  "gpu_indices": [
+    0
+  ],
+  "source_sha256": "550b0537832d106f27bb7f10ae300a05650042bafeb5bc53d5902027b6391b47",
+  "started_at": 1793264376.639588,
+  "same_lease_epoch": "gpu0-stable-fp16-1793256418",
+  "stage": "complete",
+  "updated_at": 1793265696.8154018,
+  "jobs": [
+    {
+      "pid": 916755,
+      "worker": "gpu0-extra-grains-0-1793264376",
+      "stage": "complete",
+      "completed_records": 116,
+      "task": "chair-grains_clone-00496"
+    },
+    {
+      "pid": 916756,
+      "worker": "gpu0-extra-grains-1-1793264376",
+      "stage": "complete",
+      "completed_records": 112,
+      "task": "chair-grains_clone-00480"
+    }
+  ],
+  "completed_at": 1793265696.8154006
+}

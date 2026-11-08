@@ -1,0 +1,6 @@
+14:54:44 start throne_test120 base 
+15:16:00 end throne_test120 base
+15:16:00 start throne_test120 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+17:05:09 start throne_test120 s16a1bl2p1 --alpha 1 --layer 16 --lam 2 --pen 1
+17:24:57 end throne_test120 s16a1bl2p1
+17:24:57 EXT_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/ext_T4.txt

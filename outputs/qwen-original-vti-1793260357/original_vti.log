@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 1/729 [00:00<04:40,  2.60it/s]Loading weights:   9%|▉         | 64/729 [00:00<00:04, 158.66it/s]Loading weights:  13%|█▎        | 93/729 [00:00<00:03, 171.76it/s]Loading weights:  16%|█▌        | 118/729 [00:00<00:03, 177.83it/s]Loading weights:  19%|█▉        | 141/729 [00:00<00:03, 158.86it/s]Loading weights:  22%|██▏       | 160/729 [00:01<00:03, 159.61it/s]Loading weights:  25%|██▌       | 184/729 [00:01<00:03, 160.64it/s]Loading weights:  29%|██▊       | 208/729 [00:01<00:03, 166.44it/s]Loading weights:  32%|███▏      | 232/729 [00:01<00:02, 171.35it/s]Loading weights:  35%|███▌      | 256/729 [00:01<00:02, 183.16it/s]Loading weights:  38%|███▊      | 276/729 [00:01<00:02, 171.87it/s]Loading weights:  40%|████      | 294/729 [00:01<00:02, 167.11it/s]Loading weights:  43%|████▎     | 316/729 [00:01<00:02, 173.32it/s]Loading weights:  46%|████▌     | 334/729 [00:02<00:02, 167.67it/s]Loading weights:  61%|██████    | 443/729 [00:02<00:00, 408.07it/s]Loading weights:  72%|███████▏  | 527/729 [00:02<00:00, 517.20it/s]Loading weights:  83%|████████▎ | 607/729 [00:02<00:00, 594.94it/s]Loading weights:  93%|█████████▎| 681/729 [00:02<00:00, 627.38it/s]Loading weights: 100%|██████████| 729/729 [00:02<00:00, 283.90it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/run_qwen_original_vti.py", line 198, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);main(p.parse_args().output)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/run_qwen_original_vti.py", line 154, in main
+    else:artifact=fit(adapter,out,utils,layers,update)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/run_qwen_original_vti.py", line 111, in fit
+    images,inputs=utils.get_demos(args,ImageProcessor(adapter.processor.image_processor),adapter.model,None,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/upstream-author-20261026/VTI/vti_utils/utils.py", line 166, in get_demos
+    image_raw = Image.open(image_path).convert("RGB")
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/PIL/Image.py", line 3639, in open
+    fp = builtins.open(filename, "rb")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/data/train2014/COCO_train2014_000000199958.jpg'

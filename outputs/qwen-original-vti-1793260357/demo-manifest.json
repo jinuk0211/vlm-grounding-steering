@@ -1,0 +1,497 @@
+{
+  "author_demos_sha256": "5ce467817fc2a29735715fd6793b4927268cfff030e798f9f3a60a1fcb575d0d",
+  "selection": "original random.sample(data,70), seed42",
+  "images": [
+    {
+      "id": "000000074183",
+      "image": "COCO_train2014_000000074183.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000074183.jpg",
+      "sha256": "a3eb9132ced9372bbe9ecf69854796e5ae372e1e25c3efabfe382c0c64d96a73",
+      "bytes": 235630
+    },
+    {
+      "id": "000000436221",
+      "image": "COCO_train2014_000000436221.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000436221.jpg",
+      "sha256": "4ce3a1e34578cb1e08b18eea4848d518b4836f7a4556b8e8b93e6f1af710b3a0",
+      "bytes": 175319
+    },
+    {
+      "id": "000000040407",
+      "image": "COCO_train2014_000000040407.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000040407.jpg",
+      "sha256": "2795194eb4fbfbb9c5314154727f43999f4e8d82ab801fda38407e1f9d1b57e3",
+      "bytes": 225455
+    },
+    {
+      "id": "000000289740",
+      "image": "COCO_train2014_000000289740.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000289740.jpg",
+      "sha256": "c008574ff83acf116c66d236101338db5e107d9067784d51df62ead803a8cff3",
+      "bytes": 263943
+    },
+    {
+      "id": "000000554066",
+      "image": "COCO_train2014_000000554066.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000554066.jpg",
+      "sha256": "6deea98cdace712f83778b8deab0e12373860c021bec77b1555277b2424af07a",
+      "bytes": 145504
+    },
+    {
+      "id": "000000202426",
+      "image": "COCO_train2014_000000202426.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000202426.jpg",
+      "sha256": "f8b2d7ce8a51bcd776f933c3c3ed3477a43b4ced4244bed9dcf43f800283dc6a",
+      "bytes": 102815
+    },
+    {
+      "id": "000000166464",
+      "image": "COCO_train2014_000000166464.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000166464.jpg",
+      "sha256": "037e56d187bb8bcd3344a92e3b8aa14d1f703bec195ff0769a7288a2a92da01b",
+      "bytes": 186659
+    },
+    {
+      "id": "000000410239",
+      "image": "COCO_train2014_000000410239.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000410239.jpg",
+      "sha256": "c8ec1f4644fc1f0ca5553fe00d5debf982f68b4d0c31f70020feeed0db417ecd",
+      "bytes": 190329
+    },
+    {
+      "id": "000000370505",
+      "image": "COCO_train2014_000000370505.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000370505.jpg",
+      "sha256": "392fb2a57067d9c035f960ac4391aa68a0ef1281050df9ca3596f1c109edf59e",
+      "bytes": 170623
+    },
+    {
+      "id": "000000002498",
+      "image": "COCO_train2014_000000002498.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000002498.jpg",
+      "sha256": "6f82d1b3371bdd4020f71e8735adc4b1af2aec5bd95acd99055a9c2ad0aae363",
+      "bytes": 109635
+    },
+    {
+      "id": "000000032665",
+      "image": "COCO_train2014_000000032665.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000032665.jpg",
+      "sha256": "3bcf7dc93a0eaab288c6b00b284fe5bbbad2653999fd3ca1269326b0946f14a7",
+      "bytes": 259254
+    },
+    {
+      "id": "000000535811",
+      "image": "COCO_train2014_000000535811.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000535811.jpg",
+      "sha256": "37537aeddbf4436329f1ecae67c809c09df7bfff4d6405ce42c30eee765c5c8c",
+      "bytes": 214351
+    },
+    {
+      "id": "000000355801",
+      "image": "COCO_train2014_000000355801.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000355801.jpg",
+      "sha256": "f0023a316083905d79bf3d20200c802ce5f44c62d21a7ce0ee583ff55c1e3e3d",
+      "bytes": 133606
+    },
+    {
+      "id": "000000541999",
+      "image": "COCO_train2014_000000541999.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000541999.jpg",
+      "sha256": "f22f2a8f2c305e3b2d189a4ee0b9f55a2188a0b6824e303c9cbd60ece01a35e3",
+      "bytes": 121492
+    },
+    {
+      "id": "000000272569",
+      "image": "COCO_train2014_000000272569.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000272569.jpg",
+      "sha256": "def62e50c27e94d1f563c124186173c48083d5038e22b3d5fc96adb3e1e65109",
+      "bytes": 203773
+    },
+    {
+      "id": "000000121943",
+      "image": "COCO_train2014_000000121943.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000121943.jpg",
+      "sha256": "e69975df3b78d6701544e1dccad02cfa2db9547e887a5716bc79eea7227d44e5",
+      "bytes": 182745
+    },
+    {
+      "id": "000000128093",
+      "image": "COCO_train2014_000000128093.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000128093.jpg",
+      "sha256": "5a364cf7463d98bc772aa9d7006fadffe04224eac256a6acac4a16623cd5e70d",
+      "bytes": 142874
+    },
+    {
+      "id": "000000330909",
+      "image": "COCO_train2014_000000330909.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000330909.jpg",
+      "sha256": "78aee7b1b2eafc905526c12f50ae92b6d68579f5d2293715033052dff8085aef",
+      "bytes": 162394
+    },
+    {
+      "id": "000000069798",
+      "image": "COCO_train2014_000000069798.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000069798.jpg",
+      "sha256": "e1974da0f207dd71a8b815722a6d48bc6a42bd4b3d2f8e4dfe559782c1f536eb",
+      "bytes": 154930
+    },
+    {
+      "id": "000000526337",
+      "image": "COCO_train2014_000000526337.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000526337.jpg",
+      "sha256": "f1535a2e93ed64f0fbf1543f8087b4dd51fae12a9d2e2fc031197d6403b0b08a",
+      "bytes": 158397
+    },
+    {
+      "id": "000000126021",
+      "image": "COCO_train2014_000000126021.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000126021.jpg",
+      "sha256": "dc6855e1465295ee06425433b2bf42e7d1cdb0d32cba5574f8024d09a3339173",
+      "bytes": 162570
+    },
+    {
+      "id": "000000411603",
+      "image": "COCO_train2014_000000411603.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000411603.jpg",
+      "sha256": "6e1ffbfc0945a4e3e9e1a68366ab09b3a0a94757a622fff0f04f91cf366e5e1b",
+      "bytes": 220705
+    },
+    {
+      "id": "000000295236",
+      "image": "COCO_train2014_000000295236.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000295236.jpg",
+      "sha256": "be5aa3fe740a8935dd43f5c931229ee184d4f9ba2c89269dcda865511e6056ec",
+      "bytes": 132450
+    },
+    {
+      "id": "000000026484",
+      "image": "COCO_train2014_000000026484.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000026484.jpg",
+      "sha256": "794ea5c0529e745b6bb1205cb55ab676b3deb0d1c0727d81e9a89d2208e41ba1",
+      "bytes": 157724
+    },
+    {
+      "id": "000000206405",
+      "image": "COCO_train2014_000000206405.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000206405.jpg",
+      "sha256": "754193d2a73ed4f2ccb6d6cb6eaa0b913b25e46d8f0be0b9019d8692e4eb15e8",
+      "bytes": 120494
+    },
+    {
+      "id": "000000197854",
+      "image": "COCO_train2014_000000197854.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000197854.jpg",
+      "sha256": "bef0fc340bef6acbdc5e9700116bcde3e31c424c79b5d38e46a5b7941d95a1fd",
+      "bytes": 129345
+    },
+    {
+      "id": "000000044946",
+      "image": "COCO_train2014_000000044946.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000044946.jpg",
+      "sha256": "56088909261f34fd1d8b2a951ecefab96450e820b5389e764763d065c0de579e",
+      "bytes": 238438
+    },
+    {
+      "id": "000000320374",
+      "image": "COCO_train2014_000000320374.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000320374.jpg",
+      "sha256": "a2fb66d7ecf21fe5cacc3e1737497374958099a58c216510b43afa48fad38dec",
+      "bytes": 341816
+    },
+    {
+      "id": "000000199958",
+      "image": "COCO_train2014_000000199958.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000199958.jpg",
+      "sha256": "84081fcc26dc20131265456ad1162181a68b23e31cf2c94dfd6d7dff15f1aabd",
+      "bytes": 194273
+    },
+    {
+      "id": "000000103108",
+      "image": "COCO_train2014_000000103108.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000103108.jpg",
+      "sha256": "ba8504cf3675a291dd585b773304243f58c1c1680b06a15054782ad6c986a589",
+      "bytes": 124352
+    },
+    {
+      "id": "000000127499",
+      "image": "COCO_train2014_000000127499.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000127499.jpg",
+      "sha256": "a822b0a8bbfa86673adf345b90c97374d0b6a06c1bcc1f795413b3c90e710ca2",
+      "bytes": 214459
+    },
+    {
+      "id": "000000353288",
+      "image": "COCO_train2014_000000353288.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000353288.jpg",
+      "sha256": "1d276d27e0b46686bdbb4bd0a418587a9998062a5cff632b7766f6a6b761d446",
+      "bytes": 226016
+    },
+    {
+      "id": "000000400592",
+      "image": "COCO_train2014_000000400592.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000400592.jpg",
+      "sha256": "baf603a2b5d553147403a81cdc5c6faca657756b009e1b44111b928537b877bf",
+      "bytes": 92009
+    },
+    {
+      "id": "000000427493",
+      "image": "COCO_train2014_000000427493.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000427493.jpg",
+      "sha256": "35896627a24ce623917837197539fc9830ed70ba88b833b92d7593a035951dca",
+      "bytes": 172522
+    },
+    {
+      "id": "000000250903",
+      "image": "COCO_train2014_000000250903.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000250903.jpg",
+      "sha256": "a482fb97ff95dee1396b074618e2ec3c5ab2905c4a0340ffdc1435701773e663",
+      "bytes": 100459
+    },
+    {
+      "id": "000000013302",
+      "image": "COCO_train2014_000000013302.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000013302.jpg",
+      "sha256": "af2fb2df9f50f70e749174ff6af62dd7b1efa228ee4f01099e1e3ad11647dbb1",
+      "bytes": 90080
+    },
+    {
+      "id": "000000423481",
+      "image": "COCO_train2014_000000423481.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000423481.jpg",
+      "sha256": "f0f7463805763a0a1da4aea8d9d3762a2c9c88067fc6de53385d12fe44267540",
+      "bytes": 160093
+    },
+    {
+      "id": "000000360604",
+      "image": "COCO_train2014_000000360604.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000360604.jpg",
+      "sha256": "3376946ce8ac597071ebc121cfcf07cbd2254924a8a4bb31e673e6e8a7935b4f",
+      "bytes": 164568
+    },
+    {
+      "id": "000000462075",
+      "image": "COCO_train2014_000000462075.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000462075.jpg",
+      "sha256": "64bb17ec886968042aad0f06d9dc3a52d1b8438229d695c0ee1cb6c711671217",
+      "bytes": 261046
+    },
+    {
+      "id": "000000051630",
+      "image": "COCO_train2014_000000051630.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000051630.jpg",
+      "sha256": "c685f2adf40c8fa29c9f8cc9b78541b02fb7600331ff93bff3bc3e372e0bf2e6",
+      "bytes": 198307
+    },
+    {
+      "id": "000000402702",
+      "image": "COCO_train2014_000000402702.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000402702.jpg",
+      "sha256": "ce9ec7fc1b2e0dc7a5e7e77c00cf3e9806352f44ba104092594b781f7a166215",
+      "bytes": 209034
+    },
+    {
+      "id": "000000276845",
+      "image": "COCO_train2014_000000276845.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000276845.jpg",
+      "sha256": "5f8051889cf1a2ec2367be3ffc41d825d7cde0bd25aa7a4500ffd5cd7cc29411",
+      "bytes": 230980
+    },
+    {
+      "id": "000000259243",
+      "image": "COCO_train2014_000000259243.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000259243.jpg",
+      "sha256": "acec1739851a5be0e803260988a26d011bbbeab77b4be927cd4aef678c0929d1",
+      "bytes": 214423
+    },
+    {
+      "id": "000000019938",
+      "image": "COCO_train2014_000000019938.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000019938.jpg",
+      "sha256": "bc78d45b8a5bc1ee4485adffba2dfb3c43bef0fd305b3388f6f8c89fd99261c4",
+      "bytes": 299960
+    },
+    {
+      "id": "000000566762",
+      "image": "COCO_train2014_000000566762.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000566762.jpg",
+      "sha256": "4493709ebf0a2f46969b639193c0a210e8a9dfe64a80794af66b9854f35d06e5",
+      "bytes": 166067
+    },
+    {
+      "id": "000000261298",
+      "image": "COCO_train2014_000000261298.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000261298.jpg",
+      "sha256": "68b8af80864c7d58bc3035d98aa4a80463c4b7b8baf61536383543c3430e4522",
+      "bytes": 206157
+    },
+    {
+      "id": "000000538993",
+      "image": "COCO_train2014_000000538993.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000538993.jpg",
+      "sha256": "6925e34938c09aa9238e1817117639092e452d64fb7de8c6e48cb48e1eef8887",
+      "bytes": 156488
+    },
+    {
+      "id": "000000306791",
+      "image": "COCO_train2014_000000306791.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000306791.jpg",
+      "sha256": "6bb28aa0441d2b6ef0317f7d5a42c632644b0878c0b4f92768c4c4eba8ce273b",
+      "bytes": 141545
+    },
+    {
+      "id": "000000559358",
+      "image": "COCO_train2014_000000559358.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000559358.jpg",
+      "sha256": "6c0519ab9da3a35282d3551563067940b224875fe18e38f095f8ab28c1641a51",
+      "bytes": 163283
+    },
+    {
+      "id": "000000024794",
+      "image": "COCO_train2014_000000024794.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000024794.jpg",
+      "sha256": "7185d958abaecfc8c463abfb19c545c39ec2a0267ac4084ff664e20f8b37642a",
+      "bytes": 190079
+    },
+    {
+      "id": "000000448985",
+      "image": "COCO_train2014_000000448985.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000448985.jpg",
+      "sha256": "cd20971afb0d522f0086dfded566cf31838fe4dae73a0bc6f90f8a167bec9a3f",
+      "bytes": 153282
+    },
+    {
+      "id": "000000176282",
+      "image": "COCO_train2014_000000176282.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000176282.jpg",
+      "sha256": "f212ed194be466b45d83f7f41783f7c225140253a27b188fc64036367577d1c0",
+      "bytes": 173496
+    },
+    {
+      "id": "000000201322",
+      "image": "COCO_train2014_000000201322.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000201322.jpg",
+      "sha256": "097f3df217acf78376431fb2200312796cfd4bace0e617d23f73c150826fb784",
+      "bytes": 231769
+    },
+    {
+      "id": "000000422279",
+      "image": "COCO_train2014_000000422279.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000422279.jpg",
+      "sha256": "9a65bb80c8041a7f71d84086a3e64fc843573486593447f3fe071368f1d3c37c",
+      "bytes": 70625
+    },
+    {
+      "id": "000000082301",
+      "image": "COCO_train2014_000000082301.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000082301.jpg",
+      "sha256": "5ca17453569ce0c64608218609252be435ba9b534229022fd6954c2a3ea2f809",
+      "bytes": 113540
+    },
+    {
+      "id": "000000048685",
+      "image": "COCO_train2014_000000048685.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000048685.jpg",
+      "sha256": "c22569f6c39dc0359b26d8c79843e24f53c8db1441b0f85ff70e19975a8c2904",
+      "bytes": 77027
+    },
+    {
+      "id": "000000434319",
+      "image": "COCO_train2014_000000434319.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000434319.jpg",
+      "sha256": "752a7f4aecab06fa81d8cb3ed440e84f3696586e9e7c80eca1a2e50bd021cf91",
+      "bytes": 224728
+    },
+    {
+      "id": "000000233500",
+      "image": "COCO_train2014_000000233500.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000233500.jpg",
+      "sha256": "06b5eb75f686457c014d8751a412f57f96837c2d2f2f2fde458050a0e9879aed",
+      "bytes": 243185
+    },
+    {
+      "id": "000000526105",
+      "image": "COCO_train2014_000000526105.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000526105.jpg",
+      "sha256": "4f471783d02eff4b3ecf4891fca63d9ded542284990fb4b4b44c7da4209a04ad",
+      "bytes": 195861
+    },
+    {
+      "id": "000000554949",
+      "image": "COCO_train2014_000000554949.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000554949.jpg",
+      "sha256": "ca41fdc15db54788ddeddce9c3ca1128d807e5c2d2db1d7276f296e5e89fac2f",
+      "bytes": 182473
+    },
+    {
+      "id": "000000577940",
+      "image": "COCO_train2014_000000577940.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000577940.jpg",
+      "sha256": "8278ddbd5ae9d05bd9577190192daa6254c8485e122bdea1516ef7d8558eaad3",
+      "bytes": 152027
+    },
+    {
+      "id": "000000502324",
+      "image": "COCO_train2014_000000502324.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000502324.jpg",
+      "sha256": "179bd2b13bf9cab7f878191828800411d4e2a80b793707bf38e1562bb90d33f6",
+      "bytes": 239156
+    },
+    {
+      "id": "000000283720",
+      "image": "COCO_train2014_000000283720.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000283720.jpg",
+      "sha256": "76b83c3d52c2350b3112c11b369a427f31dd553e5b0d1c42170055292be77d54",
+      "bytes": 96537
+    },
+    {
+      "id": "000000288032",
+      "image": "COCO_train2014_000000288032.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000288032.jpg",
+      "sha256": "4955a972ad0cdc18d5c70a0679ebd442c74eb2b2abc4f1a3eb53459b2f193789",
+      "bytes": 251893
+    },
+    {
+      "id": "000000549924",
+      "image": "COCO_train2014_000000549924.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000549924.jpg",
+      "sha256": "3b883a01efffddebaeb0f877b142d7fe01aed7e04d40f9413c2d83a8b8039eeb",
+      "bytes": 124402
+    },
+    {
+      "id": "000000064492",
+      "image": "COCO_train2014_000000064492.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000064492.jpg",
+      "sha256": "69e68bd3cc9e85105dedf7ed32dfadb923399b6d382c8e58a0a729bdd2ff887e",
+      "bytes": 161608
+    },
+    {
+      "id": "000000445323",
+      "image": "COCO_train2014_000000445323.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000445323.jpg",
+      "sha256": "8fdb1e4ffdf12f70cd0359b9678268b5583c4d906d97c4261a4daa5994542d36",
+      "bytes": 142991
+    },
+    {
+      "id": "000000519188",
+      "image": "COCO_train2014_000000519188.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000519188.jpg",
+      "sha256": "d4bf1135dbbb34ca01acc9fd4563f9a0fb41c6ac9857ad095e03e2fe80315c32",
+      "bytes": 185084
+    },
+    {
+      "id": "000000096360",
+      "image": "COCO_train2014_000000096360.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000096360.jpg",
+      "sha256": "6fccbf9bcbc1159b05a0bba2381f1dc9dd40f18328adf3dc147d696c58336fac",
+      "bytes": 123151
+    },
+    {
+      "id": "000000283107",
+      "image": "COCO_train2014_000000283107.jpg",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000283107.jpg",
+      "sha256": "6affb30b86e5115f8fdadab54b492e817e8e11243bd17c49c8b09e1620ada977",
+      "bytes": 155158
+    }
+  ],
+  "eval_image_id_overlap": 0
+}

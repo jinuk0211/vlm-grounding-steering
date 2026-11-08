@@ -1,0 +1,42 @@
+{
+ "stage": "complete",
+ "pid": 1692544,
+ "model": "qwen",
+ "mode": "image",
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "argv": [
+  "scripts/logit_lens.py",
+  "image",
+  "--model",
+  "qwen",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104"
+ ],
+ "updated_at": 1793776929.6744845,
+ "n_layers": 28,
+ "nodes": 69,
+ "objects_without_token": [
+  "donut",
+  "fire hydrant",
+  "frisbee",
+  "giraffe",
+  "hair drier",
+  "hot dog",
+  "snowboard",
+  "surfboard",
+  "teddy bear",
+  "toothbrush",
+  "zebra"
+ ],
+ "tokens_per_node": 7.391304347826087,
+ "depths": [
+  7,
+  14,
+  21,
+  28
+ ],
+ "done": 481,
+ "sec_per_image": 0.5094204633002966,
+ "last_layer_max_prob_err": 0.0,
+ "records": 500
+}

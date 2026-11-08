@@ -1,0 +1,33 @@
+{
+  "user_request": "Use available GPU0 VRAM to accelerate author VTI without duplicate CHAIR cases",
+  "parent_protocol_sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7",
+  "vti_protocol_sha256": "3d550cc8146b2e4a5c6d1ab5ac3f43187ddd266f5094234ca7423e5f9f3352a0",
+  "gpu_indices": [
+    0
+  ],
+  "ranges": [
+    [
+      0,
+      167
+    ],
+    [
+      167,
+      334
+    ],
+    [
+      334,
+      500
+    ]
+  ],
+  "original_author_artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+  "source_hashes": {
+    "scripts/run_qwen_original_vti.py": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+    "scripts/qwen_vti_chair_parallel.py": "d93fd0dde94367b0e922f4937fe2faff9bca6f627d7082f98034a9cf1c16c931",
+    "scripts/audit_qwen_vti_replacement.py": "521e6b73c86834addd7eded1b0d042a5ed48adda96c19810481587e503b529a2",
+    "scripts/finalize_qwen_vti_replacement.py": "ba02db7e81d92dd1d69272c41b3b5a23bce2dfcf7a9998255e14d063305795d3"
+  },
+  "source_snapshot_dir": "chair-parallel-source-snapshot",
+  "previous_finalizer_stop_proof_sha256": "5d6f6dc25d18fded9a722f43f2e55a6cdf37d2dccfcff1c9a0acaa0552131734",
+  "model_math_data_vector_precision_unchanged": true,
+  "created_at": 1793266459.829508
+}

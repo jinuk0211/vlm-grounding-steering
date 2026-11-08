@@ -1,0 +1,11 @@
+{
+  "previous_finalizer": {
+    "pid": 1524709,
+    "start_ticks": 331750165
+  },
+  "all_selected_instances_exited": true,
+  "source_sha256": "ba02db7e81d92dd1d69272c41b3b5a23bce2dfcf7a9998255e14d063305795d3",
+  "status_sha256": "be9096708ca7d0d00b95479b14736eba71a11d2e1e058a23d14eb53dc4a33b56",
+  "reason": "User authorized GPU2/3 for disjoint VTI CHAIR continuation",
+  "stopped_at": 1793267147.3887374
+}

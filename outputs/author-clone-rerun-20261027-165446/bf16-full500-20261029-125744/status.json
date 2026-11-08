@@ -1,0 +1,24 @@
+{
+  "pid": 2050250,
+  "started_at": 1793246265.7965324,
+  "stage": "complete",
+  "full_evaluation_complete": false,
+  "gpu_compute_started": false,
+  "completed_counts": {
+    "base": 500,
+    "revis": 500,
+    "vti": 500,
+    "rudder_clone": 500,
+    "base_fp32": 12,
+    "grains_clone": 8
+  },
+  "cohort_sizes": {
+    "bf16_common": 500,
+    "fp32_small_common": 8
+  },
+  "updated_at": 1793246311.9395552,
+  "last_scored_method": "grains_clone",
+  "last_scored_cohort": "fp32_small_common",
+  "report_sha256": "84351507772fb8a3061c039fb77c35c907a26d71832220e96362f6cdc484d093",
+  "cuda_initialized": false
+}

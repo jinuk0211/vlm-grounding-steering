@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "live_worker_completion_rejected": true,
+  "report_output_not_created": true,
+  "evidence": "Process still live: {'pid': 2700448, 'start_ticks': 330697659, 'script': 'scripts/qwen_gpu0_stage_v2.py', 'output': '/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386', 'kind': 'generation', 'visible_devices': 'GPU-4a6e1799-a39c-86ed-abdf-afad03791c12', 'log': '/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247",
+  "full_audit_not_yet_run": true
+}

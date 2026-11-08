@@ -1,0 +1,19 @@
+{
+  "parent_protocol_sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7",
+  "vti_protocol_sha256": "3d550cc8146b2e4a5c6d1ab5ac3f43187ddd266f5094234ca7423e5f9f3352a0",
+  "supervisor_source_sha256": "d360630cd22ae1361a0867fa4d07cd7fa1b9da0a93dbee366dad92721031b365",
+  "auditor_source_sha256": "695e524d5d8277d29662faaeb13749491b0a8b1ebc3e6a258b38e59504ef0440",
+  "source_hashes": {
+    "scripts/qwen_vti_chair_mixed_supervisor.py": "d360630cd22ae1361a0867fa4d07cd7fa1b9da0a93dbee366dad92721031b365",
+    "scripts/audit_qwen_vti_replacement.py": "695e524d5d8277d29662faaeb13749491b0a8b1ebc3e6a258b38e59504ef0440",
+    "scripts/finalize_qwen_vti_replacement.py": "9dd27cb3fb540b90b3be2638ba8c7d419e23a9c180e8e4eb1f149321b93f74db"
+  },
+  "source_snapshot_dir": "chair-mixed-source-snapshot",
+  "previous_finalizer_stop_proof_sha256": "7567027b123ba7cf7213023e5f38b9f4e25e365ef01a00fbc347b9a7dc7e3ada",
+  "gpu_indices": [
+    0,
+    2,
+    3
+  ],
+  "created_at": 1793267190.1419897
+}

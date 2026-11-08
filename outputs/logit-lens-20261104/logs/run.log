@@ -1,0 +1,12 @@
+11-04 16:16:09 gchair chain and workers gone
+11-04 16:17:09 start qwen image (24112 MiB free)
+11-04 16:22:11 done qwen image
+11-04 16:23:11 start qwen text (24112 MiB free)
+11-04 16:28:53 done qwen text
+11-04 16:29:11 analyzed qwen
+11-04 16:30:12 start gemma image (24112 MiB free)
+11-04 16:30:34 FAILED gemma image
+11-04 16:31:35 start gemma text (24112 MiB free)
+11-04 16:46:31 done gemma text
+11-04 16:46:36 analyzed gemma
+11-04 16:46:36 ALL_DONE

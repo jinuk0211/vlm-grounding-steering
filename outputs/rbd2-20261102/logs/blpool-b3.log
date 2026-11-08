@@ -1,0 +1,33 @@
+00:43:25 start throne_full_bl vti_author 0-100 eager
+01:32:29 end throne_full_bl vti_author 0-100
+01:32:29 start throne_full_bl base 100-200 sdpa
+01:42:00 end throne_full_bl base 100-200
+01:42:00 start throne_full_bl revis 100-200 sdpa
+01:51:30 end throne_full_bl revis 100-200
+01:51:30 start throne_full_bl rudder_clone 200-300 sdpa
+02:01:08 end throne_full_bl rudder_clone 200-300
+02:01:08 start throne_full_bl base 200-300 sdpa
+02:10:25 end throne_full_bl base 200-300
+02:10:25 start throne_full_bl grains_clone 200-300 eager
+02:23:10 end throne_full_bl grains_clone 200-300
+02:23:10 start throne_full_bl revis 200-300 sdpa
+02:32:23 end throne_full_bl revis 200-300
+02:32:23 start throne_full_bl vti_author 300-400 eager
+03:21:10 end throne_full_bl vti_author 300-400
+03:21:10 start throne_full_bl vti_author 400-500 eager
+04:10:50 end throne_full_bl vti_author 400-500
+04:10:50 start throne_full_bl base 500-600 sdpa
+04:20:30 end throne_full_bl base 500-600
+04:20:30 start throne_full_bl revis 500-600 sdpa
+04:30:06 end throne_full_bl revis 500-600
+04:30:06 start throne_full_bl vti_author 600-700 eager
+05:19:33 end throne_full_bl vti_author 600-700
+05:19:33 start throne_full_bl vti_author 700-800 eager
+06:07:56 end throne_full_bl vti_author 700-800
+06:07:56 start throne_full_bl vti_author 800-900 eager
+06:56:53 end throne_full_bl vti_author 800-900
+06:56:53 start throne_full_bl base 900-1000 sdpa
+07:05:43 end throne_full_bl base 900-1000
+07:05:43 start throne_full_bl revis 900-1000 sdpa
+07:14:42 end throne_full_bl revis 900-1000
+07:14:42 BLPOOL_DONE

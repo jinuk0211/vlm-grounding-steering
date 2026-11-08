@@ -1,0 +1,10 @@
+# base on test rows 60-500
+chair_test500 qchair_test500 base 60 110
+chair_test500 qchair_test500 base 110 160
+chair_test500 qchair_test500 base 160 210
+chair_test500 qchair_test500 base 210 260
+chair_test500 qchair_test500 base 260 310
+chair_test500 qchair_test500 base 310 360
+chair_test500 qchair_test500 base 360 410
+chair_test500 qchair_test500 base 410 460
+chair_test500 qchair_test500 base 460 500

@@ -1,0 +1,102 @@
+{
+  "pid": 945378,
+  "start_ticks": 331551996,
+  "created_at": 1793264478.1775208,
+  "gpu_indices": [
+    0
+  ],
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/original-vti-full-final",
+  "vti_output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357",
+  "source_sha256": "2e8c11d19620756619c03b1652dfe9253c7bf57703ffbea897ca49b35434918e",
+  "auditor_sha256": "e6c270dbab97a202a0b07982aa48e188bda378efa11582ad43f11058db44f52e",
+  "stage": "waiting_for_actual_gpu0_workers",
+  "workers": [
+    {
+      "pid": 2700448,
+      "start_ticks": 330697659,
+      "kind": "parent_bf16",
+      "state_path": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/worker-gpu0-bfloat16-priority-0-1793255934.json",
+      "live": false,
+      "reason": "missing",
+      "stage": "complete",
+      "completed_records": 3944,
+      "vision_forward_calls": null
+    },
+    {
+      "pid": 2700449,
+      "start_ticks": 330697659,
+      "kind": "parent_bf16",
+      "state_path": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/worker-gpu0-bfloat16-priority-1-1793255934.json",
+      "live": false,
+      "reason": "missing",
+      "stage": "complete",
+      "completed_records": 3952,
+      "vision_forward_calls": null
+    },
+    {
+      "pid": 2839015,
+      "start_ticks": 330746100,
+      "kind": "grains_fp16",
+      "state_path": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/worker-gpu0-stable-fp16-1793256418.json",
+      "live": false,
+      "reason": "missing",
+      "stage": "complete",
+      "completed_records": 3272,
+      "vision_forward_calls": null
+    },
+    {
+      "pid": 4107032,
+      "start_ticks": 331187361,
+      "kind": "author_job",
+      "state_path": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/status.json",
+      "live": true,
+      "state": "R",
+      "stage": "generating_original_vti",
+      "completed_records": 2168,
+      "vision_forward_calls": 3570
+    },
+    {
+      "pid": 4051717,
+      "start_ticks": 331167290,
+      "kind": "adopted_recovery_job",
+      "state_path": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/worker-gpu0-vti-author-recovery-1793260631.json",
+      "live": false,
+      "reason": "missing",
+      "stage": "complete",
+      "completed_records": 241,
+      "vision_forward_calls": null
+    },
+    {
+      "pid": 916755,
+      "start_ticks": 331541846,
+      "kind": "grains_extra_fp16",
+      "state_path": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/worker-gpu0-extra-grains-0-1793264376.json",
+      "live": false,
+      "reason": "missing",
+      "stage": "complete",
+      "completed_records": 116,
+      "vision_forward_calls": null
+    },
+    {
+      "pid": 916756,
+      "start_ticks": 331541846,
+      "kind": "grains_extra_fp16",
+      "state_path": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/worker-gpu0-extra-grains-1-1793264376.json",
+      "live": false,
+      "reason": "missing",
+      "stage": "complete",
+      "completed_records": 112,
+      "vision_forward_calls": null
+    },
+    {
+      "pid": 914732,
+      "start_ticks": 331541344,
+      "kind": "grains_extra_controller",
+      "state_path": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/grains-extra-status.json",
+      "stage": "complete",
+      "live": false,
+      "reason": "missing"
+    }
+  ],
+  "updated_at": 1793266398.3619504
+}

@@ -1,0 +1,9 @@
+17:29:05 start qwen_cf_t200-cf_a3bl2p1-0-50
+17:43:45 end qwen_cf_t200-cf_a3bl2p1-0-50
+17:44:10 start qwen_cf_t200-cf_a2bl2p1-50-100
+17:59:49 end qwen_cf_t200-cf_a2bl2p1-50-100
+18:00:11 start qwen_cf_t200-cf_a2bl2p1-100-150
+18:17:13 end qwen_cf_t200-cf_a2bl2p1-100-150
+18:18:07 start qwen_cf_t200-cf_a2bl2p1-150-200
+18:33:30 end qwen_cf_t200-cf_a2bl2p1-150-200
+18:37:30 POOL_DONE

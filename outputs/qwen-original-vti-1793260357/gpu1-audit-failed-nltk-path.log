@@ -1,0 +1,64 @@
+/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/pattern/text/__init__.py:52: SyntaxWarning: invalid escape sequence '\['
+  PUNCTUATION = ".,;:!?()\[]{}`'\"@#$^&*+-|=~_”—“"
+/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/pattern/text/en/inflect_quantify.py:357: SyntaxWarning: invalid escape sequence '\>'
+  ("^<class '(.*)'\>", "\\1 class"),
+/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/pattern/text/en/inflect_quantify.py:374: SyntaxWarning: invalid escape sequence '\.'
+  ("\."              , " "),
+/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/pattern/vector/__init__.py:2961: SyntaxWarning: invalid escape sequence '\,'
+  P(A|B) = \frac{P(B | A)\, P(A)}{P(B)}.
+  0%|          | 0/500 [00:00<?, ?it/s]  0%|          | 0/500 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/audit_qwen_vti_gpu1_completion.py", line 361, in <module>
+    a=p.parse_args();audit(a.parent,a.vti,a.output,a.precheck)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/audit_qwen_vti_gpu1_completion.py", line 317, in audit
+    metrics,uncertainty=base.score(output,protocol,grouped)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/audit_qwen_vti_replacement.py", line 520, in score
+    detail=scorer.compute_chair(str(path),'image_id','caption');save(folder/(method+'.chair.official.json'),detail)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/upstream/chair/chair.py", line 317, in compute_chair
+    words, node_words, idxs, raw_words = self.caption_to_words(cap) 
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/upstream/chair/chair.py", line 207, in caption_to_words
+    words = nltk.word_tokenize(caption.lower())
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 166, in word_tokenize
+    sentences = [text] if preserve_line else sent_tokenize(text, language)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 143, in sent_tokenize
+    tokenizer = _get_punkt_tokenizer(language)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 105, in _get_punkt_tokenizer
+    return PunktTokenizer(language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1812, in __init__
+    self.load_lang(lang)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1821, in load_lang
+    lang_dir = find(f"tokenizers/punkt_tab/{lang}/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/nltk/data.py", line 1636, in find
+    raise exc
+LookupError: 
+**********************************************************************
+  Resource 'punkt_tab' not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  >>> import nltk
+  >>> nltk.download('punkt_tab')
+
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load 'tokenizers/punkt_tab/english/'
+
+  Searched in:
+    - '/home/project-b/nltk_data'
+    - '/home/project-b/LJW/vlm-grounding-steering/.venv/nltk_data'
+    - '/home/project-b/LJW/vlm-grounding-steering/.venv/share/nltk_data'
+    - '/home/project-b/LJW/vlm-grounding-steering/.venv/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+

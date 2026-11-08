@@ -1,0 +1,22 @@
+# test rows 0-60: base
+chair_test500 qchair_test500 base 0 30
+chair_test500 qchair_test500 base 30 60
+# test rows 0-60: candidates
+chair_test500 qchair_test500 s20a2bl1p05 0 30 --alpha 2 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s16a2bl1p05 0 30 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s24a2bl1p05 0 30 --alpha 2 --layer 24 --lam 1 --pen 0.5
+chair_test500 qchair_test500 bl1p05 0 30 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 0 30 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a3bl1p05 0 30 --alpha 3 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a2bl2p1 0 30 --alpha 2 --layer 20 --lam 2 --pen 1
+chair_test500 qchair_test500 s20a2bl1p05M 0 30 --alpha 2 --layer 20 --lam 1 --pen 0.5 --norm median
+chair_test500 qchair_test500 s20a1bl2p1 0 30 --alpha 1 --layer 20 --lam 2 --pen 1
+chair_test500 qchair_test500 s20a2bl1p05 30 60 --alpha 2 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s16a2bl1p05 30 60 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s24a2bl1p05 30 60 --alpha 2 --layer 24 --lam 1 --pen 0.5
+chair_test500 qchair_test500 bl1p05 30 60 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 30 60 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a3bl1p05 30 60 --alpha 3 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a2bl2p1 30 60 --alpha 2 --layer 20 --lam 2 --pen 1
+chair_test500 qchair_test500 s20a2bl1p05M 30 60 --alpha 2 --layer 20 --lam 1 --pen 0.5 --norm median
+chair_test500 qchair_test500 s20a1bl2p1 30 60 --alpha 1 --layer 20 --lam 2 --pen 1

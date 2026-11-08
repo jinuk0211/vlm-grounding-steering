@@ -1,0 +1,25 @@
+{
+  "pid": 4050674,
+  "start_ticks": 331166859,
+  "started_at": 1793260630.9565794,
+  "gpu_indices": [
+    0
+  ],
+  "stage": "failed",
+  "updated_at": 1793260651.0937176,
+  "jobs": [
+    {
+      "kind": "donor_bf16_recovery",
+      "pid": 4051717,
+      "stage": "loading_model",
+      "completed": 0
+    },
+    {
+      "kind": "original_vti",
+      "pid": 4051719,
+      "stage": "loading_original_vti_model",
+      "completed": 0
+    }
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/home/project-b/LJW/vlm-grounding-steering/scripts/launch_original_vti_replacement.py\", line 89, in main\n    assert code in [None,0] and s.get('stage')!='failed',{'job':j,'code':code,'state':s}\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'job': {'pid': 4051719, 'start_ticks': 331167290, 'kind': 'original_vti', 'args': ['scripts/run_qwen_original_vti.py', '--output', '/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357'], 'folder': '/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357', 'state_file': 'status.json', 'gpu_uuid': 'GPU-4a6e1799-a39c-86ed-abdf-afad03791c12', 'log': '/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/original_vti.log', 'source_sha256': '41887e62462adee1ada1f869640cf99743ad61a393e69dc1974bfc88033cc0fa'}, 'code': 1, 'state': {'pid': 4051719, 'started_at': 1793260635.6735146, 'gpu_uuid': 'GPU-4a6e1799-a39c-86ed-abdf-afad03791c12', 'completed_records': 0, 'stage': 'failed', 'updated_at': 1793260649.1019125, 'error': 'Traceback (most recent call last):\\n  File \"/home/project-b/LJW/vlm-grounding-steering/scripts/run_qwen_original_vti.py\", line 154, in main\\n    else:artifact=fit(adapter,out,utils,layers,update)\\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"/home/project-b/LJW/vlm-grounding-steering/scripts/run_qwen_original_vti.py\", line 111, in fit\\n    images,inputs=utils.get_demos(args,ImageProcessor(adapter.processor.image_processor),adapter.model,None,\\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"/home/project-b/LJW/vlm-grounding-steering/upstream-author-20261026/VTI/vti_utils/utils.py\", line 166, in get_demos\\n    image_raw = Image.open(image_path).convert(\"RGB\")\\n                ^^^^^^^^^^^^^^^^^^^^^^\\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/PIL/Image.py\", line 3639, in open\\n    fp = builtins.open(filename, \"rb\")\\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nFileNotFoundError: [Errno 2] No such file or directory: \\'/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/data/train2014/COCO_train2014_000000199958.jpg\\'\\n'}}\n"
+}

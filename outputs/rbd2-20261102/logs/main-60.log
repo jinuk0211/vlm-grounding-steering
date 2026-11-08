@@ -1,0 +1,14 @@
+usage: vdd_decode.py [-h] --model {qwen,gemma} --data DATA --output OUTPUT
+                     --tag TAG [--start START] [--end END] [--lam LAM]
+                     [--clip CLIP] [--pen PEN] [--bsched {decay,const}]
+                     [--alpha ALPHA] [--layer LAYER] [--ssched {decay,const}]
+                     [--r {measured,const,step0}] [--attn ATTN] [--bpos]
+                     [--norm {raw,median}] [--log-belief]
+vdd_decode.py: error: argument --end: expected one argument
+usage: vdd_decode.py [-h] --model {qwen,gemma} --data DATA --output OUTPUT
+                     --tag TAG [--start START] [--end END] [--lam LAM]
+                     [--clip CLIP] [--pen PEN] [--bsched {decay,const}]
+                     [--alpha ALPHA] [--layer LAYER] [--ssched {decay,const}]
+                     [--r {measured,const,step0}] [--attn ATTN] [--bpos]
+                     [--norm {raw,median}] [--log-belief]
+vdd_decode.py: error: argument --end: expected one argument

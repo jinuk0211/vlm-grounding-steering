@@ -1,0 +1,50 @@
+{
+  "pid": 1652489,
+  "start_ticks": 331794881,
+  "source_sha256": "d360630cd22ae1361a0867fa4d07cd7fa1b9da0a93dbee366dad92721031b365",
+  "stage": "generating_disjoint_ranges",
+  "old_controller": {
+    "pid": 1440572,
+    "start_ticks": 331721180
+  },
+  "gpu0_jobs": [
+    {
+      "pid": 1441487,
+      "start_ticks": 331721646,
+      "range": [
+        0,
+        167
+      ],
+      "log": "outputs/qwen-original-vti-1793260357/chair-parallel/000-167.log"
+    },
+    {
+      "pid": 1441489,
+      "start_ticks": 331721646,
+      "range": [
+        167,
+        334
+      ],
+      "log": "outputs/qwen-original-vti-1793260357/chair-parallel/167-334.log"
+    },
+    {
+      "pid": 1441490,
+      "start_ticks": 331721646,
+      "range": [
+        334,
+        500
+      ],
+      "log": "outputs/qwen-original-vti-1793260357/chair-parallel/334-500.log"
+    }
+  ],
+  "gpu0_prefix_cutoffs": [
+    60,
+    227,
+    394
+  ],
+  "gpu23_amendment_sha256": "9b3e9f27ea9806fa83a1ae319e57c784703638b14c8f567dfc55bcf823b1deae",
+  "gpu0_stops": [],
+  "original_paused": true,
+  "updated_at": 1793267011.1571114,
+  "old_controller_stop_sha256": "1e002b428a8666cc5d76dfc60440ee855ac8641919fb4e032409cf2d8a89269c",
+  "original_pope_at_pause": 2851
+}

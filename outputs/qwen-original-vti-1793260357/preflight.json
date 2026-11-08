@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "gpu_uuid": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+  "response": "No.\n",
+  "diagnostics": {
+    "vision": {
+      "calls": 32,
+      "changed_elements": 41703076,
+      "max_abs_delta": 1248.0
+    },
+    "text": {
+      "calls": 84,
+      "changed_elements": 29429057,
+      "max_abs_delta": 61.859375
+    }
+  },
+  "original_hook_file": "/home/project-b/LJW/vlm-grounding-steering/upstream-author-20261026/VTI/vti_utils/llm_layers.py",
+  "original_pca_file": "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+  "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+  "model_dtype": "float16",
+  "attention_score_dtype": "float32"
+}

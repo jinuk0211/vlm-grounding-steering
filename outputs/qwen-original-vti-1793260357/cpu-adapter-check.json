@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "normalized_patch_packing_max_abs_delta": 2.384185791015625e-07,
+  "grid": [
+    [
+      1,
+      32,
+      32
+    ]
+  ],
+  "original_vti_shape_adapter_passed": true,
+  "original_module": "/home/project-b/LJW/vlm-grounding-steering/upstream-author-20261026/VTI/vti_utils/llm_layers.py"
+}

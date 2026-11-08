@@ -1,0 +1,233 @@
+{
+  "reason": "User requested stop here; preserve partial evaluation",
+  "stopped_at": 1793268432.0112967,
+  "selected": [
+    {
+      "name": "mixed_supervisor",
+      "pid": 1652489,
+      "start_ticks": 331794881,
+      "script": "qwen_vti_chair_mixed_supervisor.py"
+    },
+    {
+      "name": "finalizer",
+      "pid": 1740923,
+      "start_ticks": 331823196,
+      "script": "finalize_qwen_vti_replacement.py"
+    },
+    {
+      "name": "resume_controller",
+      "pid": 4106112,
+      "start_ticks": 331186949,
+      "script": "resume_original_vti.py"
+    },
+    {
+      "name": "gpu0_chair_0",
+      "pid": 1441487,
+      "start_ticks": 331721646,
+      "script": "qwen_vti_chair_parallel.py"
+    },
+    {
+      "name": "gpu0_chair_1",
+      "pid": 1441489,
+      "start_ticks": 331721646,
+      "script": "qwen_vti_chair_parallel.py"
+    },
+    {
+      "name": "gpu0_chair_2",
+      "pid": 1441490,
+      "start_ticks": 331721646,
+      "script": "qwen_vti_chair_parallel.py"
+    },
+    {
+      "name": "gpu2_chair",
+      "pid": 1625866,
+      "start_ticks": 331785675,
+      "script": "qwen_vti_chair_gpu23.py"
+    },
+    {
+      "name": "gpu3_chair",
+      "pid": 1625867,
+      "start_ticks": 331785675,
+      "script": "qwen_vti_chair_gpu23.py"
+    },
+    {
+      "name": "original_vti",
+      "pid": 4107032,
+      "start_ticks": 331187361,
+      "script": "run_qwen_original_vti.py"
+    }
+  ],
+  "all_selected_instances_exited": true,
+  "process_exited": {
+    "mixed_supervisor": true,
+    "finalizer": true,
+    "resume_controller": true,
+    "gpu0_chair_0": true,
+    "gpu0_chair_1": true,
+    "gpu0_chair_2": true,
+    "gpu2_chair": true,
+    "gpu3_chair": true,
+    "original_vti": true
+  },
+  "status_snapshots": {
+    "original": {
+      "pid": 4107032,
+      "started_at": 1793260836.117933,
+      "gpu_uuid": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+      "completed_records": 2851,
+      "stage": "generating_original_vti",
+      "updated_at": 1793267010.5253317,
+      "demos": 70,
+      "trials": 50,
+      "vision_forward_calls": 3570,
+      "visual_direction_sha256": "bc3e2ca2d1dbd01129e54d10e5695831b92470860b290a93bc1e392441fbb312",
+      "benchmark": "pope",
+      "benchmark_completed": 2851
+    },
+    "mixed": {
+      "pid": 1652489,
+      "start_ticks": 331794881,
+      "source_sha256": "d360630cd22ae1361a0867fa4d07cd7fa1b9da0a93dbee366dad92721031b365",
+      "stage": "generating_disjoint_ranges",
+      "old_controller": {
+        "pid": 1440572,
+        "start_ticks": 331721180
+      },
+      "gpu0_jobs": [
+        {
+          "pid": 1441487,
+          "start_ticks": 331721646,
+          "range": [
+            0,
+            167
+          ],
+          "log": "outputs/qwen-original-vti-1793260357/chair-parallel/000-167.log"
+        },
+        {
+          "pid": 1441489,
+          "start_ticks": 331721646,
+          "range": [
+            167,
+            334
+          ],
+          "log": "outputs/qwen-original-vti-1793260357/chair-parallel/167-334.log"
+        },
+        {
+          "pid": 1441490,
+          "start_ticks": 331721646,
+          "range": [
+            334,
+            500
+          ],
+          "log": "outputs/qwen-original-vti-1793260357/chair-parallel/334-500.log"
+        }
+      ],
+      "gpu0_prefix_cutoffs": [
+        60,
+        227,
+        394
+      ],
+      "gpu23_amendment_sha256": "9b3e9f27ea9806fa83a1ae319e57c784703638b14c8f567dfc55bcf823b1deae",
+      "gpu0_stops": [],
+      "original_paused": true,
+      "updated_at": 1793267011.1571114,
+      "old_controller_stop_sha256": "1e002b428a8666cc5d76dfc60440ee855ac8641919fb4e032409cf2d8a89269c",
+      "original_pope_at_pause": 2851
+    },
+    "gpu2": {
+      "pid": 1625866,
+      "start_ticks": 331785675,
+      "gpu_index": 2,
+      "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+      "ranges": [
+        [
+          60,
+          167
+        ],
+        [
+          394,
+          447
+        ]
+      ],
+      "stage": "generating",
+      "completed_records": 55,
+      "source_sha256": "27042ce1088b5c5300ebafedc1263aac92cda200f114a3bf54df93f81cf180b5",
+      "original_worker_sha256": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+      "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+      "amendment_sha256": "9b3e9f27ea9806fa83a1ae319e57c784703638b14c8f567dfc55bcf823b1deae",
+      "updated_at": 1793268429.3734357,
+      "last_index": 114
+    },
+    "gpu3": {
+      "pid": 1625867,
+      "start_ticks": 331785675,
+      "gpu_index": 3,
+      "gpu_uuid": "GPU-4c593ff4-fcc4-39c9-d7b4-981dabee1cb3",
+      "ranges": [
+        [
+          227,
+          334
+        ],
+        [
+          447,
+          500
+        ]
+      ],
+      "stage": "generating",
+      "completed_records": 54,
+      "source_sha256": "27042ce1088b5c5300ebafedc1263aac92cda200f114a3bf54df93f81cf180b5",
+      "original_worker_sha256": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+      "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+      "amendment_sha256": "9b3e9f27ea9806fa83a1ae319e57c784703638b14c8f567dfc55bcf823b1deae",
+      "updated_at": 1793268419.7558103,
+      "last_index": 280
+    }
+  },
+  "files": {
+    "chair-gpu23/gpu2.jsonl": {
+      "bytes": 294995,
+      "sha256": "7e03c1dd8773267a89275795428c9c63c63ea188dd892c78a86bd122dfcc4c35",
+      "newline_count": 55,
+      "ends_with_newline": true
+    },
+    "chair-gpu23/gpu3.jsonl": {
+      "bytes": 223082,
+      "sha256": "26f33f81f070b5784398e3fa500b98d48c7821564bd9bc55582e147eb7b74f7c",
+      "newline_count": 54,
+      "ends_with_newline": true
+    },
+    "chair-parallel/000-167.jsonl": {
+      "bytes": 203255,
+      "sha256": "3548110b37e323aa84a099de61a766d79e0c971206e9307c219e733352321ef4",
+      "newline_count": 45,
+      "ends_with_newline": true
+    },
+    "chair-parallel/167-334.jsonl": {
+      "bytes": 225126,
+      "sha256": "fd1187ac940099a66f403ee42d1f7b82fd0d4826d1a7f921db2ceae67e82519d",
+      "newline_count": 44,
+      "ends_with_newline": true
+    },
+    "chair-parallel/334-500.jsonl": {
+      "bytes": 235743,
+      "sha256": "3c7f1649080813b99fada7c775995f65195cc88617db2f57ff70ed2834a05512",
+      "newline_count": 44,
+      "ends_with_newline": true
+    },
+    "pope.jsonl": {
+      "bytes": 4822688,
+      "sha256": "f5ec68e4d8d81b3bd2ee1c397e9ec20ec67b3c2e8e6fd32ef417e4616dd62d74",
+      "newline_count": 2851,
+      "ends_with_newline": true
+    }
+  },
+  "gpu_memory_after": [
+    "0, 18160",
+    "1, 47148",
+    "2, 1",
+    "3, 1",
+    "4, 44316",
+    "5, 44316",
+    "6, 88686"
+  ]
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "pid": 132870,
+    "start_ticks": 338609487,
+    "shard": 0,
+    "tasks": [
+      [
+        "pope",
+        2851,
+        3000
+      ],
+      [
+        "chair",
+        45,
+        60
+      ],
+      [
+        "chair",
+        115,
+        167
+      ],
+      [
+        "chair",
+        211,
+        227
+      ]
+    ],
+    "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/gpu1/shard0.log",
+    "visible_devices": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+    "source_sha256": "8d56450c7b00ab844250bbbb3bab4675a7abbc08175855e00b555d23915d0a20",
+    "resumed_after_incident": "diskfull-20261030-1301",
+    "resume_source_sha256": "ce353d79d25b23bd5679e3ebfbfe6fd36184e9bb350bbc57b10da90aa105ae6a"
+  },
+  {
+    "pid": 132871,
+    "start_ticks": 338609487,
+    "shard": 1,
+    "tasks": [
+      [
+        "chair",
+        281,
+        334
+      ],
+      [
+        "chair",
+        378,
+        413
+      ]
+    ],
+    "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/gpu1/shard1.log",
+    "visible_devices": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+    "source_sha256": "8d56450c7b00ab844250bbbb3bab4675a7abbc08175855e00b555d23915d0a20",
+    "resumed_after_incident": "diskfull-20261030-1301",
+    "resume_source_sha256": "ce353d79d25b23bd5679e3ebfbfe6fd36184e9bb350bbc57b10da90aa105ae6a"
+  },
+  {
+    "pid": 132872,
+    "start_ticks": 338609487,
+    "shard": 2,
+    "tasks": [
+      [
+        "chair",
+        413,
+        500
+      ]
+    ],
+    "log": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357/gpu1/shard2.log",
+    "visible_devices": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+    "source_sha256": "8d56450c7b00ab844250bbbb3bab4675a7abbc08175855e00b555d23915d0a20",
+    "resumed_after_incident": "diskfull-20261030-1301",
+    "resume_source_sha256": "ce353d79d25b23bd5679e3ebfbfe6fd36184e9bb350bbc57b10da90aa105ae6a"
+  }
+]

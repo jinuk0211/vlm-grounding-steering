@@ -1,0 +1,17 @@
+20:50:52 start qwen_cf_test-cf_a3bl2p1-200-250
+20:58:41 end qwen_cf_test-cf_a3bl2p1-200-250
+20:59:07 start qwen_cf_test-cf_a3bl2p1-350-400
+21:07:16 end qwen_cf_test-cf_a3bl2p1-350-400
+21:07:34 start qwen_cf_test-cf_a3bl2p1-450-500
+21:14:56 end qwen_cf_test-cf_a3bl2p1-450-500
+21:15:09 start qwen_cf_test-cf_a3bl2p1-550-600
+21:22:45 end qwen_cf_test-cf_a3bl2p1-550-600
+21:23:04 start qwen_cf_test-cf_a3bl2p1-650-700
+21:30:48 end qwen_cf_test-cf_a3bl2p1-650-700
+21:31:13 start qwen_cf_test-cf_a3bl2p1-750-800
+21:38:57 end qwen_cf_test-cf_a3bl2p1-750-800
+21:39:37 start qwen_cf_test-cf_a3bl2p1-900-950
+21:47:27 end qwen_cf_test-cf_a3bl2p1-900-950
+21:47:42 start qwen_cf_test-cf_a3bl2p1-950-1000
+21:55:06 end qwen_cf_test-cf_a3bl2p1-950-1000
+21:55:06 POOL_DONE

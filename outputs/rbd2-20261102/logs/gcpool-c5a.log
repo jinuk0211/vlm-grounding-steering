@@ -1,0 +1,11 @@
+20:02:00 start gchair_dev60-s28a2bl1p05-0-30
+20:26:24 end gchair_dev60-s28a2bl1p05-0-30
+20:26:26 start gchair_dev60-base-30-60
+20:38:03 FAILED gchair_dev60-base-30-60
+20:38:04 start gchair_test500-s24a2bl1p05-0-50
+20:38:25 FAILED gchair_test500-s24a2bl1p05-0-50
+20:38:26 start gchair_test500-s24a2bl1p05-50-100
+20:38:46 FAILED gchair_test500-s24a2bl1p05-50-100
+20:38:47 start gchair_test500-s24a2bl1p05-100-150
+20:39:06 FAILED gchair_test500-s24a2bl1p05-100-150
+20:39:07 start gchair_test500-s24a2bl1p05-100-150

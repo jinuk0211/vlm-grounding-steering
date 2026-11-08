@@ -1,0 +1,57 @@
+== qwen: 500 captions, 69 objects, band L22-L27; last-layer check 0.0000; hits saved 477,212
+ top-1: % of positions where one object of the class appears (raw) / excess over the same object when absent
+  0-31     hall<  0.10/ 0.09  hall>  0.70/ 0.70  correct<  0.45/ 0.43  correct>  1.01/ 0.98  missed  0.14/ 0.13  absent  0.00/ 0.00
+  32-63    hall<  0.08/ 0.07  hall>  0.08/ 0.07  correct<  0.29/ 0.28  correct>  0.62/ 0.61  missed  0.06/ 0.05  absent  0.00/ 0.00
+  64-95    hall<  0.11/ 0.09  hall>  0.13/ 0.12  correct<  0.14/ 0.12  correct>  0.45/ 0.42  missed  0.05/ 0.04  absent  0.00/ 0.00
+  96-127   hall<  0.17/ 0.15  hall>  0.03/ 0.02  correct<  0.14/ 0.12  correct>  0.30/ 0.26  missed  0.03/ 0.02  absent  0.00/ 0.00
+  128-191  hall<  0.27/ 0.27  hall>  0.05/ 0.04  correct<  0.10/ 0.09  correct>  0.21/ 0.20  missed  0.03/ 0.03  absent  0.00/ 0.00
+  192-255  hall<  0.00/ 0.00  hall>  0.00/-0.00  correct<  0.11/ 0.11  correct>  0.20/ 0.20  missed  0.04/ 0.04  absent  0.00/ 0.00
+  256-383  hall<  0.00/ 0.00  hall>  0.11/ 0.11  correct<  1.27/ 1.27  correct>  0.08/ 0.08  missed  0.03/ 0.03  absent  0.00/ 0.00
+  384-512  hall<   n/a/  n/a  hall>  0.00/ 0.00  correct<   n/a/  n/a  correct>  0.00/ 0.00  missed  0.00/ 0.00  absent  0.00/ 0.00
+  late-early (same captions): hall_before +0.05 [-0.1, 0.28]; correct_before -0.22 [-0.37, -0.07]; missed -0.03 [-0.08, 0.01]; absent +0.00 [-0.0, 0.0]
+  excess late-early: hall_before +0.06 [-0.08, 0.24]; correct_before -0.21 [-0.37, -0.07]; missed -0.03 [-0.08, 0.02]
+ top-5: % of positions where one object of the class appears (raw) / excess over the same object when absent
+  0-31     hall<  0.47/ 0.35  hall>  1.76/ 1.67  correct<  1.63/ 1.49  correct>  3.10/ 2.90  missed  0.55/ 0.46  absent  0.03/ 0.00
+  32-63    hall<  0.58/ 0.44  hall>  1.27/ 1.17  correct<  1.19/ 1.11  correct>  2.22/ 2.13  missed  0.35/ 0.28  absent  0.04/-0.00
+  64-95    hall<  0.36/ 0.25  hall>  0.90/ 0.78  correct<  0.96/ 0.89  correct>  1.97/ 1.87  missed  0.27/ 0.21  absent  0.04/-0.00
+  96-127   hall<  0.46/ 0.35  hall>  0.51/ 0.39  correct<  1.02/ 0.91  correct>  1.39/ 1.26  missed  0.24/ 0.16  absent  0.03/ 0.00
+  128-191  hall<  0.94/ 0.90  hall>  0.55/ 0.41  correct<  0.75/ 0.67  correct>  1.19/ 1.13  missed  0.19/ 0.14  absent  0.04/ 0.00
+  192-255  hall<  0.26/ 0.26  hall>  0.14/ 0.09  correct<  0.77/ 0.74  correct>  0.88/ 0.83  missed  0.18/ 0.12  absent  0.04/ 0.00
+  256-383  hall<  0.00/ 0.00  hall>  0.28/ 0.28  correct<  4.46/ 4.45  correct>  0.61/ 0.55  missed  0.13/ 0.07  absent  0.06/ 0.00
+  384-512  hall<   n/a/  n/a  hall>  0.00/ 0.00  correct<   n/a/  n/a  correct>  0.21/ 0.02  missed  0.00/-0.00  absent  0.08/ 0.00
+  late-early (same captions): hall_before +0.03 [-0.4, 0.5]; correct_before -0.30 [-0.7, 0.04]; missed -0.23 [-0.38, -0.11]; absent +0.01 [-0.02, 0.04]
+  excess late-early: hall_before +0.17 [-0.22, 0.71]; correct_before -0.22 [-0.6, 0.13]; missed -0.21 [-0.35, -0.07]
+ top-10: % of positions where one object of the class appears (raw) / excess over the same object when absent
+  0-31     hall<  0.97/ 0.68  hall>  3.87/ 3.67  correct<  3.01/ 2.71  correct>  4.41/ 3.97  missed  0.97/ 0.78  absent  0.07/ 0.00
+  32-63    hall<  1.08/ 0.78  hall>  2.53/ 2.30  correct<  2.04/ 1.87  correct>  3.43/ 3.22  missed  0.69/ 0.53  absent  0.09/-0.00
+  64-95    hall<  0.93/ 0.67  hall>  1.79/ 1.53  correct<  1.90/ 1.72  correct>  3.33/ 3.07  missed  0.48/ 0.31  absent  0.08/ 0.00
+  96-127   hall<  0.98/ 0.73  hall>  0.86/ 0.56  correct<  1.98/ 1.76  correct>  2.45/ 2.17  missed  0.42/ 0.26  absent  0.08/ 0.00
+  128-191  hall<  1.82/ 1.72  hall>  1.07/ 0.78  correct<  1.57/ 1.38  correct>  2.27/ 2.11  missed  0.38/ 0.26  absent  0.08/ 0.00
+  192-255  hall<  1.05/ 1.04  hall>  0.29/ 0.17  correct<  1.53/ 1.47  correct>  1.76/ 1.64  missed  0.31/ 0.18  absent  0.08/ 0.00
+  256-383  hall<  0.44/ 0.44  hall>  0.34/ 0.34  correct<  8.28/ 8.26  correct>  1.26/ 1.18  missed  0.27/ 0.17  absent  0.10/ 0.00
+  384-512  hall<   n/a/  n/a  hall>  0.00/ 0.00  correct<   n/a/  n/a  correct>  0.40/ 0.20  missed  0.00/-0.01  absent  0.12/ 0.00
+  late-early (same captions): hall_before +0.27 [-0.59, 1.56]; correct_before -0.19 [-0.83, 0.4]; missed -0.46 [-0.75, -0.25]; absent +0.01 [-0.02, 0.07]
+  excess late-early: hall_before +0.58 [-0.16, 1.63]; correct_before -0.04 [-0.7, 0.54]; missed -0.40 [-0.66, -0.16]
+ top-50: % of positions where one object of the class appears (raw) / excess over the same object when absent
+  0-31     hall<  3.28/ 2.04  hall> 14.79/13.97  correct<  8.05/ 6.55  correct> 10.16/ 7.89  missed  2.75/ 1.83  absent  0.32/ 0.00
+  32-63    hall<  3.41/ 2.12  hall>  6.41/ 5.35  correct<  5.72/ 4.77  correct>  8.50/ 7.14  missed  2.34/ 1.57  absent  0.39/ 0.00
+  64-95    hall<  3.93/ 2.69  hall>  5.63/ 4.39  correct<  5.46/ 4.35  correct>  8.44/ 6.70  missed  1.81/ 0.95  absent  0.37/ 0.00
+  96-127   hall<  3.74/ 2.62  hall>  3.22/ 1.93  correct<  5.47/ 4.46  correct>  7.52/ 6.17  missed  1.96/ 1.20  absent  0.36/-0.00
+  128-191  hall<  4.45/ 3.82  hall>  3.35/ 1.91  correct<  5.34/ 4.28  correct>  7.18/ 6.17  missed  1.73/ 1.06  absent  0.38/ 0.00
+  192-255  hall<  2.63/ 2.48  hall>  1.87/ 1.07  correct<  5.15/ 4.60  correct>  6.88/ 6.15  missed  1.67/ 1.06  absent  0.38/ 0.00
+  256-383  hall<  0.88/ 0.88  hall>  1.65/ 1.00  correct< 16.56/15.64  correct>  8.49/ 7.95  missed  1.27/ 0.86  absent  0.38/ 0.00
+  384-512  hall<   n/a/  n/a  hall>  7.39/ 7.15  correct<   n/a/  n/a  correct> 11.92/11.39  missed  1.16/ 0.97  absent  0.42/ 0.00
+  late-early (same captions): hall_before +0.49 [-1.09, 2.99]; correct_before -0.45 [-2.02, 1.31]; missed -0.90 [-1.59, 0.01]; absent +0.05 [-0.03, 0.14]
+  excess late-early: hall_before +1.64 [0.0, 3.94]; correct_before +0.14 [-1.36, 2.27]; missed -0.63 [-1.44, 0.14]
+ top-100: % of positions where one object of the class appears (raw) / excess over the same object when absent
+  0-31     hall<  4.58/ 2.37  hall> 17.96/16.59  correct< 11.59/ 8.65  correct> 14.91/10.38  missed  4.49/ 2.77  absent  0.57/ 0.00
+  32-63    hall<  5.13/ 2.77  hall>  9.65/ 7.74  correct<  8.55/ 6.52  correct> 12.86/ 9.75  missed  3.91/ 2.38  absent  0.72/ 0.00
+  64-95    hall<  6.40/ 3.98  hall>  8.53/ 6.18  correct<  8.77/ 6.37  correct> 12.81/ 8.98  missed  3.85/ 2.10  absent  0.71/ 0.00
+  96-127   hall<  6.91/ 4.60  hall>  5.62/ 3.16  correct<  9.34/ 7.08  correct> 12.11/ 8.97  missed  4.01/ 2.41  absent  0.71/ 0.00
+  128-191  hall<  7.28/ 5.85  hall>  5.91/ 3.14  correct<  9.00/ 6.56  correct> 11.70/ 9.13  missed  3.76/ 2.28  absent  0.75/ 0.00
+  192-255  hall<  3.95/ 3.69  hall>  3.83/ 1.98  correct<  8.76/ 7.10  correct> 11.80/ 9.72  missed  4.56/ 3.20  absent  0.81/ 0.00
+  256-383  hall<  4.87/ 4.83  hall> 10.94/ 9.19  correct< 28.03/24.92  correct> 15.06/13.29  missed  5.97/ 5.01  absent  0.87/ 0.00
+  384-512  hall<   n/a/  n/a  hall> 58.87/43.90  correct<   n/a/  n/a  correct> 23.25/16.42  missed  6.24/ 2.93  absent  1.09/ 0.00
+  late-early (same captions): hall_before +1.77 [-0.54, 4.52]; correct_before +0.75 [-1.65, 3.81]; missed +0.88 [-1.25, 3.01]; absent +0.25 [0.1, 0.44]
+  excess late-early: hall_before +3.62 [1.33, 6.44]; correct_before +1.40 [-1.12, 3.82]; missed +0.79 [-1.48, 2.81]
+wrote /home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104/qwen-topk-summary.json

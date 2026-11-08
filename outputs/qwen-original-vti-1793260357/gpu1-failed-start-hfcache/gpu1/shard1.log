@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/qwen_vti_gpu1.py", line 144, in <module>
+    args=parser.parse_args();main(args.output,args.shard)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/qwen_vti_gpu1.py", line 80, in main
+    assert isinstance(cached,str) and Path(cached).parent.name==REVISION
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,74 @@
+{
+ "attention_image_share_first_vs_last_bin": [
+  {
+   "bin": "0-15",
+   "mean": 0.25469222152605653,
+   "ci95": [
+    null,
+    null
+   ],
+   "n": 1
+  },
+  {
+   "bin": "128-191",
+   "mean": 0.07854711685491644,
+   "ci95": [
+    null,
+    null
+   ],
+   "n": 1
+  }
+ ],
+ "attention_text_share_first_vs_last_bin": [
+  {
+   "bin": "0-15",
+   "mean": 0.7453190945088863,
+   "ci95": [
+    null,
+    null
+   ],
+   "n": 1
+  },
+  {
+   "bin": "128-191",
+   "mean": 0.9214461575383726,
+   "ci95": [
+    null,
+    null
+   ],
+   "n": 1
+  }
+ ],
+ "attention_image_share_late_minus_early": {
+  "mean": null,
+  "ci95": [
+   null,
+   null
+  ],
+  "n": 0,
+  "early_steps": "0-31",
+  "late_steps": "128-end"
+ },
+ "rollout_image_late_minus_early": {
+  "mean": null,
+  "ci95": [
+   null,
+   null
+  ],
+  "n": 0,
+  "early_steps": "0-31",
+  "late_steps": "128-end"
+ },
+ "lens_image_contribution_final_layer_late_minus_early": {
+  "mean": null,
+  "ci95": [
+   null,
+   null
+  ],
+  "n": 0,
+  "early_steps": "0-31",
+  "late_steps": "128-end"
+ },
+ "causal_direct_vs_total": {}
+}
+wrote outputs/visual-decay-20261030/smoke-cpu-v2/qwen-regen-visual-decay-summary.json

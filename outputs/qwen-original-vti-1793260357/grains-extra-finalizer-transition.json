@@ -1,0 +1,11 @@
+{
+  "previous_finalizer": {
+    "pid": 222255,
+    "start_ticks": 331298264
+  },
+  "all_selected_instances_exited": true,
+  "previous_stage": "waiting_for_actual_gpu0_workers",
+  "reason": "Add two original GrAInS GPU0 replicas and extend completion audit",
+  "gpu_generation_workers_not_interrupted": true,
+  "created_at": 1793264282.0353537
+}

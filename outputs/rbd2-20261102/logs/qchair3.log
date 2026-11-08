@@ -1,0 +1,29 @@
+=== 13:55:18 qchair3.sh start: test rows 0-60 (candidates + base)
+collect base 60 / 60 complete
+collect s20a2bl1p05 60 / 60 complete
+collect s16a2bl1p05 60 / 60 complete
+collect s24a2bl1p05 60 / 60 complete
+collect bl1p05 60 / 60 complete
+collect s20a1bl1p05 60 / 60 complete
+collect s20a3bl1p05 60 / 60 complete
+collect s20a2bl2p1 60 / 60 complete
+collect s20a2bl1p05M 60 / 60 complete
+collect s20a1bl2p1 60 / 60 complete
+=== 15:11:26 test rows 0-60, Qwen3-VL-8B vs Base
+base                         CHAIR_s  48.3 CHAIR_i  12.1 recall  77.0 F1  82.1  tok  399 @512  6  
+bl1p05                       CHAIR_s  41.7 CHAIR_i   9.2 recall  73.3 F1  81.1  tok  416 @512  8  dCHAIR_s[-18.3,+5.0] drecall[-7.3,+0.0]
+s16a2bl1p05                  CHAIR_s  41.7 CHAIR_i   9.7 recall  72.7 F1  80.6  tok  417 @512  9  dCHAIR_s[-18.3,+5.0] drecall[-9.2,+0.6]
+s20a1bl1p05                  CHAIR_s  41.7 CHAIR_i   8.9 recall  76.5 F1  83.2  tok  432 @512 12  dCHAIR_s[-18.3,+6.7] drecall[-4.3,+3.6]
+s20a1bl2p1                   CHAIR_s  36.7 CHAIR_i   7.5 recall  66.3 F1  77.2  tok  432 @512 15  dCHAIR_s[-25.0,+1.7] drecall[-16.2,-4.7]
+s20a2bl1p05                  CHAIR_s  38.3 CHAIR_i   9.3 recall  71.7 F1  80.1  tok  438 @512 19  dCHAIR_s[-23.3,+1.7] drecall[-10.2,+0.0]
+s20a2bl1p05M                 CHAIR_s  61.7 CHAIR_i  12.4 recall  77.0 F1  82.0  tok  429 @512 11  dCHAIR_s[+1.7,+25.0] drecall[-4.2,+4.3]
+s20a2bl2p1                   CHAIR_s  38.3 CHAIR_i   8.3 recall  68.4 F1  78.4  tok  450 @512 23  dCHAIR_s[-23.3,+3.3] drecall[-14.5,-1.7]
+s20a3bl1p05                  CHAIR_s  35.0 CHAIR_i  14.0 recall  69.0 F1  76.6  tok  445 @512 23  dCHAIR_s[-25.0,+0.0] drecall[-13.6,-1.9]
+s24a2bl1p05                  CHAIR_s  51.7 CHAIR_i   9.5 recall  78.1 F1  83.8  tok  476 @512 31  dCHAIR_s[-10.0,+15.0] drecall[-3.4,+6.0]
+=== 15:11:43 picked s20a1bl1p05 (--alpha 1 --layer 20 --lam 1 --pen 0.5); running test rows 60-500 for Base and s20a1bl1p05
+collect base 500 / 500 complete
+collect s20a1bl1p05 500 / 500 complete
+=== 17:09:49 chair_test500 Qwen3-VL-8B: vs Base (paired bootstrap); s20a1bl1p05 picked on test rows 0-60
+base                         CHAIR_s  49.2 CHAIR_i   9.6 recall  77.2 F1  83.3  tok  397 @512 44  
+s20a1bl1p05                  CHAIR_s  41.8 CHAIR_i   7.4 recall  75.2 F1  83.0  tok  431 @512 103  dCHAIR_s[-11.4,-3.2] drecall[-3.5,-0.6]
+=== 17:10:15 QCHAIR3_DONE

@@ -1,0 +1,14 @@
+{
+  "pid": 4107032,
+  "started_at": 1793260836.117933,
+  "gpu_uuid": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+  "completed_records": 2851,
+  "stage": "generating_original_vti",
+  "updated_at": 1793267010.5253317,
+  "demos": 70,
+  "trials": 50,
+  "vision_forward_calls": 3570,
+  "visual_direction_sha256": "bc3e2ca2d1dbd01129e54d10e5695831b92470860b290a93bc1e392441fbb312",
+  "benchmark": "pope",
+  "benchmark_completed": 2851
+}

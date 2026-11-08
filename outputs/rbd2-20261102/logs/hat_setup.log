@@ -1,0 +1,23 @@
+aloha 7da6b90ebe392228ea532a84d78eab830c2b3cb2
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /home/project-b/LJW/.cache/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package averaged_perceptron_tagger_eng to
+[nltk_data]     /home/project-b/LJW/.cache/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger_eng is already up-to-
+[nltk_data]       date!
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4714.80it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/530 [00:00<?, ?it/s]Loading weights: 100%|██████████| 530/530 [00:00<00:00, 5608.36it/s]
+[transformers] [1mDetrForObjectDetection LOAD REPORT[0m from: facebook/detr-resnet-50
+Key                                                            | Status     |  | 
+---------------------------------------------------------------+------------+--+-
+model.backbone.model.layer1.0.downsample.1.num_batches_tracked | UNEXPECTED |  | 
+model.backbone.model.layer2.0.downsample.1.num_batches_tracked | UNEXPECTED |  | 
+model.backbone.model.layer4.0.downsample.1.num_batches_tracked | UNEXPECTED |  | 
+model.backbone.model.layer3.0.downsample.1.num_batches_tracked | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+aloha env ok

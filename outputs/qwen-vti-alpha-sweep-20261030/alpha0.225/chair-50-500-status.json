@@ -1,0 +1,23 @@
+{
+  "pid": 1573169,
+  "start_ticks": 339454064,
+  "gpu_index": 3,
+  "gpu_uuid": "GPU-4c593ff4-fcc4-39c9-d7b4-981dabee1cb3",
+  "alpha": 0.225,
+  "bench": "chair",
+  "range": [
+    50,
+    500
+  ],
+  "stage": "generating",
+  "completed_records": 184,
+  "resumed_from": 0,
+  "expected_records": 450,
+  "source_sha256": "9a8f1d9db74089034fd1ab56356e79f4e3e526b7ec2586f3ec5912438df1ac92",
+  "original_worker_sha256": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+  "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+  "parent_protocol_sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7",
+  "updated_at": 1793345655.6414096,
+  "gpu_name": "NVIDIA RTX A5000",
+  "last_index": 233
+}

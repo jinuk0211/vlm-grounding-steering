@@ -1,0 +1,192 @@
+=== 20:08:42 qbl_chain.sh start
+1/50 22s mem 40.0 GB
+2/50 21s mem 40.0 GB
+3/50 21s mem 40.0 GB
+4/50 21s mem 40.0 GB
+5/50 21s mem 40.0 GB
+6/50 21s mem 40.0 GB
+7/50 21s mem 40.0 GB
+8/50 21s mem 40.0 GB
+9/50 21s mem 40.0 GB
+10/50 21s mem 40.0 GB
+11/50 21s mem 40.0 GB
+12/50 21s mem 40.0 GB
+13/50 21s mem 40.0 GB
+14/50 21s mem 40.0 GB
+15/50 21s mem 40.0 GB
+16/50 21s mem 40.0 GB
+17/50 21s mem 40.0 GB
+18/50 21s mem 40.0 GB
+19/50 21s mem 40.0 GB
+20/50 21s mem 40.0 GB
+21/50 21s mem 40.0 GB
+22/50 21s mem 40.0 GB
+23/50 21s mem 40.0 GB
+24/50 21s mem 40.0 GB
+25/50 21s mem 40.0 GB
+26/50 21s mem 40.0 GB
+27/50 21s mem 40.0 GB
+28/50 21s mem 40.0 GB
+29/50 21s mem 40.0 GB
+30/50 21s mem 40.0 GB
+31/50 21s mem 40.0 GB
+32/50 21s mem 40.0 GB
+33/50 21s mem 40.0 GB
+34/50 21s mem 40.0 GB
+=== 20:21:31 REVIS official: vectors and calibration on GPU 5
+35/50 21s mem 40.0 GB
+num_hidden_layers set on the top config: 36
+[Qwen3] Loading steering data...
+Loaded 100 samples from /home/project-b/LJW/vlm-grounding-steering/upstream/Revis/data/OH_sampled_data_100.json
+[Qwen3] Calculating hidden states with No-Image Strategy...
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+36/50 21s mem 40.0 GB
+Error processing sample: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)
+[Qwen3] Computing vectors using PCA (with Visual Orthogonalization)...
+[Qwen3] Calculation complete.
+=== 20:21:57 QBL_REVIS_FAILED (logs/qbl_revis.err)
+37/50 21s mem 40.0 GB
+38/50 21s mem 40.0 GB
+39/50 21s mem 40.0 GB
+40/50 21s mem 40.0 GB
+41/50 21s mem 40.0 GB
+42/50 21s mem 40.0 GB
+43/50 21s mem 40.0 GB
+44/50 21s mem 40.0 GB
+45/50 21s mem 40.0 GB
+46/50 21s mem 40.0 GB
+47/50 21s mem 40.0 GB
+=== 20:25:53 REVIS official: vectors and calibration on GPU 5
+num_hidden_layers set on the top config: 36
+[Qwen] Loading steering data...
+Loaded 100 samples from /home/project-b/LJW/vlm-grounding-steering/upstream/Revis/data/OH_sampled_data_100.json
+[Qwen] Calculating hidden states with No-Image Strategy...
+48/50 21s mem 40.0 GB
+49/50 21s mem 40.0 GB
+50/50 21s mem 40.0 GB
+GRAINS_VECTOR_DONE norm 1.000000238418579 dtype torch.float32
+=== 20:26:55 GrAInS vector ready
+[Qwen] Computing vectors using PCA (with Visual Orthogonalization)...
+[Qwen] Calculation complete.
+[Qwen3] Loading steering data...
+Loaded 100 samples from /home/project-b/LJW/vlm-grounding-steering/upstream/Revis/data/OH_sampled_data_100.json
+[Qwen3] Calculating hidden states with No-Image Strategy...
+[Qwen3] Computing vectors using PCA (with Visual Orthogonalization)...
+[Qwen3] Calculation complete.
+vectors 37 {20: 27.3, 28: 112.4, 32: 210.1, 36: 64.7} cos with the Qwen3 branch {20: 0.135, 28: -0.345, 32: -0.169, 36: 0.069}
+layer 35: factual 95 hallucinated 1 other 4 sep +0.0005 tau +0.0052
+L* 35 tau 0.005175781250000001
+REVIS_ARTIFACTS_DONE
+=== 20:29:16 REVIS official artifacts ready; 10 units added to the queue
+=== 22:32:05 decoded
+== Qwen3-VL CHAIR 500
+  vdd Base        n 500 CHAIR_s  49.2 no-orange  40.2 CHAIR_i  9.63 recall  77.2 F1  83.3 tok  397 @512  44 
+  RBD             n 500 CHAIR_s  41.8 no-orange  37.0 CHAIR_i  7.44 recall  75.2 F1  83.0 tok  431 @512 103 vs Base s[-11.4,-3.2] no-orange[-7.0,+1.0] r[-3.5,-0.6]
+  REVIS own (old) n 500 CHAIR_s  52.2 no-orange  44.4 CHAIR_i 10.43 recall  75.6 F1  82.0 tok  383 @512  43 vs Base s[-1.0,+7.0] no-orange[+0.0,+8.4] r[-3.2,-0.1] | vs RBD s[+6.0,+14.8] no-orange[+3.0,+11.8] r[-1.2,+1.9]
+  RUDDER          n 500 CHAIR_s  47.8 no-orange  39.6 CHAIR_i  9.14 recall  76.7 F1  83.2 tok  396 @512  45 vs Base s[-4.6,+1.8] no-orange[-3.8,+2.6] r[-1.7,+0.6] | vs RBD s[+1.8,+10.2] no-orange[-1.4,+6.6] r[+0.1,+3.0]
+  VTI             n 500 CHAIR_s  49.0 no-orange  41.8 CHAIR_i  9.56 recall  76.2 F1  82.7 tok  388 @512  54 vs Base s[-4.0,+4.0] no-orange[-2.2,+5.6] r[-2.5,+0.4] | vs RBD s[+2.8,+11.6] no-orange[+0.4,+9.2] r[-0.7,+2.6]
+  REVIS official  n 500 CHAIR_s  50.2 no-orange  42.4 CHAIR_i  9.87 recall  76.9 F1  83.0 tok  389 @512  33 vs Base s[-2.6,+4.6] no-orange[-1.4,+5.8] r[-1.5,+1.0] | vs RBD s[+4.4,+12.6] no-orange[+1.4,+9.6] r[+0.3,+3.3]
+   gate open on 92.0% of steps
+  GrAInS          n 500 CHAIR_s  48.0 no-orange  41.0 CHAIR_i  9.69 recall  76.2 F1  82.7 tok  390 @512  38 vs Base s[-4.8,+2.4] no-orange[-2.6,+4.6] r[-2.3,+0.3] | vs RBD s[+2.0,+10.4] no-orange[+0.0,+8.0] r[-0.5,+2.6]
+REPORT_DONE
+=== 22:35:06 QBL_DONE
+=== 22:35:34 chain 1564754 ended; checking GPUs 4,5
+=== 22:35:35 QBL_HANDOVER: hat385/join_gpu45 and gabl_qwen3_done written

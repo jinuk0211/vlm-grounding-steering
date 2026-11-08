@@ -1,0 +1,24 @@
+20:40:58 start gchair_test500-base-150-200
+20:41:13 FAILED gchair_test500-base-150-200
+20:41:15 start gchair_test500-base-100-150
+20:41:31 FAILED gchair_test500-base-100-150
+20:41:32 start gchair_test500-s24a2bl1p05-50-100
+20:41:49 FAILED gchair_test500-s24a2bl1p05-50-100
+20:41:49 start gchair_test500-s24a2bl1p05-0-50
+20:42:07 FAILED gchair_test500-s24a2bl1p05-0-50
+20:42:07 start gchair_test500-s24a2bl1p05-0-50
+12:48:25 start gchair_dev60-s24a1bl1p05-0-30
+13:07:44 FAILED gchair_dev60-s24a1bl1p05-0-30
+13:07:45 start gchair_test500-s20a2bl1p05-0-30
+13:29:25 end gchair_test500-s20a2bl1p05-0-30
+13:29:26 start gchair_test500-s24a2bl1p05M-0-30
+13:49:32 end gchair_test500-s24a2bl1p05M-0-30
+13:49:33 start gchair_test500-s20a2bl1p05-30-60
+14:10:05 end gchair_test500-s20a2bl1p05-30-60
+14:10:07 start gchair_test500-s24a2bl2p1-30-60
+14:29:50 end gchair_test500-s24a2bl2p1-30-60
+14:33:53 start gchair_test500-s24a1bl1p05-150-200
+15:08:19 end gchair_test500-s24a1bl1p05-150-200
+15:08:20 start gchair_test500-s24a1bl1p05-350-400
+15:42:39 end gchair_test500-s24a1bl1p05-350-400
+16:12:49 POOL_DONE

@@ -1,0 +1,25 @@
+20:46:16 start throne_test150 base 120-150
+21:01:55 end throne_test150 base 120-150
+21:01:55 start chair_test150 main 120-150
+21:16:05 end chair_test150 main 120-150
+21:16:05 start main 60 120---alpha
+21:16:08 FAILED main 60 120---alpha
+21:16:08 start chair_test150 mainMed 90-120
+21:31:11 end chair_test150 mainMed 90-120
+21:31:11 start amber_test150 s16a1bl2p1 60-150
+21:53:04 end amber_test150 s16a1bl2p1 60-150
+21:53:04 start chair_test150 s16a1 60-90
+22:02:15 end chair_test150 s16a1 60-90
+22:02:15 start throne_test150 s16a1 120-150
+22:11:52 end throne_test150 s16a1 120-150
+22:11:52 start throne_test150 s16a1bl1 90-120
+22:21:59 end throne_test150 s16a1bl1 90-120
+22:21:59 start amber_test150 bl1 60-150
+22:38:00 end amber_test150 bl1 60-150
+22:38:00 start chair_test150 bl1 120-150
+22:47:20 end chair_test150 bl1 120-150
+22:47:20 start amber_test150 s16a2bl1p05 60-150
+23:02:52 end amber_test150 s16a2bl1p05 60-150
+23:02:52 start throne_test150 s16a2bl1p05 90-120
+23:12:58 end throne_test150 s16a2bl1p05 90-120
+23:12:59 POOL_DONE

@@ -1,0 +1,12 @@
+join base 1004 complete
+join grains_clone 1004 complete
+join revis 1004 complete
+join rudder_clone 1004 complete
+join vtiws_v0.9_t0.9 1004 complete
+=== 18:14:52 amber_full1004 (paired bootstrap vs base)
+base                         CHAIR   5.2 Cover  64.2 Hal  27.9 Cog   1.5  tok  100 @512  0  
+grains_clone                 CHAIR   5.7 Cover  64.0 Hal  30.9 Cog   1.6  tok   99 @512  0  dCHAIR[+0.1,+1.0] dCover[-0.8,+0.5] dHal[+0.7,+5.4] dCog[-0.1,+0.4]
+revis                        CHAIR   5.2 Cover  64.1 Hal  28.4 Cog   1.5  tok  100 @512  0  dCHAIR[-0.2,+0.3] dCover[-0.5,+0.3] dHal[-0.6,+1.7] dCog[-0.2,+0.2]
+rudder_clone                 CHAIR   5.2 Cover  64.2 Hal  29.4 Cog   1.4  tok  100 @512  0  dCHAIR[-0.3,+0.3] dCover[-0.5,+0.5] dHal[-0.2,+3.2] dCog[-0.3,+0.2]
+vtiws_v0.9_t0.9              CHAIR   4.4 Cover  59.7 Hal  22.2 Cog   1.3  tok   93 @512  0  dCHAIR[-1.5,-0.1] dCover[-5.7,-3.4] dHal[-8.9,-2.4] dCog[-0.6,+0.3]
+=== 18:28:10 AMBER_SCORE_DONE

@@ -1,0 +1,28 @@
+{
+ "stage": "complete",
+ "pid": 3194117,
+ "model": "qwen",
+ "captions": 468,
+ "pool": 468,
+ "seed": 0,
+ "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+ "argv": [
+  "scripts/verify_probe_collect.py",
+  "--model",
+  "qwen",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/verify-probe-20261030",
+  "--n",
+  "0",
+  "--all-images"
+ ],
+ "updated_at": 1793362278.5576098,
+ "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+ "n_layers": 28,
+ "done": 468,
+ "mentions": 2469,
+ "sec_per_caption": 0.4324485283353065,
+ "max_gpu_gb": 15.906480312347412,
+ "first_mentions": 1105,
+ "unmatched": 0
+}

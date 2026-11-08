@@ -1,0 +1,17 @@
+# 11-04 13:0x user: candidates on test rows 0-60 (no dev)
+chair_test500 gchair_test500 s20a2bl1p05 0 30 --alpha 2 --layer 20 --lam 1 --pen 0.5
+chair_test500 gchair_test500 s28a2bl1p05 0 30 --alpha 2 --layer 28 --lam 1 --pen 0.5
+chair_test500 gchair_test500 bl1p05 0 30 --lam 1 --pen 0.5
+chair_test500 gchair_test500 s24a1bl1p05 0 30 --alpha 1 --layer 24 --lam 1 --pen 0.5
+chair_test500 gchair_test500 s24a3bl1p05 0 30 --alpha 3 --layer 24 --lam 1 --pen 0.5
+chair_test500 gchair_test500 s24a2bl2p1 0 30 --alpha 2 --layer 24 --lam 2 --pen 1
+chair_test500 gchair_test500 s24a2bl1p05M 0 30 --alpha 2 --layer 24 --lam 1 --pen 0.5 --norm median
+chair_test500 gchair_test500 s24a1bl2p1 0 30 --alpha 1 --layer 24 --lam 2 --pen 1
+chair_test500 gchair_test500 s20a2bl1p05 30 60 --alpha 2 --layer 20 --lam 1 --pen 0.5
+chair_test500 gchair_test500 s28a2bl1p05 30 60 --alpha 2 --layer 28 --lam 1 --pen 0.5
+chair_test500 gchair_test500 bl1p05 30 60 --lam 1 --pen 0.5
+chair_test500 gchair_test500 s24a1bl1p05 30 60 --alpha 1 --layer 24 --lam 1 --pen 0.5
+chair_test500 gchair_test500 s24a3bl1p05 30 60 --alpha 3 --layer 24 --lam 1 --pen 0.5
+chair_test500 gchair_test500 s24a2bl2p1 30 60 --alpha 2 --layer 24 --lam 2 --pen 1
+chair_test500 gchair_test500 s24a2bl1p05M 30 60 --alpha 2 --layer 24 --lam 1 --pen 0.5 --norm median
+chair_test500 gchair_test500 s24a1bl2p1 30 60 --alpha 1 --layer 24 --lam 2 --pen 1

@@ -1,0 +1,7 @@
+=== 20:49:44 gemma_split.sh start
+=== 20:49:44 CHAIR worker c4a on GPU 4 (pid 960986)
+=== 20:51:14 CHAIR worker c4b on GPU 4 (pid 974931)
+=== 00:59:22 CHAIR worker pid 125200 done; THRONE worker g2 joins GPU 2
+=== 00:59:22 CHAIR worker pid 960986 done; THRONE worker g4a joins GPU 4
+=== 01:01:22 CHAIR worker pid 974931 done; THRONE worker g4b joins GPU 4
+=== 08:24:41 GEMMA_SPLIT_DONE

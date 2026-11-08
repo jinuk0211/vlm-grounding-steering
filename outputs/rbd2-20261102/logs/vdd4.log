@@ -1,0 +1,123 @@
+=== 14:02:16 vdd4_chain.sh start; waiting for VDD3_DONE / VDD3_STOPPED
+=== 14:03:44 vdd4_chain.sh start; waiting for VDD3_DONE / VDD3_STOPPED
+=== 16:39:34 vdd4_prep.py pick: guard tightened (user, before any dev score): cf_* must beat dev vdd Base AND old V_obj on F0.5_CLS; tie rule among eligible only
+=== 16:42:28 vdd4_chain.sh replaced (user 16:5x): selection on the FIRST 200 TEST IMAGES (throne_full1000 rows 0-199) instead of the dev split 4000-4199, then the pick on rows 200-999; guard: beat bench Base AND the old config on F0.5_CLS
+=== 16:42:28 vdd4_chain.sh start (selection on the first 200 test images); waiting for VDD3_DONE / VDD3_STOPPED
+=== 17:26:29 vdd3 finished; starting
+qwen: vobj 3167 -> 3159; removed [(12644, ' cream'), (18575, ' orange'), (23285, ' copper'), (39807, ' bronze'), (52003, ' coral'), (69816, ' ivory'), (79736, ' violet'), (80216, ' creams')]
+   colour-like words checked and kept: ['berry', 'chocolate', 'chocolates', 'lemon', 'mint', 'oranges', 'rose', 'roses', 'salmon', 'sand', 'wine', 'wines']
+gemma: vobj 4435 -> 4427; removed [(9728, ' cream'), (11167, ' orange'), (14561, ' copper'), (30174, ' bronze'), (35809, ' coral'), (39261, ' violet'), (64834, ' ivory'), (84274, ' creams')]
+   colour-like words checked and kept: ['berry', 'chocolate', 'chocolates', 'corals', 'lemon', 'lemons', 'mint', 'oranges', 'rose', 'roses', 'salmon', 'sand', 'wine', 'wines']
+throne_cfdev200: throne_full rows 4000-4199
+throne_t200 = throne_full1000 rows 0-199
+16 units
+=== 17:26:36 qwen selection decode on the first 200 test images (16 units)
+joined sel cf_a1bl2p1
+joined sel cf_a2bl2p1
+joined sel cf_a3bl2p1
+joined sel cf_a1bl3p1
+=== 19:07:40 qwen selection table (first 200 test images, 2 judges thr 6; reference = bench Base)
+n images 200 | reference base
+tag                    | ALL  P    R   F1  F0.5 | CLS  P    R   F1  F0.5 | orangeFP | F0.5_ALL w/o orange
+base                   |  82.7  79.9  84.4  86.0 |  86.5  77.7  79.0  82.2 |   19 |  89.0
+old_a1bl2p1            |  84.9  79.2  85.5  88.0 |  84.8  76.8  78.9  82.0 |    7 |  89.0
+    CI vs base: dP_ALL [-1.2,+5.6] dR_ALL [-3.8,+2.3] dF0.5_ALL [-0.4,+4.3] | dP_CLS [-5.3,+2.2] dR_CLS [-3.7,+2.1] dF0.5_CLS [-3.5,+3.6] | dF0.5_ALL w/o orange [-2.0,+2.0]
+vddbase                |  83.8  79.6  84.1  86.2 |  86.3  77.9  78.6  81.5 |   19 |  88.7
+    CI vs base: dP_ALL [-2.3,+4.8] dR_ALL [-3.3,+2.7] dF0.5_ALL [-1.5,+1.9] | dP_CLS [-3.1,+2.6] dR_CLS [-2.7,+2.7] dF0.5_CLS [-2.7,+2.5] | dF0.5_ALL w/o orange [-2.1,+1.3]
+cf_a1bl2p1             |  83.8  79.4  84.7  86.7 |  84.7  76.0  77.6  80.8 |   15 |  89.0
+    CI vs base: dP_ALL [-2.1,+4.6] dR_ALL [-3.2,+2.1] dF0.5_ALL [-1.5,+3.0] | dP_CLS [-5.3,+2.1] dR_CLS [-4.6,+1.0] dF0.5_CLS [-4.3,+2.0] | dF0.5_ALL w/o orange [-2.0,+1.9]
+cf_a2bl2p1             |  81.3  79.8  83.6  84.9 |  83.0  75.9  77.3  80.3 |   18 |  87.6
+    CI vs base: dP_ALL [-4.6,+1.7] dR_ALL [-3.1,+2.7] dF0.5_ALL [-3.5,+1.1] | dP_CLS [-6.5,+0.7] dR_CLS [-5.1,+1.7] dF0.5_CLS [-4.7,+1.3] | dF0.5_ALL w/o orange [-3.8,+0.7]
+cf_a3bl2p1             |  87.4  80.5  83.6  86.5 |  86.5  76.0  80.7  84.9 |   17 |  89.0
+    CI vs base: dP_ALL [+1.4,+8.2] dR_ALL [-2.5,+3.6] dF0.5_ALL [-1.6,+2.5] | dP_CLS [-1.9,+4.4] dR_CLS [-4.6,+2.0] dF0.5_CLS [-1.0,+4.5] | dF0.5_ALL w/o orange [-2.1,+2.2]
+cf_a1bl3p1             |  82.1  79.6  85.7  87.2 |  85.5  78.0  80.1  83.3 |   16 |  89.6
+    CI vs base: dP_ALL [-4.3,+3.1] dR_ALL [-3.4,+2.8] dF0.5_ALL [-1.2,+3.6] | dP_CLS [-3.9,+3.0] dR_CLS [-2.3,+3.2] dF0.5_CLS [-2.4,+3.5] | dF0.5_ALL w/o orange [-1.7,+2.8]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd4_prep.py", line 46, in <module>
+    assert {'base','old_a1bl2p1',*CAND}<=set(rows),rows
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {}
+=== 19:07:40 qwen pick failed; skipping qwen
+16 units
+=== 19:07:40 gemma selection decode on the first 200 test images (16 units)
+=== 20:50:28 vdd4_qwen_resume.sh start (GPUs 2, 5)
+throne_t200 = throne_full1000 rows 0-199
+throne_t800 = throne_full1000 rows 200-999 (not used for selection)
+=== 20:50:28 qwen pick on the existing table (rerun after the parser fix)
+picked cf_a3bl2p1 F0.5_CLS 84.9 F0.5_ALL 86.5 (bench Base 82.2, old 82.0); eligible ['cf_a3bl2p1', 'cf_a1bl3p1']; within 0.5 of the best: ['cf_a3bl2p1']
+=== 20:50:28 qwen test decode: cf_a3bl2p1 on rows 200-999 (16 units; GPU 2, GPU 5 x2)
+joined test cf_a3bl2p1
+joined sel cf_a1bl2p1
+joined sel cf_a2bl2p1
+joined sel cf_a3bl2p1
+joined sel cf_a1bl3p1
+=== 22:31:19 qwen test table (throne_full1000; setting chosen on rows 0-199 of these; 2 judges thr 6; reference = bench Base; old_s16a1bl2p1 = earlier test config)
+n images 1000 | reference base
+tag                    | ALL  P    R   F1  F0.5 | CLS  P    R   F1  F0.5 | orangeFP | F0.5_ALL w/o orange
+base                   |  82.2  80.9  84.7  85.9 |  83.3  78.5  78.4  80.8 |   99 |  88.5
+cf_a3bl2p1             |  85.6  82.3  85.5  87.2 |  84.2  78.1  78.8  82.0 |   80 |  89.4
+    CI vs base: dP_ALL [+1.9,+5.0] dR_ALL [-0.1,+2.8] dF0.5_ALL [+0.4,+2.3] | dP_CLS [-0.7,+3.4] dR_CLS [-1.9,+1.4] dF0.5_CLS [-0.4,+2.6] | dF0.5_ALL w/o orange [+0.0,+1.8]
+old_s16a1bl2p1         |  83.7  80.8  86.2  87.8 |  83.4  78.4  78.1  80.6 |   57 |  89.2
+    CI vs base: dP_ALL [-0.1,+3.0] dR_ALL [-1.5,+1.4] dF0.5_ALL [+1.0,+2.8] | dP_CLS [-2.1,+2.1] dR_CLS [-1.8,+1.6] dF0.5_CLS [-1.8,+1.7] | dF0.5_ALL w/o orange [-0.1,+1.6]
+=== 22:31:24 qwen 800-image table (throne_full1000 rows 200-999, NOT used for selection; 2 judges thr 6; reference = bench Base)
+n images 800 | reference base
+tag                    | ALL  P    R   F1  F0.5 | CLS  P    R   F1  F0.5 | orangeFP | F0.5_ALL w/o orange
+base                   |  82.1  81.1  84.8  85.8 |  82.9  78.7  78.4  80.6 |   80 |  88.3
+cf_a3bl2p1             |  85.2  82.7  85.9  87.4 |  84.0  78.6  79.1  82.0 |   63 |  89.5
+    CI vs base: dP_ALL [+1.3,+4.8] dR_ALL [-0.2,+3.2] dF0.5_ALL [+0.5,+2.7] | dP_CLS [-0.9,+3.8] dR_CLS [-2.0,+2.0] dF0.5_CLS [-0.4,+3.2] | dF0.5_ALL w/o orange [+0.2,+2.1]
+old_s16a1bl2p1         |  83.4  81.2  86.4  87.7 |  83.3  79.0  79.3  81.7 |   50 |  89.3
+    CI vs base: dP_ALL [-0.5,+3.1] dR_ALL [-1.7,+1.7] dF0.5_ALL [+0.9,+2.8] | dP_CLS [-2.0,+2.7] dR_CLS [-1.7,+2.3] dF0.5_CLS [-1.0,+2.6] | dF0.5_ALL w/o orange [+0.0,+1.9]
+revis                  |  82.1  81.1  84.8  85.8 |  82.9  78.7  78.4  80.6 |   80 |  88.3
+    CI vs base: dP_ALL [+0.0,+0.0] dR_ALL [+0.0,+0.0] dF0.5_ALL [+0.0,+0.0] | dP_CLS [+0.0,+0.0] dR_CLS [+0.0,+0.0] dF0.5_CLS [+0.0,+0.0] | dF0.5_ALL w/o orange [+0.0,+0.0]
+rudder_clone           |  81.4  80.2  85.5  86.6 |  83.2  79.1  79.2  81.7 |   70 |  88.9
+    CI vs base: dP_ALL [-2.2,+0.8] dR_ALL [-2.4,+0.3] dF0.5_ALL [+0.0,+1.5] | dP_CLS [-1.1,+2.5] dR_CLS [-0.9,+1.9] dF0.5_CLS [-0.2,+2.5] | dF0.5_ALL w/o orange [-0.2,+1.3]
+grains_clone           |  83.4  81.3  85.4  86.8 |  82.8  77.6  78.4  81.1 |   68 |  89.1
+    CI vs base: dP_ALL [-0.2,+2.9] dR_ALL [-1.2,+1.6] dF0.5_ALL [-0.0,+1.9] | dP_CLS [-1.9,+2.5] dR_CLS [-2.9,+0.7] dF0.5_CLS [-0.9,+2.3] | dF0.5_ALL w/o orange [-0.2,+1.7]
+vti_author             |  58.0  61.5  74.5  76.1 |  41.1  59.1  44.2  42.2 |    9 |  76.4
+    CI vs base: dP_ALL [-27.4,-20.8] dR_ALL [-22.6,-16.5] dF0.5_ALL [-12.1,-7.2] | dP_CLS [-47.1,-35.6] dR_CLS [-23.7,-15.1] dF0.5_CLS [-41.7,-32.4] | dF0.5_ALL w/o orange [-14.4,-9.5]
+=== 22:31:24 qwen_DONE
+=== 23:02:02 gemma selection table (first 200 test images, 2 judges thr 6; reference = bench Base)
+n images 200 | reference base
+tag                    | ALL  P    R   F1  F0.5 | CLS  P    R   F1  F0.5 | orangeFP | F0.5_ALL w/o orange
+base                   |  72.6  67.4  82.0  85.0 |  83.1  67.7  75.8  81.2 |   14 |  87.5
+old_a1bl2p1            |  75.8  66.8  82.4  86.4 |  87.2  68.8  76.7  82.0 |   12 |  88.3
+    CI vs base: dP_ALL [-1.9,+8.1] dR_ALL [-4.7,+3.7] dF0.5_ALL [-1.2,+4.2] | dP_CLS [-1.0,+8.2] dR_CLS [-3.3,+5.2] dF0.5_CLS [-2.2,+5.6] | dF0.5_ALL w/o orange [-1.6,+3.3]
+cf_a1bl2p1             |  74.0  66.1  82.5  86.3 |  87.5  67.3  77.3  83.1 |   13 |  88.6
+    CI vs base: dP_ALL [-4.1,+6.6] dR_ALL [-5.8,+3.3] dF0.5_ALL [-1.3,+4.0] | dP_CLS [-1.0,+8.0] dR_CLS [-5.5,+4.1] dF0.5_CLS [-2.1,+6.0] | dF0.5_ALL w/o orange [-1.4,+3.5]
+cf_a2bl2p1             |  78.1  69.9  81.7  85.5 |  88.1  67.7  76.5  83.1 |   17 |  88.4
+    CI vs base: dP_ALL [+0.5,+10.9] dR_ALL [-1.9,+7.1] dF0.5_ALL [-1.7,+2.8] | dP_CLS [+0.3,+9.1] dR_CLS [-3.7,+4.7] dF0.5_CLS [-1.9,+6.1] | dF0.5_ALL w/o orange [-1.4,+3.3]
+cf_a3bl2p1             |  76.5  68.2  83.3  87.0 |  88.7  69.4  77.8  83.3 |   15 |  89.6
+    CI vs base: dP_ALL [-1.7,+9.6] dR_ALL [-4.5,+6.1] dF0.5_ALL [-0.5,+4.7] | dP_CLS [+1.0,+9.8] dR_CLS [-2.8,+6.4] dF0.5_CLS [-1.4,+7.0] | dF0.5_ALL w/o orange [-0.2,+4.5]
+cf_a1bl3p1             |  74.1  66.6  81.6  85.3 |  85.2  65.2  75.0  81.4 |   17 |  87.8
+    CI vs base: dP_ALL [-3.7,+6.9] dR_ALL [-5.7,+4.2] dF0.5_ALL [-2.3,+2.9] | dP_CLS [-3.7,+8.1] dR_CLS [-6.8,+2.9] dF0.5_CLS [-3.3,+5.1] | dF0.5_ALL w/o orange [-2.2,+2.8]
+picked cf_a3bl2p1 F0.5_CLS 83.3 F0.5_ALL 87.0 (bench Base 81.2, old 82.0); eligible ['cf_a1bl2p1', 'cf_a2bl2p1', 'cf_a3bl2p1']; within 0.5 of the best: ['cf_a1bl2p1', 'cf_a2bl2p1', 'cf_a3bl2p1']
+=== 23:02:02 gemma test decode: cf_a3bl2p1 on throne_full1000 rows 200-999 (16 units)
+=== 23:02:24 gemma test: adding workers on GPU 2, GPU 5 x2
+joined test cf_a3bl2p1
+=== 01:33:43 gemma test table (throne_full1000; setting chosen on rows 0-199 of these; 2 judges thr 6; reference = bench Base; old_s24a1bl2p1 = earlier test config)
+n images 1000 | reference base
+tag                    | ALL  P    R   F1  F0.5 | CLS  P    R   F1  F0.5 | orangeFP | F0.5_ALL w/o orange
+base                   |  75.0  70.7  82.8  85.2 |  81.4  63.8  70.4  76.6 |   95 |  88.1
+cf_a3bl2p1             |  77.1  71.0  82.8  85.9 |  83.3  64.3  69.8  76.7 |   96 |  88.6
+    CI vs base: dP_ALL [-0.1,+4.4] dR_ALL [-1.6,+2.3] dF0.5_ALL [-0.5,+1.9] | dP_CLS [-1.2,+4.8] dR_CLS [-2.7,+2.7] dF0.5_CLS [-2.1,+2.8] | dF0.5_ALL w/o orange [-0.6,+1.6]
+old_s24a1bl2p1         |  77.5  69.7  83.3  86.8 |  83.5  64.6  69.1  75.7 |   61 |  88.7
+    CI vs base: dP_ALL [+0.5,+4.6] dR_ALL [-2.9,+0.9] dF0.5_ALL [+0.4,+2.7] | dP_CLS [-0.9,+5.3] dR_CLS [-2.9,+2.4] dF0.5_CLS [-2.8,+2.0] | dF0.5_ALL w/o orange [-0.4,+1.6]
+=== 01:33:43 gemma_DONE
+=== 01:33:43 VDD4_DONE
+=== 01:35:06 gemma 800-image table (throne_full1000 rows 200-999, NOT used for selection; 2 judges thr 6; reference = bench Base)
+n images 800 | reference base
+tag                    | ALL  P    R   F1  F0.5 | CLS  P    R   F1  F0.5 | orangeFP | F0.5_ALL w/o orange
+base                   |  75.5  71.5  83.0  85.2 |  82.2  64.3  70.6  76.5 |   81 |  88.3
+cf_a3bl2p1             |  77.3  71.7  82.7  85.6 |  82.7  64.0  70.6  77.4 |   81 |  88.4
+    CI vs base: dP_ALL [-0.8,+4.2] dR_ALL [-1.9,+2.2] dF0.5_ALL [-1.0,+1.6] | dP_CLS [-2.5,+3.8] dR_CLS [-3.3,+2.5] dF0.5_CLS [-2.2,+3.4] | dF0.5_ALL w/o orange [-1.1,+1.3]
+old_s24a1bl2p1         |  77.9  70.4  83.5  86.8 |  83.0  64.6  69.9  76.5 |   49 |  88.9
+    CI vs base: dP_ALL [+0.1,+4.8] dR_ALL [-3.3,+1.1] dF0.5_ALL [+0.4,+2.8] | dP_CLS [-2.1,+4.2] dR_CLS [-3.7,+2.2] dF0.5_CLS [-3.1,+2.5] | dF0.5_ALL w/o orange [-0.6,+1.6]
+revis                  |  77.1  70.6  83.1  86.2 |  82.2  62.7  70.3  76.7 |   56 |  88.4
+    CI vs base: dP_ALL [-1.0,+4.1] dR_ALL [-3.1,+1.2] dF0.5_ALL [-0.4,+2.3] | dP_CLS [-2.7,+4.0] dR_CLS [-4.2,+1.9] dF0.5_CLS [-3.0,+2.5] | dF0.5_ALL w/o orange [-1.1,+1.3]
+rudder_clone           |  75.9  70.2  83.3  86.1 |  84.9  63.1  71.5  78.6 |   67 |  88.8
+    CI vs base: dP_ALL [-1.7,+2.4] dR_ALL [-3.1,+0.4] dF0.5_ALL [-0.2,+1.8] | dP_CLS [+0.3,+5.7] dR_CLS [-3.5,+1.4] dF0.5_CLS [-1.2,+3.1] | dF0.5_ALL w/o orange [-0.4,+1.5]
+grains_clone           |  78.7  71.1  81.9  85.3 |  81.7  64.1  68.6  74.6 |   66 |  87.8
+    CI vs base: dP_ALL [+0.7,+5.7] dR_ALL [-2.6,+1.7] dF0.5_ALL [-1.4,+1.5] | dP_CLS [-4.1,+3.1] dR_CLS [-4.3,+2.3] dF0.5_CLS [-5.5,+0.8] | dF0.5_ALL w/o orange [-1.7,+0.8]
+vti                    |  77.5  71.2  83.0  85.9 |  84.1  65.5  71.8  78.1 |   63 |  88.4
+    CI vs base: dP_ALL [-0.3,+4.0] dR_ALL [-2.4,+1.8] dF0.5_ALL [-0.4,+1.8] | dP_CLS [-1.0,+4.8] dR_CLS [-1.7,+3.2] dF0.5_CLS [-1.8,+3.0] | dF0.5_ALL w/o orange [-0.9,+1.2]
+=== 01:35:06 VDD4Q_DONE
