@@ -1,0 +1,23 @@
+got video_preprocessor_config.json 0 MB in 5s (0.0 MB/s)
+got preprocessor_config.json 0 MB in 1s (0.0 MB/s)
+got .gitattributes 0 MB in 3s (0.0 MB/s)
+got config.json 0 MB in 4s (0.0 MB/s)
+got chat_template.jinja 0 MB in 3s (0.0 MB/s)
+got LICENSE 0 MB in 3s (0.0 MB/s)
+got tokenizer_config.json 0 MB in 3s (0.0 MB/s)
+got model.safetensors.index.json 0 MB in 3s (0.0 MB/s)
+got README.md 0 MB in 3s (0.0 MB/s)
+got merges.txt 3 MB in 11s (0.3 MB/s)
+got vocab.json 7 MB in 12s (0.6 MB/s)
+got tokenizer.json 13 MB in 9s (1.4 MB/s) sha256 ok
+  retry 1 bytes 1879048192-1912602623: [SSL] record layer failure (_ssl.c:2590)
+got model.safetensors-00002-of-00002.safetensors 3990 MB in 483s (8.3 MB/s) sha256 ok
+  retry 1 bytes 2516582400-2550136831: [SSL] record layer failure (_ssl.c:2590)
+  retry 1 bytes 4529848320-4563402751: [SSL] record layer failure (_ssl.c:2590)
+got model.safetensors-00001-of-00002.safetensors 5329 MB in 636s (8.4 MB/s) sha256 ok
+FETCH_OK
+  retry 1 bytes 301989888-335544319: [SSL] record layer failure (_ssl.c:2590)
+  retry 2 bytes 301989888-335544319: [SSL] record layer failure (_ssl.c:2590)
+got lens_qwen35_4b_final.pt 406 MB in 165s (2.5 MB/s) sha256 ok
+FETCH_OK
+FETCH_DONE

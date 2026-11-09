@@ -1,0 +1,85 @@
+11-05 18:13:56
+2, 6752 MiB, 62 %
+3, 6752 MiB, 61 %
+4, 13770 MiB, 100 %
+5, 13769 MiB, 100 %
+gpu2  17352 MiB .venv/bin/python -u scripts/rbd2/qwen3_bench.py --method vti --set /ho
+gpu3  17352 MiB .venv/bin/python -u scripts/rbd2/qwen3_bench.py --method vti --set /ho
+gpu4  17402 MiB .venv/bin/python -u scripts/rbd2/qwen3_bench.py --method rudder_clone 
+gpu4  17354 MiB .venv/bin/python -u scripts/rbd2/qwen3_bench.py --method revis --set /
+gpu5  17402 MiB .venv/bin/python -u scripts/rbd2/qwen3_bench.py --method rudder_clone 
+gpu5  17354 MiB .venv/bin/python -u scripts/rbd2/qwen3_bench.py --method revis --set /
+      1 bash scripts/rbd2/qwen3_run_baselines.sh 4 0 250
+      1 bash scripts/rbd2/qwen3_run_baselines.sh 5 250 500
+      1 bash scripts/rbd2/rbd5_chain.sh
+      1 bash scripts/rbd2/run_vti_gpu23.sh 2 0 250
+      1 bash scripts/rbd2/run_vti_gpu23.sh 3 250 500
+===== qwen: written object at the query that writes it, first mention, hall 170 correct 935
+ L | top1 hall corr | top5 hall corr | position-matched top5 gap [CI] | top5 by position hall/corr: <64, 64-127, 128+
+ L21 |   0.0   0.4 |   0.6   1.5 |  -1.2 [-2.8,+0.8] | 0/1 0/1 2/2
+ L22 |   0.6   1.5 |   1.2   5.1 |  -3.5 [-5.5,-0.8] | 0/5 0/6 5/2
+ L23 |   1.8   5.9 |   2.4  11.4 |  -6.5 [-9.3,-3.0] | 0/12 0/11 9/5
+ L24 |   6.5  10.5 |  17.1  23.4 |  -4.3 [-10.9,+2.6] | 23/24 9/26 20/12
+ L25 |  13.5  17.2 |  25.9  39.1 | -11.8 [-19.6,-4.7] | 38/40 15/39 25/32
+ L26 |  20.6  28.4 |  41.2  56.6 | -13.3 [-21.1,-5.0] | 59/58 29/56 34/46
+ L27 |  31.8  52.4 |  66.5  85.6 | -14.0 [-22.7,-5.2] | 80/89 62/82 55/68
+ L28 |  79.4  92.8 | 100.0  99.9 |  +0.2 [+0.0,+0.7] | 100/100 100/99 100/100
+ object words surfacing as lens top-1 while NOT the written token, per 1000 caption tokens (correct / hall / missed / absent), share hall among non-absent
+ L22   0.45   0.01   0.02   0.03 | hall share  2.4%
+ L23   1.43   0.01   0.13   0.03 | hall share  0.7%
+ L24   2.06   0.07   0.16   0.07 | hall share  3.0%
+ L25   3.04   0.10   0.26   0.14 | hall share  3.0%
+ L26   4.01   0.19   0.42   0.30 | hall share  4.2%
+ L27   3.84   0.18   0.25   1.46 | hall share  4.3%
+ L28   2.40   0.09   0.13   0.31 | hall share  3.5%
+ image-token max-prob AUROC per layer (correct vs hall | present vs absent | missed vs absent):
+  L0:0.61|0.65|0.57 L1:0.60|0.65|0.56 L2:0.59|0.66|0.57 L3:0.60|0.66|0.57 L4:0.60|0.66|0.57 L5:0.60|0.66|0.57 L6:0.61|0.66|0.58 L7:0.61|0.67|0.59 L8:0.63|0.67|0.59 L9:0.61|0.67|0.59 L10:0.62|0.68|0.60 L11:0.61|0.68|0.60 L12:0.59|0.67|0.60 L13:0.58|0.66|0.60 L14:0.58|0.66|0.59 L15:0.59|0.66|0.59 L16:0.59|0.65|0.58 L17:0.58|0.65|0.58 L18:0.57|0.65|0.59 L19:0.57|0.65|0.60 L20:0.57|0.66|0.60 L21:0.57|0.66|0.61 L22:0.58|0.70|0.65 L23:0.58|0.77|0.71 L24:0.63|0.89|0.83 L25:0.61|0.92|0.87 L26:0.60|0.93|0.89 L27:0.64|0.95|0.91 L28:0.70|0.96|0.93
+===== gemma: written object at the query that writes it, first mention, hall 238 correct 1031
+ L | top1 hall corr | top5 hall corr | position-matched top5 gap [CI] | top5 by position hall/corr: <64, 64-127, 128+
+ L28 |   0.8   0.2 |   1.7   0.2 |  +1.4 [-0.2,+3.3] | 7/0 0/1 1/0
+ L29 |   1.3   4.0 |   4.2  10.5 |  -4.2 [-7.6,-1.0] | 7/14 4/8 4/7
+ L30 |   2.9   6.6 |  18.9  18.6 |  +1.4 [-5.0,+7.8] | 21/22 22/14 18/16
+ L31 |   6.7  16.2 |  23.1  38.8 | -17.1 [-24.6,-9.4] | 21/38 30/41 21/40
+ L32 |   8.8  24.4 |  31.5  51.3 | -19.6 [-26.2,-12.8] | 32/52 37/52 30/51
+ L33 |  15.5  36.4 |  38.2  68.6 | -30.8 [-37.9,-23.6] | 36/68 59/68 33/70
+ L34 |  23.5  49.6 |  46.2  78.7 | -34.0 [-40.9,-27.3] | 39/76 61/80 43/81
+ L35 |  31.1  56.7 |  59.7  80.5 | -21.1 [-28.7,-14.2] | 46/80 65/81 60/81
+ L36 |  35.7  60.4 |  65.1  85.1 | -20.0 [-26.0,-14.5] | 61/84 70/88 65/85
+ L37 |  42.9  64.6 |  71.8  88.8 | -17.9 [-23.5,-12.0] | 64/87 80/90 71/90
+ L38 |  45.8  66.4 |  76.5  91.1 | -14.5 [-20.0,-9.1] | 71/91 85/91 75/91
+ L39 |  47.9  69.2 |  79.0  92.0 | -12.9 [-19.0,-7.4] | 75/92 87/90 77/92
+ L40 |  51.3  73.9 |  83.6  94.4 |  -8.7 [-14.4,-3.7] | 93/97 91/93 80/92
+ L41 |  61.8  81.2 |  91.2  97.3 |  -3.9 [-8.1,+0.4] | 96/100 93/98 90/94
+ L42 |  93.7  97.2 |  95.0  98.4 |  -1.8 [-5.0,+1.5] | 100/100 100/100 93/96
+ object words surfacing as lens top-1 while NOT the written token, per 1000 caption tokens (correct / hall / missed / absent), share hall among non-absent
+ L 0  20.08   1.68   0.74   6.67 | hall share  7.5%
+ L 1   9.92   1.04   0.35   4.46 | hall share  9.2%
+ L 4   0.18   0.02   0.01   0.75 | hall share 10.5%
+ L 5   0.59   0.01   0.09   1.76 | hall share  1.6%
+ L 6   0.39   0.02   0.08   0.66 | hall share  4.4%
+ L 8   0.22   0.04   0.02   5.32 | hall share 13.5%
+ L 9   0.33   0.02   0.06   3.35 | hall share  3.9%
+ L10   0.15   0.03   0.02   2.75 | hall share 14.3%
+ L11   0.11   0.02   0.05   4.86 | hall share 11.8%
+ L14   0.08   0.00   0.02   0.49 | hall share  0.0%
+ L19   0.05   0.01   0.01   0.56 | hall share  8.3%
+ L20   0.08   0.02   0.01   1.07 | hall share 15.8%
+ L23   0.44   0.02   0.18  16.84 | hall share  3.4%
+ L26   1.33   0.19   0.08  17.66 | hall share 12.2%
+ L27   0.44   0.04   0.05   4.38 | hall share  7.1%
+ L29   1.78   0.05   0.07   0.30 | hall share  2.6%
+ L30   2.61   0.13   0.07   0.64 | hall share  4.6%
+ L31   4.49   0.26   0.16   0.67 | hall share  5.4%
+ L32   6.47   0.32   0.35   0.72 | hall share  4.5%
+ L33  14.02   0.80   1.38   1.73 | hall share  4.9%
+ L34  17.42   1.21   1.38   2.07 | hall share  6.1%
+ L35  16.09   1.44   1.59   2.43 | hall share  7.5%
+ L36  14.70   1.14   1.14   1.89 | hall share  6.7%
+ L37  12.68   1.30   1.12   1.86 | hall share  8.6%
+ L38  10.54   1.14   1.02   1.72 | hall share  9.0%
+ L39   9.47   1.04   0.82   1.39 | hall share  9.2%
+ L40   8.05   0.93   0.56   1.38 | hall share  9.8%
+ L41   5.45   0.66   0.31   1.97 | hall share 10.3%
+ image-token max-prob AUROC per layer (correct vs hall | present vs absent | missed vs absent):
+  L0:0.68|0.89|0.81 L2:0.61|0.67|0.63 L4:0.61|0.66|0.63 L6:0.62|0.66|0.63 L8:0.61|0.66|0.61 L10:0.55|0.65|0.60 L12:0.55|0.63|0.57 L14:0.56|0.63|0.58 L16:0.57|0.63|0.59 L18:0.62|0.63|0.56 L20:0.61|0.63|0.57 L22:0.51|0.63|0.60 L24:0.60|0.62|0.53 L26:0.57|0.62|0.56 L28:0.57|0.65|0.57 L30:0.53|0.71|0.62 L32:0.63|0.83|0.73 L34:0.73|0.87|0.78 L36:0.70|0.90|0.80 L38:0.69|0.89|0.79 L40:0.66|0.88|0.78 L42:0.65|0.89|0.78
+[exit] 0

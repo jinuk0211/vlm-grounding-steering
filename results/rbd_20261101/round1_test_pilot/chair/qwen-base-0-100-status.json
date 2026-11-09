@@ -1,0 +1,22 @@
+{
+ "stage": "complete",
+ "pid": 7280,
+ "args": {
+  "model": "qwen",
+  "data": "/workspace/chair_test100.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-test-pilot-20261101/chair",
+  "tag": "qwen-base",
+  "start": "0",
+  "end": "100",
+  "lam": "0.0",
+  "clip": "10.0",
+  "alpha": "0.0",
+  "layer": "16",
+  "r": "measured",
+  "uniform": "False"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793529268.0078387,
+ "vobj": 3167,
+ "done": 100
+}

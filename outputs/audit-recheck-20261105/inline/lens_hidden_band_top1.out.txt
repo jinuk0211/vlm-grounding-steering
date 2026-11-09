@@ -1,0 +1,33 @@
+===== qwen: hidden layers L22-L27, lens top-1 at any of them. Excludes the input token echo and the token written at that position. Per 100 positions.
+ bin        captions | non-GT object word | later/earlier-hallucinated object | same, before it is written | GT object word | non-GT share
+ 0-31       500     |   0.19 |   0.05 |   0.04 |   1.59 |  10.5%
+ 32-63      487     |   0.21 |   0.03 |   0.03 |   1.02 |  16.7%
+ 64-95      471     |   0.25 |   0.05 |   0.03 |   0.78 |  24.5%
+ 96-127     434     |   0.25 |   0.03 |   0.02 |   0.54 |  31.5%
+ 128-191    344     |   0.22 |   0.05 |   0.04 |   0.42 |  34.4%
+ 192-255    140     |   0.16 |   0.02 |   0.02 |   0.39 |  28.9%
+ 256-383     63     |   0.14 |   0.02 |   0.00 |   0.32 |  30.9%
+ 384-512     28     |   0.00 |   0.00 |   0.00 |   0.00 |   0.0%
+  same captions (T>=192, n=140), token 128+ minus token 0-63, non-GT word: +0.05 [-0.08,+0.18]
+  same captions (T>=192, n=140), token 128+ minus token 0-63, hallucinated object: +0.01 [-0.04,+0.06]
+  same captions (T>=192, n=140), token 128+ minus token 0-63, GT word: -0.71 [-1.02,-0.42]
+  by caption quarter (non-GT / hallucinated / GT): Q1 0.17 0.03 1.66 | Q2 0.22 0.05 1.06 | Q3 0.30 0.07 0.76 | Q4 0.27 0.06 0.45
+  top non-GT words [('traffic light', 86), ('stop sign', 32), ('person', 20), ('dining table', 13), ('chair', 8), ('suitcase', 4), ('car', 3), ('orange', 3)]
+  top hallucinated-object words [('dining table', 12), ('person', 4), ('traffic light', 4), ('chair', 3), ('car', 2), ('sheep', 2)]
+===== gemma: hidden layers L30-L41, lens top-1 at any of them. Excludes the input token echo and the token written at that position. Per 100 positions.
+ bin        captions | non-GT object word | later/earlier-hallucinated object | same, before it is written | GT object word | non-GT share
+ 0-31       500     |   0.98 |   0.16 |   0.16 |   6.15 |  13.8%
+ 32-63      500     |   1.18 |   0.32 |   0.26 |   7.35 |  13.8%
+ 64-95      500     |   1.07 |   0.33 |   0.23 |   4.01 |  21.0%
+ 96-127     500     |   0.95 |   0.28 |   0.14 |   3.55 |  21.1%
+ 128-191    500     |   1.06 |   0.32 |   0.15 |   3.12 |  25.3%
+ 192-255    500     |   1.12 |   0.33 |   0.16 |   2.50 |  30.9%
+ 256-383    492     |   0.93 |   0.19 |   0.09 |   1.84 |  33.5%
+ 384-512    190     |   0.62 |   0.13 |   0.05 |   1.47 |  29.7%
+  same captions (T>=192, n=500), token 128+ minus token 0-63, non-GT word: -0.05 [-0.27,+0.15]
+  same captions (T>=192, n=500), token 128+ minus token 0-63, hallucinated object: +0.03 [-0.09,+0.15]
+  same captions (T>=192, n=500), token 128+ minus token 0-63, GT word: -4.45 [-5.11,-3.82]
+  by caption quarter (non-GT / hallucinated / GT): Q1 1.07 0.24 6.11 | Q2 1.03 0.35 3.37 | Q3 1.22 0.33 2.54 | Q4 0.86 0.19 1.54
+  top non-GT words [('traffic light', 483), ('orange', 223), ('wine glass', 194), ('person', 146), ('bowl', 103), ('dining table', 64), ('laptop', 59), ('skis', 58)]
+  top hallucinated-object words [('orange', 108), ('bowl', 59), ('skis', 56), ('dining table', 48), ('person', 42), ('laptop', 31)]
+[exit] 0
