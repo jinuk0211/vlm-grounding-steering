@@ -1,0 +1,33 @@
+{
+ "stage": "complete",
+ "pid": 1501086,
+ "args": {
+  "model": "qwen",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/hat385.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/hat385_qwen",
+  "tag": "v7_blur_a2bl1p05",
+  "start": "0",
+  "end": "50",
+  "lam": "1.0",
+  "clip": "5.0",
+  "pen": "0.5",
+  "bsched": "decay",
+  "alpha": "2.0",
+  "layer": "16",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False",
+  "vobj": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json",
+  "cf": "blur",
+  "blur": "0.03",
+  "ew": "r",
+  "w0": "0.1"
+ },
+ "resumed_from": 0,
+ "updated_at": 1794125069.4580863,
+ "vobj": 3159,
+ "done": 50
+}

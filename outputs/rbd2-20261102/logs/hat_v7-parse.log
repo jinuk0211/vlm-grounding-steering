@@ -1,0 +1,40 @@
+hf:Qwen/Qwen3-VL-8B-Instruct: 4023 texts, 285 to parse
+parser model /home/project-b/LJW/.cache/huggingface/hub/models--Qwen--Qwen3-VL-8B-Instruct/snapshots/0c351dd01ed87e9c1b53cbc748cba10e6187ff3b
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:  54%|█████▎    | 403/750 [00:00<00:00, 4025.06it/s]Loading weights: 100%|██████████| 750/750 [00:00<00:00, 5796.02it/s]
+8/285 4s
+16/285 7s
+24/285 12s
+32/285 16s
+40/285 21s
+48/285 25s
+56/285 30s
+64/285 35s
+72/285 39s
+80/285 44s
+88/285 49s
+96/285 55s
+104/285 59s
+112/285 64s
+120/285 69s
+128/285 74s
+136/285 80s
+144/285 85s
+152/285 90s
+160/285 96s
+168/285 99s
+176/285 104s
+184/285 112s
+192/285 117s
+200/285 124s
+208/285 129s
+216/285 134s
+224/285 140s
+232/285 146s
+240/285 151s
+248/285 158s
+256/285 164s
+264/285 170s
+272/285 177s
+280/285 185s
+285/285 192s

@@ -1,0 +1,6 @@
+qwen vdd7 v7_blur_a2bl2p1 100 150 --attn sdpa --layer 16 --alpha 2 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json --cf blur
+qwen vdd7 v7_blur_a2bl2p1 150 200 --attn sdpa --layer 16 --alpha 2 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json --cf blur
+qwen vdd7 v7_blur_a2bl2p1 200 250 --attn sdpa --layer 16 --alpha 2 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json --cf blur
+qwen vdd7 v7_blur_a2bl2p1 250 300 --attn sdpa --layer 16 --alpha 2 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json --cf blur
+qwen vdd7 v7_blur_a2bl2p1 300 350 --attn sdpa --layer 16 --alpha 2 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json --cf blur
+qwen vdd7 v7_blur_a2bl2p1 350 385 --attn sdpa --layer 16 --alpha 2 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json --cf blur

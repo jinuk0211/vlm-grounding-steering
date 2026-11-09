@@ -1,7 +1,9 @@
 """CHAIR dev (the 100 COCO train2014 images of data/chair-dev-train2014-100) for the right half of tab:hallucination_all_models, in place of AMBER
 (user 11-05 20:3x; the user writes up how this split was used). Base, RUDDER, GrAInS, VTI and RBD on Qwen2.5, Qwen3 and Gemma. RBD at the table's setting of
-the backbone, no selection here. REVIS is out until its decision, as on HAT. Both Bases, as in the table: baselines against the bench Base, RBD and VTI against the
-vdd Base. Existing rows are reused where the setting is the same: rows 0-59 of Qwen2.5 vdd Base and VTI, of Gemma vdd Base, and rows 0-29 of Gemma RBD.
+the backbone, no selection here. REVIS added 11-08 (user), the implementation of each backbone's CHAIR row: own (baselines.py) on Qwen2.5 (sdpa) and Gemma,
+the official code on Qwen3 (qwen3_bl.py revis_official). Both Bases, as in the table: baselines against the bench Base, RBD and Qwen2.5's VTI-ws (vti_ws_run.py)
+against the vdd Base (11-08 fix: the bench-path VTI of Qwen3 and Gemma had been tested against the vdd Base).
+Existing rows are reused where the setting is the same: rows 0-59 of Qwen2.5 vdd Base and VTI, of Gemma vdd Base, and rows 0-29 of Gemma RBD.
   prep            sets/chair_dev100.jsonl, reused rows, queues/chair_dev100.txt (hat_pool.sh lines, runs/chair_dev100_MODEL)
   score MODEL     runs/chair_dev100_MODEL_all (base = bench Base) and _vdd (base = vdd Base) through score_sets.py, then the table cells in logs/cdev_table_MODEL.tex
   scoretest       the scorer path on the stored chair_dev60 rows: must give their known numbers (Base 38.3 / 7.6 / 66.8, main 36.7 / 7.5 / 68.4)"""
@@ -10,11 +12,11 @@ from pathlib import Path
 L=Path(os.environ.get('HAT_L','/home/project-b/LJW'));R=L/'vlm-grounding-steering';O=R/'outputs/rbd2-20261102';RUN='chair_dev100';N=100
 SET=O/f'sets/{RUN}.jsonl';SPANS=[(0,60),(60,N)]
 METHODS={'qwen':[('bench','base','--attn sdpa'),('vdd','vddbase','--attn sdpa'),('vdd','s16a2bl1p05','--attn sdpa --layer 16 --alpha 2 --lam 1 --pen 0.5'),
-                 ('bench','rudder_clone','--attn sdpa'),('bench','grains_clone','--attn eager'),('vti','vtiws_v0.9_t0.9','')],
+                 ('bench','revis','--attn sdpa'),('bench','rudder_clone','--attn sdpa'),('bench','grains_clone','--attn eager'),('vti','vtiws_v0.9_t0.9','')],
          'qwen3':[('bench','base','--attn sdpa'),('vdd','vddbase','--attn sdpa'),('vdd','s20a1bl1p05','--attn sdpa --layer 20 --alpha 1 --lam 1 --pen 0.5'),
-                  ('bench','rudder_clone','--attn sdpa'),('grains','grains_clone','--attn eager'),('bench','vti','--attn sdpa')],
+                  ('grains','revis_official','--attn sdpa'),('bench','rudder_clone','--attn sdpa'),('grains','grains_clone','--attn eager'),('bench','vti','--attn sdpa')],
          'gemma':[('bench','base',''),('vdd','vddbase','--attn eager'),('vdd','s24a1bl1p05','--attn eager --layer 24 --alpha 1 --lam 1 --pen 0.5'),
-                  ('bench','rudder_clone',''),('bench','grains_clone',''),('bench','vti','')]}
+                  ('bench','revis',''),('bench','rudder_clone',''),('bench','grains_clone',''),('bench','vti','')]}
 # tag: (sources in row order, setting the rows must have; None for a run that records no setting)
 REUSE={'qwen':{'vddbase':(['chair_dev60/base-0-60'],dict(alpha=0.0,lam=0.0,pen=0.0,attn='sdpa')),'vtiws_v0.9_t0.9':(['chair_dev60_vtiws/vtiws_v0.9_t0.9-0-60'],None)},
        'gemma':{'vddbase':(['gchair_dev60/base-0-30','gchair_dev60/base-30-60'],dict(alpha=0.0,lam=0.0,pen=0.0,attn='eager')),
@@ -60,13 +62,13 @@ def score(m):
     print(f'=== {m}: paired bootstrap vs bench Base');run_scorer(A,RUN,N)
     print(f'=== {m}: paired bootstrap vs vdd Base');run_scorer(B,RUN,N)
     a=json.loads((A/'score.json').read_text())['results'];b=json.loads((B/'score.json').read_text())['results']
-    names={'base':'Base','rudder_clone':'RUDDER','grains_clone':'GrAInS','vti':'VTI','vtiws_v0.9_t0.9':'VTI'}
+    names={'base':'Base','revis':'REVIS','revis_official':'REVIS','rudder_clone':'RUDDER','grains_clone':'GrAInS','vti':'VTI','vtiws_v0.9_t0.9':'VTI'}
     def cell(v,c,q,f):
         x=c.get('ci',{}).get(q);return f'{v[q]:{f}}'+('$^{*}$' if x and (x[0]>0 or x[1]<0) else '')
     out=[]
     for k,t,_ in METHODS[m]:
         if t not in a:continue
-        vdd=k=='vdd' or names.get(t)=='VTI';v=a[t];c=b.get(t,{}) if vdd else v
+        vdd=k in ('vdd','vti');v=a[t];c=b.get(t,{}) if vdd else v
         out.append(f"{'Base, RBD code path' if t=='vddbase' else 'RBD (Ours)' if k=='vdd' else names[t]} & {cell(v,c,'CHAIR_s','.1f')} & {v['CHAIR_i']:.2f} & {cell(v,c,'recall','.1f')} & {v['tokens']:.0f} \\\\")
     (O/f'logs/cdev_table_{m}.tex').write_text('\n'.join(out)+'\n',encoding='utf-8');print('\n'.join(out))
 

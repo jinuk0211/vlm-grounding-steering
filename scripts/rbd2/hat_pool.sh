@@ -1,6 +1,6 @@
 #!/bin/bash
 # Worker for hat_chain.sh. Queue lines "MODEL KIND TAG START END args..." -> runs/${HAT_RUN}_MODEL/TAG-START-END.jsonl (resumable).
-# KIND vdd = vdd4_decode.py (RBD and vdd Base; --vobj), bench = baseline_bench.py (qwen) / qwen3_bench.py (qwen3) / gemma_bench.py (gemma),
+# KIND vdd = vdd4_decode.py (RBD and vdd Base; --vobj), vdd7 = vdd7_decode.py (+ --cf, --ew), bench = baseline_bench.py (qwen) / qwen3_bench.py (qwen3) / gemma_bench.py (gemma),
 # grains = qwen3_bl.py (qwen3), vti = vti_ws_run.py at 0.9/0.9 (qwen). A unit is claimed with mkdir in claims_$HAT_RUN only when the GPU has the model's MiB free twice, 10-30 s apart
 # (other jobs share these GPUs). CUDA out-of-memory failures are not counted (back off 1-3 min); other failures twice -> skipped.
 # Exits when every unit is complete or failed twice.    usage: hat_pool.sh GPU_INDEX WORKER_NAME QUEUE
@@ -25,6 +25,7 @@ run_one(){
     echo $W > $C/$U/worker; mkdir -p $OUT; echo "$(date +%T) start $U" >> $L/hatpool-$W.log; UL=$L/hatunit-$W.log
     case $M/$K in
       */vdd)      X=(scripts/rbd2/vdd4_decode.py --model $M --data $D --tag $T);;
+      */vdd7)     X=(scripts/rbd2/vdd7_decode.py --model $M --data $D --tag $T);;
       qwen/vti)   X=(scripts/rbd2/vti_ws_run.py --av 0.9 --at 0.9 --tag $T --set $D);;
       qwen/bench) X=(scripts/rbd2/baseline_bench.py --method $T --set $D);;
       qwen3/bench) X=(scripts/rbd2/qwen3_bench.py --method $T --set $D);;

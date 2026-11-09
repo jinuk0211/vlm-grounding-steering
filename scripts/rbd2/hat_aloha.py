@@ -13,13 +13,18 @@ Columns (ALOHa and meanNN x100, higher is better; shares in %):
   meanNN   each object's best reference (no 1-1 matching), mean over the caption's objects, mean over images.
   Flag     objects with best-reference similarity <= 0.5 (the paper's flag level), % of all objects; #Flag per image.
   RefCov   reference objects with some caption object above 0.5, % (a recall column; not in the ALOHa paper).
-  same     captions identical to 'base'."""
-import json,sys
+  same     captions identical to 'base'.
+HAT_ALOHA_FIX=1 (user 11-09): the official aggregate with its bug fixed. _compute_alohao_scores means to add a 0 for every caption
+object without a Hungarian partner ("Add entries of 0 similarity for every unmatched target word"), but
+`similarity_scores + np.array([0]) * n_unmatched` adds 0 elementwise and drops them. Fixed: min (or mean) over all caption objects,
+unmatched ones at 0, i.e. over the 'similarity' of the official matches list. Everything else unchanged."""
+import json,os,sys
 from pathlib import Path
 import numpy as np
 from hat_common import H,HAT_JSON,SET,key,load_cache,load_runs,read
 CAP=64
 FLAG=0.5
+FIX=os.environ.get('HAT_ALOHA_FIX')=='1'
 
 def build(parser):
     from aloha.metrics.aloha import ALOHa
@@ -48,6 +53,12 @@ def build(parser):
                     n*=len(g);out.append(g)
                 self.memo[k]=out
             return self.memo[k]
+        if FIX:
+            def _compute_alohao_scores(self,t,r,aggregate_method='min'):
+                s,m=super()._compute_alohao_scores(t,r,aggregate_method)
+                if not t or not r:return s,m   # official early returns, no aggregate bug there
+                v=np.array([x['similarity'] for x in m],float);assert len(v)==len(t)
+                return float(v.mean() if aggregate_method=='mean' else v.min()),m
     return Capped(name='aloha',object_parser=Cached,similarity_measure=Sim,num_reference_examples=3,num_target_examples=3,debug=False)
 
 def one(metric,caption,refs,dets):
@@ -100,9 +111,9 @@ def score(parser,run_dir,a,b,out):
         if t!='base':res[t]['ci_base']=ci(t,'base')
         if t!='vddbase' and 'vddbase' in runs and runs[t][ids[0]].get('decoder'):res[t]['ci_vddbase']=ci(t,'vddbase')
     out=Path(out);out.parent.mkdir(parents=True,exist_ok=True)
-    Path(f'{out}.json').write_text(json.dumps({'parser':parser,'rows':[a,b],'capped':type(metric).capped,'results':res,'partial':partial},indent=1))
+    Path(f'{out}.json').write_text(json.dumps({'parser':parser,'aloha_fix':FIX,'rows':[a,b],'capped':type(metric).capped,'results':res,'partial':partial},indent=1))
     Path(f'{out}.per_image.json').write_text(json.dumps({'ids':ids,'per':{t:{k:v.tolist() for k,v in p.items()} for t,p in per.items()}}))
-    print(f'rows {a}-{b} ({len(ids)} images), parser {parser}, capped object lists {type(metric).capped}'+(f', incomplete runs {partial}' if partial else ''))
+    print(f'rows {a}-{b} ({len(ids)} images), parser {parser}, aggregate bug fixed {FIX}, capped object lists {type(metric).capped}'+(f', incomplete runs {partial}' if partial else ''))
     print(f"{'':24s}{'ALOHa':>6s}{'meanNN':>7s}{'Flag':>6s}{'#Flag':>6s}{'RefCov':>7s}{'#Obj':>6s}{'T>R':>6s}{'noobj':>6s}{'tok':>5s}{'@512':>5s}{'same':>5s}")
     for t,v in sorted(res.items(),key=lambda kv:(kv[0]!='base',kv[0]!='vddbase',kv[0])):
         cs=lambda name:' '.join(f"d{q}[{c[0]:+.1f},{c[1]:+.1f}]" for q,c in v[name].items() if q in ('ALOHa','meanNN','Flag','RefCov')) if name in v else ''

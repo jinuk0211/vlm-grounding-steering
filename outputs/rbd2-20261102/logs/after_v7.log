@@ -1,0 +1,11 @@
+=== 17:02:22 after_v7.sh start; waiting for hat_v7_chain.sh (1472680)
+=== 20:09:23 v7 chain ended: V7_DONE
+=== 20:12:23 slots on GPU 0 x2 and GPU 1 started
+=== 20:43:23 REVIS dev decoded; dev tables with REVIS
+=== 20:43:40 qwen: logs/cdev_table_qwen.tex
+=== 20:44:09 qwen3: logs/cdev_table_qwen3.tex
+=== 20:44:36 gemma: logs/cdev_table_gemma.tex
+=== 02:56:38 xl judgments ended: 41 xl files; 0 failed units
+=== 02:56:45 xl table: logs/throne_xl_table.txt
+=== 08:21:34 ablation: logs/gabl_chair_table.tex
+=== 08:21:34 AFTER_V7_DONE

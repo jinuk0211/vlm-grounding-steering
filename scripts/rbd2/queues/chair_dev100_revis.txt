@@ -1,0 +1,6 @@
+gemma bench revis 0 60
+gemma bench revis 60 100
+qwen3 grains revis_official 0 60 --attn sdpa
+qwen3 grains revis_official 60 100 --attn sdpa
+qwen bench revis 0 60 --attn sdpa
+qwen bench revis 60 100 --attn sdpa

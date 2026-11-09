@@ -1,10 +1,17 @@
-# 논문 코드와 결과 (2026-11-08)
+# 논문 코드와 결과 (2026-11-09)
 
 논문 초안(TETHER, 2026-11-05)의 표와 본문 수치를 만든 **코드와 그 결과 파일**만 모은 브랜치입니다.
-코드만 담았던 `paper-tables-code-20261104` 위에 이어서 만들었습니다. 논문에서 방법 이름은 TETHER이지만, 코드와 파일 이름에는 예전 이름인 RBD가 그대로 남아 있습니다
+코드만 담았던 `paper-tables-code-20261104` 위에 `paper-code-results-20261108`을 만들었고, 이 브랜치는 그 위에 11-08~11-09 작업을 더한 것입니다.
+논문에서 방법 이름은 TETHER이지만, 코드와 파일 이름에는 예전 이름인 RBD가 그대로 남아 있습니다
 (첫 번째 변형 `rbd_*`, 두 번째 변형 `vdd*_decode.py`).
 
-- 파일은 실험 서버(`/home/project-b/LJW/vlm-grounding-steering`)에서 2026-11-08에 그대로 가져왔고 경로도 서버와 같습니다.
+11-09에 더한 것 (아래 각 절에 자세히):
+- CHAIR dev 100에 REVIS 행 (세 백본), 별표 판정 수정
+- THRONE Flan-T5 xl 판정 (Qwen RBD 두 설정, Gemma 7개 행) → 3-judge 표 `R/logs/throne_xl_table.txt`
+- Gemma CHAIR 500 ablation 완료 → `R/logs/gabl_chair_table.tex`
+- HAT 두 번째 RBD 선택(v7, `vdd7_decode.py`), ALOHa 공식 코드의 집계 버그 수정과 수정된 표 `R/logs/hat_aloha_fixed_table.tex`
+
+- 파일은 실험 서버(`/home/project-b/LJW/vlm-grounding-steering`)에서 2026-11-08(11-09 추가분은 11-09)에 그대로 가져왔고 경로도 서버와 같습니다.
   예외: 큐 파일은 서버의 `outputs/rbd2-20261102/queues/`에 있지만 여기서는 `scripts/rbd2/queues/`에 둡니다.
 - 결과는 텍스트 파일만 넣었습니다: 캡션(jsonl), 채점 결과(json), THRONE 판정 파일, 로그. 모델 가중치, 이미지, steering 벡터(`.pt`),
   활성값 덤프(`.npz` 등)와 50 MB가 넘는 파일은 없습니다.
@@ -68,6 +75,11 @@
 `scripts/rbd2/cdev_chain.sh` + `cdev_prep.py`: Base, RUDDER, GrAInS, VTI, RBD(각 백본의 표 설정)를 Qwen2.5·Qwen3·Gemma에서 실행, 채점 `score_chair100.py`.
 결과 `R/runs/chair_dev100_{qwen,qwen3,gemma}_all/score.json`, 표 셀 `R/logs/cdev_table_{qwen,qwen3,gemma}.tex`, 로그 `R/logs/cdev.log`.
 
+REVIS(11-08 추가): 각 백본의 CHAIR 500 행과 같은 구현 — Qwen2.5·Gemma는 자체 구현(`baselines.py`, Qwen2.5 sdpa), Qwen3는 공식 코드(`qwen3_bl.py revis_official`).
+`after_v7.sh` 1단계(`hat_pool.sh`, 큐 `queues/chair_dev100_revis.txt`) → `cdev_prep.py score`. 별표: 베이스라인은 bench Base 대비(`_all`),
+RBD와 Qwen2.5 VTI-ws는 RBD code path Base 대비(`R/runs/chair_dev100_*_vdd/score.json`); 11-08에 Qwen3·Gemma의 bench 경로 VTI가 vdd Base와 비교되던 것을 고쳤습니다.
+Qwen2.5 REVIS는 THRONE에서 같은 GPU 종류의 Base와 1,000/1,000 같은 캡션이었고, dev에서는 Base(A5000)와 REVIS(A6000)의 GPU 수치 차이로 96/100이 다릅니다.
+
 ## AMBER 생성형 1,004장
 
 | 행 | 코드 | 결과 |
@@ -81,11 +93,31 @@
 세트·큐·선택 규칙 `hat_prep.py`, 객체 파싱 `hat_parse.py`(공식 GPT 파서 대신 Qwen3-VL-8B + 공식 프롬프트), 채점 `hat_aloha.py`(공식 `ALOHa.__call__`, MPNet, DETR), `hat_common.py`, `hat_smoke.sh`.
 선택은 0–59행, 보고는 60–384행입니다. Gemma는 선택 규칙을 통과한 RBD 후보가 없어 RBD를 끝까지 돌리지 않았습니다.
 결과 `R/runs/hat385_{qwen,gemma}/`, 점수 `R/hat385/score-{qwen,gemma}-*.json`, 선택 `R/hat385/pick-qwen.txt`, 파싱 결과 `R/hat_parse/`, 표 `R/logs/hat385.log`.
+Gemma 선택은 11-08에 CPU로 다시 채점했습니다(`R/hat385/score-gemma-0-60.json`, `pick-gemma.txt` = none).
+
+**두 번째 선택 (v7, 11-08, Qwen2.5)**: `vdd7_decode.py` = `vdd4_decode.py` + `--cf blur`(대조 이미지 = 실제 이미지의 Gaussian blur, 반지름 0.03×긴 변)
++ `--ew prob`(증거를 p_real(o)로 가중, belief = A/(W+0.1)); 기본값에서는 `vdd4_decode.py`와 같은 캡션. `hat_v7_chain.sh` + `hat_v7_prep.py`:
+9개 후보를 0–99행에서 같은 규칙으로 선택(`v7_blur_a2bl2p1`) → 100–384행. 큐 `queues/hat385_v7{sel,test}.txt`, 캡션 `R/runs/hat385_qwen/v7_*`,
+점수 `R/hat385/score-qwen-v7-{0-100,0-385,100-385}.json`, 선택 `R/hat385/pick-qwen-v7.txt`, 로그 `R/logs/hat_v7.log`. 100–384행 ALOHa 22.7 vs Base 22.9 (n.s.).
+
+**ALOHa 집계 버그 수정 (11-09)**: 공식 `_compute_alohao_scores`는 Hungarian 짝이 없는 캡션 객체마다 0을 더하려 하지만
+(`# Add entries of 0 similarity for every unmatched target word`), `similarity_scores + np.array([0]) * n_unmatched`는 0을 원소별로 더할 뿐이라
+그 객체들이 빠집니다. `hat_aloha.py`에 `HAT_ALOHA_FIX=1`이면 짝 없는 객체를 0으로 넣어 min을 계산하도록 했습니다(나머지는 공식 코드 그대로).
+실행 `R/hat_fix.sh`, 점수 `R/hat385/scorefix-{qwen,gemma}-60-385.json`, 로그 `R/logs/hat_fix-*.log`, LaTeX 표 `R/logs/hat_aloha_fixed_table.tex`.
+확인: 모든 객체가 짝을 가진 캡션은 점수가 같고(float32 오차 ≤ 1e-7, 최적 매핑이 바뀐 1–3장 제외), 짝 없는 객체가 있는 캡션은 모두 0입니다.
 
 ## Ablation (Qwen2.5 CHAIR 500)
 
 `abl_chain.sh` + `abl_prep.py` (`vdd4_decode.py`, 큐 `queues/abl_chair.txt`): 전체 RBD `s16a2bl1p05`에서 한 요소씩 빼거나 하나만 남긴 7개 변형.
 결과 `R/runs/chair_abl500_all/score.json`(Base 대비), `R/runs/chair_abl500_vsfull/score.json`(전체 RBD 대비), 로그 `R/logs/abl_chair.log`.
+
+## Ablation (Gemma 4 E4B CHAIR 500)
+
+`gabl_chain.sh` + `gabl_prep.py` (`vdd4_decode.py`, 큐 `queues/gabl_chair.txt`): 전체 RBD `s24a1bl1p05`에서 같은 7개 변형, 3,440행
+(`abl_nosteer` 0–59행은 `R/runs/gchair_t60/bl1p05` 재사용, 시작 전 0–5행 재현 확인 `logs/v4-gabl_repro-*.log`).
+11-06 서버 정전으로 1,841행에서 멈춘 것을 11-08 `after_v7.sh` 3단계가 이어서 끝냈습니다(작업자 로그 `logs/v4pool-av*.log`).
+결과 `R/runs/gabl_chair500_all/score.json`(RBD code path Base 대비), `R/runs/gabl_chair500_vsfull/score.json`(전체 RBD 대비; 본 표 Base `tblbase` 포함),
+로그 `R/logs/gabl_chair.log`(GABL_DONE), LaTeX `R/logs/gabl_chair_table.tex`.
 
 ## THRONE: `tab:throne`, `tab:throne_full`
 
@@ -97,6 +129,7 @@
 | Gemma 베이스라인·첫 번째 설정 `s24a1bl2p1` | `gemma_chain.sh`(dev 선택 `gemma_pick.py`) → `gemma_pool.sh`, `gemma_bench.py`, `gemma_ours_fix.sh`, `gemma_split.sh`, `gemma_join.py`, 판정 `gemma_bl_judge.sh` | `R/runs/gemma_throne1000/`, dev `R/runs/gemma_throne_dev60/` |
 | 최종 설정 `cf_a3bl2p1` (색 단어 제외 V_obj) | `vdd4_setup.py`(V_obj) → `vdd4_chain.sh` → `vdd4_prep.py`·`vdd4_pool.sh`·`vdd4_decode.py`, `vdd4_qwen_resume.sh`, 채점 `vdd4_score.py`. 테스트 0–199행에서 선택, 200–999행에서 보고 | 선택 `R/runs/{qwen,gemma}_cf_t200_all/`, 1,000장 `R/runs/{qwen,gemma}_cf_test_all/`, 선택 결과 `R/runs/*_cf_pick.txt`, 표 `R/logs/v4_*_table.txt` |
 | 판정 (Flan-T5 base·large, 임계값 6) | `pb_throne_judge.py`(`RBD2_JUDGES`), `score_throne.py`, `pb_throne_partial.py` | 표에 쓴 2-judge 파일 `R/diag/*_2judges/` |
+| xl 열 (Flan-T5 base·large·xl, 임계값 9 = THRONE 기본) | Qwen 베이스라인은 11-03 판정; 나머지 9개는 `after_v7.sh` 2단계 `xl_pool.sh` → `xl_judge.py`(응답 파일이 실행 파일과 같을 때만, 판정 전 `combined/` 백업) → `xl_score.py` (rows 200–999, 2-judge 재계산으로 표 숫자 재현 확인) | `R/runs/*/eval/*/combined/*flan-t5-xl.json`, 표 `R/logs/throne_xl_table.txt` |
 | ALL·CLS 지표, CI, orange 분석 | `analysis/throne_all_metrics.sh`, `throne_official_scorer.sh`(공식 `throne_score_aqa.py`), `throne_classwise_ci.sh`, `throne_orange.sh`, `throne_without_orange.sh`, `throne_breakdown.sh` | (인라인 실행, 출력은 표에 직접) |
 
 `analysis/`의 THRONE 스크립트는 원래 세션에서 인라인으로 서버에 보내 실행한 것을 세션 기록에서 복원했습니다.
@@ -115,8 +148,8 @@
 
 - 논문에 없는 실험: self-verification 디코딩, MMVP, MMHal-Bench(표가 모두 `--`), five-profile POPE 결과, AMBER vdd3 변형, Qwen3 탐색 rbd5·rbd6,
   Gemma CHAIR 재선택 `gchair2.sh`, VTI-ws THRONE 100장, 진단 스크립트(`diag_*`, `pb_diag_*`), recall 분석, HAT 파일럿.
-- 끝나지 않은 실험: Gemma CHAIR ablation (`gabl_*`). 2026-11-06 09:31에 작업자가 모두 멈춰 3,440행 중 1,841행만 있습니다.
-- 중간 산출물: 부분 실행 폴더(`*_parts`, 행 구간별 폴더), 60·120장 중간 채점, 스모크 테스트 결과.
+- 중간 산출물: 부분 실행 폴더(`*_parts`, 행 구간별 폴더 — Gemma ablation의 `R/runs/gabl_chair500/`, CHAIR dev의 `R/runs/chair_dev100_MODEL/` 포함),
+  60·120장 중간 채점과 그 xl 판정, 스모크 테스트 결과(`v7_smoke.sh`), 판정 전 백업 `combined.bak-1108`, v7 블러 이미지 캐시 `R/cf/`.
 
 옛 베이스라인 파이프라인(Gemma 5방법, Qwen five-profile)은 실행할 때 서로의 소스 해시를 검사하므로, 그 검사 목록에 있는 파일은 모두 포함했습니다.
 

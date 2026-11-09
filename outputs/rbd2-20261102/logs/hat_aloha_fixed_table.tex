@@ -1,0 +1,32 @@
+% HAT + ALOHa, rows 60-384 of hat385 (325 images not used to select RBD's setting). Source: outputs/rbd2-20261102/hat385/scorefix-{qwen,gemma}-60-385.json
+% (hat_aloha.py score with HAT_ALOHA_FIX=1, 2026-11-09). * = 95% paired bootstrap CI of the difference excludes 0 (baselines vs Base; RBD vs Base, RBD code path).
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Method & ALOHa$\uparrow$ & Flag$\downarrow$ & RefCov$\uparrow$ & \#Obj & Tok. \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Qwen2.5-VL-7B}} \\
+Base & 10.2 & 52.1 & 69.6 & 12.7 & 188 \\
+REVIS$^{\dagger}$ & -- & -- & -- & -- & -- \\
+RUDDER & 10.0 & 51.0$^{*}$ & 70.3 & 12.8 & 187 \\
+GrAInS & 9.4 & 50.9 & 69.9 & 13.0 & 185 \\
+VTI & 18.7$^{*}$ & 51.7 & 60.5$^{*}$ & 9.4 & 170 \\
+% Base, RBD code path & 8.7 & 52.8 & 69.7 & 13.0 & 190 \\
+RBD (Ours) & 9.7 & 52.3 & 69.4 & 13.1 & 190 \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Gemma 4 E4B}} \\
+Base & 9.4 & 58.0 & 65.6 & 14.2 & 366 \\
+REVIS$^{\dagger}$ & -- & -- & -- & -- & -- \\
+RUDDER & 9.7 & 58.3 & 65.2 & 14.2 & 373 \\
+GrAInS & 10.5 & 54.7$^{*}$ & 65.5 & 13.0 & 294 \\
+VTI$^{\dagger}$ & 10.4 & 57.6 & 65.0 & 13.8 & 357 \\
+% Base, RBD code path & 9.0 & 58.2 & 66.2 & 14.4 & 368 \\
+RBD (Ours) & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\caption{HAT with ALOHa (325 images). ALOHa uses the official code with its aggregation bug fixed: caption objects without a Hungarian partner score 0, as the code intends. Flag: share of caption objects whose best reference similarity is $\le 0.5$. RefCov: share of reference objects covered by the caption (similarity $> 0.5$). $^{*}$: 95\% paired bootstrap CI of the difference from Base excludes 0.}
+\label{tab:hat_aloha}
+\end{table}
