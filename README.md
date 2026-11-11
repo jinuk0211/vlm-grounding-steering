@@ -48,6 +48,8 @@ vast 박스의 절대경로 symlink 19개는 Windows에서 풀리지 않아 빠�
 | − steering | 27.6 / 7.79 / 67.4 / 191 | 26.4 / 5.94 / 61.5 / 374 |
 | − penalty | 28.2 / 7.47 / 68.9 / 177 | 27.4 / 5.50 / 63.9 / 377 |
 | − belief | 29.6 / 8.19 / 69.3 / 175 | 34.6 / 7.30 / 65.1 / 375 |
+
+**추가 (11-12)** no-anchor 설정 Gemma ablation (λ0.5·π0.25, L24 α2, 500장): Full 31.8 / 6.21 / 63.3 / 377, − steering 34.0 / 6.89 / 63.2 / 370, − penalty 32.4 / 6.38 / 64.1 / 378, − belief 35.4 / 6.87 / 65.5 / 378, Base 34.6 / 7.00 / 64.7 / 370. 표·CI: `server/outputs/steer-noanchor-20261110/gabl_table_500.txt`, run: `gemma/L24a2-*`, `gemma/ns-*`, `gemma_g5/abl_*` (− penalty·− belief의 rows 400–499는 vast 2080 Ti, `vast/steer/runs/gemma_abl/`).
 | steering only | 31.6 / 8.26 / 69.8 / 175 | 35.0 / 7.58 / 65.7 / 373 |
 | belief only | 27.0 / 7.26 / 68.4 / 191 | 26.2 / 5.83 / 61.8 / 372 |
 | penalty only | 29.8 / 8.02 / 69.8 / 190 | 34.4 / 7.20 / 64.3 / 371 |

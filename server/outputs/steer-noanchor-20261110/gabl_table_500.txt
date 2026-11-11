@@ -1,0 +1,19 @@
+Gemma E4B component ablation of the no-anchor steering setting (lam .5, pen .25, resid L24 alpha 2) on chair_test500.
+Full = gemma/L24a2-*, -steering = gemma/ns-* (GPU 5 A6000); -penalty = gemma_g5/abl_nopen_L24a2-*, -belief = gemma_g5/abl_nobelief_L24a2-*
+(rows 0-399 GPU 5 A6000, rows 400-499 vast 2080 Ti); Base = stored rbd2-20261102/runs/gabl_chair500_all/base-0-500.jsonl.
+Unmodified CHAIR scorer state; differences are config minus Full, paired bootstrap 2,000 resamples over images (seed 0), 95% CI.
+n = 500 images
+
+configuration          CHAIR_s CHAIR_i recall  tok | vs Full: dCHAIR_s [95% CI]  dCHAIR_i [95% CI]  drecall [95% CI]
+Full (TETHER)             31.8    6.21   63.3  377
+- steering (alpha=0)      34.0    6.89   63.2  370 |  +2.2 [-1.4,+6.0]  +0.69 [-0.18,+1.59]   -0.1 [-1.6,+1.5]
+- penalty (pi=0)          32.4    6.38   64.1  378 |  +0.6 [-1.8,+2.8]  +0.17 [-0.28,+0.59]   +0.8 [-0.1,+1.8]
+- belief (lambda=0)       35.4    6.87   65.5  378 |  +3.6 [+0.0,+7.2]  +0.66 [+0.03,+1.31]   +2.3 [+0.9,+3.7]
+Base (stored vdd)         34.6    7.00   64.7  370 |  +2.8 [-1.2,+6.6]  +0.79 [-0.07,+1.62]   +1.4 [-0.2,+3.1]
+
+LaTeX (CHAIR_s, CHAIR_i, recall, tok):
+    Full (TETHER)            & 31.8 & 6.2 & 63.3 & 377 \
+    - steering (alpha=0)     & 34.0 & 6.9 & 63.2 & 370 \
+    - penalty (pi=0)         & 32.4 & 6.4 & 64.1 & 378 \
+    - belief (lambda=0)      & 35.4 & 6.9 & 65.5 & 378 \
+    Base (stored vdd)        & 34.6 & 7.0 & 64.7 & 370 \
