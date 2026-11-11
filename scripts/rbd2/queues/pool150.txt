@@ -1,0 +1,93 @@
+# 150-image extension, 20:55 user: every setting on CHAIR, AMBER, THRONE; priority order = tag order
+# 21:05 user: drop settings with no significant headline gain at 60 images: bpos_s16a1 bpos_s16a3 pen1 s16a2bl1 s16a3 s16a3bl1 s20a2bl1
+amber_test150 amber_test150 base 60 150
+chair_test150 chair_test150 base 120 150
+throne_test150 throne_test150 base 120 150
+amber_test150 amber_test150 main 60 150 --alpha 1 --layer 16 --lam 1 --pen 0.5
+throne_test120 throne_test120 main 60 120 --alpha 1 --layer 16 --lam 1 --pen 0.5
+chair_test150 chair_test150 main 120 150 --alpha 1 --layer 16 --lam 1 --pen 0.5
+throne_test150 throne_test150 main 120 150 --alpha 1 --layer 16 --lam 1 --pen 0.5
+amber_test150 amber_test150 mainMed 60 150 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+chair_test150 chair_test150 mainMed 60 90 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+throne_test150 throne_test150 mainMed 60 90 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+chair_test150 chair_test150 mainMed 90 120 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+throne_test150 throne_test150 mainMed 90 120 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+chair_test150 chair_test150 mainMed 120 150 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+throne_test150 throne_test150 mainMed 120 150 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_test150 amber_test150 s16a1bl2p1 60 150 --alpha 1 --layer 16 --lam 2 --pen 1
+chair_test150 chair_test150 s16a1bl2p1 60 90 --alpha 1 --layer 16 --lam 2 --pen 1
+chair_test150 chair_test150 s16a1bl2p1 90 120 --alpha 1 --layer 16 --lam 2 --pen 1
+chair_test150 chair_test150 s16a1bl2p1 120 150 --alpha 1 --layer 16 --lam 2 --pen 1
+throne_test150 throne_test150 s16a1bl2p1 120 150 --alpha 1 --layer 16 --lam 2 --pen 1
+amber_test150 amber_test150 s16a1 60 150 --alpha 1 --layer 16
+chair_test150 chair_test150 s16a1 60 90 --alpha 1 --layer 16
+chair_test150 chair_test150 s16a1 90 120 --alpha 1 --layer 16
+chair_test150 chair_test150 s16a1 120 150 --alpha 1 --layer 16
+throne_test150 throne_test150 s16a1 120 150 --alpha 1 --layer 16
+amber_test150 amber_test150 s16a1bl1 60 150 --alpha 1 --layer 16 --lam 1
+throne_test150 throne_test150 s16a1bl1 60 90 --alpha 1 --layer 16 --lam 1
+throne_test150 throne_test150 s16a1bl1 90 120 --alpha 1 --layer 16 --lam 1
+chair_test150 chair_test150 s16a1bl1 120 150 --alpha 1 --layer 16 --lam 1
+throne_test150 throne_test150 s16a1bl1 120 150 --alpha 1 --layer 16 --lam 1
+#dropped amber_test150 amber_test150 s16a2bl1 60 150 --alpha 2 --layer 16 --lam 1
+#dropped chair_test120 chair_test120 s16a2bl1 60 120 --alpha 2 --layer 16 --lam 1
+#dropped throne_test150 throne_test150 s16a2bl1 60 90 --alpha 2 --layer 16 --lam 1
+#dropped throne_test150 throne_test150 s16a2bl1 90 120 --alpha 2 --layer 16 --lam 1
+#dropped chair_test150 chair_test150 s16a2bl1 120 150 --alpha 2 --layer 16 --lam 1
+#dropped throne_test150 throne_test150 s16a2bl1 120 150 --alpha 2 --layer 16 --lam 1
+#dropped amber_test150 amber_test150 s16a3bl1 60 150 --alpha 3 --layer 16 --lam 1
+#dropped chair_test150 chair_test150 s16a3bl1 60 90 --alpha 3 --layer 16 --lam 1
+#dropped throne_test150 throne_test150 s16a3bl1 60 90 --alpha 3 --layer 16 --lam 1
+#dropped chair_test150 chair_test150 s16a3bl1 90 120 --alpha 3 --layer 16 --lam 1
+#dropped throne_test150 throne_test150 s16a3bl1 90 120 --alpha 3 --layer 16 --lam 1
+#dropped chair_test150 chair_test150 s16a3bl1 120 150 --alpha 3 --layer 16 --lam 1
+#dropped throne_test150 throne_test150 s16a3bl1 120 150 --alpha 3 --layer 16 --lam 1
+amber_test150 amber_test150 bl1 60 150 --lam 1
+chair_test150 chair_test150 bl1 60 90 --lam 1
+throne_test150 throne_test150 bl1 60 90 --lam 1
+chair_test150 chair_test150 bl1 90 120 --lam 1
+throne_test150 throne_test150 bl1 90 120 --lam 1
+chair_test150 chair_test150 bl1 120 150 --lam 1
+throne_test150 throne_test150 bl1 120 150 --lam 1
+amber_test150 amber_test150 s16a2bl1p05 60 150 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test150 chair_test150 s16a2bl1p05 60 90 --alpha 2 --layer 16 --lam 1 --pen 0.5
+throne_test150 throne_test150 s16a2bl1p05 60 90 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test150 chair_test150 s16a2bl1p05 90 120 --alpha 2 --layer 16 --lam 1 --pen 0.5
+throne_test150 throne_test150 s16a2bl1p05 90 120 --alpha 2 --layer 16 --lam 1 --pen 0.5
+chair_test150 chair_test150 s16a2bl1p05 120 150 --alpha 2 --layer 16 --lam 1 --pen 0.5
+throne_test150 throne_test150 s16a2bl1p05 120 150 --alpha 2 --layer 16 --lam 1 --pen 0.5
+#dropped amber_test150 amber_test150 s20a2bl1 60 150 --alpha 2 --layer 20 --lam 1
+#dropped chair_test150 chair_test150 s20a2bl1 60 90 --alpha 2 --layer 20 --lam 1
+#dropped throne_test150 throne_test150 s20a2bl1 60 90 --alpha 2 --layer 20 --lam 1
+#dropped chair_test150 chair_test150 s20a2bl1 90 120 --alpha 2 --layer 20 --lam 1
+#dropped throne_test150 throne_test150 s20a2bl1 90 120 --alpha 2 --layer 20 --lam 1
+#dropped chair_test150 chair_test150 s20a2bl1 120 150 --alpha 2 --layer 20 --lam 1
+#dropped throne_test150 throne_test150 s20a2bl1 120 150 --alpha 2 --layer 20 --lam 1
+#dropped amber_test150 amber_test150 s16a3 60 150 --alpha 3 --layer 16
+#dropped chair_test150 chair_test150 s16a3 60 90 --alpha 3 --layer 16
+#dropped throne_test150 throne_test150 s16a3 60 90 --alpha 3 --layer 16
+#dropped chair_test150 chair_test150 s16a3 90 120 --alpha 3 --layer 16
+#dropped throne_test150 throne_test150 s16a3 90 120 --alpha 3 --layer 16
+#dropped chair_test150 chair_test150 s16a3 120 150 --alpha 3 --layer 16
+#dropped throne_test150 throne_test150 s16a3 120 150 --alpha 3 --layer 16
+#dropped amber_test150 amber_test150 bpos_s16a1 60 150 --alpha 1 --layer 16 --lam 1 --bpos
+#dropped chair_test150 chair_test150 bpos_s16a1 60 90 --alpha 1 --layer 16 --lam 1 --bpos
+#dropped throne_test150 throne_test150 bpos_s16a1 60 90 --alpha 1 --layer 16 --lam 1 --bpos
+#dropped chair_test150 chair_test150 bpos_s16a1 90 120 --alpha 1 --layer 16 --lam 1 --bpos
+#dropped throne_test150 throne_test150 bpos_s16a1 90 120 --alpha 1 --layer 16 --lam 1 --bpos
+#dropped chair_test150 chair_test150 bpos_s16a1 120 150 --alpha 1 --layer 16 --lam 1 --bpos
+#dropped throne_test150 throne_test150 bpos_s16a1 120 150 --alpha 1 --layer 16 --lam 1 --bpos
+#dropped amber_test150 amber_test150 bpos_s16a3 60 150 --alpha 3 --layer 16 --lam 1 --bpos
+#dropped chair_test150 chair_test150 bpos_s16a3 60 90 --alpha 3 --layer 16 --lam 1 --bpos
+#dropped throne_test150 throne_test150 bpos_s16a3 60 90 --alpha 3 --layer 16 --lam 1 --bpos
+#dropped chair_test150 chair_test150 bpos_s16a3 90 120 --alpha 3 --layer 16 --lam 1 --bpos
+#dropped throne_test150 throne_test150 bpos_s16a3 90 120 --alpha 3 --layer 16 --lam 1 --bpos
+#dropped chair_test150 chair_test150 bpos_s16a3 120 150 --alpha 3 --layer 16 --lam 1 --bpos
+#dropped throne_test150 throne_test150 bpos_s16a3 120 150 --alpha 3 --layer 16 --lam 1 --bpos
+#dropped amber_test150 amber_test150 pen1 60 150 --pen 1
+#dropped chair_test150 chair_test150 pen1 60 90 --pen 1
+#dropped throne_test150 throne_test150 pen1 60 90 --pen 1
+#dropped chair_test150 chair_test150 pen1 90 120 --pen 1
+#dropped throne_test150 throne_test150 pen1 90 120 --pen 1
+#dropped chair_test150 chair_test150 pen1 120 150 --pen 1
+#dropped throne_test150 throne_test150 pen1 120 150 --pen 1

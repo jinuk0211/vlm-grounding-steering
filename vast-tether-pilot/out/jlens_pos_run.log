@@ -1,0 +1,106 @@
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]Loading weights:  53%|█████▎    | 386/723 [00:00<00:00, 3858.32it/s]Loading weights: 100%|██████████| 723/723 [00:00<00:00, 5463.71it/s]
+JacobianLens(d_model=2560, n_prompts=8, source_layers=[0..30] (31 layers)); 100 images; eos [248044, 248046]; out out/jlens_pos
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+3/100 408324 seq 681 caption 464 gen 45s lens 14s total 60s
+4/100 31798 seq 716 caption 499 gen 45s lens 15s total 121s
+5/100 138405 seq 722 caption 505 gen 45s lens 15s total 182s
+6/100 563767 seq 676 caption 459 gen 41s lens 14s total 238s
+7/100 290350 seq 689 caption 472 gen 42s lens 14s total 296s
+8/100 226716 seq 690 caption 473 gen 42s lens 14s total 352s
+9/100 202272 seq 592 caption 375 gen 33s lens 12s total 399s
+10/100 66124 seq 665 caption 448 gen 43s lens 14s total 456s
+11/100 516487 seq 459 caption 242 gen 23s lens 10s total 490s
+12/100 289382 seq 539 caption 322 gen 31s lens 11s total 534s
+13/100 60005 seq 729 caption 512 gen 50s lens 15s total 600s
+14/100 138956 seq 729 caption 512 gen 50s lens 15s total 666s
+15/100 197863 seq 712 caption 495 gen 46s lens 15s total 728s
+16/100 370857 seq 601 caption 384 gen 35s lens 12s total 776s
+17/100 69428 seq 648 caption 431 gen 39s lens 13s total 830s
+18/100 263112 seq 677 caption 460 gen 43s lens 14s total 888s
+19/100 173258 seq 729 caption 512 gen 45s lens 15s total 948s
+20/100 308192 seq 729 caption 512 gen 45s lens 15s total 1010s
+21/100 154817 seq 548 caption 331 gen 30s lens 11s total 1052s
+22/100 510258 seq 661 caption 444 gen 39s lens 14s total 1106s
+23/100 219442 seq 580 caption 363 gen 32s lens 12s total 1151s
+24/100 268268 seq 729 caption 512 gen 46s lens 15s total 1213s
+25/100 161451 seq 727 caption 510 gen 45s lens 15s total 1274s
+26/100 394623 seq 616 caption 399 gen 33s lens 13s total 1321s
+27/100 558018 seq 651 caption 434 gen 35s lens 14s total 1370s
+28/100 24728 seq 647 caption 430 gen 38s lens 13s total 1422s
+29/100 69956 seq 630 caption 413 gen 36s lens 13s total 1472s
+30/100 476191 seq 729 caption 512 gen 44s lens 15s total 1532s
+31/100 580609 seq 640 caption 423 gen 34s lens 13s total 1580s
+32/100 480012 seq 641 caption 424 gen 35s lens 13s total 1629s
+33/100 215657 seq 729 caption 512 gen 41s lens 15s total 1686s
+34/100 220770 seq 729 caption 512 gen 45s lens 15s total 1747s
+35/100 57885 seq 729 caption 512 gen 44s lens 15s total 1807s
+36/100 578497 seq 607 caption 390 gen 33s lens 13s total 1854s
+37/100 394905 seq 729 caption 512 gen 47s lens 15s total 1917s
+38/100 480682 seq 685 caption 468 gen 43s lens 14s total 1975s
+39/100 44675 seq 572 caption 355 gen 33s lens 12s total 2020s
+40/100 413668 seq 729 caption 512 gen 45s lens 15s total 2081s
+41/100 478475 seq 602 caption 385 gen 34s lens 12s total 2128s
+42/100 140976 seq 695 caption 478 gen 37s lens 14s total 2180s
+43/100 570864 seq 729 caption 512 gen 40s lens 15s total 2236s
+44/100 125686 seq 642 caption 425 gen 33s lens 13s total 2284s
+45/100 120759 seq 729 caption 512 gen 40s lens 15s total 2339s
+46/100 478118 seq 557 caption 340 gen 27s lens 11s total 2378s
+47/100 67361 seq 645 caption 428 gen 33s lens 13s total 2426s
+48/100 425242 seq 536 caption 319 gen 25s lens 11s total 2462s
+49/100 381027 seq 729 caption 512 gen 40s lens 15s total 2518s
+50/100 571048 seq 729 caption 512 gen 41s lens 15s total 2574s
+51/100 488932 seq 729 caption 512 gen 40s lens 15s total 2630s
+52/100 94015 seq 729 caption 512 gen 40s lens 15s total 2686s
+53/100 426988 seq 729 caption 512 gen 40s lens 15s total 2742s
+54/100 568052 seq 581 caption 364 gen 29s lens 12s total 2783s
+55/100 399122 seq 715 caption 498 gen 39s lens 15s total 2838s
+56/100 190945 seq 729 caption 512 gen 39s lens 15s total 2892s
+57/100 123909 seq 729 caption 512 gen 39s lens 15s total 2947s
+58/100 60953 seq 659 caption 442 gen 33s lens 14s total 2995s
+59/100 570385 seq 729 caption 512 gen 39s lens 15s total 3050s
+60/100 448413 seq 729 caption 512 gen 39s lens 15s total 3104s
+61/100 205607 seq 622 caption 405 gen 31s lens 13s total 3148s
+62/100 98549 seq 656 caption 439 gen 33s lens 13s total 3196s
+63/100 11264 seq 729 caption 512 gen 39s lens 15s total 3251s
+64/100 242583 seq 729 caption 512 gen 39s lens 15s total 3306s
+65/100 324713 seq 719 caption 502 gen 38s lens 15s total 3360s
+66/100 294838 seq 669 caption 452 gen 34s lens 14s total 3409s
+67/100 333643 seq 708 caption 491 gen 37s lens 15s total 3461s
+68/100 530650 seq 594 caption 377 gen 28s lens 12s total 3503s
+69/100 431407 seq 646 caption 429 gen 32s lens 13s total 3549s
+70/100 21254 seq 566 caption 349 gen 26s lens 11s total 3588s
+71/100 272101 seq 633 caption 416 gen 31s lens 13s total 3632s
+72/100 345997 seq 643 caption 426 gen 32s lens 13s total 3679s
+73/100 264987 seq 719 caption 502 gen 38s lens 15s total 3732s
+74/100 7988 seq 645 caption 428 gen 32s lens 13s total 3778s
+75/100 4038 seq 576 caption 359 gen 27s lens 11s total 3818s
+76/100 231393 seq 600 caption 383 gen 29s lens 12s total 3860s
+77/100 177492 seq 530 caption 313 gen 24s lens 11s total 3895s
+78/100 214523 seq 729 caption 512 gen 39s lens 15s total 3950s
+79/100 148839 seq 673 caption 456 gen 34s lens 14s total 3999s
+80/100 419062 seq 706 caption 489 gen 37s lens 15s total 4051s
+81/100 391254 seq 729 caption 512 gen 38s lens 15s total 4106s
+82/100 119529 seq 729 caption 512 gen 39s lens 15s total 4160s
+83/100 239436 seq 729 caption 512 gen 38s lens 15s total 4215s
+84/100 212263 seq 646 caption 429 gen 32s lens 13s total 4261s
+85/100 412491 seq 657 caption 440 gen 33s lens 13s total 4308s
+86/100 2531 seq 729 caption 512 gen 39s lens 15s total 4363s
+87/100 93603 seq 487 caption 270 gen 20s lens 10s total 4394s
+88/100 9113 seq 689 caption 472 gen 35s lens 14s total 4444s
+89/100 547752 seq 729 caption 512 gen 38s lens 15s total 4498s
+90/100 282067 seq 657 caption 440 gen 33s lens 14s total 4546s
+91/100 312205 seq 729 caption 512 gen 38s lens 15s total 4600s
+92/100 244720 seq 632 caption 415 gen 31s lens 13s total 4645s
+93/100 553283 seq 614 caption 397 gen 30s lens 12s total 4688s
+94/100 59116 seq 729 caption 512 gen 38s lens 15s total 4742s
+95/100 391388 seq 583 caption 366 gen 27s lens 12s total 4783s
+96/100 406739 seq 636 caption 419 gen 33s lens 13s total 4829s
+97/100 324409 seq 729 caption 512 gen 41s lens 15s total 4886s
+98/100 188952 seq 564 caption 347 gen 28s lens 11s total 4926s
+99/100 524709 seq 595 caption 378 gen 30s lens 12s total 4969s
+100/100 553872 seq 646 caption 429 gen 34s lens 13s total 5017s
+POSITIONS_OK
+RUN_EXIT=0

@@ -1,0 +1,17 @@
+# vdd4 test: the pick on throne_full1000 rows 200-999
+throne_full1000 qwen_cf_test cf_a3bl2p1 200 250 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 250 300 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 300 350 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 350 400 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 400 450 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 450 500 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 500 550 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 550 600 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 600 650 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 650 700 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 700 750 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 750 800 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 800 850 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 850 900 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 900 950 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+throne_full1000 qwen_cf_test cf_a3bl2p1 950 1000 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json

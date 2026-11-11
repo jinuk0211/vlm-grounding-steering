@@ -1,0 +1,89 @@
+{
+ "set": "chair_test500",
+ "n": 500,
+ "results": {
+  "base": {
+   "CHAIR_s": 34.599999999999994,
+   "CHAIR_i": 6.998867497168742,
+   "recall": 64.71329552614998,
+   "F1": 76.32034490612898,
+   "setting": {
+    "lam": 0.0,
+    "clip": 5.0,
+    "pen": 0.0,
+    "bsched": "decay",
+    "alpha": 0.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "eager",
+    "bpos": false,
+    "norm": "raw"
+   },
+   "tokens": 369.92,
+   "at512": 9
+  },
+  "s24a1bl1p05": {
+   "CHAIR_s": 26.200000000000003,
+   "CHAIR_i": 5.537024683122081,
+   "recall": 63.579080025204796,
+   "F1": 76.0034290124992,
+   "ci": {
+    "CHAIR_s": [
+     -12.199999999999998,
+     -4.600000000000004
+    ],
+    "recall": [
+     -2.6877971625766857,
+     0.38415994917859303
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 1.0,
+    "layer": 24,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "eager",
+    "bpos": false,
+    "norm": "raw"
+   },
+   "tokens": 377.686,
+   "at512": 13
+  },
+  "s24a2bl1p05": {
+   "CHAIR_s": 30.8,
+   "CHAIR_i": 6.011762143323895,
+   "recall": 61.94076874606175,
+   "F1": 74.67120881186966,
+   "ci": {
+    "CHAIR_s": [
+     -7.605000000000001,
+     0.0
+    ],
+    "recall": [
+     -4.421017974630529,
+     -1.1339500010620007
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 2.0,
+    "layer": 24,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "eager",
+    "bpos": false,
+    "norm": "raw"
+   },
+   "tokens": 381.246,
+   "at512": 14
+  }
+ }
+}

@@ -1,0 +1,13 @@
+Using CPython 3.11.17
+Creating virtual environment at: .venv35
+Activate with: source .venv35/bin/activate
+error: Failed to download `nvidia-cudnn-cu12==9.7.1.26`
+  cause: Request failed after 4 retries in 100.5s
+  cause: Failed to fetch: https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.7.1.26-py3-none-manylinux_2_27_x86_64.whl
+  cause: error sending request for url (https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.7.1.26-py3-none-manylinux_2_27_x86_64.whl)
+  cause: client error (SendRequest)
+  cause: connection error
+  cause: connection reset
+
+hint: `nvidia-cudnn-cu12` (v9.7.1.26) was included because `torch` (v2.7.1+cu128) depends on `nvidia-cudnn-cu12`
+SETUP_EXIT=2

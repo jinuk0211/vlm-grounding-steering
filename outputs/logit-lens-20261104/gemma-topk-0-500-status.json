@@ -1,0 +1,23 @@
+{
+ "stage": "complete",
+ "pid": 1034971,
+ "model": "gemma",
+ "mode": "topk",
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "argv": [
+  "scripts/logit_lens.py",
+  "topk",
+  "--model",
+  "gemma",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104"
+ ],
+ "updated_at": 1793874606.9950118,
+ "n_layers": 42,
+ "nodes": 77,
+ "done": 491,
+ "sec_per_caption": 1.4728748448754523,
+ "last_layer_max_logp_err": 0.0009765625,
+ "max_gpu_gb": 16.374074459075928,
+ "records": 500
+}

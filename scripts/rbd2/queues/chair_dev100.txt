@@ -1,0 +1,36 @@
+qwen bench base 0 60 --attn sdpa
+qwen vdd vddbase 0 60 --attn sdpa
+qwen vdd s16a2bl1p05 0 60 --attn sdpa --layer 16 --alpha 2 --lam 1 --pen 0.5
+qwen bench rudder_clone 0 60 --attn sdpa
+qwen bench grains_clone 0 60 --attn eager
+qwen vti vtiws_v0.9_t0.9 0 60
+qwen bench base 60 100 --attn sdpa
+qwen vdd vddbase 60 100 --attn sdpa
+qwen vdd s16a2bl1p05 60 100 --attn sdpa --layer 16 --alpha 2 --lam 1 --pen 0.5
+qwen bench rudder_clone 60 100 --attn sdpa
+qwen bench grains_clone 60 100 --attn eager
+qwen vti vtiws_v0.9_t0.9 60 100
+qwen3 bench base 0 60 --attn sdpa
+qwen3 vdd vddbase 0 60 --attn sdpa
+qwen3 vdd s20a1bl1p05 0 60 --attn sdpa --layer 20 --alpha 1 --lam 1 --pen 0.5
+qwen3 bench rudder_clone 0 60 --attn sdpa
+qwen3 grains grains_clone 0 60 --attn eager
+qwen3 bench vti 0 60 --attn sdpa
+qwen3 bench base 60 100 --attn sdpa
+qwen3 vdd vddbase 60 100 --attn sdpa
+qwen3 vdd s20a1bl1p05 60 100 --attn sdpa --layer 20 --alpha 1 --lam 1 --pen 0.5
+qwen3 bench rudder_clone 60 100 --attn sdpa
+qwen3 grains grains_clone 60 100 --attn eager
+qwen3 bench vti 60 100 --attn sdpa
+gemma bench base 0 60
+gemma vdd vddbase 0 60 --attn eager
+gemma vdd s24a1bl1p05 0 60 --attn eager --layer 24 --alpha 1 --lam 1 --pen 0.5
+gemma bench rudder_clone 0 60
+gemma bench grains_clone 0 60
+gemma bench vti 0 60
+gemma bench base 60 100
+gemma vdd vddbase 60 100 --attn eager
+gemma vdd s24a1bl1p05 60 100 --attn eager --layer 24 --alpha 1 --lam 1 --pen 0.5
+gemma bench rudder_clone 60 100
+gemma bench grains_clone 60 100
+gemma bench vti 60 100

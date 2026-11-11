@@ -1,0 +1,8 @@
+=== 09:14:32 gemma_throne1000 with ours (s24a1bl2p1), 2 judges (flan-t5 base+large, threshold 6), paired bootstrap vs Base (gemma_bench)
+base          P  75.0 R  70.7 F1  82.8 F0.5  85.2  
+s24a1bl2p1    P  77.5 R  69.7 F1  83.3 F0.5  86.8  dP[+0.5,+4.6] dR[-2.9,+0.9] dF0.5[+0.4,+2.7]
+rudder_clone  P  75.6 R  69.6 F1  83.0 F0.5  85.9  dP[-1.2,+2.7] dR[-2.8,+0.5] dF0.5[-0.2,+1.7]
+grains_clone  P  78.5 R  70.8 F1  82.3 F0.5  85.7  dP[+1.2,+5.8] dR[-2.1,+2.1] dF0.5[-0.7,+1.7]
+revis         P  76.9 R  70.0 F1  83.2 F0.5  86.5  dP[-0.4,+4.2] dR[-3.0,+1.4] dF0.5[+0.1,+2.4]
+vti           P  77.4 R  70.4 F1  83.1 F0.5  86.3  dP[+0.5,+4.4] dR[-2.2,+1.5] dF0.5[+0.1,+2.2]
+=== 09:14:43 GEMMA_OURS_DONE

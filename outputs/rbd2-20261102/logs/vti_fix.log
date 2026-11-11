@@ -1,0 +1,39 @@
+demos 100 newline in value/h_value before 88 19 after 0 0
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   5%|▌         | 40/729 [00:00<00:02, 312.78it/s]Loading weights:  10%|▉         | 72/729 [00:00<00:02, 295.63it/s]Loading weights:  14%|█▍        | 102/729 [00:00<00:02, 233.10it/s]Loading weights:  17%|█▋        | 127/729 [00:00<00:02, 232.80it/s]Loading weights:  21%|██        | 151/729 [00:00<00:02, 232.22it/s]Loading weights:  25%|██▍       | 181/729 [00:00<00:02, 195.64it/s]Loading weights:  28%|██▊       | 202/729 [00:00<00:02, 180.83it/s]Loading weights:  31%|███▏      | 228/729 [00:01<00:02, 196.62it/s]Loading weights:  34%|███▍      | 249/729 [00:01<00:02, 199.23it/s]Loading weights:  38%|███▊      | 274/729 [00:01<00:02, 211.44it/s]Loading weights:  41%|████      | 300/729 [00:01<00:01, 224.31it/s]Loading weights:  44%|████▍     | 324/729 [00:01<00:01, 223.53it/s]Loading weights:  48%|████▊     | 347/729 [00:01<00:02, 186.94it/s]Loading weights:  82%|████████▏ | 597/729 [00:01<00:00, 756.34it/s]Loading weights:  98%|█████████▊| 713/729 [00:01<00:00, 807.20it/s]Loading weights: 100%|██████████| 729/729 [00:01<00:00, 376.04it/s]
+logit lens, OLD textual direction:
+  L14 top [' -', '苦苦', '芳香', '<|endoftext|>', '这样才能', '锲', '.\n', '也因此', '不太好', '壮观', '可观', '不仅仅'] | newline/dash ranks {"'\\n'": 12, "'\\n\\n'": 162, "' -'": 0, "' \\n'": 19562}
+  L20 top ['有一些', '可观', '\n', ' ', ' also', '\xa0', '<|endoftext|>', '轶', '有意思', '也因此', '际', '同时'] | newline/dash ranks {"'\\n'": 2, "'\\n\\n'": 21, "' -'": 13, "' \\n'": 19}
+  L24 top ['\n', '.\n', ',\n', ' \n', '。\n', '，\n', ';\n', '"\n', ':\n', '!\n', ' .\n', ')\n'] | newline/dash ranks {"'\\n'": 0, "'\\n\\n'": 1094, "' -'": 394, "' \\n'": 3}
+  L26 top [' \n', '\n', ',\n', '.\n', '  \n', '，\n', '"\n', '\xa0\n', '。\n', '-\n', '/\n', '!\n'] | newline/dash ranks {"'\\n'": 1, "'\\n\\n'": 114, "' -'": 1166, "' \\n'": 0}
+  L27 top [' \n', '.\n', '\n', '  \n', '!\n', ' .\n', '。\n', '\xa0\n', ',\n', '"\n', ':\n', ' ...\n'] | newline/dash ranks {"'\\n'": 2, "'\\n\\n'": 922, "' -'": 404, "' \\n'": 0}
+  L28 top [' \n', '\xa0\n', '\n', '/\n', '_\n', ',\n', '*\n', '.\n', '-\n', '”\n', '，\n', '。\n'] | newline/dash ranks {"'\\n'": 2, "'\\n\\n'": 2609, "' -'": 70824, "' \\n'": 0}
+demo selection matches original manifest: True 70
+textual direction re-extracted in 56s; cos(new, old) per layer: [1.0, 0.84, 0.49, 0.4, 0.5, 0.42, 0.43, 0.35, 0.5, 0.3, 0.28, 0.38, 0.43, 0.49, 0.53, 0.52, 0.59, 0.56, 0.6, 0.63, 0.54, 0.57, 0.56, 0.49, 0.47, 0.49, 0.47, 0.44, 0.39]
+logit lens, NEW textual direction:
+  L14 top ['党政', '也有一些', '有几个', '而且', 'ちなみに', 'ilton', '道', '十七', '承德', 'endir', '禾', '大面积'] | newline/dash ranks {"'\\n'": 83301, "'\\n\\n'": 44228, "' -'": 14423, "' \\n'": 138229}
+  L20 top ['-Headers', 'CHANT', 'esub', 'herits', 'ἔ', '.Formatter', '在此之前', '$is', 'ilst', 'matchCondition', 'eatures', 'ἡ'] | newline/dash ranks {"'\\n'": 132111, "'\\n\\n'": 59217, "' -'": 140752, "' \\n'": 71073}
+  L24 top ['iotics', 'ruc', 'linky', '背景', 'matchCondition', 'abbo', '.ends', 'ussy', 'ække', '淡淡的', '近些', 'iotic'] | newline/dash ranks {"'\\n'": 81992, "'\\n\\n'": 43279, "' -'": 117481, "' \\n'": 99551}
+  L26 top ['自然而', 'فيدي', '女性朋友', '*\n\n', 'The', '想了', '这几年', '的一部分', ' \n\n', ' part', ' The', '仅次'] | newline/dash ranks {"'\\n'": 22640, "'\\n\\n'": 666, "' -'": 95168, "' \\n'": 5250}
+  L27 top ['的一部分', '部分', 'The', '这几年', ' \n\n', '他知道', '自然而', '想了', ' part', '至于', '一部分', ' parts'] | newline/dash ranks {"'\\n'": 13336, "'\\n\\n'": 332, "' -'": 63310, "' \\n'": 1558}
+  L28 top [' Redistributions', 'FunctionFlags', ' RuntimeMethod', '的一部分', 'rowsable', '_TypeInfo', '监听页面', 'togroup', 'matchCondition', '_Parms', 'BackingField', 'taboola'] | newline/dash ranks {"'\\n'": 151212, "'\\n\\n'": 89954, "' -'": 152016, "' \\n'": 138618}
+throne:139 tok 241 | 'The image depicts a modern, minimalist living room with a warm color scheme. The walls are painted in a light yellowish-orange color, and there is a section of '
+throne:285 tok 136 | "The image shows the head of a bear, specifically a brown bear, based on its fur color and facial features. The bear's fur appears to be light brown or beige in "
+throne:632 tok 302 | 'The image depicts a room that appears to be a bedroom or a study area. Here are the details:\n\n- **Wall and Ceiling**: The walls are covered with wallpaper that '
+throne:724 tok 83 | 'The image shows a red octagonal sign with the word "STOP" written on it in white capital letters. The sign is mounted on a vertical pole. The background include'
+throne:776 tok 126 | 'The image shows a close-up of a plush toy, specifically a teddy bear. The teddy bear appears to be made of a soft, textured material that is light brown in colo'
+throne:785 tok 116 | 'The image shows a person skiing on a snowy slope. The individual is wearing a red jacket with black sleeves, dark pants, and ski boots. They are also wearing a '
+throne:802 tok 116 | 'The image shows a section of a kitchen area. The walls and the cabinets above the countertop are painted in a light brown color. There is a white refrigerator o'
+throne:872 tok 128 | 'The image shows a person who appears to be playing baseball or a similar sport. The individual is wearing a white shirt, light-colored pants, and a dark cap. Th'
+throne:885 tok 141 | 'The image shows a tennis court with a player in the foreground. The player is wearing a white cap, a black shirt, and white shorts. The player appears to be in '
+throne:1000 tok 179 | 'The image shows a group of seven individuals standing on what appears to be a tennis court. The court has a blue surface and is enclosed by a green fence. The b'
+throne:1268 tok 211 | 'The image depicts a scene under a bridge, likely near a river or a body of water. The bridge has an arched structure, and the underside of the bridge is visible'
+throne:1296 tok 123 | 'The image shows a person holding a white object, which appears to be a smartphone or a similar device. The device has the text "HELLO KITTY" on it, along with a'
+throne:1353 tok 139 | 'The image shows a group of children sitting on what appears to be a red and yellow structure, possibly part of an amusement ride or a piece of playground equipm'
+throne:1425 tok 207 | 'The image appears to be in black and white, which gives it a somewhat monochromatic appearance. The main subject of the image is a piece of food that looks like'
+throne:1490 tok 124 | 'The image is a black and white photograph depicting a person on a paddleboard in the middle of a body of water, which appears to be a lake or a calm sea. The pe'
+throne:1503 tok 272 | 'The image shows a desk setup with several electronic devices. The desk appears to be white or light-colored, and the background includes a window with blinds pa'
+throne:1532 tok 193 | 'The image shows a section of a highway with overhead road signs. The signs indicate directions to two destinations:\n\n1. On the left side, there is a sign for "N'
+throne:1584 tok 194 | 'The image shows a red double-decker bus, which is characteristic of the buses commonly seen in London. The bus has the number "15" displayed on the front above '
+throne:1675 tok 89 | 'The image shows a black cat with some white fur on its chest and part of its face. The cat appears to be partially obscured by what looks like the edge of a lap'
+throne:1761 tok 222 | 'The image shows a bridge spanning over a body of water, which appears to be a harbor. The bridge has a distinctive architectural design, characterized by a seri'
+SUMMARY n 20 mean tok 167 at512 0 dash-loops 0

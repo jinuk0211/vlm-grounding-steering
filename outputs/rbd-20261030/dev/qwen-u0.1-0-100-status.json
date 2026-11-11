@@ -1,0 +1,22 @@
+{
+ "stage": "running",
+ "pid": 3453162,
+ "args": {
+  "model": "qwen",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/data/chair-dev-train2014-100/chair.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/dev",
+  "tag": "qwen-u0.1",
+  "start": "0",
+  "end": "100",
+  "lam": "0.1",
+  "clip": "10.0",
+  "alpha": "0.0",
+  "layer": "16",
+  "r": "measured",
+  "uniform": "True"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793367994.6899183,
+ "vobj": 3167,
+ "done": 34
+}

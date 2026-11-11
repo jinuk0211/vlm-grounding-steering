@@ -1,0 +1,2 @@
+{"model": "qwen", "bad_captions": 77, "position": {"0-31": {"hall": 29, "correct": 503, "share": 0.05451127819548872, "hall_per100": 0.18273471959672338, "correct_per100": 3.16950220541903, "tokens": 
+done qwen

@@ -1,0 +1,67 @@
+# Qwen CHAIR ablation of RBD s16a2bl1p05 (abl_prep.py)
+chair_test500 chair_abl500 abl_nosteer 0 50 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 50 100 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 100 150 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 150 200 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 200 250 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 250 300 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 300 350 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 350 400 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 400 450 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nosteer 450 500 --attn sdpa --lam 1 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 0 50 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 50 100 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 100 150 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 150 200 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 200 250 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 250 300 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 300 350 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 350 400 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 400 450 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nobelief 450 500 --attn sdpa --alpha 2 --layer 16 --pen 0.5
+chair_test500 chair_abl500 abl_nopen 60 100 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_nopen 100 150 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_nopen 150 200 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_nopen 200 250 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_nopen 250 300 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_nopen 300 350 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_nopen 350 400 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_nopen 400 450 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_nopen 450 500 --attn sdpa --alpha 2 --layer 16 --lam 1
+chair_test500 chair_abl500 abl_steer 0 50 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 50 100 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 100 150 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 150 200 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 200 250 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 250 300 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 300 350 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 350 400 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 400 450 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_steer 450 500 --attn sdpa --alpha 2 --layer 16
+chair_test500 chair_abl500 abl_belief 150 200 --attn sdpa --lam 1
+chair_test500 chair_abl500 abl_belief 200 250 --attn sdpa --lam 1
+chair_test500 chair_abl500 abl_belief 250 300 --attn sdpa --lam 1
+chair_test500 chair_abl500 abl_belief 300 350 --attn sdpa --lam 1
+chair_test500 chair_abl500 abl_belief 350 400 --attn sdpa --lam 1
+chair_test500 chair_abl500 abl_belief 400 450 --attn sdpa --lam 1
+chair_test500 chair_abl500 abl_belief 450 500 --attn sdpa --lam 1
+chair_test500 chair_abl500 abl_pen 0 50 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 50 100 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 100 150 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 150 200 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 200 250 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 250 300 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 300 350 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 350 400 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 400 450 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_pen 450 500 --attn sdpa --pen 0.5
+chair_test500 chair_abl500 abl_const 0 50 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 50 100 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 100 150 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 150 200 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 200 250 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 250 300 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 300 350 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 350 400 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 400 450 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const
+chair_test500 chair_abl500 abl_const 450 500 --attn sdpa --alpha 2 --layer 16 --lam 1 --pen 0.5 --bsched const --ssched const

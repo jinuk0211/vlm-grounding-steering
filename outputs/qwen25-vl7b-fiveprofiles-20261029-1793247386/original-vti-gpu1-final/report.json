@@ -1,0 +1,1610 @@
+{
+  "status": "verified_complete",
+  "scope": {
+    "methods": [
+      "base",
+      "revis",
+      "rudder_clone",
+      "grains_clone",
+      "vti_author"
+    ],
+    "pope": "COCO adversarial 3000 questions",
+    "chair": "fixed 500 COCO val2014 images",
+    "total_responses": 17500
+  },
+  "methods": [
+    "base",
+    "revis",
+    "rudder_clone",
+    "grains_clone",
+    "vti_author"
+  ],
+  "protocol": {
+    "scope": "Fresh Qwen2.5-VL-7B evaluation after completed Gemma: POPE adversarial 3000 and CHAIR fixed500 per profile",
+    "model": {
+      "family": "qwen2_5_vl",
+      "checkpoint": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+      "device": "cuda",
+      "dtype": "bfloat16",
+      "attn_implementation": "eager",
+      "image_size": 448,
+      "yes_token": "Yes",
+      "no_token": "No",
+      "local_files_only": true
+    },
+    "methods": [
+      "base",
+      "revis",
+      "vti",
+      "rudder_clone",
+      "grains_clone"
+    ],
+    "method_dtypes": {
+      "base": "bfloat16",
+      "revis": "bfloat16",
+      "vti": "bfloat16",
+      "rudder_clone": "bfloat16",
+      "grains_clone": "float16"
+    },
+    "base_fp32_enabled": false,
+    "mixed_precision_comparisons": [
+      "grains_clone"
+    ],
+    "gpu_indices": [
+      2,
+      3
+    ],
+    "other_gpu_fallback": false,
+    "records_per_method": {
+      "pope_adversarial": 3000,
+      "chair_coco_val2014": 500
+    },
+    "generation": {
+      "do_sample": false,
+      "num_beams": 1,
+      "use_cache": true,
+      "seed_per_example": 42,
+      "batch_size": 1,
+      "pope_max_new_tokens": 128,
+      "chair_max_new_tokens": 512
+    },
+    "method_parameters": {
+      "retained": {
+        "base": {},
+        "revis": {
+          "alpha": 1.6,
+          "risk_quantile": 0.8
+        },
+        "vti": {
+          "alpha": 0.5,
+          "vision_alpha": 0.5,
+          "vision_pooling": "position"
+        }
+      },
+      "rudder_clone": {
+        "pope": {
+          "layer": 1,
+          "alpha": 8.0
+        },
+        "chair": {
+          "layer": 25,
+          "alpha": 5.0
+        },
+        "k": 5.0,
+        "c": 1.0,
+        "clamp": [
+          0.05,
+          1.0
+        ],
+        "dtype": "bfloat16"
+      },
+      "grains_clone": {
+        "fit": 50,
+        "ig_steps": 20,
+        "top_k": 50,
+        "top": "pos",
+        "pca_layer": 27,
+        "alpha": 10.0,
+        "original_multiplier": 10,
+        "dtype": "float16",
+        "extraction_dtype": "float32",
+        "steering_vector_dtype": "float32"
+      }
+    },
+    "comparisons": {
+      "revis": "base",
+      "vti": "base",
+      "rudder_clone": "base",
+      "grains_clone": "base"
+    },
+    "dataset_provenance": {
+      "sources": {
+        "pope_commit": "08d957b917e5a378a2f99d35b6293c536a66298b",
+        "mmhal_commit": "f5f49a938f45ed99e235b8519ba28f76832a2add",
+        "coco_pope_random.json": {
+          "sha256": "ac25245170b975a5bdf9080b23fd431dfe6be458bc038259c1f4f09a6bef7994",
+          "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_random.json"
+        },
+        "coco_pope_popular.json": {
+          "sha256": "72c1a8ad45d0c13514f5f22598261df41d3b533854d29682e924db50ed8aa753",
+          "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_popular.json"
+        },
+        "coco_pope_adversarial.json": {
+          "sha256": "420b3407db1fa9f1187a805dca41cb7b97fd91504e6c2179706188c107fb8ef8",
+          "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_adversarial.json"
+        },
+        "mmhal_template_sha256": "28ed24e19ffef292597c35f1dad37760b2e0a088b3b40ca3b50f105fc1b951bb",
+        "coco_annotations": {
+          "url": "https://s3.amazonaws.com/images.cocodataset.org/annotations/annotations_trainval2014.zip",
+          "sha256": "031296bbc80c45a1d1f76bf9a90ead27e94e99ec629208449507a4917a3bf009"
+        }
+      },
+      "records": {
+        "pope": 9000,
+        "pope_unique": 5127,
+        "chair": 500,
+        "mmhal": 96
+      },
+      "chair_selection": {
+        "population": "COCO val2014 excluding fixed development image IDs",
+        "count": 500,
+        "seed": 42,
+        "algorithm": "random.Random(42).sample(sorted_by_image_id, 500)",
+        "fixed_metric_cohort": true,
+        "entire_COCO_validation": false
+      },
+      "development": {
+        "source": "/home/project-b/LJW/vlm-grounding-steering/data/mmvp-full",
+        "fit_images": 32,
+        "calibration_images": 32,
+        "image_id_overlap": 0,
+        "exact_image_hash_overlap": 0
+      },
+      "prompt_and_decoding": {
+        "caption": "Please describe this image in detail.",
+        "pope_suffix": "Please answer yes or no.",
+        "do_sample": false,
+        "num_beams": 1,
+        "pope_max_new_tokens": 128,
+        "caption_mmhal_max_new_tokens": 512
+      },
+      "mmhal_scoring": "official GPT-4 scoring deferred at explicit user request; generation only",
+      "completed_at": 1793083202.853687
+    },
+    "chair_scoring": {
+      "port_commit": "4087a26211aa2339b9a76307cb8f0321ef691d0a",
+      "cohort_images": 500,
+      "seed": 42
+    },
+    "deferred": [
+      "POPE random/popular",
+      "MMHal additional generation and official judging"
+    ],
+    "source_commit": "1683e86223cdc491a2223d61ec63403bf37f7513",
+    "source_hashes": {
+      "src/vlm_grounding/backend.py": "b696d4bbd478800b7b8becd338745a78f652fdade678ff5e0194b1937887d4c9",
+      "src/vlm_grounding/baselines.py": "6f694520a98a44ba609443b49b2dd25cf2f0aa03ba16678fb2468bf384f88141",
+      "src/vlm_grounding/cli.py": "f932abdcd46f3c97b6e93428c63134e76dcdefc1409e181d1ee13d982be298f6",
+      "src/vlm_grounding/evaluation.py": "b6a7e9994601d0e579fd46b9e961804f79a238f6b29bcaaf2ca9ed5644993265",
+      "scripts/author_clone_bridge.py": "fbd67ccd5517eca9c3c339752deb4767884b9a990dd9eb1f7b84fab236143ddb",
+      "scripts/qwen_author_compat.py": "32f2825ed394f683b587091a6eb6bac7e7548f0388816412c01da938c124ded3",
+      "scripts/qwen_gpu23_adapter.py": "732703369e33cc24385cf9b397554320484d994deef89617aed260d33258a6ba",
+      "scripts/qwen_five_profile_api.py": "c24cb70b2466f4adf1028c548b7671df0868d198664e03596dc10a4e1a270170",
+      "scripts/qwen_five_profile_stage.py": "6433b6060d517fb1117a0452d016a5b22865157c5bc7a271e5d6138ed66a7a2f",
+      "scripts/preflight_qwen_authors.py": "716f2aa13017031891e536e9abd76f641c6049a1eb9674ca5350b9b951c20e02",
+      "scripts/fit_qwen_retained.py": "6ea2db25303660f078307a5586cc899c07c61e3d48f5c70b2e112c1ad5c42ecb",
+      "scripts/extract_qwen_author_grains.py": "b0569d0b48a55e0e1318f2b9ca51740f1a6f6ec1c5f83f24c7259a7dcf420f34",
+      "scripts/run_qwen_five_profile_worker.py": "1507dffb4804659373b1efd053d7cf49d06fada4628ddddca866f3433bc99618",
+      "scripts/run_qwen_five_profile_suite.py": "987c05f2a128d551c7d00faab7ba90f0c66b413a6dbfee5988b7c5b93d09d981",
+      "scripts/audit_qwen_five_profile_suite.py": "2d0f42a083ed946a270045b33500f50de1b70dd2427678d9ea16bb02ec5d207b",
+      "scripts/audit_hallucination_suite.py": "b620f4f7e56d2064cd9351e73469d67410db9e4f329bf9dd4055e1189765661f",
+      "data/hallucination-suite/sources/pope_evaluate.py": "f0371dcec5f1bdbde017d1a02f5a9a04c53cb561a2874f3fb8f0718ce3d87036",
+      "upstream/chair/chair.py": "98728cd2b7fb8b97420b5f3bf14789dcad1d7d980de9c089b82856217387770d"
+    },
+    "author_sources": {
+      "RUDDER": {
+        "commit": "bd149d8dbde6a9097dd02aea80f83d0bd8876761",
+        "files": {
+          "Idefics2/ide_chair.py": "c1a55174247eb2b07bc63f4c5d5d42d13b4da620e4cdca12132a886668a8ae20",
+          "Idefics2/ide_methods.py": "4219232962feac9aec1201534f700e6b59b63b4cc88bb7cfc6b22711185dc806",
+          "Idefics2/ide_pope.py": "3b4ecdcc86e03c19f528f81631310e962d2a3b220cda398d0c242f4015b7a522",
+          "InstructBlip/blip_chair.py": "abbfe41f538346663bb2cf1f58bbc7bac16eb6943cd859df851196c581b5d1a8",
+          "InstructBlip/blip_methods.py": "fab88feff5a8ee170ab0d71c95305d888be8a300c3b8d81c28632957ba7e8b57",
+          "InstructBlip/blip_pope.py": "6653a79ecf3167275da44519c2523b60b98ac794c222cecc9e398f39ecad7fcb",
+          "LLaVA/llava_chair.py": "b3b1e5b525004406bd6be5a1a6d21553c044e635e8a8797079434a6101ea710a",
+          "LLaVA/llava_methods.py": "a358178aa9b766f77666c80cfd64b3edd653807d9530977ad44ec35245f40fd9",
+          "LLaVA/llava_pope.py": "c8d6364ff0cf2c41b98c403595a79a95c27746e6ed5ebeb24c4bc35ea4b9a321",
+          "Qwen/qwen_chair.py": "d0225162009a6d7eaebdefcd6898429582ba34cd64e63ee39804c7110c230ae8",
+          "Qwen/qwen_methods.py": "c1740661f1fecfd4f7bb3150f9af947c439800699231e3e2d0d664dfd54bdee6",
+          "Qwen/qwen_pope.py": "b7883b2e149eb9bb5967c277924b9427721933f0e3b9e6476d35cdff9d65f321",
+          "README.md": "28eff5b6d8502a301c2a1ea83ad719a186c2d139b3fcf9a2b0aa169e8ae03078",
+          "assets/method_overview.png": "5e028d7c63d3eca6c0cd4a774d788717c1609aa04a568bdba20de1206a1cfba5",
+          "assets/teaser.png": "c80caf9f39e751e8e29b40bffd1f2bb6bdb9d1d3b9b37c6919104808268746da",
+          "config.py": "d3e0ee679079cdedca28939657e3f6c02f11f5d6a0aa62f62427b04d70a17c78",
+          "environment.yml": "3ef36fd03c381afaf784560fb203c90cd05f41923da4cda66afea26d185b623b"
+        }
+      },
+      "GrAInS": {
+        "commit": "8ad78db3040fbb7b0aec9e544a3dcc7b9c050b5b",
+        "files": {
+          ".gitignore": "48b33f9f89ef24f8a66f461ea9278e7ecf21b4660c26088989d231e53c578724",
+          "LICENSE": "12d4b61215247637acd71a0722d221e252c373dc8a7cc4704a13154b7f1edeec",
+          "README.md": "a509a6ee903feb0384dbc2a22b43e6f0441775bc6c81d1168ac3e62195b642d7",
+          "assets/overall.png": "86207a06892ac7a3c46386fe18dc4eae0892888f75e2135ce7271c214a7932de",
+          "requirements.txt": "059c6a5bd91d257bbfadff5587b5290c4a511c12dcfd9c97c32e61ee07b7475e",
+          "src/attribution/gradient/llm_grad.py": "e7092200a944f88c9bfdd360091c782786c247c3b12530649af53c298cae919e",
+          "src/attribution/gradient/utils.py": "57b8fa0f6e56e1f87690c3c657935e61dabe076089a9c133b8df1fd6cb7e143b",
+          "src/attribution/gradient/vlm_grad.py": "c1671d04d04cfd1c8991c859fd9fa98631c93f4a3bf674403cfdb79d42cf8aa0",
+          "src/data/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/results/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/scripts/llm/run_steering_generation.sh": "a9103f56f201deb5c104535264dbc7d1688eded6e8c450b980c7d060b6d066fe",
+          "src/scripts/llm/run_steering_mc.sh": "4641f164a4ebf135b560607af132e7dc49f83ea89f4d51ebab600df44013934c",
+          "src/scripts/llm/run_token_ablation.sh": "9ac8db9dd0eb559920eecb3c9bdea1f13e5697897208d2ea743bb8d4064eaffe",
+          "src/scripts/vlm/run_steering_generation_vlm.sh": "90398cb976dba599ea59d9153dd3c16dbd3640cae7d9bbdf32734d23fb0aa726",
+          "src/scripts/vlm/run_steering_mc_vlm.sh": "ba3f68009733abfb5b64a8a344f6e3e80e53719e249814f32814ed62d8a629ef",
+          "src/scripts/vlm/run_token_ablation_vlm.sh": "9cdf11dbb239293a09c611f58e2e912ffbeb10fcdeac88337d9a8be9c5965412",
+          "src/steering_generation.py": "219ae3997a5a87eec0a6769189268462af4e603f103968d8bce8da94e1fcb01f",
+          "src/steering_generation_vlm.py": "618d39ac624e4bd516af0d7609d656edd4052d33b6029436e3f7e4a9e8941f90",
+          "src/steering_mc.py": "6e2832e3c31242a6697e9d26ee56a28df6e3b109ab1944b5b06963e7ddc7c7dd",
+          "src/steering_mc_vlm.py": "666294dc9f31da3e72b03811a24d346f8e8a4464ba2ba7ebc135d5c26373e5bf",
+          "src/token_ablation.py": "7ed4286b8b232b5c2a5dfd08e070926d6ffc80ba70347a127280cdea2d2b8384",
+          "src/token_ablation_vlm.py": "37ce2fe9535806b09c425fba1d228e347ea329cc39c260bc6d7e519ea3589fba",
+          "src/utils/config.py": "b656c1e2e8f9b0efa4f05ad77212f143e85e537a6a59536525cb4fce35863016",
+          "src/utils/data.py": "4ddd852f00fada333ff50c0dbf5f8a128e79aee0209f97a3a74046777ef6e301",
+          "src/utils/model.py": "5db31fa6dbe4c9ca1993f6a34a712442d99eca6e4aaa27bcaa2efe81b0377fc1",
+          "src/utils/steering.py": "dac1ec2143b085b8fcb8558241cc1f1d9fca7de9f594b22c1352babb4b8ca297"
+        }
+      }
+    },
+    "manifest_hashes": {
+      "calibration.jsonl": "22140f25d7638885437f6b4d87db66e51c80a175b997a78e597c32ee6533cc68",
+      "fit.jsonl": "5669848c741d7195ea3b06f02a970bbf4ea158d3f9f3a21c041a191348bd2123",
+      "chair.jsonl": "0bd0957cd66e1e4e00d2272b9ed0f237255d75c027bcc58ea33f33f67c0fc278",
+      "pope.jsonl": "6fa6d2250989c94e7163f9f9f837968d5195d1bc2ce5af7e259cf361cc0ad7d6",
+      "fit50.jsonl": "ea75b355a8051a5e301852cdcdc8882879f4fd9e27de187615b03154f94a8417"
+    },
+    "tasks_sha256": "94f38d52440c615dda3dfb4cd4d5658ea79aeeacb05fb8e6e0207b9badaef13a",
+    "config_sha256": "3f7577dcb0752a65abcfaddcf662724352961b99394900c5608c23070c5acd60",
+    "preflight_hashes": {
+      "bf16": "cf6ea8dd3ae52ec6309506dfc2299ea96714f25cd179864747a0a9ca5ab90434",
+      "fp32": "0f89ecce1e5c750d672191107d4216c4a7de7f01406f62381e3bb51bb944c465"
+    },
+    "dependency_versions": {
+      "torch": "2.8.0+cu128",
+      "transformers": "5.20.2",
+      "accelerate": "1.15.0",
+      "captum": "0.9.0",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.2"
+    },
+    "cached_weight_verification_sha256": "4fa9156ff617b307dd5ab9ac72054fc78a52e405a52c79f1a19b4c2ba8670016",
+    "gemma_verified_report_sha256": "d30697455426c6af12772ade56464b04332661bb5cbed5e8dcb231e028c2deed",
+    "development_test_hash_overlap": 0,
+    "all_predictions_fresh": true,
+    "method_labels": {
+      "vti": "VTI local adaptation, not original-author reproduction",
+      "revis": "REVIS retained local adaptation",
+      "rudder_clone": "Pinned original author functions with native Qwen adapter",
+      "grains_clone": "Pinned original author functions with native Qwen adapter"
+    },
+    "gemma_vectors_reused": false,
+    "author_reproduction_complete": false,
+    "author_core_functions_called": true,
+    "architecture_compatibility": [
+      "Native Qwen image-first chat input and native multimodal generation",
+      "Original token-only IG/ablation, 20 Gauss-Legendre nodes, PCA layer27, sequence-axis norm and multiplier10 retained",
+      "Hidden-state output device coalescing for original cross-layer stack only; no full visual-path IG claim"
+    ],
+    "protocol_overrides": [
+      "Same user-selected common image448, POPE cap128 and CHAIR cap512",
+      "Fresh Qwen-specific vectors from the fixed disjoint 64-image development cohort"
+    ],
+    "created_at": 1793253213.5084443,
+    "sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7"
+  },
+  "vti_author_protocol": {
+    "status": "sealed_original_author_vti_subrun",
+    "parent_output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+    "parent_protocol_sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7",
+    "author_commit": "bb5dfee33a9e555f22af9faa7b3495c0ac3df69e",
+    "author_sources": {
+      "README.md": "658b3e2a60cc2290987f3467faa581aa20edd4e16ee35d73e661829551bd7475",
+      "experiments/.DS_Store": "7d5f0a35cff7832c2ccb19a164616c02983771c7faa07cd584075c5dcfcf4aa7",
+      "experiments/data/hallucination_vti_demos.jsonl": "5ce467817fc2a29735715fd6793b4927268cfff030e798f9f3a60a1fcb575d0d",
+      "experiments/eval/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "experiments/eval/eval_mmhal.py": "5c14832dafa51c4da36a8969abde78940453ecb4cc1f044b4249ae604ef4ce95",
+      "experiments/eval/run_mmhal_vti.py": "ebfc65b1c7f6e7c3dd2a125f3d51d1076fb5c2fcd5fecf6607d91dd789f2c3f6",
+      "images/vti_overview.png": "fe5ed543412c6bb8dc652eca86ef9978c50bd50615bbc6efdc8fcd2fb47c922d",
+      "requirement.txt": "a3c91ba61d2cb9a988f7f6b9f80a325a0aedfa618136cf846212854f0f454b5f",
+      "vti_utils/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "vti_utils/.ipynb_checkpoints/augmentation-checkpoint.py": "53740b69b122e7c25d6efafc9fe59902040c7fefd23582f8638eec68718c8a02",
+      "vti_utils/.ipynb_checkpoints/image_corruptions-checkpoint.py": "d7c179791631fad9b7a2346eadf4ee6cd032b9daedbf47c05e00331d58aed018",
+      "vti_utils/.ipynb_checkpoints/vcd_sample-checkpoint.py": "b07a0400726691949eae0247bd63943a9f4a1e265bf733cda74697aaedaae386",
+      "vti_utils/.ipynb_checkpoints/visualizing_utils-checkpoint.py": "86a4465859cb8861d43530d92028ddca1fdf26a1e3fa2911b4c83a1451115958",
+      "vti_utils/icv_utils.py": "bd254fe5f726774c407363d0e8454cd5adc2fde4267ccf067b3c62aa5e631f98",
+      "vti_utils/llm_layers.py": "46327bc4a8d2e99c935ecbf6a422f49e977da28ca6af3849aa770d2448979f1d",
+      "vti_utils/pca.py": "35d389079272441b992dbe537641c96eeafbda7698ab0f3a7e0905117c664524",
+      "vti_utils/utils.py": "dc83be9694575a44d24ed0312f582947efd7ae35c9e596b36152a77c676a2a62"
+    },
+    "worker_source_sha256": "1901e8aaab25b149c102f40d1afb5349e71a4f6afe6de15fdfaf6ed40cd92553",
+    "model": {
+      "family": "qwen2_5_vl",
+      "checkpoint": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+      "device": "cuda",
+      "dtype": "float16",
+      "attn_implementation": "eager",
+      "image_size": 448,
+      "yes_token": "Yes",
+      "no_token": "No",
+      "local_files_only": true
+    },
+    "gpu_indices": [
+      0
+    ],
+    "method": "vti_author",
+    "data_manifest_hashes": {
+      "pope": "6fa6d2250989c94e7163f9f9f837968d5195d1bc2ce5af7e259cf361cc0ad7d6",
+      "chair": "0bd0957cd66e1e4e00d2272b9ed0f237255d75c027bcc58ea33f33f67c0fc278"
+    },
+    "demo_manifest_sha256": "241616d7f8a85e6bc413977ffb91366f9d04c34b5a963055828f1f97c1245ef2",
+    "alpha_image": 0.9,
+    "alpha_text": 0.9,
+    "rank": 1,
+    "num_demos": 70,
+    "num_trials": 50,
+    "mask_ratio": 0.99,
+    "hyperparameters_source": "author README MMHal invocation; Qwen2.5 POPE/CHAIR were not supplied by authors",
+    "adaptations": [
+      "Qwen2.5 processor/native chat inputs",
+      "Qwen ViT patch grid and hidden-state output facade",
+      "Qwen ViT MLP batch-axis adapter around unchanged original VTILayer",
+      "explicit separate text/vision ModuleList views",
+      "FP16 weights and original half output; FP32 eager attention score arithmetic as in documented Qwen amendment"
+    ],
+    "attention_amendment_sha256": "972eb00b132d99976460d0cfc4a59eda66a4c5661a7ac1e2ffc3a7ece733b8be",
+    "created_at": 1793260378.0623417,
+    "cpu_adapter_check_sha256": "a1a6b559ff796503b1444aacb46256abc141719c68063eeabeaf4bbb3cdb5736",
+    "sha256": "3d550cc8146b2e4a5c6d1ab5ac3f43187ddd266f5094234ca7423e5f9f3352a0"
+  },
+  "vti_author": {
+    "author_commit": "bb5dfee33a9e555f22af9faa7b3495c0ac3df69e",
+    "artifact_sha256": "0ebd68ef2503c372d29d07ef31c288f1da48a6c01827743e09f8bc7f3e602c46",
+    "source_output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen-original-vti-1793260357",
+    "original_function_calls_and_finite_nonzero_directions_verified": true,
+    "independent_pca_reconstruction_available": false,
+    "pca_reconstruction_limitation": "VTI extraction did not persist all raw fit hidden states; original sources, directions, calls and provenance are verified."
+  },
+  "metrics": {
+    "pope": {
+      "base": {
+        "n": 3000,
+        "accuracy": 0.856,
+        "precision": 0.9564102564102565,
+        "recall": 0.746,
+        "f1": 0.8382022471910112,
+        "yes_ratio": 0.39,
+        "invalid": 0,
+        "tp": 1119,
+        "tn": 1449,
+        "fp": 51,
+        "fn": 381,
+        "strict": {
+          "n": 3000,
+          "n_image_groups": 500,
+          "mean_words": 1.0,
+          "mean_seconds": 0.35855916593891257,
+          "tokens_per_second": 7.94569005798441,
+          "mean_generated_tokens": 2.849,
+          "accuracy": 0.856,
+          "precision": 0.9564102564102565,
+          "recall": 0.746,
+          "F1": 0.8382022471910112,
+          "yes_ratio": 0.39,
+          "invalid_count": 0,
+          "invalid_ratio": 0.0,
+          "positive_accuracy": 0.746,
+          "negative_accuracy": 0.966
+        },
+        "at_token_cap": 0,
+        "empty_outputs": 0,
+        "mean_generated_tokens": 2.849
+      },
+      "revis": {
+        "n": 3000,
+        "accuracy": 0.856,
+        "precision": 0.9564102564102565,
+        "recall": 0.746,
+        "f1": 0.8382022471910112,
+        "yes_ratio": 0.39,
+        "invalid": 0,
+        "tp": 1119,
+        "tn": 1449,
+        "fp": 51,
+        "fn": 381,
+        "strict": {
+          "n": 3000,
+          "n_image_groups": 500,
+          "mean_words": 1.0,
+          "mean_seconds": 0.3608514369560095,
+          "tokens_per_second": 7.8952158928144005,
+          "mean_generated_tokens": 2.849,
+          "accuracy": 0.856,
+          "precision": 0.9564102564102565,
+          "recall": 0.746,
+          "F1": 0.8382022471910112,
+          "yes_ratio": 0.39,
+          "invalid_count": 0,
+          "invalid_ratio": 0.0,
+          "positive_accuracy": 0.746,
+          "negative_accuracy": 0.966
+        },
+        "at_token_cap": 0,
+        "empty_outputs": 0,
+        "mean_generated_tokens": 2.849
+      },
+      "rudder_clone": {
+        "n": 3000,
+        "accuracy": 0.8556666666666667,
+        "precision": 0.955593509820666,
+        "recall": 0.746,
+        "f1": 0.8378884312991389,
+        "yes_ratio": 0.3903333333333333,
+        "invalid": 0,
+        "tp": 1119,
+        "tn": 1448,
+        "fp": 52,
+        "fn": 381,
+        "strict": {
+          "n": 3000,
+          "n_image_groups": 500,
+          "mean_words": 1.0,
+          "mean_seconds": 0.7277840307815931,
+          "tokens_per_second": 3.989278701561149,
+          "mean_generated_tokens": 2.9033333333333333,
+          "accuracy": 0.8556666666666667,
+          "precision": 0.955593509820666,
+          "recall": 0.746,
+          "F1": 0.8378884312991389,
+          "yes_ratio": 0.3903333333333333,
+          "invalid_count": 0,
+          "invalid_ratio": 0.0,
+          "positive_accuracy": 0.746,
+          "negative_accuracy": 0.9653333333333334
+        },
+        "at_token_cap": 0,
+        "empty_outputs": 0,
+        "mean_generated_tokens": 2.9033333333333333
+      },
+      "grains_clone": {
+        "n": 3000,
+        "accuracy": 0.8543333333333333,
+        "precision": 0.9477674810446504,
+        "recall": 0.75,
+        "f1": 0.8373650911797543,
+        "yes_ratio": 0.39566666666666667,
+        "invalid": 0,
+        "tp": 1125,
+        "tn": 1438,
+        "fp": 62,
+        "fn": 375,
+        "strict": {
+          "n": 3000,
+          "n_image_groups": 500,
+          "mean_words": 1.0,
+          "mean_seconds": 2.2464779705043574,
+          "tokens_per_second": 1.0613651077993995,
+          "mean_generated_tokens": 2.384333333333333,
+          "accuracy": 0.8543333333333333,
+          "precision": 0.9477674810446504,
+          "recall": 0.75,
+          "F1": 0.8373650911797543,
+          "yes_ratio": 0.39566666666666667,
+          "invalid_count": 0,
+          "invalid_ratio": 0.0,
+          "positive_accuracy": 0.75,
+          "negative_accuracy": 0.9586666666666667
+        },
+        "at_token_cap": 0,
+        "empty_outputs": 0,
+        "mean_generated_tokens": 2.384333333333333
+      },
+      "vti_author": {
+        "n": 3000,
+        "accuracy": 0.82,
+        "precision": 0.9355716878402904,
+        "recall": 0.6873333333333334,
+        "f1": 0.792467332820907,
+        "yes_ratio": 0.36733333333333335,
+        "invalid": 0,
+        "tp": 1031,
+        "tn": 1429,
+        "fp": 71,
+        "fn": 469,
+        "strict": {
+          "n": 3000,
+          "n_image_groups": 500,
+          "mean_words": 1.1063333333333334,
+          "mean_seconds": 0.8460362663369936,
+          "tokens_per_second": 3.984856757890402,
+          "mean_generated_tokens": 3.3713333333333333,
+          "accuracy": 0.8203333333333334,
+          "precision": 0.9364214350590372,
+          "recall": 0.6873333333333334,
+          "F1": 0.7927720107650903,
+          "yes_ratio": 0.367,
+          "invalid_count": 0,
+          "invalid_ratio": 0.0,
+          "positive_accuracy": 0.6873333333333334,
+          "negative_accuracy": 0.9533333333333334
+        },
+        "at_token_cap": 8,
+        "empty_outputs": 0,
+        "mean_generated_tokens": 3.3713333333333333
+      }
+    },
+    "chair": {
+      "base": {
+        "n": 500,
+        "n_image_groups": 500,
+        "mean_words": 144.252,
+        "mean_seconds": 10.189736591520719,
+        "tokens_per_second": 20.122993186166216,
+        "mean_generated_tokens": 205.048,
+        "CHAIR_s": 0.256,
+        "CHAIR_i": 0.08748481166464156,
+        "object_recall": 0.5891619407687461,
+        "mean_correct_distinct_objects": 1.87,
+        "at_token_cap": 63,
+        "empty_outputs": 0
+      },
+      "revis": {
+        "n": 500,
+        "n_image_groups": 500,
+        "mean_words": 142.768,
+        "mean_seconds": 8.95414031883981,
+        "tokens_per_second": 19.785037277923113,
+        "mean_generated_tokens": 177.158,
+        "CHAIR_s": 0.26,
+        "CHAIR_i": 0.08870967741935484,
+        "object_recall": 0.5942028985507246,
+        "mean_correct_distinct_objects": 1.886,
+        "at_token_cap": 31,
+        "empty_outputs": 0
+      },
+      "rudder_clone": {
+        "n": 500,
+        "n_image_groups": 500,
+        "mean_words": 149.244,
+        "mean_seconds": 15.00921897511091,
+        "tokens_per_second": 13.801117855865602,
+        "mean_generated_tokens": 207.144,
+        "CHAIR_s": 0.232,
+        "CHAIR_i": 0.07571801566579635,
+        "object_recall": 0.6030245746691871,
+        "mean_correct_distinct_objects": 1.914,
+        "at_token_cap": 64,
+        "empty_outputs": 0
+      },
+      "grains_clone": {
+        "n": 500,
+        "n_image_groups": 500,
+        "mean_words": 155.224,
+        "mean_seconds": 10.021570997798815,
+        "tokens_per_second": 18.459979981245837,
+        "mean_generated_tokens": 184.998,
+        "CHAIR_s": 0.294,
+        "CHAIR_i": 0.08447412353923206,
+        "object_recall": 0.6843100189035917,
+        "mean_correct_distinct_objects": 2.172,
+        "at_token_cap": 0,
+        "empty_outputs": 0
+      },
+      "vti_author": {
+        "n": 500,
+        "n_image_groups": 500,
+        "mean_words": 177.076,
+        "mean_seconds": 43.44708815497626,
+        "tokens_per_second": 11.701083354231011,
+        "mean_generated_tokens": 508.378,
+        "CHAIR_s": 0.062,
+        "CHAIR_i": 0.04513064133016627,
+        "object_recall": 0.2942659105229994,
+        "mean_correct_distinct_objects": 0.934,
+        "at_token_cap": 487,
+        "empty_outputs": 0
+      }
+    }
+  },
+  "uncertainty": {
+    "pope": {
+      "base": {
+        "accuracy": {
+          "value": 0.856,
+          "ci95": [
+            0.8443333333333334,
+            0.8673333333333333
+          ],
+          "delta_vs_base": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "value": 0.8382022471910112,
+          "ci95": [
+            0.8233942290011163,
+            0.8525928867545047
+          ],
+          "delta_vs_base": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "revis": {
+        "accuracy": {
+          "value": 0.856,
+          "ci95": [
+            0.8443333333333334,
+            0.8673333333333333
+          ],
+          "delta_vs_base": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "value": 0.8382022471910112,
+          "ci95": [
+            0.8233942290011163,
+            0.8525928867545047
+          ],
+          "delta_vs_base": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "rudder_clone": {
+        "accuracy": {
+          "value": 0.8556666666666667,
+          "ci95": [
+            0.8443333333333334,
+            0.8673333333333333
+          ],
+          "delta_vs_base": -0.0003333333333332966,
+          "delta_ci95": [
+            -0.0020000000000000018,
+            0.0013333333333334085
+          ]
+        },
+        "f1": {
+          "value": 0.8378884312991389,
+          "ci95": [
+            0.8230420902062209,
+            0.8524953789279113
+          ],
+          "delta_vs_base": -0.0003138158918722933,
+          "delta_ci95": [
+            -0.0024807593549579345,
+            0.0018508369226008646
+          ]
+        }
+      },
+      "grains_clone": {
+        "accuracy": {
+          "value": 0.8543333333333333,
+          "ci95": [
+            0.8426666666666667,
+            0.866
+          ],
+          "delta_vs_base": -0.0016666666666667052,
+          "delta_ci95": [
+            -0.006333333333333302,
+            0.0030000000000000027
+          ]
+        },
+        "f1": {
+          "value": 0.8373650911797543,
+          "ci95": [
+            0.8226413661151281,
+            0.8516746411483254
+          ],
+          "delta_vs_base": -0.0008371560112568899,
+          "delta_ci95": [
+            -0.006293616121720224,
+            0.0046162997539139095
+          ]
+        }
+      },
+      "vti_author": {
+        "accuracy": {
+          "value": 0.82,
+          "ci95": [
+            0.8083333333333333,
+            0.832
+          ],
+          "delta_vs_base": -0.03600000000000003,
+          "delta_ci95": [
+            -0.04533333333333334,
+            -0.026666666666666616
+          ]
+        },
+        "f1": {
+          "value": 0.792467332820907,
+          "ci95": [
+            0.7765709852598914,
+            0.8081421106812899
+          ],
+          "delta_vs_base": -0.04573491437010424,
+          "delta_ci95": [
+            -0.05762341529835374,
+            -0.033932964932455886
+          ]
+        }
+      }
+    },
+    "chair": {
+      "base": {
+        "CHAIR_s": {
+          "value": 0.256,
+          "ci95": [
+            0.218,
+            0.294
+          ],
+          "delta_vs_base": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "CHAIR_i": {
+          "value": 0.08748481166464156,
+          "ci95": [
+            0.07290765900508235,
+            0.1028150768258507
+          ],
+          "delta_vs_base": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "object_recall": {
+          "value": 0.5891619407687461,
+          "ci95": [
+            0.5614576899320568,
+            0.6168198050332394
+          ],
+          "delta_vs_base": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "revis": {
+        "CHAIR_s": {
+          "value": 0.26,
+          "ci95": [
+            0.222,
+            0.298
+          ],
+          "delta_vs_base": 0.0040000000000000036,
+          "delta_ci95": [
+            -0.0040000000000000036,
+            0.01200000000000001
+          ]
+        },
+        "CHAIR_i": {
+          "value": 0.08870967741935484,
+          "ci95": [
+            0.07402787252704415,
+            0.10404646390489627
+          ],
+          "delta_vs_base": 0.0012248657547132835,
+          "delta_ci95": [
+            -0.0003192641961287223,
+            0.002949174644388132
+          ]
+        },
+        "object_recall": {
+          "value": 0.5942028985507246,
+          "ci95": [
+            0.5666848002606949,
+            0.622068391234568
+          ],
+          "delta_vs_base": 0.00504095778197855,
+          "delta_ci95": [
+            0.0,
+            0.010780085432708671
+          ]
+        }
+      },
+      "rudder_clone": {
+        "CHAIR_s": {
+          "value": 0.232,
+          "ci95": [
+            0.196,
+            0.27
+          ],
+          "delta_vs_base": -0.023999999999999994,
+          "delta_ci95": [
+            -0.057999999999999996,
+            0.008000000000000007
+          ]
+        },
+        "CHAIR_i": {
+          "value": 0.07571801566579635,
+          "ci95": [
+            0.0592978310474193,
+            0.09353425916723902
+          ],
+          "delta_vs_base": -0.011766795998845211,
+          "delta_ci95": [
+            -0.025707092012835612,
+            0.0025901910992302607
+          ]
+        },
+        "object_recall": {
+          "value": 0.6030245746691871,
+          "ci95": [
+            0.5742278561965939,
+            0.6323257252061076
+          ],
+          "delta_vs_base": 0.013862633900441068,
+          "delta_ci95": [
+            -0.006845694216472578,
+            0.0349347058921447
+          ]
+        }
+      },
+      "grains_clone": {
+        "CHAIR_s": {
+          "value": 0.294,
+          "ci95": [
+            0.254,
+            0.334
+          ],
+          "delta_vs_base": 0.03799999999999998,
+          "delta_ci95": [
+            -0.0040000000000000036,
+            0.07800000000000001
+          ]
+        },
+        "CHAIR_i": {
+          "value": 0.08447412353923206,
+          "ci95": [
+            0.0707136148356866,
+            0.09854388170401546
+          ],
+          "delta_vs_base": -0.0030106881254094997,
+          "delta_ci95": [
+            -0.01558448901395159,
+            0.00959762884057789
+          ]
+        },
+        "object_recall": {
+          "value": 0.6843100189035917,
+          "ci95": [
+            0.661191596576383,
+            0.7083599234205488
+          ],
+          "delta_vs_base": 0.0951480781348456,
+          "delta_ci95": [
+            0.07302469222950071,
+            0.1181103668444895
+          ]
+        }
+      },
+      "vti_author": {
+        "CHAIR_s": {
+          "value": 0.062,
+          "ci95": [
+            0.042,
+            0.084
+          ],
+          "delta_vs_base": -0.194,
+          "delta_ci95": [
+            -0.234,
+            -0.154
+          ]
+        },
+        "CHAIR_i": {
+          "value": 0.04513064133016627,
+          "ci95": [
+            0.029999400479616307,
+            0.06200527704485488
+          ],
+          "delta_vs_base": -0.04235417033447529,
+          "delta_ci95": [
+            -0.060235772885224616,
+            -0.02375383520404505
+          ]
+        },
+        "object_recall": {
+          "value": 0.2942659105229994,
+          "ci95": [
+            0.2681665895437089,
+            0.32124790691947797
+          ],
+          "delta_vs_base": -0.2948960302457467,
+          "delta_ci95": [
+            -0.32749675745784695,
+            -0.2624599989013921
+          ]
+        }
+      }
+    }
+  },
+  "fp16_attention_amendment": {
+    "sha256": "972eb00b132d99976460d0cfc4a59eda66a4c5661a7ac1e2ffc3a7ece733b8be",
+    "weights": "float16",
+    "QK_mask_softmax_scores": "float32",
+    "attention_outputs": "float16",
+    "steering_vector": "float32",
+    "causal_mask_and_fp32_reference_check": {
+      "legacy_overflow_reproduced": true,
+      "fp32_reference_matched": true,
+      "causal_mask_preserved": true,
+      "output_dtype": "torch.float16",
+      "source_sha256": "8fd657c64f653489b153a0728c82ee7d61d54eaf62a4a103004c1ee629914e80"
+    }
+  },
+  "vti_gpu_provenance": {
+    "status": "verified",
+    "stop_proof_sha256": "f7ecf5decb4f11d4d939b02d53d837cdc31356e5b32b6c884bbdd45d4ee06387",
+    "gpu1_amendment_sha256": "5a935f8c9ee810e2d05d44ca90cdfb0ca3bbf4b6a317dceda3ccc77d38700350",
+    "records_by_gpu": {
+      "pope": {
+        "gpu0": 2851,
+        "gpu1": 149,
+        "gpu2": 0,
+        "gpu3": 0
+      },
+      "chair": {
+        "gpu0": 133,
+        "gpu1": 258,
+        "gpu2": 55,
+        "gpu3": 54
+      }
+    },
+    "gpu_names": {
+      "gpu0": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "gpu1": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "gpu2": "NVIDIA RTX A5000",
+      "gpu3": "NVIDIA RTX A5000"
+    },
+    "sources": {
+      "pope": [
+        [
+          0,
+          2851,
+          "gpu0",
+          "pope.jsonl"
+        ],
+        [
+          2851,
+          3000,
+          "gpu1",
+          "gpu1/shard0.jsonl"
+        ]
+      ],
+      "chair": [
+        [
+          0,
+          45,
+          "gpu0",
+          "chair-parallel/000-167.jsonl"
+        ],
+        [
+          60,
+          115,
+          "gpu2",
+          "chair-gpu23/gpu2.jsonl"
+        ],
+        [
+          167,
+          211,
+          "gpu0",
+          "chair-parallel/167-334.jsonl"
+        ],
+        [
+          227,
+          281,
+          "gpu3",
+          "chair-gpu23/gpu3.jsonl"
+        ],
+        [
+          334,
+          378,
+          "gpu0",
+          "chair-parallel/334-500.jsonl"
+        ]
+      ]
+    },
+    "gpu_uuids": {
+      "gpu0": "GPU-4a6e1799-a39c-86ed-abdf-afad03791c12",
+      "gpu1": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+      "gpu2": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+      "gpu3": "GPU-4c593ff4-fcc4-39c9-d7b4-981dabee1cb3"
+    }
+  },
+  "source_output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/original-vti-gpu1-final",
+  "created_at": 1793336957.8912938,
+  "input_prediction_sha256": {
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00000.jsonl": "f9377060528ae905f751ca5bc3ff253863955a84f44ad46278c0db4cc84ace0d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00000.jsonl": "d725fca6f551b6f829a5cbed87e3b1781db4f90f8c8c6bbc9aa1fcc3987932cc",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00000.jsonl": "5642658c007c63238b1c43fbda4e70baf1d1825deda954d06e80b234e620bf3f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00000.jsonl": "d90b2d39d9d535fcb5b3d3425031f6bab2d374892be471f2208a5f515141a77b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00060.jsonl": "812d9478be4a84c8ae15526761007019da94190acbf25c7a17ca272d47982fc9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00060.jsonl": "c3911c110dd76a64da21b9bb6b83b18bc94b0bed2d9071881b599d82c7444ba3",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00060.jsonl": "c34f2f215015045cf42f3f197d04a3b5b035e91351f2beafbe6b73ffdb9a1703",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00060.jsonl": "04e6ca3f5686b0306791ba05503f246799611115416ea7b04296819e7b93cab1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00120.jsonl": "0e2e4574aaf6483d68623a47edb48f4f4d1c07a54edc6d9924020143c8719eec",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00120.jsonl": "36054fba43fad2fabcbc74d1efcbfaec75adf1b28b47646bcc01eaf62159a4d5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00120.jsonl": "67a4577ff03b7e3c2b244adf3d5ee0fb741c4ce73e986f7df832e447a1c91d86",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00120.jsonl": "5050bf3dec03d7befe17d4e0417f04cb290b78b700947a5af8939c934c36905d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00180.jsonl": "6047b7254fd11287851481ae953a40da80cc058701a33be9db3fd907222e7edd",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00180.jsonl": "1005e574ac68735a0cd0966d65a1ab948b5d45ffe44ffe17a2c4dea1219650b7",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00180.jsonl": "70a77e6dcb83fefe1430d4f99943a615f17ecd0941a231708eb23c477faa5be1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00180.jsonl": "5cffa4511c18c1fa481958ee5ec2c22477e863d62189f066bcfbeee3b8c51b38",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00240.jsonl": "8f6db6e3482ad8d518d39b37abe71b9178b52bfec1aeff982fe50d4f36ac80bb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00240.jsonl": "1fed7bdb9f60655a11570af8ee8e98760f0ea9eeb2a961cfc1bb81209e8c1e46",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00240.jsonl": "4fc9a3c5070b6bd2b15cf600708e8464d7bceffcabedac66a2236df2e94a0ac5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00240.jsonl": "cd01e9878e72c8b5c48f85f6f32f7a60c5f9e060fa148ea5c13258f5e1cd9b77",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00300.jsonl": "0c0b9ec8dfd48f24c87a5fcda609f97143f40a9d694090f0052ec14c8c06d825",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00300.jsonl": "5e1464d85355119be2c1da0d385ef054ce0a1b0a27cd38e29a3e46b84b929214",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00300.jsonl": "9304c70ead3efcdd45b98592d4fb2c47b5b1a1a656f22653104239aab5f209eb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00300.jsonl": "cc7ea44384ee81c5f9f9c3b364342d21a18b5c6ab2289ac71690326c67083d85",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00360.jsonl": "8c0579073e976021f665ec6aa94dc40a2da240307539dc140c8d5cb7f0aa2a55",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00360.jsonl": "cdbb2225a768dc2d69e549fa058dd71e8100262bc76e5f52dcc70b1d9251672a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00360.jsonl": "bfbc4171c3fd8f790024023404b79b59e58c3d54f34fa98e5165d8401965d34e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00360.jsonl": "fb576225d0b37de8dce5a53985ddf172c8b43b1d3f6eb73effb7003da7ff5f70",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00420.jsonl": "567a2bce2917063de4d5c8ad29b35b261edf6741e12f6758d22d6961f3c2a4fd",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00420.jsonl": "e304a4e0e75ebe89334cfc4e1c55f0b0976b4cf071159994a90d9f709e6c2a6e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00420.jsonl": "62549bca8cb397f635f2fea05c340e7967c21a6a9813cbb1b87fc3cd3268bf97",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00420.jsonl": "326b4f8727b9731b216cef6ad9014eed5232e007b90691e8203ecc3ff94c4405",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00480.jsonl": "63ab4e4735c5d550e605646fff51b83ced50f2acc4a1c8e03cc6606546a6d9d2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00480.jsonl": "5e14c8ffeeaa1fc4529be2092b3168aa44bc49c8058d7253cad76c9b7c8a59cf",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00480.jsonl": "e5ac335aa8b1e6927e8510df8abc1eb7a2ec62c82a980574a0b1fc522eafd689",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00480.jsonl": "ea7e51b576c7a00d919a58715bb2cbbf20e904092249b50a31001b403a31c130",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00540.jsonl": "f2416517311be162b594c9fc7d8a472cb72a9545c630b5529ef48668275e8718",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00540.jsonl": "90398f6fd4f057127cc0effbb6858dcd5c7c6abbeab35a372e14c2abd5c248d6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00540.jsonl": "8066dc6ae0c435675e9a4043a6a997464ac5f3e240eb6b9feac632e310fd1ebe",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00540.jsonl": "c21afe903b3867f64d8f9529f48225b36c1f84b71466d4eb36632906e4f8bd0e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00600.jsonl": "b15be35dedef6097ab37a088a2e1e3d38fd7655a48053a3177d574d7a62a042e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00600.jsonl": "d5853e94f65810417d1ffe9a224e7adc55bb8df2dd15364ffac7b65383980c07",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00600.jsonl": "97d73315dcc0c4817519078647eda623576c76e9ad19e0c5463a0b8c5cae3b99",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00600.jsonl": "3000e2e63fac920688d1a424ac6c45416bc2b26449fe8ddb46439f5f29801470",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00660.jsonl": "a267d7c06f2b76931b6099e0b219e442182ea275b08baed20b72ce242745b5d1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00660.jsonl": "a2a72471d1bc3b3b466fee094990972f2723861bd27e3ee6591ca16a30bab6d0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00660.jsonl": "777743ebd3312ca8b633d5dce789976484186e5df55b28080cc926095683f035",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00660.jsonl": "470e2e7995d9cd6e8940bd716f1a573b9b1a976e1587ac7d86e0d7bb1f069f17",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00720.jsonl": "235a86996bf93f53622396385d2b571dedc186cce62ae53ee92ed641babf4b27",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00720.jsonl": "290ab311b5af04b19ed7392fe7cb6769f2dcf33a228ca5cab9d59ebb4a75ab82",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00720.jsonl": "fc58e6e89eeb725de0f86203cf766c6745b6e26a424999e2ff1dbd2d6a26b0d4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00720.jsonl": "bb3d9885b82d9a3c0fb58074e2ac118dd6cd746311f53b6cfb399e6a59cd210d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00780.jsonl": "a2c7b737957ee14eeb5948fae07962b54a437540b0ad20bb0f46afdd7621308b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00780.jsonl": "e903f6193383b46c2f58822efff05962496fe9913b2813b1c94317fae88153c3",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00780.jsonl": "0437a6b7087a11828602875046dfba5365cbee97989604f68a0c23a6730e9a3c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00780.jsonl": "e32f6f8c08f8c0738dc5db9f24ea86ff6dc8dbd9586eb25c3cf7118386e05c24",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00840.jsonl": "fe665a428766d58d1e8e52ca5112729263f79efb25f2bbc25d0821dd7d02ff79",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00840.jsonl": "c1c7ab504ca813ba17a7cff9e219fee50e1a1dc1a8d93cca10a9456254f33344",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00840.jsonl": "526129650a7011e8ac6cd45fdee8431760e9ec11a6121be284bfea7ffb372329",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00840.jsonl": "ef7d8f540788a1598e69ad9841159e8d4e91058da4efe3dc41bfa39591ff01a5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00900.jsonl": "3f2a0c0773c1fbd9ff9ab16eecaeb7923b626fc02a219e6c1df5a7fed4a947d1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00900.jsonl": "73573ac3ef23fe5ce702630b66ca2fbef0a572f2327d85e682c273275b80b429",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00900.jsonl": "521e25aaa87b94a8beb5036c2ea762bf8a5a2935ac12b0fe597c7fdbf86bdf0a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00900.jsonl": "755c1a81f93aa17a72de8a87e3859b5d7cf905a131ec398af9dc426c3f03e6d9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-00960.jsonl": "fab55e8e7d7cca151738281bf6609e15f87990f2b3caaba836ec774804611313",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-00960.jsonl": "c15578cf0d46d32349cc36ad70395a6d23356f68f9a198e4bc25490e10ebf7e5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-00960.jsonl": "69b4c547df1153f721e4635b3c4c9b50ca075f63ec35cedf0b36b5d20aedf9e4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-00960.jsonl": "f327cd156ab59ec84db7c67b98f484406ea3f7d8f9648303c7c5830420bad5ed",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01020.jsonl": "179e9479100d9266980ff4e6cd82ab6de65fc5aa4812627b0b1003d66554ca22",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01020.jsonl": "772b4073bcc1ac25436f30150cd26780899582facc62cd15153bb701889d1c59",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01020.jsonl": "4cef584517ce625ec8ac2c6242b7477f87b6d375564adc1e903e5d92ca0e743b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01020.jsonl": "fdc18fdd793659ebd66bb9bf3a1700a77a144548064a5d85ca830c9f3f3059da",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01080.jsonl": "89b7e0535921ab855b2cefd4826685a793fa1b98a2ff6a474f3e09af84c20189",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01080.jsonl": "f976d927b516ee7783c0538fc767d7f8f4761edc89884d33f54d044f04dbcde7",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01080.jsonl": "10875c81a9a9381cd1dd879526bb3969db26b3cdc8339796c303a103d1a5967e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01080.jsonl": "3b958d7551c2458da209084e997d42b9b3bb4dcb58a2ff0281fb1d4022bff21e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01140.jsonl": "5de3caf6bbadb6b6de4355f755e9d20d6edcbabaf3a7f9056ef6bebea3e3a264",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01140.jsonl": "d367b89587c81f3c8b9049827e9ee2163bff62fd1685e070903c33caf0697178",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01140.jsonl": "2bfa4a311671d1487e84e43bfa6de265e05f0ec34253e5caaf85c6db55c40e6a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01140.jsonl": "83ea40c81728fa29c6f34ebf33f14816e9a25143bb482082bac7b7a145ea3004",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01200.jsonl": "a9a7a62c8145e5347aa9ed36a9217bc3dd685fd8251563b5cdae4c83926038d7",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01200.jsonl": "5b8300906e4ac610286d2f866fce9149dce20e33ac795d6c19de139916cdde29",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01200.jsonl": "2c6d2906a8d4dc13aa8506c89c9f05d12f3ba6b822862be2bb223eba8ed4e0d8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01200.jsonl": "ef7ca028c77b763788ac2bfefd53e867d18049d699cc8f8911b347157003d104",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01260.jsonl": "e82040861ed6631cdebb8afa441b06a6215c78f8d1b7990c7920bd300086053a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01260.jsonl": "06762d68b0f4df3a27b97b6cb6c9df289f3c6fabde6899e3f8936b9ef5b08718",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01260.jsonl": "9dc5dbe0d8d48a5df3357dccb156311b7485394b9a53e82e9e20a5284ea48022",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01260.jsonl": "f186abdfb836334d452f7b2950cfbcbb85dd41074256e806383abb25dfe601df",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01320.jsonl": "f0ed0d69b63246ee7dcb898364346d375c4b831843aebefe54ec4569b91a6760",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01320.jsonl": "52f196908cc5897b6d8e736f733bacc4379c5976114bdebcf410e3231f730db2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01320.jsonl": "6783bb3d3987932a0b4672e8cce7eda2f3c2d8744779a18cd6391499e56f7be4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01320.jsonl": "03bb01688e72e8d6d836c3edce234e2c129ab4580e2259420d15dda244014560",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01380.jsonl": "1a8574bc000d2b30eca10336049e60506b6c964a54d5ea31fbd21226f41769d7",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01380.jsonl": "a7b4d49d5cefeb8460cb92b47345e871fae547ed94205f47004c9310bced9a33",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01380.jsonl": "2a5c3024b48c4e3b4a40878253b31331b297026b060b9d5102e3c2fa78e8c473",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01380.jsonl": "5b0e3a3606ae2d17d01644c8745ba8a754dd3b49a322701f9cdb8384384df415",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01440.jsonl": "5a12d9ac60c65535499f398ce92d207db07f34559259b18013a7751f5da5dcdd",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01440.jsonl": "1c16caf82010faa1344e7826f8e04a04709d56b5aea4589de651cce2fbc2ffd5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01440.jsonl": "d0c33422b1467af4b1e2e83e8b1ee9324cc499bfe1bfa4ef0d8cca2b80e4bbac",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01440.jsonl": "076968697ee94b7666f7881ac1906443ea9e25ede8a8600ef71e35fab796f717",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01500.jsonl": "37b2370c819481c71c47c31d6cf16fd3f91b0923e0556c6e992c70b55fbaa402",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01500.jsonl": "7f0d64456e5ef2cc63be81476f2630c66d7c48c4310e7268c27037175b550cf4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01500.jsonl": "bc01bfb3c022f5626468464e72c93d847cdc60e35b0ab7e6e7178af77beaebaf",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01500.jsonl": "48e9c168ee0d5ee06ca1773ca61e5967d398beadb4ca598e84b3846821da1a24",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01560.jsonl": "3c5b26981629da6ba3599a6d52c7d91e1f10c6998ef8c1f647f19a3e375a697b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01560.jsonl": "a3636acbff150def4c79f4fa65b9f83fcf7bd5a4bdc85fa1752f041d8a49698c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01560.jsonl": "d6d8ae3da24f70fc18b32222348cae6a1a23b44bdcc543cb2bbd8de07c88d15a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01560.jsonl": "528a9e82f85496dbf9106114f5132d6fe3e82c35dab8a82cfe909c492f39d9ce",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01620.jsonl": "4b894354f80565c304d7759c8c83be01fa06b95e71eec9ea2ce444771d91890a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01620.jsonl": "3619ac5c0e48c3b5a5e0f84ec7cce55675a136036f75e39dc2432e929eec5dec",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01620.jsonl": "123468aa639815b36df4de05090251c2bfb8148531c563b82d46bf04c7871fc0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01620.jsonl": "1fe4397b7ff53c2be20ec7746f47fdb91fd25cea29f4dfca36d18872a0597919",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01680.jsonl": "b43d13638ab8eb736da366698304d5cdad8e236c548d3681ebea7bb0ac33cbc2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01680.jsonl": "97be9bd30f51546057c1859ed8152ffce00c91fb6b1d06b0bc41c7131c58eac6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01680.jsonl": "f0d92076d31043078bda5bbc9e67ad580bff7267f9bb51e51f09961bc1474961",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01680.jsonl": "c522d557e074a55b848204468c12932fcbe1e1a6097db5ed2c0c5eb04a872ed9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01740.jsonl": "81797605cdef36e5bd2a89f83ac8801213e41738a121e98086434d6645bbd6e1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01740.jsonl": "d178df4c9066a1f517ef842f32302b495893d8d60342372c0404ce86ffa4a666",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01740.jsonl": "beee93eaba0799b2442dd4f2c03e360e76011485be560b8b31022dbf541e72fa",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01740.jsonl": "d2a3792b73fa88ebff9aa36642db01d73c1fb2e76289a56d80a4983c22bcfc82",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01800.jsonl": "1520e257373b5f0b928b1f0292a504af9621ac64acd6f086bb3a73d23eb8d48e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01800.jsonl": "d8113c270974b30219463bbb1cf11b4ec1ab6376363c1f98c80a41372815b6b7",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01800.jsonl": "b48ae4df7c3aa38f74823a0d52e622515acd94feeb8fb0d33b2308550c9ae819",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01800.jsonl": "ba6dd482471de1dfbeb223f70ecdce95d07a5295cb9b781b66c2ff5c8b42931e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01860.jsonl": "2735082f37a89f38317221565f81ff6724ea59c07f63d859763bb220d46f2a6c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01860.jsonl": "4f3e8d0f07e57941ad33e531a6900fd80388e17fc501bdb2ff0910d89d67b037",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01860.jsonl": "94fbfbc3bab0b0aae3831269c8000541adf94a5ad60f59721d37c565bfd31f89",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01860.jsonl": "d3cbccba777f77810a5750e332d24b2de6b8d266f803a70e58b3905c63daacf4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01920.jsonl": "19f3c0ed8a69383b8652d512a26e8337c5ecd68559992defede35b593e442191",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01920.jsonl": "37aa02b5f08e8be5e1bb80d3baa3cd63a086164e958dc00df55e22ee976dcc4a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01920.jsonl": "c5219e7cdb7c202df92f7f5c885382c8bd8ec31c331bbac7da1f3f11712eb516",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01920.jsonl": "433295ee39effd2d54a1a61972a84c1b694a8e7fe05e6ef0e7fb1c286386609c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-01980.jsonl": "dc2aae1ab41cba6e2aa60c1551b6e41e5c3d60023a0345daa5e8cba2ba3f5c56",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-01980.jsonl": "a21ff5396062872ea8c3ebf94ac3c0995df6c6e998d08a01ea6d9c4bb8682af0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-01980.jsonl": "cc3be9e407ceb9d153805b2341de10e2089dcd7e62c8f181f242b3d704ff284c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-01980.jsonl": "6f6a7a99c7acf234968acc5b4606f0774a4a6dc8767921bda27348b9c9c21c87",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02040.jsonl": "947d3b4b5dbc7f9f2bbb54083e34476cbf53ac1c50d352615a8934b299473f3e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02040.jsonl": "eb9edd3a6d5033d6545407aa78bd65840f999b0f9ea959a03bf6f4ec2aaaa78a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02040.jsonl": "9757e037b2b05d2b5fa3f0d40e673e6994890fcfe5715a640620d9b66e7b52e5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02040.jsonl": "042c52c41dda60e534e922140c6a942e04fa1d2f06de0b4067b30f8f8a380d68",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02100.jsonl": "01136989ac8b161e52ba0e81a926d4e66c3efa914809e98dacc66affe3e176a3",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02100.jsonl": "2fb425009298377ea52800019c4bc522e12cd52b175aa1eb946cf4a93aefa396",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02100.jsonl": "3df01f61e9a9933169ca2e4be804965f2386ba25aff9bcc8936153aba7f9ad05",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02100.jsonl": "aa39ca7710e2832768ae038d45d9545aeab80aec8b2550420b5cb45dd0aba03c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02160.jsonl": "cd69426654e304551fa9a753c0b11da738d573c93770b06926fcfea5b489c93a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02160.jsonl": "1748e1b73fe8d8edcc030f4242ce62e612e3feb3fa544cef5b76f94645051446",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02160.jsonl": "4e013e48c034d043077e79237b8a499421edbe8410cb7586d79203f1b1d3e190",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02160.jsonl": "fa51774e1a281371bfb5587370f710d81e900d4f728f15d09a9df8fa2f79ac19",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02220.jsonl": "27a7be56b9275a5017993793c27346b12ff2a5fd7fb3c6488258d60e494bdc25",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02220.jsonl": "ae01b87c9d687efaaa90d8b1bd6b583ae4428e36c6530fd984e54350ae54309b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02220.jsonl": "2bb6477b420f92aba5b274c1963fa756c0e4260b7cd88fac00882c1f0db22148",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02220.jsonl": "c74b1c3e798f0a9774b641c0ee1df706c4ab7fe4757a556f96942a2b421f6b7d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02280.jsonl": "3061048e036dbd426b3471db79fcbd6584d187b4b38dfebf2fc9c8e4931f792f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02280.jsonl": "9694990ffa0f59be6cb4b9b06143a997affc52d9e0acc24b974f0c8e713ce1d4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02280.jsonl": "5e8203cf14364fa0e8a64b94ff9edc066d74f6c1a01aad59dc98148eb34e2896",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02280.jsonl": "a8a04125cbb49507641b9c02865fb86b7533845424f2b435d577c317e2db9d5e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02340.jsonl": "8d74734910bd744bde1d37db3258b40309cc79dbc00823a6db8e79a05646d062",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02340.jsonl": "aba4d3d61f04002d9c8d25415fd0bc4dbbd46ccd8a2e7d03df12f1dbcbb36d8c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02340.jsonl": "b3b08c23fff92589d6c97b0e9025ac520b4159a2a05013af74349154c76a4b61",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02340.jsonl": "7b08250546dc1f57e85c4ed9c4b1a05f90dcd5861cfb05f039c9f30bce1ad07b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02400.jsonl": "f9902d7c919b771b42dda83ac63b4763c821ccc75cfe0bb1a8a21b2dadef4804",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02400.jsonl": "ffb010b85420846852f3db455a7c83742ac8b2e9d21f1bd18b7e045693945cbb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02400.jsonl": "3eddc7f3e6a28d9645fdb2c4526d2853b13a2687ffc1b9c86cae200c0bcda180",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02400.jsonl": "f056bf8095bfc9fe0c297260fdafb61cd0ed6b551d9161225eb8354918b73ec4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02460.jsonl": "481325240cf15b5d98622946dbe540fd16e20fee638e2f485195715b0959552c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02460.jsonl": "6dde97833f1d4446d1d5aada2a69aa1e2878b8f4000e6e21ab29df9564980d3c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02460.jsonl": "7b8d779a97c57f192a179381be2a0fa2e24bffc6ab3ddc5b30afc2b294b80f9b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02460.jsonl": "582f9266151f4780d5a0b961abe511cb6af4189a8715cf559d0a6a299167481f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02520.jsonl": "840732f2578fb92c7120789ba634594b28fcb8f4ad24e865eac175cd120cd3df",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02520.jsonl": "857768fba1b00dd03525575cf02e83a167a23a82007bb4c9d96b92bc77652aa0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02520.jsonl": "e61404549a35b49348c7dd3a52ca1a0a587ab6a7e6788442f01556f60d579a2d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02520.jsonl": "ae5448387331af5c27040ac5b71a4cc0483bd567e2d5ba83fc50b749de358735",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02580.jsonl": "1ce2ef66393142c646e738aeebd5b7d6f3c907f98861f57fff17fdf77d15e86f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02580.jsonl": "edda8dee88f716e5bc8ff71754cd42251fec11bfcda6aaae93a195785344cd58",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02580.jsonl": "a82361e717d867f3295475a35932fe797e1c0e97d0727355cbb3864cedea12e9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02580.jsonl": "4ce17a04867c8dd9bf7fe9f404f56c184babbcbc729ba05b6a781b48888330ea",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02640.jsonl": "15b9fee67d29616cb4705c0d5379ffd635af7e71c827b4b021199d6c2cd23fa4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02640.jsonl": "68c928d6bc1f8db24f289c8c344b1f0728613da587e33d0d0345a260d2e4ef4b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02640.jsonl": "065cd43f66e06100b26f1ec3d7bf892535694f25207bfe2932cb3e276b7f51ac",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02640.jsonl": "82c299c824d3cc2d7fb25240362fc2ee14b03ee01e09862cc96f66d02811ca37",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02700.jsonl": "8e42b2a3ca8f6f6f800496cedbff77f893f5a53abb6eb9ffec5394fa1633416a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02700.jsonl": "d1761a8e80c46675486f8e67d0ff63ca4a013d0d9089d16395ad26ae5f661828",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02700.jsonl": "4481000679c72ed01f6c5a840363b5f29418f647d74b917399d45444763eac0e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02700.jsonl": "c96f81d23bffb50e60c5e551f92f59b7f6a2c13f03f411da0240dd5296a69906",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02760.jsonl": "e7c795f190e835fe175078bc5ae13dce576613bd19149a1093fbe6e5a4250d69",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02760.jsonl": "7fd0635bc0260cbd7c93610b9de387423fef0acbf3cd02e2fb986c1218e22f3c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02760.jsonl": "5177467fb188465a095fe74cbe852b2069bc1f495157d966e93e4a1062783afa",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02760.jsonl": "15733943cc82b7f2502c36a8c781187b8f90dc84e7c43a42f661e274ca0d2451",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02820.jsonl": "c0fc64582783f71502984e68d95ec51451ad7eb7360b9801474535551d4b4945",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02820.jsonl": "db147584febe6c1d5b6a6931f01b7e352cf2bdec05f8e2cf3b996d4dc65c3d8d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02820.jsonl": "775e3583e5093df3020ae4caf71a3f8067bc93bebcebf0e5b2e985719525e04d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02820.jsonl": "8882a48bd579fdfa7f3e079902f1b037640caee87d1feac8e94f56daae908a18",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02880.jsonl": "5f551f5fc68c3e3a061ead1d6b0d84587f4046b7d4cfbf00dc83cef75529f3cb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02880.jsonl": "d434b5077e073c5e4ec5c6eebd5818aa4cdd1166fd1a16fa28c0e9d933a46c68",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02880.jsonl": "c544b0471d6279b85880e1b383a817eb8110618c3d4d61b18c2e07d6dd5c8656",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02880.jsonl": "a4ffe9dfe3aa542304daa876e5b88d96258435671fda207f41ce506c5cdefea9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-base-02940.jsonl": "2f5cc3d46c0e5efcb0dc2de45c98c36364dd36537f5fbd353c4b45d510e705f3",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-revis-02940.jsonl": "987ef13ca88798953c7392cdbcb888ab1c050b03f46ecf63841dd4da2d7ab128",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-rudder_clone-02940.jsonl": "bf0911f199908a137bb7a035e26612b14ef72709a1dba2cebd489db812f35e7a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/pope-grains_clone-02940.jsonl": "984a5fdbc095fd6c4f0e6efd24243459e7ed3df58dbd2c7d62d9a674cae9bb64",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00000.jsonl": "32ef4a9816322e63558878942ff1525cd1e9e985822bab667faaf199dec8fdd9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00000.jsonl": "2ce0e8853b05250c08f3fb5017298ac132cc17d4356a2a65452a532b43de557d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00000.jsonl": "fc07fc656da353d7813ea8afb96740de0e7149b54b14e1f4731df08fd56f6bba",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00000.jsonl": "8acc455976cb63de300aebb791a900c429841e95f8c2d10d1fc7da9689bf0ec9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00008.jsonl": "e8014f099eca37b8e22c51514b052b1ab77415c401a37cccefd68d9cde86bb68",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00008.jsonl": "86088ba4d34214e1f5694ad36cec929a8ee4bba0e2402addea89a6eb163895ab",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00008.jsonl": "751e995a3e6c806de5f28eac681486f91120739a85bd139ac44ea73c83786cb1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00008.jsonl": "81a61871c4935dd1e33567d7f6b7e57f919efcc795e26110f001a2776d472ede",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00016.jsonl": "f025a1420fb27b17f6b0f595bb8983cf22688fb7a916c6397220cb98b45e5d06",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00016.jsonl": "65129176fae4c9a85e160f21b5795092f312dc4c9ac15003d6bf12cc7d3fbea8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00016.jsonl": "b57663ec08ef30c6b2b479079fe195c8dcfb527aebd40b95c6616bfbdd65302f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00016.jsonl": "b96dc8e4f320fc711a4e0be29b8d6e6f590de359dfd1c18a65042a52f9a7496e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00024.jsonl": "ca53e0b5a7bea2000604a79e2db804b230d4e2c6c44fb972e1aacef4e5b2cf13",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00024.jsonl": "bc98f578fd0208406465841c4912dac84b505ccf593f669f9760d8567429fa24",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00024.jsonl": "8fb32abddb8cf5bdb66067b78586c41518a88cc0a1535ede13b7b4df17b5ed56",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00024.jsonl": "290f8c16efcb5e972e5c4c32f45c9eb6aead5cf7b4e7e7c132f960e9f90ee3c0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00032.jsonl": "ebbcc722039b1ba1bc7343449c9dd296c0a1b37088ac06ac69618437b4c0cc30",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00032.jsonl": "0068bbc0e9e7dc21ea947bfccf19bddcba227f591f85c7c5b500c978beb0bc15",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00032.jsonl": "a808f83a04d242476ddd6386b626c7e1edcef47c6cbf36750ab64f229e74cad6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00032.jsonl": "283ecbc0ead718f20b6003740be6bdd4c72673428da4481f64dd8c7814f95800",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00040.jsonl": "8881aa0e814e46970586dcf02d06a921bac8854ad3f3a670ee8d598a4e41cee0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00040.jsonl": "8ee621923259e0b5c94b224b46a3d6436299dd3684f466b881178f8dfac2aef0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00040.jsonl": "09e83f3689fc8eec009f390c869bcfeceb62102334a70ed18a1e7a9955cb25b0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00040.jsonl": "d1735b89a99733bfb7784003a60a29a7ef8fc924677ba8d8023aef121c493f57",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00048.jsonl": "f0e1225f649e1f2cce72aa647439758e46c1cd4e5077c35f028543f4c8e9290c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00048.jsonl": "b6dd3093f346afa922479bdde91cf2c4ba3a7ed1a444096579ab9e61b2104731",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00048.jsonl": "7e2164c39ad4dbe1bafba120c36bc3bd6b28a4d2336fb22ebf6786c2ff780463",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00048.jsonl": "a10f9f797deb75b5a9de7907d9cc78c6d84f9cd3a847cf439a9afdfd44879295",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00056.jsonl": "8751a0130833f6f875d4b5f74905bdb9e512d6053aa3a7f2d8cc445459124172",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00056.jsonl": "0f8aaed55e1b70d2643f7f8bc72b3a938d403f452d48010a1dc42f8052cec268",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00056.jsonl": "94ba334028de84fd01003b49c9099719da5737235636b535bd3ea0d147e36495",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00056.jsonl": "b50ab7013ed4d1b1dec26c71ee9f40618a62ddad3e486eac3afa9bbcb2aa9887",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00064.jsonl": "7fb4001b8ee3219c16d1484325e112253cea6861b932d1552c874646c62fc34b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00064.jsonl": "147bb607101e38cb076fbff2c718f60a8ce4f29517e893dbb3d5e4cf1a7657ed",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00064.jsonl": "376d649301a570f6ee91b1859f5ef210cbbd0b193cf50dbd845a26bafa849ede",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00064.jsonl": "66dbc5515cde28a0314d20820dcef1ae8fc241c5b59b97767c0f3e8810db55ac",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00072.jsonl": "d27ae5d4a5f0a1f7dad3668efe15df779ffd1c7e9f2439ff1fbc64b3993e9e38",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00072.jsonl": "bc7b639f35264f2268770f5c0e00bcb687490b881145283d746372a29404fc95",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00072.jsonl": "fe3bd9784c4315f88e0f89ab557c93b121254b7f4978bdce752b816f94d631b9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00072.jsonl": "0865e908ef93b2c5c16903231a1f20f2a6f9c5989644e7451a1861a8e245f645",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00080.jsonl": "9a2003bbcf7d69d28e7a8c30ff69238a51f40e44462eec590d15b891f965995b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00080.jsonl": "30be8c27939fedba7261efe5645ef94bededac165eed1d5b0e80941b4f8df28e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00080.jsonl": "cf3c68195dd0f5cd4e9e31a34d9f124d1af04dc85d7522141b4c66b78967f50d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00080.jsonl": "6a96cc47017a66a159c009f1a4d6dd398fe498132ca3630cabf48fc98e60c020",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00088.jsonl": "9566f9a0e40e6c70027fae44e1289890633692dca3c62a047ed6af5e9721e54d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00088.jsonl": "26e0491d66e3167ea806e09b37c5f20d209f8152518c43445a325ad89aca34ce",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00088.jsonl": "1897e9ab05b6b617c9acb1b8bf4ef85d53168325b07325366aa9bff47ff2c16c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00088.jsonl": "735f8b29e23f9b0046250f3497b017c08c5f25cad2c749bdb42480d99d55de69",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00096.jsonl": "dc4c4e337fc2cb5a22eb7bd1b303c910e5c0220804ce5dbc741ee4c4f0f0cb75",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00096.jsonl": "37604052faa9fc7b27c14d62e0bf46101e1a9f989f615d40a31c8f9d7d1d6df8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00096.jsonl": "05f6ff9ed29206c22e857a7de566c9e533a242b68c8953bd3290b327744104cd",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00096.jsonl": "d73f37fbf2a46ef5887883a74642386f789b10aab98548d9818ac7a28cc888d8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00104.jsonl": "f074238a5912bab91d1656a1995969aec486d42883d7519d8aea4595458cbcd4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00104.jsonl": "75701eca4416540b1d3209ff2bc3a514fb16b84e907434f300bf149cb6f29ab0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00104.jsonl": "626676d0b8a0221f426fdfd27364b727effb5b89136355788db7e5adf666934c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00104.jsonl": "864aa3dd95045f4469d856d6cdf507c001cd02336298210ce3b370696e3dfc20",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00112.jsonl": "fbf772dcb238e465d051a72df9314d98bd94c6b9466582035b4897374087eacf",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00112.jsonl": "4a6d67e87242dc27d55d829a7066a85c9d04005b047d5c6aabbc953225916ee6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00112.jsonl": "027679a76f055f0a1dc334a5b54b275a7af809d3e3e2626f35dd538893a6e947",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00112.jsonl": "e29a211ba5c8e4e2cd02a4b8cac2bec262c7a16152ee4cb2c4f006b932f61e3f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00120.jsonl": "6f16d13068da15964b7a87fe28020b16b9c4dfc8304351d0916447eef6862fd6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00120.jsonl": "4ca62442baca1fff7892c6466e954e8fb2d56bd2acb6e6de20a4f6381c327ca5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00120.jsonl": "983abc9611a711bba3132c60ecbe28d7abb6427aafab22e616fd63cbe9e76e73",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00120.jsonl": "b62d3fff50c32c8ef0f19a23e71d239a56d5b8ac4bac1a51f035801ed1287473",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00128.jsonl": "286e56cae5a1a45b7a1e162c3bf55c487beb8724f29f00770de729c2a72db28e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00128.jsonl": "6ed89be77939cf3e8e8f66628ad045031c6a8a369f3502cba979dea381facbc3",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00128.jsonl": "bcbf337035b5072db3d99c60a63893d5459e77456a45c176e7d2eabe4eef5927",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00128.jsonl": "4510ee4007e5d76cb07de18bc81b558b7d8d14e9a4412f6a041a15c282876d07",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00136.jsonl": "bf92bd806be5a669d9b2a4d8e032c2a273309cc7760a38d61b32d716b89d9b60",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00136.jsonl": "f2d7dea340c7d1de6002b8fd651b366345b82de2985db0c428e76bd4b9d56958",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00136.jsonl": "7dd0ea94c7e7f0ee6c0a1ce74abf2a3b45018be50d4c853d26616d6ae4b81c67",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00136.jsonl": "3a9e7913f35667ad077af38843dbac88b8ab873403d0b4e7fae5c1808988f8d2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00144.jsonl": "6be4793b2c875168da67a4e1a0786af5cd9f978469b32385b929d17aef0b4463",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00144.jsonl": "bad05b81a3a39c09e761778f99da01c38707a2af73de39829ec72527b5f85bf8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00144.jsonl": "474ba3835540267b7e30b921c3132e7bc33a91ad81561b870d20fbc35e96013e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00144.jsonl": "e7b0d2695598c678c281b4956a4d4f6114abdd1d2fc9d7a67132cdd134f84811",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00152.jsonl": "bf19dca2b2a08f7f37f5472cc68e120d2f300c37a578c6902e1b6a20b35b29da",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00152.jsonl": "6310d637a84677c5df1b59be95d13efa12601960d9a60e3d1ac86c35a73299d8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00152.jsonl": "89ee3cbc073f6dc861aaa76530cb7eb6b89cefa18e720a9c678e3896316fdb5c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00152.jsonl": "3e6af82901194f2c13b12676d3b963a77f88671c59c30e29d6fc59688c1a2ab3",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00160.jsonl": "89e601c77f86dce58fb03e90cc3098e5993ba05d113e3c15f5b8384f49498b66",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00160.jsonl": "97eda60daec595d18d31c72a80d3dea186e077087756f3931dbfdbdc5237dc92",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00160.jsonl": "d2ebabdb9241d8fb79788965483e0db4216d1704008caaa305be69c000db08e7",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00160.jsonl": "ef0b55030aa4c237bdc723ccae5ab9fc99e74c87e9a0d67a24e67425fb99d9db",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00168.jsonl": "d83502b1b20daa9565f124d5f782415a783e72a43d090bc351c08cc19c99400a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00168.jsonl": "0e794d69e6ab98a03c2dec2c096f8c99289bb13a7199cedb055ed61cabf1f341",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00168.jsonl": "0071d47a259410e63f08cc54af5b26f3f05944932fb90bfc1fc278a562439528",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00168.jsonl": "8b6c21d693f84b3de02a5b908804323aff26456aaad699b69fe8734fdbb707f0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00176.jsonl": "42435ac1f4bbda97043c36e1ae718df493de0aa0c8d1e537e7fe93c3faa28a76",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00176.jsonl": "65133694ef1171b1601602caac77d0d72fee3548cced03fe0adc48ee6676e072",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00176.jsonl": "125bf979200d82362294e910016ad2ee6d363d7144117d8780f2d2546227baea",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00176.jsonl": "aaaf422d433f3480bb452c663c26400b6eb7a2715ac1ae717987c8f03d75eee0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00184.jsonl": "8c311178356c699c622bfb99f18b168ebd1afd3ec5cdbea56d14b10e7bdfd1ef",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00184.jsonl": "4382190c50be5319335be0dfb8533c93d2fad175074b969fd85010ce94ae7be9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00184.jsonl": "1d5a13d2eed11e216c4a1903ac2500b6d5d43ed24f235171e19a2ca67c93dc74",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00184.jsonl": "825cfa5d1fcac4bc4374990d761d8b39d8990ec26de4ef39a810d13cf6355539",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00192.jsonl": "38c93c2e77343df78b771a6b877fdc4270aeabda8df052004aec6f558ede01ba",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00192.jsonl": "26b794201302348170279b57b68f5cf7ed303b44f56a968701aa93436e626271",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00192.jsonl": "c0c7ab98914857e88e317223d3c94f87998a37f6b1186b3d16020b03aa78a94e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00192.jsonl": "52e6cb1f2cb3200b1953a253f8f380216ad570824a2ffe7839775a9fd094804e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00200.jsonl": "a01511a33e1658620f9829d0d08d70e8e994d5871bfe77261648d5c27a6291fb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00200.jsonl": "27113621fca17d4349dbb387899e028eeeae97394fab99e503d212ad1ab4ac7a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00200.jsonl": "14578051749c7e8f09839dbdffd9a8b5ad84b0facd5bc2966aac68d8e9eb2f19",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00200.jsonl": "b87328490701cc13c7009b850e1d4648e06d7d9a491462958161c72378c88d8f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00208.jsonl": "71b916723924e9785450643c615d3d8e97bacdd549b12504a87a2a576da027b7",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00208.jsonl": "f99d1f7a7f0a1ec8d468a4f2fcb8f4841d92432a41039e32bfd3fe7871a997bd",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00208.jsonl": "950eb12c629f8c2edf9e86f2a2d7afcb31e5a3218f4efc653423188165760ad9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00208.jsonl": "61edff7aa9215eb55419664a780f81aa2a50ffd6b2c7322bf979c4403015a26d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00216.jsonl": "67e4caf9c86ea196775a4a54b3bdb141116858fa7cf8a9d9bba13a8925ff9eae",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00216.jsonl": "52d13a5079c26fd07747f973a8ca266dedec82cd25294542124b908ebffaf650",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00216.jsonl": "95a2fd9374c0ce4cfd990a74279d1bdacea4876e94949c6e9743be26c3fdf55f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00216.jsonl": "11276c6bd4664610d258aeb616d61a67a0239eff383d86ca4266e5aa48fcd6ec",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00224.jsonl": "9260197176e53a9e31dc70f355372f1eaec381c352aaf69490bcf8745ed064ef",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00224.jsonl": "064564c61b08398b93c222bd8db9fbfb7806dc66bb83e7399a92ab695b2675f4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00224.jsonl": "30e8a3f93c521fa175db1d984a5516eb70f54bd609c76de7eb22df116384aa58",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00224.jsonl": "2cdbfd8eded8350617169969df056f163cf0f3eedaa9a342b4867e92b5408dfb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00232.jsonl": "cd93017eb50abed05c7dfdda3cb5bf3870b5e129fa8cab3460c02db4be394a42",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00232.jsonl": "83e5ec6ce3195852c03c907e461b60d553400a5c3dcc34a2803d755be37812e2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00232.jsonl": "03b235a6f3a10478e796f18e4b94e8c2268b904d350a2719e85e63796b70aed4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00232.jsonl": "a27016c396231cc4dd75110ab26a63ea014cd8f83913cc82de4efb89998b69b0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00240.jsonl": "c0afa00d6e0525616e878cb7507437ecff3ec8c11895265c2f76d4c353d2195d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00240.jsonl": "1c33cc5f1b6b3f9749064057c598b1d265a66f740fe93103699ba98a637edeea",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00240.jsonl": "c968c31806204af16680021b0860edba4a7930716b047baf34da669a66344047",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00240.jsonl": "355be0ebe0d8523a3439ccdddf05860b6ec9d9bdfe9b26e8605fe5569103e341",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00248.jsonl": "ec3ce43de1bee4632f515388cf04c8c82ba44c338b6394c7420ffcef5da2e77a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00248.jsonl": "8e1f9621ae11e0437e194989b718acc1af58b342539a684e6f9ecff0aaae5743",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00248.jsonl": "ab2032442b13771b6a1862fe8259d9a0382f218012260e65c4abecc3cd9e31df",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00248.jsonl": "72cc4cb3a0e5f54ae20cdb00d64244cc0afdb28870851dfc6fbc3a9284895c51",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00256.jsonl": "7171171f8bf0fad797f109b7d2a62f47b18b86739b78db017bdf4efe9c79e4ef",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00256.jsonl": "7a3805ae5fadeaac7e592cc9b5df2a66206ec0c937a86a91388bb38125906f00",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00256.jsonl": "3de5ea232608ddfdf0102714a6d5f5e50801944acb89b918b0b1d64e5b7136b6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00256.jsonl": "5f4fd82190d6e0bb8732ddbc00602fa844d1d7b644c621981ca916d1aea22503",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00264.jsonl": "222b492995511d5efaa2dc497836fb6912c4d2be7ceca878df1fab8e12da8929",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00264.jsonl": "2a2e3380238d3ca5a468c3fd263dca4e9480a643a4d56c0fe5dd1ec4d92d08fb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00264.jsonl": "130e012d28a38e076176d6efc629612dd71f8336c69e355e1a6044765b352df3",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00264.jsonl": "00976a029ff866d7a4f224e8a96fa1e2704aec1e8f6505c3dbe7ebf2f4d1650b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00272.jsonl": "779040ca175a969e76cda9b814fc19b57961812cd2d42b03edff90a5ea96fc7a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00272.jsonl": "5cc7f6f1b899caec4bb6c69285678209e6929a3a7d14fc239e657d04ed8d32b9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00272.jsonl": "1a744c68b11a1404328fa2443809d6745dbacaafaeb66d85fb45a602004ac3ac",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00272.jsonl": "cdb81f3aa49d0cc28038e15b7c08e02fd0187b7f7dd4e44901120c616fa4a293",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00280.jsonl": "01283889fc9173f1e899a8fbac172c468342b9bff772977dc91635ab1aedfbb6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00280.jsonl": "b293ed76820ffb3926e3f0840b3484ee2ad0d2e2055ae3225ecd7e0dd71010a0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00280.jsonl": "7e7123ce385d393396c4569fa69ac7df138ff5fd6678062b6f308f6500c49e68",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00280.jsonl": "5bb7cc7b818526435e5e54f8fd5e8c96560deedc339f849dedcc16f483f3341c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00288.jsonl": "db874ca0e06dc9bca127f56bb660aa43b51fe652d776a8772c682a75f6327b09",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00288.jsonl": "fe4696074f506b012cae6d8da4451f82ce3562514cd329eaaccf0a1397eed7fd",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00288.jsonl": "f684972de4cac37c6b715b035a0983a64c2e10581344beccd7b31e3b22b44511",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00288.jsonl": "1bd32d485ad0ce2c0d77d607d04180428b12702be9ccc4a8c2e0f673833d1827",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00296.jsonl": "b5778e5a6e716c770e386af287aa9c3081de087bdc7a3c4e067d9ac7f48ac3c4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00296.jsonl": "eb0eb268b9393c4d4ddae29dad3b5c7501f168342d1502423a59db25b72c4023",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00296.jsonl": "3e089a6207e3c25eaf80ce1456521b9d3d386a81d445d2281ecb675103342f3b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00296.jsonl": "1139226f2c435da77822242bde5dab9fb64771af4c22da1722e8b76f6d2faea9",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00304.jsonl": "494a7c4459016efb8e1461d580e9c6014363b9ef072e11d9a47457a204e6914a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00304.jsonl": "97ab6989e48b7404c86bc259da903c1fe0a258fe08847d83657673fc94d11d9f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00304.jsonl": "ccfe91ab65738d77985dcbb76cff83080f6a319c9607e7ce7a397cba31c295a6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00304.jsonl": "297af0f7e34d87ea6f68965f7852c60d09e53aca37e37a98de4bb5c7dbd257ac",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00312.jsonl": "92eb94c2db5038ad935b7de5b2f56940842ac187977c9d6995423e797b3478d4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00312.jsonl": "022642fdcb3ad676a83b7f11a3476c2770cae4db8e81c7371389c7aa36cb43b2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00312.jsonl": "d5a67a138d2deda7488823a4493080e3157d552102def289e1ab6a699c31dbef",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00312.jsonl": "578e2504fc535a7e7a6bd9c4a1235ae582a0ea55e072c0be977302081d2caf7a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00320.jsonl": "498a41375d448c290138c4aaff0729c92cf85de2e51816e4eb171b50c8518c10",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00320.jsonl": "54ac57b421441417af027d45dce80e15b4b06f26f803e57542d7015320fae997",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00320.jsonl": "4fae6fb768b026681da29d334619d357a64b4e0ddec9cfabdeb6e36cc4d6d4f8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00320.jsonl": "c14991402dca080950a5b54ae95bc723f5cbc23ca1275432c1be7ba454a1d9fa",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00328.jsonl": "814a50cd3eb539dee0bd045c90e13c772123b15f8c7a6dce470baea1fff92f64",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00328.jsonl": "dfe3558f106c9d0ab3d2bb1164cab89c0758e11888bdd7a0fe5c56dd72bee717",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00328.jsonl": "d99fe888fe5a7edace25b7eae158b3eff58014616ccfe0b764891b68e7bfbf52",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00328.jsonl": "61f13039ec8789c55fc2e269c353aaaddc329e7c2f678405bf864353c74da93f",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00336.jsonl": "d8e32ff275d20a167101e95ea224efdfa83b1c28728d3af93b875efa3c59b634",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00336.jsonl": "18eb801799a81b97f9e31ff5c4a8979102d9e151b1888c32e51daa4f3b122ede",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00336.jsonl": "02685bc4926c9b4c58dfc360c3d34b0c58bf01876522d482c6100c6c9a1e26b8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00336.jsonl": "7c7a5ed27c72a7dbda8bfbce88a6306e8a0b95d40861344a891ade3f89aa459b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00344.jsonl": "510fde26e6c6a72937892ea44a1de639176f2d509a918e1f6edd653abcf1b5af",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00344.jsonl": "e6167c849c7ebabfe10a52fb07b6b101cca4463a7e6703c6e9ce6916acb63291",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00344.jsonl": "728fba52b030b04a8bb0008e86053ce5cf76c4c1a623b01f7fd41c1bba58faf6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00344.jsonl": "6401cbcbe5ad5113acd8528166f17e55fd999790527a873e7135af7ea7959613",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00352.jsonl": "f0fd36132ea4e8cb5aa4ec9ff2343caa2b9553115672c52b3153e25d8f4467b8",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00352.jsonl": "50bb60bcfbf14b46b56f0d90f0e32d958ee8e0fe7c6205650ec5996b060d021c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00352.jsonl": "13a9ec53986ef8c28967b8e4bb2d05c6629412e79e59db4d325132eea3567631",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00352.jsonl": "11461044dfa17294fca2929a0fba125ea5b990db7ff1e77bb93df6413ed43ec7",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00360.jsonl": "ad04c7fe3df37ff0e0a456d9e2b5c3bf6774c7915c829c3d334f16a3dc69d505",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00360.jsonl": "ee4d5a66fb72cd9edd2ed2924cfd9929bdf73c50c041fdf9309a62a019f7a3d6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00360.jsonl": "0f003b43b182cda3f9bf13ce2478c8e691d59ac4cceb858fc668e3708f520103",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00360.jsonl": "57a2b5de9d89055a81c4ea124e0f9b88719419046817d8905f5d0102e8e9bd98",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00368.jsonl": "c68aae74a6159b1c0a9c217d13f6d19ed37ebbcf7f73abeceda80dcc68eac033",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00368.jsonl": "0323323afc0c616ca809759f938e98a19b1b981e7197a5bda9a0451f22863751",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00368.jsonl": "b09a553c7034d7b47b5800dc22ddb49c90f352ccf1492a03f8f551deb779e602",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00368.jsonl": "8821e88c9b7fa2454020a96833f264d3694dafd4c2da992dd98fbc688eeccf8c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00376.jsonl": "d5a6152824d514b0c12dde63c33713910e56d3a3e737f8aec9053158e0842a72",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00376.jsonl": "8be2099f3656b1af13269da960b08021e9f36b0705faea87857ab74b2dfae0c1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00376.jsonl": "fa262dc522ac2ae8eb94fad4186e6408f50fb93b0c1cc8312fa2c2866928b5d3",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00376.jsonl": "eba710068a19b46d7705641bd8faaa7c6a5b85a3d8039fff4ca41dc61b9fb6a2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00384.jsonl": "c19ee41568cf6f854848162ea2f5a80b2c25f11ea2a30234a242c62793608137",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00384.jsonl": "8cffc53c052c9b6ae1ac4eb8b2623575275af1b4ecd29d818a8f83021475d89e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00384.jsonl": "b2a43f763e8c581d4bb8f26e1681fc781243b59d5077c36c47bbf655029ddaf6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00384.jsonl": "daff801a10194a1bef3ecb838a23de6eb70f9b63adf6db46d10fcc68f6ffb0e1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00392.jsonl": "7dcfd374e7e7be1912863f117a7f04f8cf22bb540a5dcc770d74feed3123647b",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00392.jsonl": "98ab518d30baebcd68ce76a6c0df7b37eb61e26d2a624b5aabf644b19adcdd80",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00392.jsonl": "df3e2c7b15965e3d707b29215bb6a8b2e7ff1f8f9ad49642d40a1cc773f0380a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00392.jsonl": "56e18e5375c3949737ac8336eee72e62843da76f847c51eb5d8ae8004d6c0885",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00400.jsonl": "3e25ae4c82f97c3aa54dbb41a59f69b0e0f38ae0491be33d83546e40812bcece",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00400.jsonl": "ec5ece14d39a038a175f262dd838270f249526e7cfb0a3cede87fc83f3fb1721",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00400.jsonl": "955f9867933a851e68fb7f006471a63f0e31b7a18961ac71cfbf9216c9c6f010",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00400.jsonl": "046220933a778eff6635627c4cf1a17dae9d79abaee8aae9fb49bb578d794b41",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00408.jsonl": "5020aa7f1ea662a3a26fe0b9aa3b9a4ca15efbdfdbcbaa8b676593a3c074a001",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00408.jsonl": "16ef215ef7c7311ea9a37e2e704f6eba6274f1e3aa70c1bc284861c3cb116a08",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00408.jsonl": "9c0f80343eaaece2afff909616723f9e513b63cd588f76b0d8df242e1515bc73",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00408.jsonl": "45ec5675bb713f00bff8b5f21c28b18b228ce6d384ad57d3660b66c0fe20725e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00416.jsonl": "86d251decfdb903f9a919db62c1eb2e4179d91ca3c927b8621cf8e2d6508e6fd",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00416.jsonl": "b1cd08a6e5531f631b72d805cbc5c3fd3689058963a17fc973b160ea63ab927e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00416.jsonl": "e27b9025144b4b824b3610f67df0a3e07e4db646eee1cd51a62b6693c3b4ddb2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00416.jsonl": "184b571d71c4d9fa1ec1ac07a4cffcbe1668cf7baccacf28de2faa65930c34bb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00424.jsonl": "198f3c1211ec60e94772e4cdd790739b47beea3303e3779f9a50d8301a08c8ce",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00424.jsonl": "cb401ce0f6f29ce029a438710904caef49d30c451604341d8e771d37864048a5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00424.jsonl": "98cc07bb87e19863235367409d98e69e0576d80697ead6d8704b7795d088555c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00424.jsonl": "b6c542318242632ba08c37c79418df6b0e8fd4ed75ed146eeb5d1b948f81dc22",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00432.jsonl": "c85368ffbcb3b21e649c7004863c1b79e005081a753e8b497255cfc33d63b3de",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00432.jsonl": "1c6e11e5b3c31fed973fe49e6a60f66854b6ecc31e20c23fa4078829c1177fb1",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00432.jsonl": "cec4e3d2bac0ef22c379132521524b6af64cddf2e1aeca03098e27a1e3085028",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00432.jsonl": "6326396c11c7a8b6169056b9098a429b17043fa749e9d01856d53f1ed7bb7d89",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00440.jsonl": "260a7a50b90ce8f090e96e637f5136de35b42a4f83958b8b2011534c3ba94015",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00440.jsonl": "46127477875ba4bc5f4a2fa026ee039534752c87dc7fc941054d83db13299268",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00440.jsonl": "856684508acbe20af2d553b796f9cea94b6270073d6e68a971e8094575bb6194",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00440.jsonl": "c2dd49c66dec695547063e98ce0e461c5a0fd1892618f00f08feb7f46fc2a3eb",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00448.jsonl": "d13854897ce045ee7e774dee28b31cd9ce71e1b3ececefcab53842fcbc2e2734",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00448.jsonl": "5ae8825952b094f7398538017618ef9c52dd80a6b4153e4dd749f6507363a99a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00448.jsonl": "c3dea241d158ac1142037500b368d95b35c9fefbdf7f489f804ca31e8352a6a0",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00448.jsonl": "b473aa84daeaa69eec63fa055aa3c4cceb54752620465facc3e7bb035bd3b1d2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00456.jsonl": "6763c2b3636aeecef1b2bbaf1b953f405bf788da8dd2a8a3b640e07acd080d67",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00456.jsonl": "e07662723d1fc92797e206d6290a334b996fbb751b0f98dd8eada8249ac21483",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00456.jsonl": "a5f913d631a96937ba72042bbc9084bbca017043f33697f8c71becfb99b327e2",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00456.jsonl": "1be38a74003970125df61b6a1c8d3ffd25f8d97d287f39d49a8145a2ec1ff424",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00464.jsonl": "30f1eaae5820cd0846457461a2294c19d757f56fb39c0c72ea045e0ccbb20857",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00464.jsonl": "49a92d7de61d007a0acd3c838195c8b5f5274331c5f3a8ea84a7f99918c29d68",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00464.jsonl": "067ba7f02525ee3b6d8fce9aaf443a375ce4f9262e04e482786c900fcfd0b1a6",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00464.jsonl": "c6d7250751bb5217b96558a67f5dff4f88ddaac60971c8133b30ba160a2297b4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00472.jsonl": "5e1cb49ed0f6c9df2f492f4c0563f46831a846967799988634ff30e39a58438c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00472.jsonl": "0dea03f63a02b5915c4949bd56bef05adbbed8eaf29f0e2179dd2d61b2b7a0d4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00472.jsonl": "afca67fa17bfeca3612cab067f3a82e5ecc1b9f974defd4615879503ebc3530e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00472.jsonl": "6721bb2c0204168b7169787c52bbce7a662ca1171b357e24024d59ce8451fd97",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00480.jsonl": "3cf9d2cbb99f4aeabbc3ffcf690b07458f79a57dc33884c309d89183ac730724",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00480.jsonl": "a21a5ae59fc87a1b9a345ca50cafe6e7d25c0eefccd260815a163a114c80a752",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00480.jsonl": "038a94931517763e05c9c06a4dc9c32aee4c6ca9cfb82c5571f5a55c11f89f4d",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00480.jsonl": "255b48f7934d573b0724d704d55a8f32303b192ca4d02e70843e772fb7bfacf4",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00488.jsonl": "6099862a7fe14f148a9779dbbffcf4d7b5eecfb2c49c2f618e4e42025785912e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00488.jsonl": "6f3e6b617eccecad7774f7a1ead4786cc999433e6295ccd2950602e1a06ade6a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00488.jsonl": "1ad946f5cad3cca7f88b903d31e9b8dce60f4b6f7988227392034d473d8a3fc5",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00488.jsonl": "f71dffc7c8f225fcc53b1e99bf156fcdf2be5417e05d3ce295331eacaf9c5055",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-base-00496.jsonl": "8c14a2e66eb9a3fe5161c5bc9de8bbffe0e0b69c8696d11c83fe72bbea106b9a",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-revis-00496.jsonl": "8cf89eb951077c77f8eb6485f919c7845e761107d0650364b9ddf73a39a7a52c",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-rudder_clone-00496.jsonl": "dd7f6fc4d7def6458eda35c41d047b6b6a22e84b4bf01ed448c20d44fba08164",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/predictions/chair-grains_clone-00496.jsonl": "78107d0e009cc603a8195efefaf238db34cd6db7192a9713032b51b971254933",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/original-vti-gpu1-final/vti-author-merged/pope.jsonl": "90731d86f72552a7325de226d75554c62eefb8efd886f4a21eb96068260b012e",
+    "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/original-vti-gpu1-final/vti-author-merged/chair.jsonl": "433bcb0035484dfa8410a23dae09d32d732747458b3bad30f2dde1f0dfdf1cfc"
+  },
+  "execution_history": [
+    {
+      "pid": 2403589,
+      "outcome": "historical_extraction_stopped_for_gpu0_migration"
+    },
+    {
+      "pid": 2514080,
+      "outcome": "preserved_pre_model_failure"
+    },
+    {
+      "pid": 2560220,
+      "outcome": "preserved_pre_model_failure"
+    },
+    {
+      "pid": 2572948,
+      "outcome": "adopted_extraction_complete_exit_code_unavailable"
+    },
+    {
+      "pid": 2677635,
+      "outcome": "preserved_native_fp16_preflight_failure"
+    },
+    {
+      "pid": 2777858,
+      "outcome": "explicitly_superseded_supplemental_replica"
+    },
+    {
+      "pid": 2777860,
+      "outcome": "explicitly_superseded_supplemental_replica"
+    },
+    {
+      "pid": 916755,
+      "start_ticks": 331541846,
+      "worker": "gpu0-extra-grains-0-1793264376",
+      "outcome": "extra_original_grains_generation_complete",
+      "amendment_sha256": "f9388edeaf67daa83422a513a1147ad03bc9585d04f4ad8321b18b218a8f276f"
+    },
+    {
+      "pid": 916756,
+      "start_ticks": 331541846,
+      "worker": "gpu0-extra-grains-1-1793264376",
+      "outcome": "extra_original_grains_generation_complete",
+      "amendment_sha256": "f9388edeaf67daa83422a513a1147ad03bc9585d04f4ad8321b18b218a8f276f"
+    },
+    {
+      "pid": 4051719,
+      "outcome": "failed_vti_start_before_predictions"
+    },
+    {
+      "pid": 4051717,
+      "outcome": "adopted_recovery_complete_exit_code_unavailable"
+    },
+    {
+      "pid": 4107032,
+      "outcome": "user_stopped_after_2851_pope_rows_prefix_preserved"
+    },
+    {
+      "stop_proof_sha256": "f7ecf5decb4f11d4d939b02d53d837cdc31356e5b32b6c884bbdd45d4ee06387",
+      "outcome": "user_stopped_gpu0_gpu2_gpu3_chair_workers_prefixes_preserved"
+    }
+  ],
+  "analysis_hashes": {
+    "auditor": "f78fe2184acc168a2a3f691593e1ce3bb6680d5e92209bff0d013d405d6c48da",
+    "base_auditor": "695e524d5d8277d29662faaeb13749491b0a8b1ebc3e6a258b38e59504ef0440",
+    "official_metric_helper": "b620f4f7e56d2064cd9351e73469d67410db9e4f329bf9dd4055e1189765661f"
+  },
+  "audit": {
+    "all_17500_responses_verified": true,
+    "official_scorers_used": true,
+    "actual_workers_exited": true,
+    "original_author_sources_unmodified": true,
+    "source_input_artifact_hashes_verified": true,
+    "fit50_raw_ig_hidden_and_pca_independently_verified": true,
+    "only_gpu0_used_for_benchmark_responses": false,
+    "benchmark_response_gpu_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "vti_records_by_gpu": {
+      "pope": {
+        "gpu0": 2851,
+        "gpu1": 149,
+        "gpu2": 0,
+        "gpu3": 0
+      },
+      "chair": {
+        "gpu0": 133,
+        "gpu1": 258,
+        "gpu2": 55,
+        "gpu3": 54
+      }
+    },
+    "vti_gpu_names": {
+      "gpu0": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "gpu1": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "gpu2": "NVIDIA RTX A5000",
+      "gpu3": "NVIDIA RTX A5000"
+    },
+    "user_stop_prefixes_preserved_byte_identical": true,
+    "no_base_fp32_generated_or_included": true,
+    "no_gemma_responses_or_vectors_reused": true,
+    "development_test_image_hash_overlap": 0,
+    "vti_demo_test_image_hash_overlap": 0,
+    "matched_precision_baselines": false,
+    "mixed_precision_comparisons": [
+      "grains_clone",
+      "vti_author"
+    ],
+    "excluded_historical_local_vti": true,
+    "historical_parent_protocol_and_gpu23_ig_provenance_retained": true
+  }
+}

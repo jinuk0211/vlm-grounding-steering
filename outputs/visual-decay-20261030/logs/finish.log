@@ -1,0 +1,17 @@
+collect finished 20:41:56
+analyze finished 20:44:14
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/visual_decay_plot.py", line 187, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/visual_decay_plot.py", line 179, in main
+    out=Path(sys.argv[1]);sums=[json.loads(Path(p).read_text()) for p in sys.argv[2:]]
+                                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/project-b/LJW/vlm-grounding-steering/outputs/visual-decay-20261030/qwen-visual-decay-summary.json'
+ALL_DONE 20:44:14

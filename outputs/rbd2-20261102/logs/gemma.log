@@ -1,0 +1,74 @@
+=== 18:24:31 gemma_chain.sh start
+throne_gdev60: throne_full rows 4940-4999, disjoint from throne_full1000
+=== 18:25:21 stopped (user: no GPU 4); restarted below
+=== 18:25:55 gemma_chain.sh start
+throne_gdev60: throne_full rows 4940-4999, disjoint from throne_full1000
+=== 19:08:57 smoke test on GPU 5
+smoke rc 1, GPU 5 memory 19 -> peak 25836 MiB; worker free-memory gate 22500 MiB
+--- base-0-1.jsonl
+40 5.0 'This is a photograph of a large, fluffy, orange cat sitting on a windowsill, looking out the window.\n\n**Subject:**\nThe main subject is a very large, long-haired'
+--- base-0-2.jsonl
+40 6.0 'This is a photograph of a large, fluffy, orange cat sitting on a windowsill, looking out the window.\n\n**Subject:**\nThe main subject is a very large, long-haired'
+40 5.0 'This is a photograph taken outdoors, likely at a baseball field, featuring a male athlete.\n\n**Subject:**\nThe main subject is a man, presumably a baseball player'
+--- s24a1bl2p1-0-2.jsonl
+40 8.0 'This is a photograph of a large, fluffy, orange cat sitting on a windowsill, bathed in natural sunlight.\n\n**Subject:**\nThe main focus is a very large, long-hair'
+40 6.0 'This is a photograph taken outdoors, likely at a baseball or softball field, featuring a male athlete.\n\n**Subject:**\nThe main focus is a young to middle-aged ma'
+=== 19:11:15 SMOKE_FAILED (logs/gemma_smoke.log)
+=== 19:13:11 gemma_bench.py: record the checked revision (smoke failed on REVIS artifact check); restart
+=== 19:13:11 gemma_chain.sh start
+throne_gdev60: throne_full rows 4940-4999, disjoint from throne_full1000
+=== 19:13:11 smoke test on GPU 5
+smoke rc 0, GPU 5 memory 10363 -> peak 29120 MiB; worker free-memory gate 21257 MiB
+--- base-0-1.jsonl
+40 5.0 'This is a photograph of a large, fluffy, orange cat sitting on a windowsill, looking out the window.\n\n**Subject:**\nThe main subject is a very large, long-haired'
+--- base-0-2.jsonl
+40 7.0 'This is a photograph of a large, fluffy, orange cat sitting on a windowsill, looking out the window.\n\n**Subject:**\nThe main subject is a very large, long-haired'
+40 6.0 'This is a photograph taken outdoors, likely at a baseball field, featuring a male athlete.\n\n**Subject:**\nThe main subject is a man, presumably a baseball player'
+--- grains_clone-0-1.jsonl
+40 5.0 ' This is a photograph of a large, fluffy orange cat sitting on a windowsill.\n\n The cat is the central focus of the image. It appears to be a long-haired, very f'
+--- revis-0-1.jsonl
+40 5.0 'This is a photograph featuring a large, fluffy, long-haired cat sitting indoors near a large window.\n\n**Subject:**\nThe central focus is the cat, which appears t'
+--- rudder_clone-0-1.jsonl
+40 6.0 'This is a photograph of a large, fluffy, orange cat sitting on a windowsill, looking out the window.\n\n**Subject:**\nThe main subject is a very large, long-haired'
+--- s24a1bl2p1-0-2.jsonl
+40 8.0 'This is a photograph of a large, fluffy, orange cat sitting on a windowsill, bathed in natural sunlight.\n\n**Subject:**\nThe main focus is a very large, long-hair'
+40 6.0 'This is a photograph taken outdoors, likely at a baseball or softball field, featuring a male athlete.\n\n**Subject:**\nThe main focus is a young to middle-aged ma'
+--- vti-0-1.jsonl
+40 5.0 'This is a photograph of a large, fluffy, orange cat sitting on a windowsill, looking out the window.\n\n**Subject:**\nThe main subject is a very large, long-haired'
+=== 19:17:26 smoke ok
+=== 19:17:26 GPU 5 worker g5a joins
+=== 19:17:26 GPU 3 worker g3 joins
+=== 20:42:26 DEV_FAILED: no pick, baselines only
+=== 20:43:26 GPU 5 worker g5b joins
+=== 20:44:33 OOM collisions with the other session's Gemma CHAIR workers (GPUs 3, 5): gemma_pool.sh no longer counts OOM failures, fail counts reset; g5a restarted (its s28 dev decode continues); g3 waits for the other session's GPU 3 worker (pid ) to finish
+=== 20:44:33 GPU 3 worker g3 rejoins
+=== 20:49:46 gemma_chain.sh stopped and replaced by gemma_finish.sh (redo the dev pick); g5b restarted with the OOM-tolerant gemma_pool.sh; stale claims of the killed units dropped (s28 dev 59/60, grains_clone 100-200) - both resume
+=== 20:49:46 gemma_finish.sh start (takes over from gemma_chain.sh; dev pick redone, rule unchanged)
+=== 20:53:53 gemma_finish.sh stopped: it duplicated the other session's gemma_ours_fix.sh (dev pick, ours, final table); gemma_bl_judge.sh now only judges the 5 baselines
+=== 20:53:53 gemma_bl_judge.sh start (baseline judging; dev pick and ours: gemma_ours_fix.sh)
+base         1000 rows  tok 351  @512 15
+=== 03:56:28 judged base (GPU 5)
+rudder_clone 1000 rows  tok 358  @512 20
+=== 05:37:33 judged rudder_clone (GPU 5)
+grains_clone 1000 rows  tok 275  @512 1
+=== 07:02:11 judged grains_clone (GPU 5)
+revis        1000 rows  tok 340  @512 13
+=== 08:06:24 judged revis (GPU 5)
+vti          1000 rows  tok 346  @512 11
+=== 09:10:28 judged vti (GPU 5)
+=== 09:10:28 gemma_throne1000 baselines, 2 judges (flan-t5 base+large, threshold 6), paired bootstrap vs Base (gemma_bench)
+base          P  75.0 R  70.7 F1  82.8 F0.5  85.2  
+s24a1bl2p1    P  77.5 R  69.7 F1  83.3 F0.5  86.8  dP[+0.5,+4.6] dR[-2.9,+0.9] dF0.5[+0.4,+2.7]
+rudder_clone  P  75.6 R  69.6 F1  83.0 F0.5  85.9  dP[-1.2,+2.7] dR[-2.8,+0.5] dF0.5[-0.2,+1.7]
+grains_clone  P  78.5 R  70.8 F1  82.3 F0.5  85.7  dP[+1.2,+5.8] dR[-2.1,+2.1] dF0.5[-0.7,+1.7]
+revis         P  76.9 R  70.0 F1  83.2 F0.5  86.5  dP[-0.4,+4.2] dR[-3.0,+1.4] dF0.5[+0.1,+2.4]
+vti           P  77.4 R  70.4 F1  83.1 F0.5  86.3  dP[+0.5,+4.4] dR[-2.2,+1.5] dF0.5[+0.1,+2.2]
+=== 09:10:39 GEMMA_DONE (baselines; the table with ours ends with GEMMA_OURS_DONE)
+=== 09:14:32 gemma_throne1000 with ours (s24a1bl2p1), 2 judges (flan-t5 base+large, threshold 6), paired bootstrap vs Base (gemma_bench)
+base          P  75.0 R  70.7 F1  82.8 F0.5  85.2  
+s24a1bl2p1    P  77.5 R  69.7 F1  83.3 F0.5  86.8  dP[+0.5,+4.6] dR[-2.9,+0.9] dF0.5[+0.4,+2.7]
+rudder_clone  P  75.6 R  69.6 F1  83.0 F0.5  85.9  dP[-1.2,+2.7] dR[-2.8,+0.5] dF0.5[-0.2,+1.7]
+grains_clone  P  78.5 R  70.8 F1  82.3 F0.5  85.7  dP[+1.2,+5.8] dR[-2.1,+2.1] dF0.5[-0.7,+1.7]
+revis         P  76.9 R  70.0 F1  83.2 F0.5  86.5  dP[-0.4,+4.2] dR[-3.0,+1.4] dF0.5[+0.1,+2.4]
+vti           P  77.4 R  70.4 F1  83.1 F0.5  86.3  dP[+0.5,+4.4] dR[-2.2,+1.5] dF0.5[+0.1,+2.2]
+=== 09:14:43 GEMMA_OURS_DONE

@@ -1,0 +1,24 @@
+GEMMA_IMAGE_DONE
+gemma image complete 481 0.5529787039806342 0.0 ['frisbee', 'hot dog', 'teddy bear'] 
+  hallucinated best layer 35  pooled AUROC 0.729 [0.6917287597872793, 0.7624297558693269]  within object 0.674 (13 objects)
+  missed       best layer  0  pooled AUROC 0.813 [0.7948502190307711, 0.8296514408075454]  within object 0.804 (33 objects)
+  Spearman with question margin: max 0.507 at layer 36; question margin itself, hallucinated task AUROC 0.901
+  patch top-1 at layer 32, image 661 (GT ['cell phone', 'dining table', 'sandwich'], hallucinated ['boat', 'hot dog']):
+== caption-position lens, gemma: 500 captions, last-layer check 0.1614
+  mentions 1269 (238 hallucinated); top-1 at output: hall 0.94 correct 0.97
+  layer from which the object stays top-1: hall 38.6 correct 36.4; position-matched difference +2.04 [1.4086128219663472, 2.587923763543937]
+wrote /home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104/gemma-lens-summary.json
+{'presence': {'positive': 1567, 'negative': 36933}, 'hallucinated': {'positive': 1019, 'negative': 237}, 'missed': {'positive': 548, 'negative': 36696}}
+presence pooled [0.89, 0.66, 0.63, 0.63, 0.62, 0.71, 0.9, 0.89] last 0.89 within [0.91, 0.54, 0.52, 0.5, 0.49, 0.69, 0.9, 0.89] best 36 0.895 [0.8845419883928888, 0.905007266960901] objs 72
+hallucinated pooled [0.68, 0.62, 0.55, 0.62, 0.6, 0.53, 0.7, 0.65] last 0.654 within [0.71, 0.54, 0.57, 0.52, 0.52, 0.55, 0.67, 0.66] best 35 0.729 [0.6917287597872793, 0.7624297558693269] objs 13
+missed pooled [0.81, 0.63, 0.57, 0.56, 0.53, 0.62, 0.8, 0.78] last 0.78 within [0.8, 0.54, 0.52, 0.48, 0.51, 0.61, 0.77, 0.77] best 0 0.813 [0.7948502190307711, 0.8296514408075454] objs 33
+spearman [0.5, 0.07, 0.1, 0.12, 0.15, 0.17, 0.51, 0.48] max 0.507 36 q margin 0.901
+ L21 median {'correct': 6.7e-05, 'missed': 3.2e-05, 'hall': 1.5e-05, 'absent': 1.5e-05} correct>hall 0.634 missed>absent 0.564 hall>absent 0.506 missed>hall 0.562
+ L26 median {'correct': 1.8e-05, 'missed': 8e-07, 'hall': 5.9e-06, 'absent': 1.8e-07} correct>hall 0.567 missed>absent 0.559 hall>absent 0.629 missed>hall 0.434
+ L32 median {'correct': 0.0083, 'missed': 0.0015, 'hall': 0.0026, 'absent': 0.00022} correct>hall 0.627 missed>absent 0.734 hall>absent 0.801 missed>hall 0.406
+ L36 median {'correct': 0.089, 'missed': 0.0045, 'hall': 0.01, 'absent': 0.00039} correct>hall 0.702 missed>absent 0.799 hall>absent 0.868 missed>hall 0.406
+ L40 median {'correct': 0.078, 'missed': 0.0043, 'hall': 0.018, 'absent': 0.00031} correct>hall 0.663 missed>absent 0.776 hall>absent 0.886 missed>hall 0.342
+ L42 median {'correct': 0.067, 'missed': 0.0029, 'hall': 0.013, 'absent': 0.00021} correct>hall 0.654 missed>absent 0.78 hall>absent 0.887 missed>hall 0.332
+ hall vs absent within object, last layer 0.809 14
+661 ['cell phone', 'dining table', 'sandwich'] [('있고요', 17), ('ScrollVie', 17), ('includegr', 8), ('</tr>', 8), ('白色', 6), ('graphicx', 5), ('xmlns', 5), ('右上', 4), ('ndarray', 4), ('tshirt', 4), ('背景', 4), ('plotlib', 4), ('}\\|\\', 4), ('JH', 3)]
+[exit] 0

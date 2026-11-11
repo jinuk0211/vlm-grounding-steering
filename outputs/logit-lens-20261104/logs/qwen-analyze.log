@@ -1,0 +1,26 @@
+== image-token lens, qwen: 500 images, last-layer check 0.0000
+  presence     best layer 28  pooled AUROC 0.960 [0.9542364283945044, 0.9646182100430072]  within object 0.960 (67 objects)
+  hallucinated best layer 28  pooled AUROC 0.698 [0.654370587375879, 0.7440680760365819]  within object 0.689 (9 objects)
+  missed       best layer 28  pooled AUROC 0.926 [0.9142464961653146, 0.9360684388210405]  within object 0.926 (38 objects)
+  Spearman with question margin: max 0.423 at layer 28; question margin itself, hallucinated task AUROC 0.940
+  patch top-1 at layer 21, image 661 (GT ['cell phone', 'dining table', 'sandwich'], hallucinated ['bowl', 'cup', 'fork', 'knife']):
+    股指 存在一定 <|object <|object 了好多 ㎖ � OLON 柬 游戏代 るもの rites 思绪 所提供之 所提供之 噤
+    可以更好 IGNAL ℅ ℅ ℅ ℅ 下面小编 思绪 propriet esteem _ <|endoft <|endoft 所提供之 所提供之 <|object
+    要闻 ℅ ℅ <|object <|object coppia engeance propriet 随时随 狰 狰 时代中国 囹 <|endoft <|object 踯
+    <|object <|object 爱美 忸 ℅ 游戏代 coppia 对照检查 勠 孱 <|object 孱 <|endoft <|endoft diseñado <|object
+    <|object 。www przed ℅ ℅ modalità 家都知道 <|endoft GLOSS 对照检查 随时随 狰 随时随 modalità 游戏代 ℅
+    <|object przed registra Ĩ Московск ㎜ Алексан 龃 鬈 龃 孱 <|object 孱 coppia 。www bez
+    <|object pisa modalità 对照检查 渲 对照检查 随时随 简便 对照检查 随时随 对照检查 propriet 铩 modalità 踯 换句话
+    为抓 coppia 观摩 <|object 为空 随时随 铩 游戏代 diseñado ことが多い (Have 垠 随时随 狰 的经典 换句话
+    为抓 打架 随时随 iets iets <|object iets <|object 对照检查 <|object 泅 揍 随时随 a ㎞ っていく
+    ummings propriet 随时随 iets :variabl iets iets <|object 换句话 /copylef treff 游戏代 随时随 Authenti 泅 potrà
+    <|object Московск 阅读全文 班长 对照检查 � <|object _layers 游戏代 游戏代 游戏代 换句话 为了更好 ummings stęp 因为它
+    <|object 一贯 Респ 对照检查 ummings 該使用者 � <|object <|object <|object 对照检查 班长 游戏代 registra <|object <|object
+    registra <|object 才是真正 可以更好 对学生 两级 下称 游戏当中 更像是 iets 换句话 a 换句话 驺 ℅ ℅
+    UPPORT ummings 游戏代 对照检查 才是真正 才是真正 阅读全文 iets 贴吧 <|object UPPORT UPPORT ことが多い 锒 ℅ ℅
+    IFn propriet 能得到 年之久 扎实 卖给 隐约 揍 换句话 ことが多い ℅ PostalCo UPPORT 锒 如果玩家 隐约
+    <|object 不断提高 pisa 不是一个 ℅ propriet ℅ 换句话 。www 均由 所提供之 主要内容 ámb 一贯 ℠ <|object
+== caption-position lens, qwen: 500 captions, last-layer check 0.0000
+  mentions 1105 (170 hallucinated); top-1 at output: hall 0.79 correct 0.93
+  layer from which the object stays top-1: hall 27.2 correct 26.8; position-matched difference +0.13 [-0.12710758402020547, 0.38167623570443365]
+wrote /home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104/qwen-lens-summary.json

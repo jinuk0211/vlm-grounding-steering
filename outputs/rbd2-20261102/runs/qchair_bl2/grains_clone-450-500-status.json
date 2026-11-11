@@ -1,0 +1,13 @@
+{
+ "stage": "complete",
+ "pid": 2286234,
+ "method": "grains_clone",
+ "dtype": "float16",
+ "attn": "eager",
+ "total": 50,
+ "done": 50,
+ "resumed_from": 0,
+ "updated_at": 1793883074.0639288,
+ "gpu": "NVIDIA RTX A6000",
+ "fp16_attention_calls": 725058
+}

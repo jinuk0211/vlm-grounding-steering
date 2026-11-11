@@ -1,0 +1,13 @@
+{
+ "stage": "complete",
+ "pid": 3006120,
+ "method": "revis_official",
+ "dtype": "bfloat16",
+ "attn": "sdpa",
+ "total": 50,
+ "done": 50,
+ "resumed_from": 0,
+ "updated_at": 1793884145.6554391,
+ "gpu": "NVIDIA RTX A6000",
+ "fp16_attention_calls": null
+}

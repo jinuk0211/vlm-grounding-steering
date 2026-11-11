@@ -1,0 +1,33 @@
+{
+  "model": {
+    "family": "gemma4",
+    "checkpoint": "google/gemma-4-E4B-it",
+    "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "attn_implementation": "eager",
+    "image_size": 448,
+    "yes_token": "Yes",
+    "no_token": "No"
+  },
+  "generation": {"max_new_tokens": 128, "seed": 42},
+  "discovery": {
+    "layers": [5, 11, 23, 35, 41],
+    "top_k": 8,
+    "selection_mode": "causal",
+    "max_examples": 100,
+    "min_margin_drop": 0.05,
+    "normalization_floor": 1.0,
+    "control_penalty": 1.0,
+    "seed": 42
+  },
+  "fit": {"epochs": 2, "lr": 0.03, "max_gain": 0.25, "kl_weight": 1.0, "l2_weight": 0.01, "seed": 42},
+  "methods": {
+    "base": {},
+    "ephs": {"strength": 1.0},
+    "revis": {"alpha": 1.6, "risk_quantile": 0.8},
+    "rudder": {"layer": 23, "alpha": 0.5},
+    "grains": {"alpha": 0.5, "ig_steps": 16},
+    "vti": {"alpha": 0.5, "vision_alpha": 0.5, "vision_pooling": "position"}
+  }
+}

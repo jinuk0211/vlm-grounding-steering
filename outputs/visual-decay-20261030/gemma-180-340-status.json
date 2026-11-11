@@ -1,0 +1,56 @@
+{
+ "stage": "complete",
+ "pid": 2369947,
+ "model": "gemma",
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "argv": [
+  "scripts/visual_decay_collect.py",
+  "--model",
+  "gemma",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/visual-decay-20261030",
+  "--start",
+  "180",
+  "--end",
+  "340"
+ ],
+ "config": {
+  "family": "gemma4",
+  "checkpoint": "google/gemma-4-E4B-it",
+  "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attn_implementation": "eager",
+  "image_size": 448,
+  "yes_token": "Yes",
+  "no_token": "No",
+  "local_files_only": true
+ },
+ "updated_at": 1793360452.1823637,
+ "gpu_name": "NVIDIA RTX A5000",
+ "n_layers": 42,
+ "probe_layers": [
+  10,
+  21,
+  32,
+  42
+ ],
+ "conditions": [
+  "swap",
+  "ko0",
+  "ko32",
+  "ko64",
+  "ko128",
+  "ko0_early",
+  "ko0_late"
+ ],
+ "softcap": 30.0,
+ "repetition_penalty": 1.0,
+ "done": 160,
+ "sec_per_caption": 5.9038679883969545,
+ "max_gpu_gb": 17.731069087982178,
+ "lens_last_layer_max_err": 0.14940547943115234,
+ "greedy_reproduced_mean": 0.9850616202449167,
+ "greedy_reproduced_min": 0.9709302186965942,
+ "records": 160
+}

@@ -1,0 +1,16 @@
+/home/project-b/LJW/vlm-grounding-steering/scripts/verify_probe_attn.py:116: RuntimeWarning: Mean of empty slice
+  for k in np.unique(b):s=b==k;r[s]=v[s]-np.nanmean(v[s])
+== qwen: 1105 first mentions (170 hallucinated), 468 captions, main layers 28
+  mass     hall 0.1172 correct 0.1561  pos-matched diff -0.0167 [-0.0239,-0.0104]  adj AUROC 0.370
+  entropy  hall 0.7852 correct 0.7897  pos-matched diff -0.0004 [-0.0050,+0.0042]  adj AUROC 0.511
+  top1pct  hall 0.2177 correct 0.2067  pos-matched diff +0.0028 [-0.0027,+0.0082]  adj AUROC 0.514
+  sink     hall 0.0752 correct 0.0711  pos-matched diff +0.0037 [-0.0001,+0.0080]  adj AUROC 0.524
+  trend mass     0-15:0.134 16-31:0.115 32-63:0.094 64-95:0.081 96-127:0.067 128-191:0.054 192-255:0.047 256-383:0.038 384-512:0.031
+  trend entropy  0-15:0.782 16-31:0.792 32-63:0.786 64-95:0.784 96-127:0.783 128-191:0.778 192-255:0.779 256-383:0.775 384-512:0.772
+  trend top1pct  0-15:0.215 16-31:0.207 32-63:0.215 64-95:0.219 96-127:0.222 128-191:0.228 192-255:0.228 256-383:0.235 384-512:0.245
+  trend sink     0-15:0.078 16-31:0.080 32-63:0.085 64-95:0.086 96-127:0.086 128-191:0.087 192-255:0.084 256-383:0.103 384-512:0.134
+  heads entropy: 29% outside 0.45-0.55; top L21H8 0.66, L21H5 0.35, L18H5 0.65, L19H7 0.65, L18H2 0.65
+  heads top1pct: 25% outside 0.45-0.55; top L21H5 0.65, L22H25 0.65, L4H4 0.37, L20H21 0.62, L24H21 0.62
+  heads sink: 16% outside 0.45-0.55; top L14H21 0.61, L27H10 0.61, L5H19 0.40, L16H20 0.40, L21H25 0.40
+  verdict: no difference in entropy or sink share -> drop the design
+wrote /home/project-b/LJW/vlm-grounding-steering/outputs/query-anchor-step0-20261030/qwen-attn-summary.json

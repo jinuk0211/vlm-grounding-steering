@@ -1,0 +1,38 @@
+=== 13:08:01 gchair3.sh start: candidates on test rows 0-60
+collect base 60 / 60 complete
+collect s24a2bl1p05 60 / 60 complete
+collect s20a2bl1p05 60 / 60 complete
+collect s28a2bl1p05 60 / 60 complete
+collect bl1p05 60 / 60 complete
+collect s24a1bl1p05 60 / 60 complete
+collect s24a3bl1p05 60 / 60 complete
+collect s24a2bl2p1 60 / 60 complete
+collect s24a2bl1p05M 60 / 60 complete
+collect s24a1bl2p1 60 / 60 complete
+=== 14:33:06 test rows 0-60, Gemma (vdd), vs vdd Base
+base                         CHAIR_s  31.7 CHAIR_i   9.3 recall  63.1 F1  74.4  tok  357 @512  0  
+bl1p05                       CHAIR_s  26.7 CHAIR_i   9.8 recall  61.0 F1  72.7  tok  367 @512  1  dCHAIR_s[-15.0,+5.0] drecall[-6.9,+2.3]
+s20a2bl1p05                  CHAIR_s  26.7 CHAIR_i   9.2 recall  66.8 F1  77.0  tok  391 @512  5  dCHAIR_s[-15.0,+5.0] drecall[-2.2,+9.4]
+s24a1bl1p05                  CHAIR_s  26.7 CHAIR_i   8.5 recall  62.0 F1  73.9  tok  362 @512  3  dCHAIR_s[-15.0,+5.0] drecall[-7.2,+4.7]
+s24a1bl2p1                   CHAIR_s  23.3 CHAIR_i   6.9 recall  58.3 F1  71.7  tok  371 @512  3  dCHAIR_s[-16.7,+0.0] drecall[-9.8,+0.5]
+s24a2bl1p05                  CHAIR_s  30.0 CHAIR_i   9.7 recall  59.9 F1  72.0  tok  369 @512  1  dCHAIR_s[-10.0,+5.0] drecall[-8.2,+1.7]
+s24a2bl1p05M                 CHAIR_s  30.0 CHAIR_i   8.9 recall  64.7 F1  75.7  tok  355 @512  1  dCHAIR_s[-11.7,+8.3] drecall[-3.4,+6.6]
+s24a2bl2p1                   CHAIR_s  25.0 CHAIR_i   7.7 recall  59.9 F1  72.6  tok  373 @512  1  dCHAIR_s[-16.7,+1.7] drecall[-8.1,+2.1]
+s24a3bl1p05                  CHAIR_s  26.7 CHAIR_i   8.7 recall  64.7 F1  75.7  tok  374 @512  1  dCHAIR_s[-13.3,+1.7] drecall[-5.5,+8.9]
+s28a2bl1p05                  CHAIR_s  30.0 CHAIR_i  10.1 recall  63.1 F1  74.1  tok  409 @512  9  dCHAIR_s[-11.7,+8.3] drecall[-5.8,+5.7]
+=== 14:33:22 picked s24a1bl1p05 (--alpha 1 --layer 24 --lam 1 --pen 0.5); test rows 60-500
+collect s24a1bl1p05 500 / 500 complete
+=== 16:13:25 chair_test500 Gemma: vs vdd Base (paired bootstrap); s24a1bl1p05 picked on test rows 0-60
+base                         CHAIR_s  34.6 CHAIR_i   7.0 recall  64.7 F1  76.3  tok  370 @512  9  
+s24a1bl1p05                  CHAIR_s  26.2 CHAIR_i   5.5 recall  63.6 F1  76.0  tok  378 @512 13  dCHAIR_s[-12.2,-4.6] drecall[-2.7,+0.4]
+s24a2bl1p05                  CHAIR_s  30.8 CHAIR_i   6.0 recall  61.9 F1  74.7  tok  381 @512 14  dCHAIR_s[-7.6,+0.0] drecall[-4.4,-1.1]
+=== 16:13:58 chair_test500 Gemma: table rows (base = table Base) + vddbase + ours
+base                         CHAIR_s  36.2 CHAIR_i   7.6 recall  65.0 F1  76.3  tok  371 @512 13  
+grains_clone                 CHAIR_s  27.4 CHAIR_i   6.2 recall  60.7 F1  73.7  tok  299 @512  3  dCHAIR_s[-13.2,-4.6] drecall[-5.9,-2.6]
+revis                        CHAIR_s  26.8 CHAIR_i   6.2 recall  59.7 F1  73.0  tok  355 @512 10  dCHAIR_s[-13.4,-5.4] drecall[-6.9,-3.4]
+rudder_clone                 CHAIR_s  35.2 CHAIR_i   7.3 recall  65.0 F1  76.4  tok  376 @512 12  dCHAIR_s[-4.4,+2.4] drecall[-1.2,+1.4]
+s24a1bl1p05                  CHAIR_s  26.2 CHAIR_i   5.5 recall  63.6 F1  76.0  tok  378 @512 13  dCHAIR_s[-13.8,-6.2] drecall[-3.0,+0.2]
+s24a2bl1p05                  CHAIR_s  30.8 CHAIR_i   6.0 recall  61.9 F1  74.7  tok  381 @512 14  dCHAIR_s[-9.2,-1.8] drecall[-4.6,-1.4]
+vddbase                      CHAIR_s  34.6 CHAIR_i   7.0 recall  64.7 F1  76.3  tok  370 @512  9  dCHAIR_s[-4.8,+1.4] drecall[-1.5,+1.0]
+vti                          CHAIR_s  33.6 CHAIR_i   7.1 recall  64.6 F1  76.2  tok  363 @512 11  dCHAIR_s[-6.2,+1.2] drecall[-1.8,+1.0]
+=== 16:15:19 GCHAIR3_DONE

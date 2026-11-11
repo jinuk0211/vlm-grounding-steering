@@ -1,0 +1,20 @@
+base     distinct COCO objs/caption 2.31  correct 1.88  halluc 0.43  images w/ halluc 30  tokens 208  @512 15
+rbd01    distinct COCO objs/caption 2.05  correct 1.76  halluc 0.29  images w/ halluc 18  tokens 205  @512 15
+const01  distinct COCO objs/caption 2.19  correct 1.87  halluc 0.32  images w/ halluc 23  tokens 205  @512 13
+unif01   distinct COCO objs/caption 2.20  correct 1.91  halluc 0.29  images w/ halluc 18  tokens 208  @512 15
+
+rbd01 vs base: halluc images fixed 14 / newly broken 2
+  GT objects lost 26 gained 14; top lost [('car', 3), ('cup', 2), ('orange', 2), ('person', 2), ('dining table', 2), ('bottle', 2), ('bird', 1), ('carrot', 1)]
+  halluc objects removed 22 added 8; top removed [('bowl', 4), ('remote', 2), ('dining table', 2), ('orange', 2), ('person', 2), ('spoon', 1), ('laptop', 1), ('cell phone', 1)]; top added [('scissors', 1), ('backpack', 1), ('tie', 1), ('book', 1), ('suitcase', 1), ('bowl', 1)]
+
+const01 vs base: halluc images fixed 11 / newly broken 4
+  GT objects lost 19 gained 18; top lost [('person', 3), ('cup', 2), ('orange', 2), ('car', 2), ('carrot', 1), ('spoon', 1), ('traffic light', 1), ('vase', 1)]
+  halluc objects removed 20 added 9; top removed [('bowl', 3), ('remote', 2), ('orange', 2), ('person', 2), ('spoon', 1), ('laptop', 1), ('cell phone', 1), ('skis', 1)]; top added [('scissors', 1), ('backpack', 1), ('tie', 1), ('book', 1), ('suitcase', 1), ('person', 1)]
+
+unif01 vs base: halluc images fixed 15 / newly broken 3
+  GT objects lost 17 gained 20; top lost [('vase', 1), ('traffic light', 1), ('person', 1), ('orange', 1), ('car', 1), ('umbrella', 1), ('bottle', 1), ('mouse', 1)]
+  halluc objects removed 24 added 10; top removed [('bowl', 3), ('person', 3), ('orange', 3), ('remote', 2), ('bottle', 2), ('tie', 2), ('spoon', 1), ('cell phone', 1)]; top added [('bowl', 2), ('scissors', 1), ('backpack', 1), ('tie', 1), ('surfboard', 1), ('person', 1)]
+
+rbd01 vs unif01: same halluc/clean status on 90/100 images; identical captions 36
+rbd01 identical to base: 14
+unif01 identical to base: 11

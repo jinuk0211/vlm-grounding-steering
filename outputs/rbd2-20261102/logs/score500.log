@@ -1,0 +1,17 @@
+=== 15:15:30 join
+chair  base        500 rows
+chair  s16a2bl1p05 500 rows
+throne base        500 rows
+throne s16a1bl2p1  500 rows
+amber  base        500 rows
+amber  mainMed     500 rows
+=== 15:15:30 chair_test500
+base                         CHAIR_s  30.4 CHAIR_i   8.4 recall  69.8 F1  79.2  tok  189 @512  1  
+s16a2bl1p05                  CHAIR_s  25.6 CHAIR_i   6.9 recall  68.9 F1  79.2  tok  178 @512  0  dCHAIR_s[-8.4,-1.2] drecall[-2.5,+0.8]
+=== 15:15:44 amber_test500
+base                         CHAIR   5.5 Cover  62.4 Hal  31.8 Cog   1.6  tok  102 @512  0  
+mainMed                      CHAIR   5.2 Cover  61.3 Hal  28.4 Cog   1.3  tok  101 @512  0  dCHAIR[-1.1,+0.3] dCover[-2.1,-0.1] dHal[-7.2,+0.6] dCog[-0.9,+0.2]
+=== 16:38:33 xl judges stopped (user 16:4x: no flan-t5-xl); throne_test500, 2 judges (flan-t5 base+large, threshold 6)
+base          P  81.5 R  79.6 F1  83.3 F0.5  84.7  
+s16a1bl2p1    P  83.0 R  79.1 F1  84.8 F0.5  86.8  dP[-0.7,+3.8] dR[-2.3,+1.3] dF0.5[+0.7,+3.6]
+=== 16:38:37 SCORE500_DONE (2 judges)

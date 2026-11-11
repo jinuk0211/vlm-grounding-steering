@@ -1,0 +1,26 @@
+== image-token lens, gemma: 500 images, last-layer check 0.0000
+  presence     best layer 36  pooled AUROC 0.895 [0.8845419883928888, 0.905007266960901]  within object 0.899 (72 objects)
+  hallucinated best layer 35  pooled AUROC 0.729 [0.6917287597872793, 0.7624297558693269]  within object 0.674 (13 objects)
+  missed       best layer  0  pooled AUROC 0.813 [0.7948502190307711, 0.8296514408075454]  within object 0.804 (33 objects)
+  Spearman with question margin: max 0.507 at layer 36; question margin itself, hallucinated task AUROC 0.901
+  patch top-1 at layer 32, image 661 (GT ['cell phone', 'dining table', 'sandwich'], hallucinated ['boat', 'hot dog']):
+    右上 /... 위에 \%, 거고 或其他 graphicx ndarray UIButton 圖片 includeg graphicx toprule 그런데 있고요 CommonAn
+    graphicx ffffff ffffff <unused9 iphone ,\ graphicx graphicx 白色 右上 人士 drying JH 大气 yellow ***",
+    tshirt 파일 있고요 있고요 polyethy 사진 tilted embroide 이미지 ndarray tshirt 白色 白色 cropped xray 있고요
+    stopwatc imageVie blurred ndarray includeg 背景 白色 includeg pastry includeg pytorch JH 있고요 背景 にし 그리고
+    右上 jpeg 흰 includeg 白色 ScrollVi _ flatable 和一个 或其他 있고요 그리고 لوار 背景 _ )}{\
+    izedBox 右上 他说 白色 includeg includeg figsize includeg 让他 和其他 餡 JH 있고요 ScrollVi 있고요 ńcz
+    늠 smiles 있고요 ScrollVi ScrollVi ScrollVi **/ ™. 있고요 xmlns 也不 안에 ScrollVi ScrollVi hbox </tr>
+    photogra plotlib only <unused9 ScrollVi ohist setColor � xmlns }\|\ </tr> 아니고 memcpy yes وتس فري
+    身上 우리 जीएस xmlns 是怎么 겠죠 있고요 每 ohist </tr> 그리고 पट्टी ScrollVi 。（ 。（ crossori
+    tshirt plotlib 包装 xmlns 있고요 setImage <span> setImage plotlib 얇 🤤 ScrollVi ScrollVi hillside ๘ を高
+    바일 ことです }}}-\ ://" ScrollVi &\ ohist plotlib undersid usermode patties wraps ScrollVi ScrollVi matter 月末
+    也没有 ,… …) hugged ('../ 겠죠 marginBo meanwhil Whatever sb ے۔ 月末 JB 있고요 있고요 liminf
+    他说 $\{( }\|\ }\|\ 맛 为例 patties 맛있 nut $}; </tr> </tr> **/ 镜头 있고요 ToTensor
+    ですよね 背景 whicheve }\|\ figsize ndarray 制品 figsize </tr> </tr> flowchar 但我 </tr> 있고요 있고요 arton
+    ScrollVi UIButton 制品 Annual <turn|> {}". {}". {}". endregio tshirt 。, ScrollVi countert ``` 人在 วันที่
+    很快 hdr ScrollVi tableclo أت 일부터 only 是用 是用 흠 xmlns toprule seasonin FileNotF と思っています बह
+== caption-position lens, gemma: 500 captions, last-layer check 0.1614
+  mentions 1269 (238 hallucinated); top-1 at output: hall 0.94 correct 0.97
+  layer from which the object stays top-1: hall 38.6 correct 36.4; position-matched difference +2.04 [1.4086128219663472, 2.587923763543937]
+wrote /home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104/gemma-lens-summary.json

@@ -1,0 +1,19 @@
+{
+  "status": "verified_fp16_partial_chair",
+  "n": 47,
+  "counts_by_worker": {
+    "gpu3-grains-fp16-1793246562": 25,
+    "gpu2-shared-fp16-1793247038": 22
+  },
+  "max_generated_tokens_by_worker": {
+    "gpu3-grains-fp16-1793246562": 370,
+    "gpu2-shared-fp16-1793247038": 401
+  },
+  "all_references_images_original_hook_calls_and_fp16_models_verified": true,
+  "no_duplicate_images": true,
+  "same_512_token_cap": true,
+  "gpu2_allocator_fraction": 0.7,
+  "all_frozen_and_amendment_sources_unchanged": true,
+  "final_complete": false,
+  "checked_at": 1793247808.1463137
+}

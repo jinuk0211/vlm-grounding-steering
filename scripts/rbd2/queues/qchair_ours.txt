@@ -1,0 +1,10 @@
+# ours on test rows 60-500: s20a1bl1p05
+chair_test500 qchair_test500 s20a1bl1p05 60 110 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 110 160 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 160 210 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 210 260 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 260 310 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 310 360 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 360 410 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 410 460 --alpha 1 --layer 20 --lam 1 --pen 0.5
+chair_test500 qchair_test500 s20a1bl1p05 460 500 --alpha 1 --layer 20 --lam 1 --pen 0.5

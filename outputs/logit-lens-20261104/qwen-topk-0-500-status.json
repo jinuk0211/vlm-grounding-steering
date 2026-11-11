@@ -1,0 +1,23 @@
+{
+ "stage": "complete",
+ "pid": 957542,
+ "model": "qwen",
+ "mode": "topk",
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "argv": [
+  "scripts/logit_lens.py",
+  "topk",
+  "--model",
+  "qwen",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/logit-lens-20261104"
+ ],
+ "updated_at": 1793873765.0527332,
+ "n_layers": 28,
+ "nodes": 69,
+ "done": 491,
+ "sec_per_caption": 0.6695879447727242,
+ "last_layer_max_logp_err": 6.988644599914551e-06,
+ "max_gpu_gb": 16.468857765197754,
+ "records": 500
+}

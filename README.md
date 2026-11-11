@@ -1,0 +1,245 @@
+# TETHER 논문 실험: 코드와 결과 (final)
+
+`final.tex`(2026-11-11 16:46)의 표, 그림, 본문 수치를 만든 실험의 **코드와 결과만** 모은 브랜치입니다.
+`paper-code-results-20261109-draft3`에서 이 원고에 나오는 실험만 남겼고, 그 뒤에 원고에 들어온 실험을 더했습니다.
+추가한 실험은 Qwen2.5-VL TETHER 행, Gemma ablation 두 행, 그림 `fig:jacobian`입니다.
+이전 브랜치의 이력을 가져오지 않은 orphan 브랜치라서 커밋은 이 브랜치의 것만 있습니다.
+
+**넣은 기준:** 원고에 숫자, 표, 그림으로 나오는 실험만 넣었습니다. 다음은 넣지 않았습니다.
+
+- 설정을 고를 때 돌린 후보들
+- 60·120·150장 단위의 중간 실행
+- 원고에서 빠진 실험: HAT + ALOHa, AMBER 1,004장, 예전 Gemma ablation, THRONE 5,000장 확장, 초기 탐색 표 `tab:dev2` 등
+
+전체 목록은 맨 아래 「넣지 않은 것」에 있습니다.
+
+- 서버(`/home/project-b/LJW/vlm-grounding-steering`)의 파일은 서버와 같은 경로에 있고, draft3 브랜치의 파일을 바이트 그대로 가져왔습니다.
+  예외가 하나 있습니다. 큐 파일은 서버에서는 `outputs/rbd2-20261102/queues/`에 있지만 여기서는 `scripts/rbd2/queues/`에 있습니다.
+- vast.ai 박스에서 돌린 실험은 따로 두었습니다.
+  - `vast-tether-pilot/`: RTX 2080 Ti, Jacobian lens
+  - `vast-qwen-3080/`: RTX 3080, Qwen2.5 TETHER 행. 이 박스에는 서버와 같은 경로로 코드를 복제했습니다.
+- 결과 파일은 텍스트만 넣었습니다: 캡션(jsonl), 채점(json), THRONE 판정, 로그.
+  모델 가중치, 이미지, steering 벡터(`.pt`), 활성값 덤프(`.npz`), 50 MB가 넘는 파일은 넣지 않았습니다.
+- 원저자 코드와 채점기는 넣지 않았습니다. 고정한 버전은 맨 아래에 있습니다.
+  스크립트는 서버 경로, `.venv`, HF 캐시, GPU를 전제로 하므로 다른 머신에서는 그대로 돌아가지 않습니다.
+- 캡션에 나오는 이메일 주소는 COCO 사진의 워터마크를 모델이 옮겨 적은 것입니다.
+
+**이름과 약칭**
+
+- 방법 이름은 TETHER이지만 코드와 파일 이름에는 옛 이름 RBD가 남아 있습니다.
+  첫 번째 변형은 `rbd_*`이고, TETHER는 `vdd_decode.py`, `vdd4_decode.py`, `steer_vast/vdd_steer.py`입니다.
+- `R/` = `outputs/rbd2-20261102/`
+- 설정 태그 `s{L}a{α}bl{λ}p{π}` = `--layer L --alpha α --lam λ --pen π` (`p05`는 0.5). 각 태그의 인자는 `scripts/rbd2/queues/*.txt`에 있습니다.
+  - `cf_`: 색 단어를 뺀 V_obj
+  - `L16a3b1`: `--steer resid --layers 16 --alpha 3 --lam 1 --pen 0.5`
+
+## 원고와 결과가 다른 곳
+
+원고의 표와 본문 수치를 결과 파일과 맞춰 봤고, 아래 표의 항목을 빼면 일치합니다.
+
+- 이번에 다시 맞춰 본 표: `tab:hallucination_all_models`(모든 칸), `tab:ablation_study`, `tab:throne_full`(2-judge, xl, Tok 모든 칸),
+  `tab:gap`, `tab:position`과 부록 A.6, `tab:probe`, `tab:vti_pilot`, `tab:decay` 일부, 부록 B.4와 부록 C의 본문 수치
+- 감사 쪽 나머지 표(`tab:findings`, `tab:objtok`, `tab:steer`, `tab:lens_img`, `tab:lens_cap`, `tab:schedule`, `tab:cases`)는
+  11-09 draft3 점검 때 결과 파일과 일치했던 표이고, 이번에는 다시 보지 않았습니다.
+
+| # | 위치 | 원고 | 결과 파일 |
+|---|---|---|---|
+| 1 | `tab:hallucination_all_models` Qwen2.5 TETHER | 22.2 / 6.42 / 66.9 / 176 | 박스 실행 `L16a3b1`(L16, α 3, λ 1, π 0.5)이 212장까지 왔을 때의 값입니다. 그 시점 Tok은 166이었습니다. 500장 실행은 끝났고(평균 토큰 171.4), 500장 CHAIR 채점은 아직 없습니다(아래 「Qwen2.5 TETHER 행」 절). `vast-qwen-3080/na/qwen/L16a3b1-0-500.jsonl` |
+| 2 | 같은 행 | — | 같은 원고의 다른 TETHER Qwen2.5 결과와 설정이 다릅니다. dev 열, ablation Full, 사례 연구는 모두 `s16a2bl1p05`(L16, α 2)입니다. GPU도 다릅니다. 이 행은 RTX 3080, Base와 다른 행은 A5000·A6000이고, 같은 설정이라도 캡션이 달라집니다(장비 차이 약 1점) |
+| 3 | 결론 "at most 2.0 points less recall" | — | 1번 행으로 계산하면 Qwen2.5 recall은 69.8 → 66.9로 2.9점 낮습니다 |
+| 4 | `tab:hallucination_all_models` Qwen3 TETHER | CHAIR_s 37.0 | **41.8**입니다. 37.0은 class orange를 뺀 값입니다. CHAIR_i 7.44, recall 75.2, Tok 431은 맞습니다. `R/runs/qchair_test500_all/score.json`, `R/logs/qbl.log` |
+| 5 | 같은 표 Qwen3 RUDDER | 47.5 / 9.14 / 76.6 / 396 | **47.8 / 9.14 / 76.7 / 396**입니다. 47.5는 440장 중간값입니다. 그래서 5.2절의 "−1.7 to +3.0"은 −1.4 to +3.0입니다. `R/logs/qbl.log` |
+| 6 | 같은 표 Qwen3 REVIS | 테스트 52.2, dev 48.0 | 테스트 52.2는 자체 구현(`baselines.py`), dev 48.0은 공식 코드(`qwen3_bl.py revis_official`)입니다. 공식 코드의 테스트 값은 50.2 / 9.87 / 76.9 / 389입니다 |
+| 7 | 같은 표와 `tab:ablation_study`의 Qwen2.5 Base Tok | 205 | CHAIR 수치(30.4 / 8.40 / 69.8)는 TETHER 코드 경로 Base의 값이고, 이 Base의 Tok은 **189**입니다. 205는 BF16 eager Base(25.6 / 8.75 / 58.9)의 값입니다 |
+| 8 | 같은 표 dev 열 Qwen2.5 TETHER | recall 66.7 | **64.7**입니다. CHAIR_s 22.0, CHAIR_i 6.00, Tok 183은 맞습니다. `R/runs/chair_dev100_qwen_all/score.json`, `R/logs/cdev_table_qwen.tex` |
+| 9 | 같은 표의 백본 이름 | "Qwen3.5-VL-8B" | 실행한 모델은 Qwen3-VL-8B-Instruct(`0c351dd`)입니다 |
+| 10 | 같은 표 Qwen2.5 REVIS·RUDDER | — | BF16 eager 실행이라 일부 캡션에 ` addCriterion` 반복이 있습니다. REVIS 43개, RUDDER 74개, 같은 경로 Base 77개(각 500개 중)입니다. 비교 대상인 Base 30.4에는 없습니다 |
+| 11 | `tab:ablation_study` Qwen2.5 | −penalty 26.2 / 7.5 / 68.9, −belief 27.6 / 8.2 / 68.3 | **−penalty 28.2 / 7.5 / 68.9, −belief 29.6 / 8.2 / 69.3**입니다. `R/logs/abl_chair.log`. Full, −steering, Base의 CHAIR 값은 맞습니다 |
+| 12 | `tab:ablation_study` Gemma | Full 31.8 / 6.2 / 63.3 / 377, −steering 34.0 / 6.9 / 63.2 / 370 | 숫자는 맞습니다. 다만 출처는 no-anchor steering 탐색(L24, α 2 대 α 0, λ 0.5, π 0.25)이고, 본표의 Gemma TETHER `s24a1bl1p05`(λ 1, π 0.5)가 아닙니다. Base 행 36.2는 표의 bench Base입니다. 이 실행과 같은 코드 경로의 Base는 34.6 / 7.00 / 64.7 / 370입니다 |
+| 13 | 5.1절, `tab:throne_full` 캡션, 5.2절 | THRONE "5,000 images" | 표 숫자는 throne_full **rows 200–999, 800장**입니다. rows 0–199는 최종 설정 `cf_a3bl2p1`을 고르는 데 썼습니다. `R/logs/v4_{qwen,gemma}_t800_table.txt`, `R/logs/throne_xl_table.txt` |
+| 14 | 부록 B.2 | bootstrap 10,000회 | 모든 CI는 **2,000회**(seed 0)입니다 |
+| 15 | 4.5·4.6절 | "development images에서 짧게 탐색해 정함" | 표의 설정은 테스트 행에서 골랐습니다. Qwen2.5 `s16a2bl1p05`는 CHAIR 테스트 rows 0–149, `L16a3b1`은 같은 설정의 rows 0–199 결과(project-b A6000, 23.5)를 본 뒤 정했습니다. Gemma `s24a1bl1p05`와 Qwen3 `s20a1bl1p05`는 rows 0–59, THRONE `cf_a3bl2p1`은 THRONE rows 0–199, Gemma ablation의 L24 α 2는 rows 0–99의 탐색 결과입니다. Gemma THRONE 첫 번째 설정 `s24a1bl2p1`은 throne_full rows 4940–4999에서 골랐고, 이 행은 원고가 말하는 5,000장 안에 있습니다 |
+| 16 | 4.3절, 부록 B.3 | "schedule은 백본마다 한 번 측정" | Qwen3-VL은 Qwen2.5-VL의 r(t)를 썼습니다. 서버의 `qwen3-visual-decay-summary.json`이 Qwen2.5 파일의 복사본입니다 |
+| 17 | 부록 B.3 V_obj | — | THRONE의 TETHER `cf_a3bl2p1`은 색 단어 8개를 뺀 V_obj(`*-vobj2cf.json`, `vdd4_setup.py`)를 씁니다. 원고에는 이 설명이 없습니다 |
+| 18 | 그림 1 a5, 부록 A.8 Jacobian-lens | Qwen3 VL-8B; 0.963, 0.79, 0.73, 2.4 layers | 파일럿 모델은 **Qwen3.5-4B**입니다. 0.963은 `vast-tether-pilot/out/jlens/summary.json`(이미지 토큰, L24–25)에 있지만, 0.79, 0.73, "2.4 layers"는 출처가 없습니다 |
+| 19 | `fig:jacobian` 캡션 | "qwen-3-VL" | Qwen3.5-4B입니다. COCO 4038 이미지, 층 L29, top-100 뷰어 화면입니다 |
+| 20 | 부록 B.5 | Base 10.4 s/이미지 | 맞는 파일이 없습니다. CHAIR dev 100의 이미지당 시간은 bench Base 5.5 s, TETHER 코드 경로 Base(회색 행 포함) 10.3 s입니다(`elapsed_seconds`) |
+| 21 | 초록, 서론, 기여 | Object HalBench | 결과가 없습니다. 11-02에 뺐습니다. 공식 채점기가 서비스 종료된 gpt-3.5-turbo-0613로 객체를 추출하기 때문입니다 |
+| 22 | 기여 "and VCD" | — | VCD CHAIR 500(Qwen2.5, Gemma) 결과는 있지만 원고에 표가 없습니다. 아래 「VCD」 절을 보세요 |
+| 23 | 참조만 있고 원고에 없는 것 | `tab:dev2`, `tab:dev`, `tab:ranking`, `sec:dev_pilot`, `sec:early`, `sec:reaudit`, `sec:limitations`, `app:splits` | `tab:ranking`의 수치는 부록 A.8 본문에 있고 출처도 있습니다(아래). `tab:dev`(첫 번째 변형 dev)는 부록 B.4 본문 수치의 출처를 넣었습니다. `tab:dev2`(초기 탐색)는 넣지 않았습니다 |
+
+## 3장, 부록 A: 감사
+
+| 원고 | 코드 | 결과 |
+|---|---|---|
+| `tab:gap`, 그림 1 a1 (자기 검증) | `scripts/caption_selfcheck.py` → `caption_selfcheck_analyze.py` | `outputs/caption-selfcheck-20261030/{qwen,gemma}-base-analysis.json`, 객체별 `*-base-rows.jsonl` |
+| 3.1절과 부록 A.4 POPE (0.940 / 0.916 vs probe 0.880 / 0.859, FN 13/379, 17/303) | `read_gap_collect.py`, `read_gap_collect_v2.py` → `read_gap_analyze*.py`, `read_gap_complement.py` | `outputs/read-gap-e0-20261030/analysis-*.json` |
+| `tab:position`, 부록 A.6 (회귀 계수, 언급 순서, 중앙 위치) | `outputs/audit-recheck-20261105/audit_recheck.py`; 보조 `scripts/audit_inline/hall_share_by_position.sh` | `outputs/audit-recheck-20261105/{qwen,gemma}.json`, `inline/hall_share_by_position.out.txt` |
+| `tab:findings`, `tab:decay`, 그림 1 a3, 부록 A.1 teacher forcing 재현율 (93.7 / 84.9 / 98.5%), A.2 (key blocking 0.81 / 0.72, logit-lens 기여 0.92 / 1.65, Gemma sliding window 35.5%), A.10 rollout | `scripts/visual_decay_run.sh` (`visual_decay_collect.py` → `visual_decay_analyze.py` → `visual_decay_plot.py`) | `outputs/visual-decay-20261030/*-visual-decay-summary.json` (`teacher_forced_greedy_reproduction`, `rollout_absorbing_image`, `window_limited_layers`), `visual_decay_report.html` |
+| grad×input (`tab:findings`, `tab:objtok` 위, A.2의 0.70→0.18, A.4의 0.753 / 0.749 / 0.807 / 0.711) | `visual_reliance.py` → `reliance_analyze.py`, `reliance_analyze_v2.py` | `outputs/visual-reliance-20261030/qwen-reliance-summary.json` |
+| `tab:objtok` 아래 (e_t, 전체·첫·반복 언급), 부록 A.7 공출현 (AUROC 0.73 / 0.68) | `outputs/audit-recheck-20261105/audit_recheck2.py` | `{qwen,gemma}-2.json` |
+| 3.4절 순위 AUROC (e_t 0.55 / 0.51, log p 0.64 / 0.67), 부록 A.8 "Ranking intervals" | `audit_recheck.py`, `audit_recheck3.py`; lens 행은 `scripts/logit_lens.py` | `{qwen,gemma}.json`, `{qwen,gemma}-3.json`, `outputs/logit-lens-20261104/*-lens-summary.json` |
+| 부록 A.3 attention (0.64 / 0.55, 모양 0.49–0.52, head L21–24) | `scripts/verify_probe_attn.py` | `outputs/query-anchor-step0-20261030/*-attn-summary.json` |
+| `tab:probe`, 기준선 0.74 / 0.69 | `outputs/audit-recheck-20261105/probe_foldwise.py` (probe 학습 `verify_probe_collect.py` → `verify_probe_analyze.py`) | `{qwen,gemma}-probe-foldwise.json`, `outputs/verify-probe-20261030/*-probe-summary.json` |
+| `tab:steer` 위 세 행, `tab:findings` 개입 행, 부록 A.5 선택성 차이와 CI, attention boost β = 3 | `scripts/verify_probe_e1.py` | `outputs/verify-probe-20261030/*-e1-summary.json` |
+| `tab:lens_img` 위쪽 (AUROC, 같은 물체 안, 공출현 맞춤) | `scripts/logit_lens.py image/analyze`; 인라인 `audit_inline/lens_image_layers_qwen.sh`, `lens_gemma_image_caption.sh` | `outputs/logit-lens-20261104/{qwen,gemma}-lens-summary.json`, `outputs/audit-recheck-20261105/inline/*.out.txt` |
+| `tab:lens_img` "Word in top-5 of a patch" (마지막 층, L21) | 인라인 `audit_inline/lens_word_top5.sh` (`logit_lens.py image`가 저장한 top-5에서 계산) | `inline/lens_word_top5.out.txt` |
+| `tab:lens_cap`, 부록 A.8 고정 거리 차이와 CI | `scripts/logit_lens.py topk/topk-analyze` (`outputs/logit-lens-20261104/run_topk.sh`); 인라인 `audit_inline/lens_top100_distance_position.sh`; CI는 `audit_recheck3.py` | `*-topk-summary.json`, `inline/lens_top100_distance_position.out.txt`, `{qwen,gemma}-3.json` |
+| 부록 A.8 "Writing step" (L26 −13.3, L27 −14.0, Gemma L34 −34.0, L38 −14.5) | 인라인 `audit_inline/lens_writing_step.sh` | `inline/lens_writing_step.out.txt` |
+| 부록 A.8 hidden band top-1 (보조) | 인라인 `audit_inline/lens_hidden_band_top1.sh` | `inline/lens_hidden_band_top1.out.txt` |
+| 부록 A.1 addCriterion 77개 제외 | `audit_recheck3.py`; 인라인 `audit_inline/addcriterion_exclusion.sh` | `{qwen,gemma}-3.json`, `inline/addcriterion_exclusion.out.txt` |
+| 그림 1 a5, 부록 A.8 Jacobian-lens (Qwen3.5-4B, 100장) | `vast-tether-pilot/out/jlens_run.sh` → `pilot/jlens_probe.py`(`common.py`, `tests/test_jlens_probe.py`) → `pilot/jlens_summary.py`(`stats.py`); 층별 단어 분류 `pilot/jlens_layers.py` | `vast-tether-pilot/out/jlens/summary.json`, `layers.json` |
+| `fig:jacobian` (부록 B.4에 있는 그림) | 캡션 생성과 전 위치 lens `out/jlens_pos_run.sh` → `pilot/jlens_positions.py`; 같은 캡션의 top-100 `out/jlens_pos100_run.sh` → `pilot/jlens_positions_top100.py`; 뷰어용 내보내기 `out/jl_export.py` → `vast-tether-pilot/viewer/` | `out/jlens_pos/objects.json`, `out/jlens_pos100/objects.json`, 그림의 이미지 4038 데이터 `viewer/data/4038.js` |
+
+`scripts/audit_inline/`의 8개는 감사 세션이 11-05에 ssh로 서버에 보낸 명령입니다. 세션 기록에서 그대로 옮겼고, 로컬 ssh 래퍼 한 줄만 뺐습니다.
+출력은 그때 화면에 찍힌 그대로입니다. import되는 보조 모듈도 들어 있습니다: `verified_decoding_v2.py`, `verified_decoding_v3.py`, `read_gap_analyze_v3.py`, `read_gap_collect_v2.py`, `open_vocab.py`.
+
+`vast-tether-pilot/`는 박스의 `/workspace/tether-pilot` 가운데 이 두 실행에 필요한 부분입니다. 렌즈 `lens_qwen35_4b_final.pt`, `probe.npz`,
+위치별 `.npz`(jlens_pos 507 MB, jlens_pos100 1.1 GB), COCO 이미지는 넣지 않았습니다. 뷰어(`viewer/index.html`)는 `fig:jacobian`의 이미지 4038만 열립니다.
+`viewer/README.md`의 박스 주소는 지웠습니다.
+
+## 4장, 부록 B: TETHER
+
+| 원고 | 코드 | 결과 |
+|---|---|---|
+| r(t), `tab:schedule`, 4.2절 가중치 (96%, 35%, 24%) | `scripts/rbd_common.py`의 `r_curve`: `tab:decay`의 gray KL을 첫 구간 1로 정규화하고 구간 중심 사이를 선형 보간 | 감사와 같은 `*-visual-decay-summary.json` |
+| V_obj (부록 B.3) | `scripts/rbd_collect.py`; 색 단어를 뺀 판 `scripts/rbd2/vdd4_setup.py` | `outputs/rbd-20261030/collect/{qwen,gemma}-vobj2.json`, `*-vobj2cf.json` |
+| 디코더 (그림 `fig:rbd_algo`, 식 `eq:steer`·`eq:correction`) | `scripts/rbd2/vdd_decode.py`. V_obj 파일을 바꿀 수 있는 판은 `vdd4_decode.py`(THRONE, Qwen2.5 ablation)입니다. 단계별 steering 변형을 더한 판은 `scripts/steer_vast/vdd_steer.py`(Qwen2.5 본표 행, Gemma ablation)입니다. 이 판에서 식 `eq:steer`에 해당하는 것은 `--steer resid`이고, 같은 GPU에서 저장된 `vdd_decode.py` 행을 재현하는지 확인했습니다(Gemma 2행, Qwen3 2행) | — |
+| 부록 B.4 첫 번째 변형, dev 결과 (λ ∈ {0.03, 0.05, 0.1, 0.3, 1}, measured vs constant r 46.7 vs 52.4, uniform, mode steering) | `make_probe_set.py` → `make_dev_chair.py`, `rbd_dvec.py`, `rbd_decode.py`(`rbd_common.py`), 채점 `score_dev.py` | `outputs/rbd-20261030/dev/` (표는 `score-qwen/dev-score.json`) |
+| 부록 B.4 파일럿 (CHAIR 테스트 처음 100장 30.0→18.0, uniform 18.0, recall 58.2 vs 53.7; AMBER 1–100 Cover −5.2 ~ −7.6) | `rbd_decode.py`(λ 0.1), RTX 2080 Ti | `results/rbd_20261101/` |
+
+## 5장: 실험
+
+### `tab:hallucination_all_models` 왼쪽: CHAIR 500
+
+| 행 | 코드 | 결과 |
+|---|---|---|
+| Qwen2.5 REVIS†, RUDDER (BF16 eager), GrAInS (FP16) | `run_qwen_five_profile_suite.py` → `run_qwen_five_profile_worker.py`, 채점 `audit_qwen_five_profile_suite.py`, 방향 `fit_qwen_retained.py`, `extract_qwen_author_grains.py`, 원저자 함수 연결 `author_clone_bridge.py`·`qwen_author_compat.py`; GrAInS `run_qwen_grains_extra_workers.py`, `run_qwen_fp16_stable_workers.py` | `outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/original-vti-gpu1-final/chair/*.chair.official.json`, `metrics.csv` |
+| Qwen2.5 VTI (공백 정규화 데모) | `scripts/rbd2/vti_fix.py`, `vti_chair.sh` → `vti_ws_run.py` | `R/runs/chair_test500_vtiws/`, 데모 `R/vti_fix/` |
+| Qwen2.5 Base (TETHER 코드 경로) | 세트 `pb_make500.py`; rows 0–149 `pb_worker.sh`·`pb_ext.sh`·`pb_pool.sh` → `pb_join150.py`, rows 150–499 `pb_run500*.sh` → `pb_join500.py` → `pb_score500.sh`/`score_sets.py` | `R/runs/chair_test500_all/score.json` |
+| **Qwen2.5 TETHER `L16a3b1`** | `vast-qwen-3080/na_run.sh` → `scripts/steer_vast/vdd_steer.py` (`--steer resid --layers 16 --alpha 3 --lam 1 --pen 0.5`, sdpa, RTX 3080) | `vast-qwen-3080/na/qwen/L16a3b1-0-500.jsonl`; 채점은 아래 절 |
+| Gemma Base, REVIS†, RUDDER, VTI† (BF16) | `run_author_clone_suite.py` → `continue_author_clone_suite.py` → `continue_gpu23_suite.py`, 채점 `audit_author_clone_suite.py`; REVIS와 VTI는 `src/vlm_grounding/baselines.py` | `outputs/author-clone-rerun-20261027-165446/bf16-full500-20261029-125744/bf16_common/*.chair.official.json` |
+| Gemma GrAInS (FP16) | `extract_author_grains.py`, `run_gemma_grains_fp16_v2.py` → `grains_fp16_worker_v2.py`, 채점 `audit_five_profile_suite_v2.py` | `outputs/gemma-grains-fp16-v2-20261029-1793246507/chair/` |
+| Gemma TETHER `s24a1bl1p05` | `scripts/rbd2/gchair3.sh` (+ `gchair_pool.sh`, `gchair_collect.py`, `gchair_pick.py`, `gchair_join.py`, `score_sets.py`) | Gemma 행 전부를 같은 이미지로 다시 채점한 `R/runs/gchair_test500_tbl/score.json`, 캡션 `R/runs/gchair_test500_all/` |
+| Qwen3 Base, TETHER `s20a1bl1p05` | `qchair3.sh` + `qchair_pool.sh`, `qchair_collect.py` | `R/runs/qchair_test500_all/score.json` |
+| Qwen3 RUDDER, REVIS†(자체), VTI | `qwen3_bench.py`, `qwen3_run_baselines.sh`, `run_vti_gpu23.sh`, 보고 `analysis/qchair_report.py` | `R/runs/qchair_test500_tbl/` |
+| Qwen3 GrAInS, 공식 REVIS(dev 열에 사용) | `qbl_chain.sh`: `extract_qwen3_grains.py`(FP32) → `qwen3_bl.py`(FP16 eager); `qbl_revis.sh` → `revis_official_q3.py`; 보고 `analysis/qbl_report.py` | `R/runs/qchair_bl2/`, 표 `R/logs/qbl.log` |
+
+### Qwen2.5 TETHER 행 (`L16a3b1`, RTX 3080)
+
+vast.ai RTX 3080 박스에 서버와 같은 경로로 코드와 데이터를 복제해서 500장을 한 번에 돌렸습니다.
+복제한 것은 `src`, `scripts`, chair_test500 세트와 이미지, gray448, V_obj, visual-decay 요약입니다.
+환경은 torch 2.8.0+cu128, transformers 5.20.2(서버 `.venv`와 같은 버전), Qwen2.5-VL-7B-Instruct `cc59489`입니다.
+
+- 실행: `vast-qwen-3080/na_run.sh L16a3b1 0 500 --steer resid --layers 16 --alpha 3 --lam 1 --pen 0.5` → `scripts/steer_vast/vdd_steer.py`.
+  2026-11-11 06:53–08:17 UTC에 돌렸고, 전체 인자는 `L16a3b1-0-500-status.json`에 있습니다.
+- 결과: `vast-qwen-3080/na/qwen/L16a3b1-0-500.jsonl`(500행), `-status.json`, `.log`, `vast-qwen-3080/logs/na.log`
+- 평균 생성 토큰은 500장 171.4, 처음 212장 166.3입니다. 원고의 Tok 176은 둘 다와 다릅니다.
+- **500장 CHAIR 채점은 아직 이 브랜치에 없습니다.** 원고의 22.2 / 6.42 / 66.9는 다른 세션이 212장 시점에 서버 채점기(`na_vs.py`)로 낸 값입니다.
+  CHAIR 채점기 포트가 `nltk`와 `pattern`을 써서 서버에서 채점해야 합니다.
+- 같은 설정의 rows 0–199를 서버 A6000에서 먼저 돌렸고(CHAIR_s 23.5), 그 결과를 보고 이 설정을 정했습니다. 이 0–199행 실행은 넣지 않았습니다.
+
+### `tab:hallucination_all_models` 오른쪽: CHAIR dev 100
+
+`scripts/rbd2/cdev_chain.sh` + `cdev_prep.py`는 Base, RUDDER, GrAInS, VTI, TETHER(각 백본의 표 설정)를 세 백본에서 돌리고, `score_chair100.py`로 채점합니다.
+REVIS는 `after_v7.sh` 1단계(`hat_pool.sh`가 큐 `queues/chair_dev100_revis.txt`를 처리) 뒤 `cdev_prep.py score`로 채점했습니다. Qwen2.5와 Gemma는 자체 구현이고, Qwen3는 공식 코드입니다.
+
+- 결과: `R/runs/chair_dev100_{qwen,qwen3,gemma}_all/score.json`
+- 표 셀: `R/logs/cdev_table_{qwen,qwen3,gemma}.tex`. 원고와 모든 칸이 같습니다.
+- 로그: `R/logs/cdev.log`
+- `_vdd` 폴더: TETHER 코드 경로 Base를 기준으로 한 채점입니다(주석 처리된 "Base, TETHER code path" 행).
+
+`hat_pool.sh`는 HAT 실험의 작업자 스크립트인데, dev REVIS 행도 이것으로 돌렸기 때문에 넣었습니다.
+
+### `tab:ablation_study`
+
+**Qwen2.5**
+
+- 코드: `abl_chain.sh` + `abl_prep.py` (`vdd4_decode.py`, `queues/abl_chair.txt`). 전체 TETHER `s16a2bl1p05`에서 한 요소씩 뺀 변형입니다.
+- 결과: `R/runs/chair_abl500_all/score.json`(vdd Base 대비 CI), `R/runs/chair_abl500_vsfull/score.json`(Full 대비 CI), `R/logs/abl_chair.log`
+- 5.1절 Controls 문단이 정의한 belief only 27.0 / 7.3 / 68.4, penalty only 29.8 / 8.0 / 69.8, steering only 31.6 / 8.3 / 69.8, constant schedule 27.0 / 7.7 / 68.3도 같은 파일에 있습니다.
+  표에는 이 네 행이 없습니다.
+
+**Gemma**
+
+원고의 Gemma 두 행은 서버의 no-anchor steering 탐색(`outputs/steer-noanchor-20261110/gemma/`)에서 나온 500장 결과입니다.
+
+- Full = `L24a2`: `--lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2` → 31.8 / 6.21 / 63.3 / 377
+- −steering = `ns`: 같은 belief, α 0 → 34.0 / 6.89 / 63.2 / 370
+- 디코더는 `scripts/steer_vast/vdd_steer.py`입니다. 이 브랜치의 파일은 11-11 15:11 수정본이고, 두 실행은 그보다 먼저 돌았습니다.
+- **캡션과 실행·채점 스크립트(`pool.sh`, `queue.txt`, `na_score.py`, `na_vs.py`, `PROTOCOL.md`)는 서버에만 있어서 아직 이 브랜치에 없습니다.**
+
+### `tab:throne_full`
+
+| 단계 | 코드 | 결과 |
+|---|---|---|
+| 세트, 이미지 | `pb_make_throne_full.py`, `pb_get_throne_images.py` | `R/sets/throne_full.jsonl`(5,000장 순서), `throne_full1000.jsonl`, 표의 800장 `throne_t800.jsonl` |
+| Qwen2.5 Base, RUDDER, GrAInS, VTI‖(원래 데모), REVIS(Base와 1,000/1,000 같은 캡션이라 표에서 뺌) | `pb_bl_chain.sh` → `pb_bl_pool.sh` → `baseline_bench.py` → `pb_bl_join.py`/`pb_bl_full_join.py` → `pb_bl_full_score.sh` | `R/runs/throne_full1000/` (캡션, `eval/*/` 판정) |
+| Gemma Base, REVIS†, RUDDER, GrAInS, VTI†, "TETHER, first try." `s24a1bl2p1` | `gemma_chain.sh`(선택 `gemma_pick.py`) → `gemma_pool.sh`, `gemma_bench.py`, `gemma_ours_fix.sh`, `gemma_split.sh`, `gemma_join.py`, 판정 `gemma_bl_judge.sh` | `R/runs/gemma_throne1000/` |
+| TETHER `cf_a3bl2p1` (두 백본) | `vdd4_setup.py`(V_obj) → `vdd4_chain.sh` → `vdd4_prep.py`·`vdd4_pool.sh`·`vdd4_decode.py`, `vdd4_qwen_resume.sh`, 채점 `vdd4_score.py` | `R/runs/{qwen,gemma}_cf_test_all/`, 표 `R/logs/v4_{qwen,gemma}_t800_table.txt` (원고의 2-judge 열과 같음) |
+| 판정 (Flan-T5 base, large, 임계값 6) | `pb_throne_judge.py`(`RBD2_JUDGES`), `score_throne.py`, `pb_throne_partial.py` | `R/diag/*_2judges/` (공식 채점기에 넣은 base·large 판정) |
+| xl 열 (base, large, xl, 임계값 9) | `after_v7.sh` 2단계 `xl_pool.sh` → `xl_judge.py` → `xl_score.py` | `R/runs/*/eval/*/combined/*flan-t5-xl.json`, 표 `R/logs/throne_xl_table.txt` |
+| ALL, CLS 지표 | `analysis/throne_all_metrics.sh`, `throne_official_scorer.sh`(공식 `throne_score_aqa.py`), `throne_classwise_ci.sh` | 표에 직접 |
+
+`v4_qwen_t800_table.txt`와 `throne_xl_table.txt`에는 Qwen2.5의 첫 번째 설정 `s16a1bl2p1` 행이 있습니다. 원고에서 이 행은 주석 처리되어 있어서 캡션은 넣지 않았습니다.
+
+### VCD
+
+기여 문단의 "and VCD"에 해당하는 실행입니다. VCD를 CHAIR 500에서 Qwen2.5와 Gemma로 돌렸고, Qwen3은 사용자 지시로 중단했습니다.
+설정은 공식 VCD 식(`d6568ff`), α 1, β 0.1, noise step 500, greedy이고, `vdd_decode.py`와 같은 lockstep 경로를 씁니다.
+
+- 코드: `scripts/rbd2/cdm_decode.py`(VCD, M3ID), `cdm_check.py`, `cdm_diag.py`, `cdm_pool.sh`, `cdm_chain.sh`, `cdm_join.py`
+- **캡션과 채점 결과(`outputs/cdm-20261109/`)는 서버에만 있어서 아직 이 브랜치에 없습니다.** 원고에도 VCD 표가 없습니다.
+  같이 돌린 M3ID는 원고에 없어서 넣지 않습니다.
+
+## 부록 C, D
+
+| 원고 | 코드 | 결과 |
+|---|---|---|
+| `tab:baseline_config` | `src/vlm_grounding/baselines.py`(REVIS, Gemma VTI), `scripts/author_clone_bridge.py`, `qwen_author_compat.py`, `scripts/rbd2/vti_fix.py` | — |
+| REVIS: 처음 50장 중 46장, CHAIR 500장 중 420장, THRONE 전부가 Base와 같은 캡션 | — (파일 비교로 확인) | `outputs/qwen-vti-alpha-sweep-20261030/score-pilot-chair50/{base,revis}.captions.json`, `outputs/qwen25-vl7b-fiveprofiles-*/original-vti-gpu1-final/chair/{base,revis}.jsonl`, `R/runs/throne_full1000/{base,revis}-0-1000.jsonl` |
+| `tab:vti_pilot` (VTI 강도, 처음 50장) | α 0.9: `prepare_original_vti.py`, `run_qwen_original_vti.py`, `qwen_vti_chair_*.py`; α 0.45·0.225: `qwen_vti_alpha_sweep.py` → `score_vti_alpha_sweep.py` | `outputs/qwen-vti-alpha-sweep-20261030/score-pilot-chair50/score.json` (α 0.9의 500장 캡션은 `original-vti-gpu1-final/chair/vti_author.jsonl`) |
+| VTI 데모 줄바꿈 88/100 vs 19/100, logit lens L24–28 | `scripts/rbd2/vti_fix.py` | `R/vti_fix/`, `R/logs/vti_fix.log` |
+| VTI dev 7점 grid ("recall을 Base −2 안에 둔 강도 없음") | `scripts/rbd2/vti_chair.sh` | `R/runs/chair_dev60_vtiws/`, `R/logs/vti_chair_dev.log`, 테스트 `R/logs/vti_chair_test.log` |
+| `tab:cases`, 사례 1–4 | `scripts/rbd2/analysis/case_study_extract.sh` (같은 CHAIR scorer로 방법별 객체 추출); Yes-No margin은 `outputs/caption-selfcheck-20261030/qwen-base-rows.jsonl` | 위 CHAIR 500 캡션 (TETHER = `R/runs/chair_test500_all/s16a2bl1p05-0-500.jsonl`) |
+| `fig:case_examples` (그림 3장) | — | 그림 파일과 이미지 ID가 이 PC에 없어서 출처를 확인하지 못했습니다(원고에도 TODO) |
+
+## 결과가 없는 항목
+
+- 부록 A.9의 초반 증거 테스트와 `tab:steer`의 TETHER 두 행: 원고에도 pending이고, 코드와 결과가 없습니다.
+- 재감사(`sec:reaudit`): 원고에서 빠졌고, 결과가 없습니다.
+- Object HalBench: 위 표의 21번을 보세요.
+
+## 넣지 않은 것
+
+- **원고에 없는 실험:** HAT + ALOHa(v7, 집계 수정 포함), AMBER 생성형 1,004장, 예전 Gemma CHAIR ablation(`gabl`), THRONE 5,000장 확장(`t4k`, 진행 중이며 표에 숫자 없음),
+  self-verification 디코딩, MMVP, MMHal-Bench, five-profile POPE, AMBER vdd3, Qwen3 탐색 `rbd5`·`rbd6`, Gemma CHAIR 재선택 `gchair2`, VTI-ws THRONE 100장,
+  anchor steering(`full_an16_r03`)과 그 ablation, VCD와 같이 돌린 M3ID, HAT 파일럿, recall 분석, 진단 스크립트(`diag_*`, `pb_diag_*`)
+- **초기 탐색과 설정 선택용 실행:**
+  - 두 번째 변형의 초기 탐색: 원고의 `tab:dev2`. 원고에 표가 없고, 클라우드 박스 `scripts/rbd2/cloud_dev/`와 `R/runs/chair_dev60/`, `amber_dev60/`에 있었습니다.
+  - CHAIR 테스트 60·120·150장 sweep, Gemma와 Qwen3의 rows 0–59 후보, THRONE rows 0–199 후보(`*_cf_t200_all`), Gemma THRONE dev60 후보
+  - Gemma CHAIR의 첫 테스트 설정 `s24a2bl1p05`, no-anchor steering 탐색의 다른 후보
+  - 이 실행들은 이전 브랜치 `paper-code-results-20261109-draft3`과 서버에 남아 있습니다.
+- **원고에서 주석 처리된 행:** THRONE Qwen2.5 첫 번째 설정 `s16a1bl2p1`의 캡션과 판정(rows 0–999)
+- **중간 산출물:** 부분 실행 폴더, 스모크 테스트, 원래 VTI 실행 폴더의 샤드·장애 기록. 원래 VTI 실행 폴더에서는 `protocol.json`, `demo-manifest.json`만 남겼습니다.
+- **첫 번째 변형 dev의 기타 결과:** Gemma, dev 베이스라인, 부분 채점 폴더
+- **코드:** 위 실험의 스크립트(`hat_*`, `pb_amber_*`, `gabl_*`, `t4k_*`, `vdd7_decode.py`, `cloud_dev/`, `sweep_decode.py`, `rbd_offline.py`, orange 분석 등)와 그 큐.
+  `pb_worker.sh`의 sweep 모드는 빠진 `sweep_decode.py`를 부릅니다.
+
+옛 베이스라인 파이프라인(Gemma 5방법, Qwen five-profile)은 실행할 때 서로의 소스 해시를 검사합니다. 그래서 그 검사 목록에 있는 스크립트는 모두 남겼습니다.
+
+## 원저자 코드와 채점기 (넣지 않음)
+
+| 이름 | 고정 버전 |
+|---|---|
+| RUDDER | Akko000/RUDDER-Residual-Update-Directed-DEcoding-Regulation- `bd149d8` |
+| GrAInS | duykhuongnguyen/GrAInS `8ad78db` |
+| VTI | shengliu66/VTI `bb5dfee` |
+| REVIS (공식, Qwen3 dev 행) | antgroup/Revis `75f4d29` |
+| VCD | DAMO-NLP-SG/VCD `d6568ff` |
+| Jacobian lens | 박스의 `tools/jacobian-lens`, 렌즈 `JLensVL-lenses/lens_qwen35_4b_final.pt` |
+| CHAIR | Python 3 포트 `4087a26` (서버 `upstream/chair/chair.py`, sha256 `98728cd2…`) |
+| THRONE | amazon-science/THRONE `45badbb7` (one-click.sh 2–3단계) |
+| AMBER (첫 번째 변형 파일럿만) | 공식 생성형 평가 (`inference.py`, spaCy `en_core_web_lg`) |
+
+모델 revision: Qwen2.5-VL-7B-Instruct `cc59489`, Gemma 4 E4B-it `ee0ef60`, Qwen3-VL-8B-Instruct `0c351dd` (`configs/*.json`), Qwen3.5-4B(Jacobian lens 파일럿).

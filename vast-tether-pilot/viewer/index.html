@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J-lens top-100 viewer</title>
+<!-- Local, serverless viewer for out/jlens_pos100 (Qwen3.5-4B, 100 COCO pilot images, Jacobian lens vs logit lens,
+     31 layers, top 100 at every position). Data: data/<id>.js (built by jl_export.py on the vast box), index.js, vocab.js.
+     Readout at position p = the lens applied to the residual at p = prediction for the token at p + 1. -->
+<style>
+  :root {
+    --bg: #f5f6f8; --panel: #ffffff; --ink: #1d2733; --mut: #5f6b7a; --faint: #8f98a3; --line: #dde2e8; --soft: #eef1f4;
+    --acc: #1c6fb5; --hall: #d9661f; --corr: #1c78b8; --ok: #0f7b5a; --trk: #7a4fb5; --selc: #e7a600;
+    --wbg: rgba(15, 123, 90, .17); --tbg: rgba(122, 79, 181, .22); --colsel: rgba(231, 166, 0, .10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12161b; --panel: #1a1f26; --ink: #e2e7ed; --mut: #9aa5b1; --faint: #6f7a86; --line: #2b323b; --soft: #222931;
+      --acc: #5aa2e6; --hall: #f08a4b; --corr: #5aa2e6; --ok: #3cbf90; --trk: #b493ea; --selc: #e2b13a;
+      --wbg: rgba(60, 191, 144, .20); --tbg: rgba(180, 147, 234, .25); --colsel: rgba(226, 177, 58, .10);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: grid; grid-template-columns: 300px minmax(0, 1fr) 350px; grid-template-rows: auto minmax(0, 1fr);
+    background: var(--bg); color: var(--ink); font: 12px/1.4 system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  }
+  .mono, .tok { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+  button, select, input { font: inherit; color: inherit; }
+  header {
+    grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; padding: 7px 12px;
+    background: var(--panel); border-bottom: 1px solid var(--line);
+  }
+  header h1 { font-size: 14px; margin: 0 6px 0 0; white-space: nowrap; }
+  header h1 span { color: var(--mut); font-weight: 400; }
+  .grp { display: flex; align-items: center; gap: 6px; }
+  .grp > label { color: var(--mut); }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .seg button { border: 0; background: transparent; padding: 4px 10px; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button.on { background: var(--ink); color: var(--panel); }
+  select, input[type=text] { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; }
+  input[type=text] { width: 150px; }
+  .btn { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 3px 8px; cursor: pointer; }
+  .btn:hover, .seg button:hover:not(.on) { background: var(--soft); }
+  #status { margin-left: auto; color: var(--mut); white-space: nowrap; }
+  #left, #right { overflow: auto; background: var(--panel); padding: 10px 12px 16px; min-height: 0; }
+  #left { border-right: 1px solid var(--line); }
+  #right { border-left: 1px solid var(--line); }
+  h3 { font-size: 12px; margin: 14px 0 6px; color: var(--mut); text-transform: uppercase; letter-spacing: .04em; }
+  h3:first-child { margin-top: 0; }
+  .imgnav { display: flex; gap: 6px; align-items: center; }
+  .imgnav select { flex: 1; min-width: 0; }
+  #imgwrap { position: relative; width: 276px; height: 276px; margin-top: 8px; border-radius: 4px; overflow: hidden; background: var(--soft); }
+  #imgwrap img, #imgwrap canvas { position: absolute; inset: 0; width: 276px; height: 276px; }
+  #imgwrap canvas { cursor: crosshair; }
+  .row { display: flex; align-items: center; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+  .row label { color: var(--mut); }
+  input[type=range] { flex: 1; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip { border: 1px solid var(--line); border-radius: 10px; padding: 1px 8px; cursor: pointer; background: var(--panel); }
+  .chip:hover { background: var(--soft); }
+  .chip.on { border-color: var(--trk); color: var(--trk); font-weight: 600; }
+  .ment { display: grid; grid-template-columns: 1fr auto auto; gap: 2px 8px; }
+  .ment div { padding: 2px 4px; border-radius: 4px; cursor: pointer; }
+  .ment .m { display: contents; }
+  .ment .m:hover div { background: var(--soft); }
+  .ment .m.sel div { background: var(--colsel); }
+  .tag { font-size: 10.5px; font-weight: 700; }
+  .tag.h { color: var(--hall); } .tag.c { color: var(--corr); }
+  .note { color: var(--mut); font-size: 11px; margin-top: 6px; }
+  #center { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+  #cap {
+    position: relative; max-height: 320px; overflow: auto; padding: 6px 8px; background: var(--bg);
+    border: 1px solid var(--line); border-radius: 6px; white-space: pre-wrap; font-size: 12px; line-height: 1.55;
+  }
+  #cap .tk { cursor: pointer; border-radius: 3px; }
+  #cap .tk:hover { background: var(--soft); }
+  #cap .tk.mc { text-decoration: underline 2px var(--corr); text-underline-offset: 3px; }
+  #cap .tk.mh { text-decoration: underline 2px var(--hall); text-underline-offset: 3px; }
+  #cap .tk.sel { background: var(--selc); color: #1d2733; }
+  #cap .pchip { display: inline-block; font-size: 11px; color: var(--mut); border: 1px dashed var(--line); border-radius: 4px; padding: 0 5px; margin-right: 4px; cursor: pointer; }
+  #cap .pchip.sel { border-color: var(--selc); color: var(--ink); }
+  #cap .ptk { color: var(--faint); }
+  #heatbox { background: var(--panel); border-bottom: 1px solid var(--line); padding: 6px 12px 4px; flex: none; position: relative; }
+  #heatbox .hl { display: flex; align-items: center; gap: 12px; color: var(--mut); font-size: 11px; margin-bottom: 3px; flex-wrap: wrap; }
+  .legend { display: inline-flex; align-items: center; gap: 4px; }
+  .legend i { display: inline-block; width: 70px; height: 8px; border-radius: 2px; }
+  .legend b { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-left: 6px; }
+  canvas.heat { display: block; width: 100%; cursor: crosshair; }
+  #tip {
+    position: fixed; pointer-events: none; z-index: 20; background: var(--ink); color: var(--panel); border-radius: 5px;
+    padding: 5px 8px; font-size: 11.5px; line-height: 1.35; max-width: 360px; display: none; white-space: pre-wrap;
+  }
+  #tabs { display: flex; gap: 4px; padding: 8px 12px 0; align-items: center; flex: none; }
+  #tabs .tab { border: 1px solid var(--line); border-bottom: 0; border-radius: 6px 6px 0 0; padding: 4px 12px; cursor: pointer; background: var(--bg); }
+  #tabs .tab.on { background: var(--panel); font-weight: 600; }
+  #tabs .info { margin-left: auto; color: var(--mut); }
+  #main { flex: 1; overflow: auto; margin: 0 12px 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 0 6px 6px 6px; min-height: 0; }
+  table.t { border-collapse: separate; border-spacing: 0; font: 11.5px/1.3 ui-monospace, "Cascadia Mono", Consolas, monospace; }
+  .t th { position: sticky; top: 0; z-index: 2; background: var(--panel); border-bottom: 1px solid var(--line); padding: 3px 4px 2px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+  .t th .nr { font-size: 10px; font-weight: 400; border-radius: 3px; padding: 0 3px; margin-top: 2px; display: block; }
+  .t .rk { position: sticky; left: 0; z-index: 1; background: var(--panel); color: var(--faint); text-align: right; padding: 1px 6px; border-right: 1px solid var(--line); }
+  .t th.rk { z-index: 3; }
+  .t td { min-width: 82px; max-width: 82px; overflow: hidden; text-overflow: ellipsis; white-space: pre; padding: 1px 5px;
+    border-bottom: 1px solid var(--soft); border-right: 1px solid var(--soft); }
+  .t td.lc { box-shadow: inset 0 0 0 9999px var(--colsel); }
+  .t th.lc { color: var(--selc); }
+  .t td.w { background: var(--wbg); font-weight: 700; }
+  .t td.tr { background: var(--tbg); box-shadow: inset 0 0 0 1px var(--trk); }
+  .t td.out { border-left: 2px solid var(--line); }
+  .t td:hover { outline: 1px solid var(--mut); }
+  .k0 { font-weight: 700; } .co { color: var(--corr); } .ca { color: var(--hall); }
+  .k1 { color: #2c8a5f; } .k2 { color: #b5832a; } .k3 { color: var(--mut); font-style: italic; }
+  .k4, .k5 { color: var(--faint); } .k6 { color: var(--faint); opacity: .7; } .k7 { color: var(--mut); }
+  @media (prefers-color-scheme: dark) { .k1 { color: #58c48f; } .k2 { color: #dcae55; } }
+  table.g td { min-width: 66px; max-width: 66px; cursor: pointer; padding: 2px 4px; }
+  table.g td.cur { outline: 2px solid var(--selc); outline-offset: -2px; }
+  table.g td.hit { font-weight: 700; }
+  table.g th .ph { font-size: 10px; color: var(--faint); font-weight: 400; display: block; }
+  table.g th.mc { color: var(--corr); } table.g th.mh { color: var(--hall); }
+  #sel h2 { font-size: 14px; margin: 0 0 4px; }
+  #sel .ctx { color: var(--mut); margin-bottom: 6px; }
+  #sel .ctx .tok { color: var(--ink); background: var(--soft); border-radius: 3px; padding: 0 3px; white-space: pre; }
+  #chart { width: 100%; height: 150px; display: block; cursor: pointer; }
+  table.lst { width: 100%; border-collapse: collapse; font: 11.5px/1.3 ui-monospace, "Cascadia Mono", Consolas, monospace; }
+  .lst th { position: sticky; top: -10px; background: var(--panel); text-align: left; color: var(--mut); font-weight: 600; padding: 3px 4px; border-bottom: 1px solid var(--line); z-index: 1; }
+  .lst td { padding: 1px 4px; border-bottom: 1px solid var(--soft); white-space: pre; overflow: hidden; text-overflow: ellipsis; max-width: 110px; }
+  .lst td.n { color: var(--faint); text-align: right; width: 22px; }
+  .lst td.v { color: var(--mut); text-align: right; width: 44px; }
+  .lst td.w { background: var(--wbg); font-weight: 700; } .lst td.tr { background: var(--tbg); }
+  .lst td.sep { border-left: 1px solid var(--line); }
+  #help { position: fixed; inset: 0; background: rgba(0,0,0,.35); display: none; align-items: center; justify-content: center; z-index: 30; }
+  #help .box { background: var(--panel); border-radius: 8px; padding: 16px 20px; max-width: 560px; line-height: 1.6; }
+  #help kbd { font-family: ui-monospace, Consolas, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; background: var(--soft); }
+  #err { position: fixed; bottom: 8px; left: 8px; right: 8px; background: #b3261e; color: #fff; padding: 6px 10px; border-radius: 6px; display: none; z-index: 40; white-space: pre-wrap; }
+</style>
+<script>
+  window.addEventListener('error', e => { const el = document.getElementById('err'); if (el) { el.style.display = 'block'; el.textContent += (e.message || e) + '\n'; } });
+  function JL_INDEX(x) { window.INDEX = x; }
+  function JL_VOCAB(x) { window.VOCAB = x; }
+  const PENDING = {};
+  function JL_DATA(id, b64) { if (PENDING[id]) PENDING[id](b64); }
+</script>
+<script src="index.js"></script>
+<script src="vocab.js"></script>
+</head>
+<body>
+<header>
+  <h1>J-lens top-100 <span>Qwen3.5-4B &middot; 100 COCO images &middot; 31 layers</span></h1>
+  <div class="grp"><div class="seg" id="lensSeg"><button data-k="0" class="on" title="J">Jacobian lens</button><button data-k="1" title="J">Logit lens</button></div></div>
+  <div class="grp"><label for="metric">Heatmap</label>
+    <select id="metric">
+      <option value="rank">rank of the written token</option>
+      <option value="track">rank of the tracked word</option>
+      <option value="kind">kind of the top-1 token</option>
+      <option value="margin">top-1 margin (logit 1 &minus; 2)</option>
+      <option value="agree">top-1 = model output</option>
+    </select>
+    <select id="range" title="x range of the heatmap"><option value="all">all positions</option><option value="caption">caption only</option><option value="image">image tokens only</option></select>
+    <label><input type="checkbox" id="both"> both lenses</label>
+  </div>
+  <div class="grp"><label for="track">Track</label><input type="text" id="track" list="nodes" placeholder="word, e.g. bench" spellcheck="false"><datalist id="nodes"></datalist><button class="btn" id="trackClear" title="clear">&times;</button></div>
+  <div class="grp"><label for="topn">Top</label><select id="topn"><option>10</option><option>20</option><option>50</option><option selected>100</option></select></div>
+  <button class="btn" id="helpBtn">? keys</button>
+  <div id="status">loading&hellip;</div>
+</header>
+
+<aside id="left">
+  <h3>Image</h3>
+  <div class="imgnav"><button class="btn" id="prevImg" title="[">&#9664;</button><select id="imgSel"></select><button class="btn" id="nextImg" title="]">&#9654;</button></div>
+  <div id="imgwrap"><img id="img" alt=""><canvas id="patch" width="552" height="552"></canvas></div>
+  <div class="row"><label>Patch map</label>
+    <select id="patchMode"><option value="track">tracked word rank</option><option value="kind">top-1 kind</option><option value="coco">top-1 is a COCO object</option><option value="grid">grid only</option><option value="off">off</option></select>
+  </div>
+  <div class="row"><label>Layer</label><input type="range" id="layer" min="0" max="30" value="24"><b id="layerVal" class="mono">L24</b></div>
+  <div class="note" id="patchNote">Patch map shows the image tokens' readouts at this layer and lens. Click a patch to open it.</div>
+  <h3>Caption</h3>
+  <div id="cap"></div>
+  <h3>COCO objects in the image</h3>
+  <div class="chips" id="gt"></div>
+  <h3>Object mentions <span id="mentCount" style="text-transform:none;letter-spacing:0"></span></h3>
+  <div class="ment" id="ments"></div>
+  <div class="note">Click a mention to open the step that writes it (readout one position earlier).</div>
+</aside>
+
+<main id="center">
+  <div id="heatbox">
+    <div class="hl"><span id="heatTitle"></span><span id="heatLegend"></span><span style="margin-left:auto">x: position (image | prompt | caption) &middot; y: layer 0 &rarr; 30 (top)</span></div>
+    <canvas class="heat" id="heat"></canvas>
+  </div>
+  <div id="tabs">
+    <div class="tab on" data-tab="table">Top-100 &times; layers (this position)</div>
+    <div class="tab" data-tab="grid">Top-1 &times; positions (around it)</div>
+    <span class="info" id="tabInfo"></span>
+  </div>
+  <div id="main"></div>
+</main>
+
+<aside id="right"><div id="sel"></div></aside>
+
+<div id="tip"></div>
+<div id="help"><div class="box">
+  <b>Keys</b><br>
+  <kbd>&larr;</kbd> <kbd>&rarr;</kbd> position &plusmn;1 (<kbd>Shift</kbd> &plusmn;10) &middot; <kbd>&uarr;</kbd> <kbd>&darr;</kbd> layer &plusmn;1 &middot;
+  <kbd>[</kbd> <kbd>]</kbd> previous / next image &middot; <kbd>J</kbd> switch lens &middot; <kbd>N</kbd> / <kbd>M</kbd> next / previous object mention &middot;
+  <kbd>/</kbd> track a word &middot; <kbd>Esc</kbd> close<br><br>
+  <b>Reading it</b><br>
+  The readout at position <i>p</i> is the lens applied to the residual stream at <i>p</i>, so it predicts the token at <i>p</i>&nbsp;+&nbsp;1.
+  Clicking a caption token opens the step that <i>writes</i> it. Image tokens are read at their own position (what the patch says).<br>
+  Green cells: the token actually written next. Purple: the tracked word (with plural / singular and the COCO synonyms).
+  COCO object tokens are blue when the object is in the image and orange when it is not.
+  &ldquo;model&rdquo; is the model's own top 100 at that position. Logits are rounded to 0.1.<br><br>
+  The state is kept in the URL hash, so a view can be bookmarked.
+  <div style="text-align:right;margin-top:8px"><button class="btn" id="helpClose">close</button></div>
+</div></div>
+<div id="err"></div>
+
+<script>
+'use strict';
+const L = 31, K = 2, N = 100;
+const $ = s => document.querySelector(s);
+const VT = VOCAB.text, VK = VOCAB.kind, KINDS = VOCAB.kinds, COCO = VOCAB.coco;
+const KCOL = ['#1c6fb5', '#2c8a5f', '#b5832a', '#9b7bd0', '#c4cad1', '#dfe3e7', '#eceef1', '#8fa3b6', '#5d6b7a'];
+const LENS = ['Jacobian', 'logit lens'];
+const st = { id: null, p: 0, l: 24, k: 0, metric: 'rank', both: false, range: 'caption', topN: 100, tab: 'table', patchMode: 'track', track: null };
+function xRange() {
+  if (st.range === 'caption') return [INFO.n_prompt - 1, P()];
+  if (st.range === 'image') return [INFO.image_span[0], INFO.image_span[1]];
+  return [0, P()];
+}
+const cache = new Map();
+let D = null, INFO = null, GT = new Set(), MENT = [];
+
+// ---------- helpers ----------
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function vis(t) {
+  let s = VT[t] ?? '';
+  if (s === '') return '∅';
+  s = s.replace(/\n/g, '↵').replace(/\t/g, '⇥').replace(/\r/g, '␍');
+  const m = s.match(/^ +/);
+  return m ? '·'.repeat(m[0].length) + s.slice(m[0].length) : s;
+}
+const capText = t => (VT[t] ?? '');
+const ix3 = (p, l, k) => (p * L + l) * K + k;
+const ix = (p, l, k, j) => ix3(p, l, k) * N + j;
+const idAt = (p, l, k, j) => D.ids[ix(p, l, k, j)];
+const logitAt = (p, l, k, j) => D.top1[ix3(p, l, k)] - D.gap[ix(p, l, k, j)] / 10;
+const P = () => INFO.ids.length;
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+function cssVar(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+function hex(c) { c = c.replace('#', ''); if (c.length === 3) c = c.split('').map(x => x + x).join(''); return [0, 2, 4].map(i => parseInt(c.slice(i, i + 2), 16)); }
+const mix = (a, b, v) => [0, 1, 2].map(i => Math.round(a[i] + (b[i] - a[i]) * v));
+function region(p) {
+  const [a, b] = INFO.image_span;
+  if (p >= a && p < b) return 'image';
+  return p < INFO.n_prompt ? 'prompt' : 'caption';
+}
+function cocoClass(t) {
+  if (VK[t] !== 0) return '';
+  return GT.has(COCO[t]) ? ' co' : ' ca';
+}
+function tokTitle(t) { const n = COCO[t]; return `'${VT[t] ?? ''}' · ${KINDS[VK[t]]}${n ? ' · COCO ' + n + (GT.has(n) ? ' (in image)' : ' (not in image)') : ''}`; }
+
+// ---------- data ----------
+function loadScript(src) {
+  return new Promise((res, rej) => {
+    const s = document.createElement('script'); s.src = src;
+    s.onload = () => { s.remove(); res(); }; s.onerror = () => { s.remove(); rej(new Error('cannot load ' + src)); };
+    document.head.appendChild(s);
+  });
+}
+async function fetchData(id, info) {
+  if (cache.has(id)) return cache.get(id);
+  const b64 = await new Promise((res, rej) => { PENDING[id] = res; loadScript(`data/${id}.js`).catch(rej); });
+  delete PENDING[id];
+  const bin = atob(b64), u8 = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+  const buf = await new Response(new Blob([u8]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
+  const b = new Uint8Array(buf), Pn = info.ids.length, n = Pn * L * K * N, n3 = Pn * L * K, fn = Pn * N;
+  let off = 0;
+  const ids = new Uint32Array(n);
+  for (let i = 0; i < n; i++) ids[i] = b[i] | (b[n + i] << 8) | (b[2 * n + i] << 16);
+  off = 3 * n;
+  const top1 = new Float32Array(buf.slice(off, off + 4 * n3)); off += 4 * n3;
+  const gap = b.slice(off, off + n); off += n;
+  const nrank = new Int32Array(buf.slice(off, off + 4 * n3)); off += 4 * n3;
+  const fids = new Uint32Array(fn);
+  for (let i = 0; i < fn; i++) fids[i] = b[off + i] | (b[off + fn + i] << 8) | (b[off + 2 * fn + i] << 16);
+  off += 3 * fn;
+  const frank = new Int32Array(buf.slice(off, off + 4 * Pn)); off += 4 * Pn;
+  if (off !== buf.byteLength) throw new Error(`data/${id}.js: expected ${off} bytes, got ${buf.byteLength}`);
+  const d = { ids, top1, gap, nrank, fids, frank, trank: null, ftrank: null, trackKey: null };
+  cache.set(id, d);
+  while (cache.size > 4) cache.delete(cache.keys().next().value);
+  return d;
+}
+
+// ---------- tracking ----------
+let NORM = null;
+const norm = s => s.trim().toLowerCase();
+function buildNorm() {
+  NORM = new Map();
+  for (let t = 0; t < VT.length; t++) { const k = norm(VT[t]); if (!k) continue; let a = NORM.get(k); if (!a) NORM.set(k, a = []); a.push(t); }
+}
+function setTrack(q, quiet) {
+  q = norm(q || '');
+  $('#track').value = q;
+  if (!q) { st.track = null; if (!quiet) { refreshTrack(); } return; }
+  if (!NORM) buildNorm();
+  const forms = new Set([q, q + 's', q + 'es']);
+  if (q.endsWith('es')) forms.add(q.slice(0, -2));
+  if (q.endsWith('s')) forms.add(q.slice(0, -1));
+  const ids = new Set();
+  forms.forEach(f => (NORM.get(f) || []).forEach(t => ids.add(t)));
+  if (INDEX.node_ids[q]) INDEX.node_ids[q].forEach(t => ids.add(t));
+  for (const [t, node] of Object.entries(COCO)) if (node === q) ids.add(+t);
+  const flag = new Uint8Array(VT.length); ids.forEach(t => flag[t] = 1);
+  st.track = { q, ids, flag };
+  if (!quiet) refreshTrack();
+}
+function trackRanks() {
+  if (!st.track || !D) return null;
+  if (D.trackKey === st.track.q && D.trank) return D.trank;
+  const Pn = P(), tr = new Int16Array(Pn * L * K).fill(-1), ft = new Int16Array(Pn).fill(-1), f = st.track.flag;
+  for (let c = 0; c < Pn * L * K; c++) { const base = c * N; for (let j = 0; j < N; j++) if (f[D.ids[base + j]]) { tr[c] = j; break; } }
+  for (let p = 0; p < Pn; p++) for (let j = 0; j < N; j++) if (f[D.fids[p * N + j]]) { ft[p] = j; break; }
+  D.trank = tr; D.ftrank = ft; D.trackKey = st.track.q;
+  return tr;
+}
+function refreshTrack() {
+  if (st.track && st.metric !== 'track') { st.metric = 'track'; $('#metric').value = 'track'; }
+  if (!st.track && st.metric === 'track') { st.metric = 'rank'; $('#metric').value = 'rank'; }
+  renderGT(); drawHeat(); drawPatch(); renderMain(); renderSel(); saveHash();
+}
+
+// ---------- colors ----------
+let COL = {};
+function readColors() {
+  COL = { none: hex(cssVar('--soft')), ok: hex(cssVar('--ok')), trk: hex(cssVar('--trk')), acc: hex(cssVar('--acc')), ink: hex(cssVar('--ink')),
+    panel: hex(cssVar('--panel')), kinds: KCOL.map(hex) };
+}
+function cellColor(p, l, k, tr) {
+  switch (st.metric) {
+    case 'rank': { const r = D.nrank[ix3(p, l, k)]; if (r < 0) return COL.none; return mix(COL.none, COL.ok, 1 - Math.min(1, Math.log10(r + 1) / 3)); }
+    case 'track': { if (!tr) return COL.none; const r = tr[ix3(p, l, k)]; if (r < 0) return COL.none; return mix(COL.none, COL.trk, 0.25 + 0.75 * (1 - Math.log10(r + 1) / 2)); }
+    case 'kind': return COL.kinds[VK[idAt(p, l, k, 0)]] || COL.none;
+    case 'margin': { const m = D.gap[ix(p, l, k, 1)] / 10; return mix(COL.none, COL.acc, Math.min(1, m / 4)); }
+    case 'agree': return idAt(p, l, k, 0) === D.fids[p * N] ? COL.ink : COL.none;
+  }
+  return COL.none;
+}
+function legendHTML() {
+  const g = (a, b) => `linear-gradient(90deg, rgb(${a}), rgb(${b}))`;
+  switch (st.metric) {
+    case 'rank': return `<span class="legend">rank 1000+ <i style="background:${g(COL.none, COL.ok)}"></i> 1</span>`;
+    case 'track': return st.track ? `<span class="legend">not in top 100 <i style="background:${g(mix(COL.none, COL.trk, .25), COL.trk)}"></i> rank 1 &middot; tracking &ldquo;${esc(st.track.q)}&rdquo; (${st.track.ids.size} ids)</span>` : '<span class="legend">type a word in Track</span>';
+    case 'kind': return '<span class="legend">' + KINDS.map((k, i) => `<b style="background:${KCOL[i]}"></b>${esc(k)}`).join(' ') + '</span>';
+    case 'margin': return `<span class="legend">0 <i style="background:${g(COL.none, COL.acc)}"></i> 4+ logits</span>`;
+    case 'agree': return '<span class="legend"><b style="background:rgb(' + COL.ink + ')"></b> lens top-1 equals the model\'s top-1</span>';
+  }
+  return '';
+}
+
+// ---------- heatmap ----------
+const ROWH = 5, TRACK_H = 9, AXIS_H = 17, GAP_H = 14;
+function heatLayout() {
+  const lenses = st.both ? [0, 1] : [st.k];
+  const blockH = L * ROWH;
+  const H = TRACK_H + lenses.length * blockH + (lenses.length - 1) * GAP_H + AXIS_H;
+  return { lenses, blockH, H, top: k => TRACK_H + lenses.indexOf(k) * (blockH + GAP_H) };
+}
+function drawHeat() {
+  if (!D) return;
+  const cv = $('#heat'), dpr = window.devicePixelRatio || 1, W = cv.clientWidth, lay = heatLayout(), Pn = P();
+  cv.style.height = lay.H + 'px'; cv.width = Math.round(W * dpr); cv.height = Math.round(lay.H * dpr);
+  const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, lay.H);
+  const tr = st.metric === 'track' ? trackRanks() : null;
+  const [r0, r1] = xRange(), Rn = r1 - r0, xs = W / Rn, hx = p => (p - r0) * xs;
+  for (const k of lay.lenses) {
+    const off = document.createElement('canvas'); off.width = Rn; off.height = L;
+    const octx = off.getContext('2d'), im = octx.createImageData(Rn, L);
+    for (let i = 0; i < Rn; i++) for (let l = 0; l < L; l++) {
+      const c = cellColor(r0 + i, l, k, tr), o = ((L - 1 - l) * Rn + i) * 4;
+      im.data[o] = c[0]; im.data[o + 1] = c[1]; im.data[o + 2] = c[2]; im.data[o + 3] = 255;
+    }
+    octx.putImageData(im, 0, 0);
+    ctx.imageSmoothingEnabled = false;
+    const y0 = lay.top(k);
+    ctx.drawImage(off, 0, y0, W, lay.blockH);
+    if (st.both) { ctx.fillStyle = cssVar('--mut'); ctx.font = '10px system-ui, Arial'; ctx.fillText(LENS[k], 3, y0 - 3); }
+    if (st.p >= r0 && st.p < r1) { // selection cross
+      ctx.strokeStyle = cssVar('--selc'); ctx.lineWidth = 1.5;
+      ctx.strokeRect(hx(st.p) - 1, y0 + (L - 1 - st.l) * ROWH - 1, Math.max(xs, 2) + 2, ROWH + 2);
+      ctx.globalAlpha = 0.55; ctx.beginPath(); ctx.moveTo(hx(st.p) + xs / 2, y0); ctx.lineTo(hx(st.p) + xs / 2, y0 + lay.blockH); ctx.stroke(); ctx.globalAlpha = 1;
+    }
+  }
+  // mention ticks (at the writing step)
+  for (const m of MENT) {
+    if (m.q - 1 < r0 || m.q - 1 >= r1) continue;
+    ctx.fillStyle = m.hallucinated ? cssVar('--hall') : cssVar('--corr');
+    ctx.fillRect(hx(m.q - 1) - 0.5, 1, Math.max(xs, 2), TRACK_H - 3);
+  }
+  // region axis
+  const ya = lay.H - AXIS_H + 3, [a, b] = INFO.image_span;
+  const seg = (p0, p1, col, label) => {
+    p0 = Math.max(p0, r0); p1 = Math.min(p1, r1); if (p1 <= p0) return;
+    ctx.fillStyle = col; ctx.fillRect(hx(p0), ya, (p1 - p0) * xs, 4);
+    if (label && (p1 - p0) * xs > 60) { ctx.fillStyle = cssVar('--mut'); ctx.font = '10px system-ui, Arial'; ctx.fillText(label, hx(p0) + 2, ya + 14); }
+  };
+  seg(0, a, cssVar('--line'), ''); seg(a, b, '#b8a37a', `image tokens ${a}–${b - 1}`); seg(b, INFO.n_prompt, cssVar('--line'), '');
+  seg(INFO.n_prompt, Pn, cssVar('--faint'), `caption ${INFO.n_prompt}–${Pn - 1}`);
+  $('#heatTitle').innerHTML = `<b>${st.both ? 'Jacobian (top) vs logit lens (bottom)' : LENS[st.k]}</b>`;
+  $('#heatLegend').innerHTML = legendHTML();
+}
+function heatHit(ev) {
+  const cv = $('#heat'), r = cv.getBoundingClientRect(), x = ev.clientX - r.left, y = ev.clientY - r.top, lay = heatLayout();
+  const [r0, r1] = xRange(), p = clamp(r0 + Math.floor(x / r.width * (r1 - r0)), r0, r1 - 1);
+  for (const k of lay.lenses) {
+    const y0 = lay.top(k);
+    if (y >= y0 && y < y0 + lay.blockH) return { p, l: clamp(L - 1 - Math.floor((y - y0) / ROWH), 0, L - 1), k };
+  }
+  return { p, l: null, k: st.k };
+}
+function cellTip(p, l, k) {
+  const t = idAt(p, l, k, 0), nr = D.nrank[ix3(p, l, k)], nxt = p + 1 < P() ? INFO.ids[p + 1] : null;
+  let s = `pos ${p} (${region(p)}) · L${l} · ${LENS[k]}\ninput '${vis(INFO.ids[p])}'` + (nxt != null ? ` → writes '${vis(nxt)}' (rank ${nr < 0 ? '–' : nr + 1})` : '');
+  s += `\ntop-1 '${vis(t)}'  logit ${D.top1[ix3(p, l, k)].toFixed(1)}  margin ${(D.gap[ix(p, l, k, 1)] / 10).toFixed(1)}`;
+  const top5 = []; for (let j = 1; j < 6; j++) top5.push(vis(idAt(p, l, k, j)));
+  s += `\n2–6: ${top5.join('  ')}`;
+  const tr = st.track ? trackRanks() : null;
+  if (tr) { const r = tr[ix3(p, l, k)]; s += `\n'${st.track.q}': ${r < 0 ? 'not in top 100' : 'rank ' + (r + 1)}`; }
+  return s;
+}
+function showTip(ev, text) { const tip = $('#tip'); tip.textContent = text; tip.style.display = 'block'; const w = tip.offsetWidth, h = tip.offsetHeight; tip.style.left = Math.min(ev.clientX + 14, innerWidth - w - 6) + 'px'; tip.style.top = Math.min(ev.clientY + 14, innerHeight - h - 6) + 'px'; }
+function hideTip() { $('#tip').style.display = 'none'; }
+
+// ---------- caption strip ----------
+function renderCap() {
+  const [a, b] = INFO.image_span, np = INFO.n_prompt, mq = new Map(MENT.map(m => [m.q, m]));
+  let h = '';
+  const pre = [];
+  for (let q = 0; q < np; q++) {
+    if (q === a) { h += pre.splice(0).join(''); h += `<span class="pchip" data-q="${a}" title="image tokens ${a}–${b - 1}: click to open the first patch">image &times; ${b - a}</span>`; q = b - 1; continue; }
+    pre.push(`<span class="tk ptk" data-q="${q}">${esc(capText(INFO.ids[q]).replace(/\n/g, '↵'))}</span>`);
+  }
+  h += pre.join('') + '\n';
+  for (let q = np; q < P(); q++) {
+    const m = mq.get(q), cls = m ? (m.hallucinated ? ' mh' : ' mc') : '';
+    let s = capText(INFO.ids[q]);
+    if (s === '') s = '∅';
+    h += `<span class="tk${cls}" data-q="${q}">${esc(s)}</span>`;
+  }
+  if (!INFO.stopped) h += ' <span class="ptk">[512-token limit]</span>';
+  $('#cap').innerHTML = h;
+}
+function markCap() {
+  $('#cap').querySelectorAll('.sel').forEach(e => e.classList.remove('sel'));
+  const [a, b] = INFO.image_span;
+  if (st.p >= a && st.p < b) { $('#cap .pchip')?.classList.add('sel'); return; }
+  const el = $(`#cap .tk[data-q="${st.p + 1}"]`);
+  if (el) { el.classList.add('sel'); const box = $('#cap'), r = el.offsetTop; if (r < box.scrollTop || r > box.scrollTop + box.clientHeight - 24) box.scrollTop = r - 60; }
+}
+
+// ---------- left panel ----------
+function renderGT() {
+  $('#gt').innerHTML = INFO.ground_truth.map(n => `<span class="chip${st.track && st.track.q === n ? ' on' : ''}" data-n="${esc(n)}">${esc(n)}</span>`).join('') || '<span class="note">none</span>';
+}
+function renderMents() {
+  const nh = MENT.filter(m => m.hallucinated).length;
+  $('#mentCount').textContent = `(${MENT.length}, ${nh} hallucinated)`;
+  $('#ments').innerHTML = MENT.map((m, i) => `<div class="m${st.p === m.q - 1 ? ' sel' : ''}" data-i="${i}"><div><b>${esc(m.word)}</b> <span class="note">${m.node !== m.word ? esc(m.node) : ''}</span></div><div class="mono note">t${m.q - INFO.n_prompt}</div><div class="tag ${m.hallucinated ? 'h' : 'c'}">${m.hallucinated ? 'hall.' : 'correct'}</div></div>`).join('');
+}
+function drawPatch() {
+  if (!D) return;
+  const cv = $('#patch'), ctx = cv.getContext('2d'), [a, b] = INFO.image_span, n = b - a, side = Math.round(Math.sqrt(n)), S = cv.width / side;
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  if (st.patchMode === 'off' || side * side !== n) return;
+  const tr = st.patchMode === 'track' ? trackRanks() : null;
+  for (let i = 0; i < n; i++) {
+    const p = a + i, x = (i % side) * S, y = Math.floor(i / side) * S, t = idAt(p, st.l, st.k, 0);
+    let fill = null;
+    if (st.patchMode === 'track' && tr) { const r = tr[ix3(p, st.l, st.k)]; if (r >= 0) fill = `rgba(${COL.trk},${(0.35 + 0.6 * (1 - Math.log10(r + 1) / 2)).toFixed(2)})`; }
+    else if (st.patchMode === 'kind') fill = KCOL[VK[t]] + 'b0';
+    else if (st.patchMode === 'coco' && VK[t] === 0) fill = GT.has(COCO[t]) ? 'rgba(28,120,184,.75)' : 'rgba(217,102,31,.75)';
+    if (fill) { ctx.fillStyle = fill; ctx.fillRect(x, y, S, S); }
+  }
+  ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 1;
+  for (let i = 1; i < side; i++) { ctx.beginPath(); ctx.moveTo(i * S, 0); ctx.lineTo(i * S, cv.height); ctx.moveTo(0, i * S); ctx.lineTo(cv.width, i * S); ctx.stroke(); }
+  if (st.p >= a && st.p < b) { const i = st.p - a; ctx.strokeStyle = '#ffd75e'; ctx.lineWidth = 4; ctx.strokeRect((i % side) * S + 2, Math.floor(i / side) * S + 2, S - 4, S - 4); }
+  $('#patchNote').textContent = st.patchMode === 'track' && !st.track ? 'Type a word in Track (or click an object chip) to map it over the patches.' :
+    `Image tokens read at L${st.l}, ${LENS[st.k]}. Click a patch to open it; hover to see its top words.`;
+}
+function patchAt(ev) {
+  const cv = $('#patch'), r = cv.getBoundingClientRect(), [a, b] = INFO.image_span, n = b - a, side = Math.round(Math.sqrt(n));
+  const c = clamp(Math.floor((ev.clientX - r.left) / r.width * side), 0, side - 1), rr = clamp(Math.floor((ev.clientY - r.top) / r.height * side), 0, side - 1);
+  return a + rr * side + c;
+}
+
+// ---------- main tabs ----------
+function renderMain() {
+  if (!D) return;
+  if (st.tab === 'table') renderTable(); else renderGrid();
+}
+function rankBadge(r) {
+  if (r < 0) return '<span class="nr" style="color:var(--faint)">–</span>';
+  const c = mix(COL.none, COL.ok, 1 - Math.min(1, Math.log10(r + 1) / 3)), dark = (r < 10);
+  return `<span class="nr" style="background:rgb(${c});color:${dark ? '#fff' : 'inherit'}">w ${r + 1}</span>`;
+}
+function renderTable() {
+  const p = st.p, k = st.k, nxt = p + 1 < P() ? INFO.ids[p + 1] : -1, tf = st.track ? st.track.flag : null;
+  let h = '<table class="t"><thead><tr><th class="rk">#</th>';
+  for (let l = 0; l < L; l++) h += `<th data-l="${l}" class="${l === st.l ? 'lc' : ''}">L${l}${rankBadge(D.nrank[ix3(p, l, k)])}</th>`;
+  h += `<th title="the model's own top 100">model${rankBadge(D.frank[p])}</th></tr></thead><tbody>`;
+  for (let j = 0; j < st.topN; j++) {
+    h += `<tr><td class="rk">${j + 1}</td>`;
+    for (let l = 0; l < L; l++) {
+      const t = idAt(p, l, k, j);
+      let c = 'k' + VK[t] + cocoClass(t);
+      if (t === nxt) c += ' w'; if (tf && tf[t]) c += ' tr'; if (l === st.l) c += ' lc';
+      h += `<td class="${c}" data-l="${l}" data-j="${j}">${esc(vis(t))}</td>`;
+    }
+    const t = D.fids[p * N + j];
+    let c = 'out k' + VK[t] + cocoClass(t); if (t === nxt) c += ' w'; if (tf && tf[t]) c += ' tr';
+    h += `<td class="${c}" data-l="out" data-j="${j}">${esc(vis(t))}</td></tr>`;
+  }
+  h += '</tbody></table>';
+  const main = $('#main'), sl = main.scrollLeft, stp = main.scrollTop;
+  main.innerHTML = h; main.scrollLeft = sl; main.scrollTop = stp;
+  $('#tabInfo').innerHTML = `pos ${p} &middot; ${LENS[k]} &middot; badge = rank of the written token &lsquo;${esc(nxt >= 0 ? vis(nxt) : '')}&rsquo;`;
+}
+function renderGrid() {
+  const main = $('#main'), Wn = Math.max(8, Math.floor((main.clientWidth - 50) / 75)), k = st.k, tr = st.metric === 'track' ? trackRanks() : null;
+  const p0 = clamp(st.p - Math.floor(Wn / 2), 0, Math.max(0, P() - Wn)), p1 = Math.min(P(), p0 + Wn), mq = new Map(MENT.map(m => [m.q, m]));
+  let h = '<table class="t g"><thead><tr><th class="rk">L</th>';
+  for (let p = p0; p < p1; p++) {
+    const q = p + 1, m = mq.get(q);
+    h += `<th data-p="${p}" class="${m ? (m.hallucinated ? 'mh' : 'mc') : ''}${p === st.p ? ' lc' : ''}" title="readout at ${p} (input '${esc(vis(INFO.ids[p]))}') predicts token ${q}"><span class="ph">${p}</span>${q < P() ? esc(vis(INFO.ids[q])) : '·end'}</th>`;
+  }
+  h += '</tr></thead><tbody>';
+  for (let l = L - 1; l >= 0; l--) {
+    h += `<tr><td class="rk">${l}</td>`;
+    for (let p = p0; p < p1; p++) {
+      const t = idAt(p, l, k, 0), c = cellColor(p, l, k, tr), lum = (c[0] * 299 + c[1] * 587 + c[2] * 114) / 1000;
+      const hit = p + 1 < P() && t === INFO.ids[p + 1];
+      h += `<td class="${VK[t] === 0 ? 'k0' : ''}${hit ? ' hit' : ''}${p === st.p && l === st.l ? ' cur' : ''}" data-p="${p}" data-l="${l}" style="background:rgb(${c});color:${lum < 140 ? '#fff' : '#1d2733'}">${esc(vis(t))}</td>`;
+    }
+    h += '</tr>';
+  }
+  main.innerHTML = h + '</tbody></table>';
+  $('#tabInfo').innerHTML = `top-1 of ${LENS[k]} &middot; color = heatmap metric &middot; header = token being predicted`;
+}
+
+// ---------- right panel ----------
+function renderSel() {
+  if (!D) return;
+  const p = st.p, l = st.l, nxt = p + 1 < P() ? INFO.ids[p + 1] : -1, [a] = INFO.image_span, reg = region(p);
+  const m = MENT.find(x => x.q === p + 1);
+  let where = reg;
+  if (reg === 'image') { const side = Math.round(Math.sqrt(INFO.image_span[1] - a)), i = p - a; where = `image patch row ${Math.floor(i / side)}, col ${i % side}`; }
+  else if (reg === 'caption') where = `caption token ${p - INFO.n_prompt}`;
+  let h = `<h2>pos ${p} &middot; L${l}</h2><div class="ctx">${where}<br>input <span class="tok">${esc(vis(INFO.ids[p]))}</span>` +
+    (nxt >= 0 ? ` &rarr; writes <span class="tok">${esc(vis(nxt))}</span>` : '') +
+    (m ? ` &middot; <span class="tag ${m.hallucinated ? 'h' : 'c'}">${m.hallucinated ? 'hallucinated' : 'correct'} mention: ${esc(m.node)}</span>` : '') + '</div>';
+  h += '<h3>Rank of the written token by layer</h3><svg id="chart"></svg>';
+  h += `<h3>Top ${st.topN} at L${l}: Jacobian vs logit lens</h3><table class="lst"><thead><tr><th></th><th>Jacobian</th><th></th><th class="sep">logit lens</th><th></th></tr></thead><tbody>`;
+  const tf = st.track ? st.track.flag : null;
+  const cell = (t, v) => { let c = 'k' + VK[t] + cocoClass(t); if (t === nxt) c += ' w'; if (tf && tf[t]) c += ' tr'; return [c, esc(vis(t)), v.toFixed(1)]; };
+  for (let j = 0; j < st.topN; j++) {
+    const [c0, s0, v0] = cell(idAt(p, l, 0, j), logitAt(p, l, 0, j)), [c1, s1, v1] = cell(idAt(p, l, 1, j), logitAt(p, l, 1, j));
+    h += `<tr><td class="n">${j + 1}</td><td class="${c0}" title="${esc(tokTitle(idAt(p, l, 0, j)))}">${s0}</td><td class="v">${v0}</td><td class="${c1} sep" title="${esc(tokTitle(idAt(p, l, 1, j)))}">${s1}</td><td class="v">${v1}</td></tr>`;
+  }
+  h += '</tbody></table>';
+  $('#sel').innerHTML = h;
+  drawChart();
+  renderMents();
+}
+function drawChart() {
+  const svg = $('#chart'); if (!svg) return;
+  const W = svg.clientWidth || 320, H = 150, x0 = 30, x1 = W - 8, y0 = 10, y1 = H - 22, p = st.p;
+  const X = l => x0 + (x1 - x0) * l / (L - 1), maxLog = 4, Y = r => y0 + (y1 - y0) * Math.min(maxLog, Math.log10(r + 1)) / maxLog;
+  const ink = cssVar('--ink'), mut = cssVar('--mut'), line = cssVar('--line');
+  let s = '';
+  [[0, '1'], [9, '10'], [99, '100'], [999, '1k'], [9999, '10k']].forEach(([r, lab]) => { s += `<line x1="${x0}" x2="${x1}" y1="${Y(r)}" y2="${Y(r)}" stroke="${line}"/><text x="${x0 - 4}" y="${Y(r) + 3}" font-size="9.5" fill="${mut}" text-anchor="end">${lab}</text>`; });
+  for (let l = 0; l < L; l += 5) s += `<text x="${X(l)}" y="${H - 8}" font-size="9.5" fill="${mut}" text-anchor="middle">L${l}</text>`;
+  s += `<line x1="${X(st.l)}" x2="${X(st.l)}" y1="${y0}" y2="${y1}" stroke="${cssVar('--selc')}" stroke-width="2"/>`;
+  const path = (arr, col, dash) => { const pts = []; arr.forEach((r, l) => { if (r >= 0) pts.push(`${X(l).toFixed(1)},${Y(r).toFixed(1)}`); }); return pts.length ? `<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="1.8" ${dash ? 'stroke-dasharray="4,3"' : ''}/>` : ''; };
+  const series = k => Array.from({ length: L }, (_, l) => D.nrank[ix3(p, l, k)]);
+  if (p + 1 < P()) { s += path(series(0), cssVar('--ok'), false) + path(series(1), cssVar('--ok'), true); if (D.frank[p] >= 0) s += `<line x1="${x0}" x2="${x1}" y1="${Y(D.frank[p])}" y2="${Y(D.frank[p])}" stroke="${ink}" stroke-dasharray="1,3"/>`; }
+  const tr = st.track ? trackRanks() : null;
+  if (tr) { const tser = k => Array.from({ length: L }, (_, l) => tr[ix3(p, l, k)]); s += path(tser(0), cssVar('--trk'), false) + path(tser(1), cssVar('--trk'), true); }
+  const lg = `<tspan fill="${cssVar('--ok')}">written</tspan>` + (tr ? ` · <tspan fill="${cssVar('--trk')}">${esc(st.track.q)}</tspan>` : '') + ' · ── J · ‒ ‒ logit · ··· model';
+  s += `<text x="${x0}" y="${H}" font-size="9.5" fill="${mut}">${lg}</text>`;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H + 2}`); svg.innerHTML = s;
+  svg.onclick = ev => { const r = svg.getBoundingClientRect(); select({ l: clamp(Math.round(((ev.clientX - r.left) / r.width * W - x0) / (x1 - x0) * (L - 1)), 0, L - 1) }); };
+}
+
+// ---------- state ----------
+function select(o) {
+  if (o.p != null) st.p = clamp(o.p, 0, P() - 1);
+  if (o.l != null) st.l = clamp(o.l, 0, L - 1);
+  if (o.k != null) st.k = o.k;
+  $('#layer').value = st.l; $('#layerVal').textContent = 'L' + st.l;
+  document.querySelectorAll('#lensSeg button').forEach(b => b.classList.toggle('on', +b.dataset.k === st.k));
+  drawHeat(); drawPatch(); markCap(); renderMain(); renderSel(); saveHash();
+}
+let hashTimer = null;
+function saveHash() {
+  clearTimeout(hashTimer);
+  hashTimer = setTimeout(() => {
+    const q = new URLSearchParams({ id: st.id, p: st.p, l: st.l, k: st.k, m: st.metric, tab: st.tab, top: st.topN, pm: st.patchMode, both: st.both ? 1 : 0, x: st.range });
+    if (st.track) q.set('t', st.track.q);
+    history.replaceState(null, '', '#' + q.toString());
+  }, 150);
+}
+function readHash() { const q = new URLSearchParams(location.hash.slice(1)); return Object.fromEntries(q.entries()); }
+
+async function openImage(id, keep) {
+  const info = INDEX.images.find(x => x.image_id === id);
+  if (!info) return;
+  $('#status').textContent = `loading ${id} (${(info.bytes / 1e6).toFixed(0)} MB)…`;
+  const t0 = performance.now();
+  try { D = await fetchData(id, info); }
+  catch (e) { $('#status').textContent = `${id}: ${e.message}`; throw e; }
+  INFO = info; st.id = id; GT = new Set(info.ground_truth);
+  MENT = (info.mentions || []).map(m => {
+    // mention positions are absolute; fall back to caption-relative if the token text does not match
+    const ok = q => q < info.ids.length && norm(VT[info.ids[q]] || '').startsWith(norm(m.word).slice(0, 3));
+    const q = ok(m.pos) ? m.pos : (ok(m.pos + info.n_prompt) ? m.pos + info.n_prompt : m.pos);
+    return { ...m, q };
+  }).sort((x, y) => x.q - y.q);
+  $('#imgSel').value = String(id);
+  $('#img').src = info.has_img ? `img/${id}.jpg` : 'img/gray.jpg';
+  if (!keep) { st.p = MENT.length ? MENT[0].q - 1 : info.n_prompt - 1; }
+  st.p = clamp(st.p, 0, info.ids.length - 1);
+  renderCap(); renderGT();
+  select({});
+  const nh = MENT.filter(m => m.hallucinated).length;
+  $('#status').textContent = `image ${id} · ${info.ids.length} positions (${info.n_caption} caption) · ${MENT.length} mentions, ${nh} hall. · ${Math.round(performance.now() - t0)} ms`;
+}
+
+// ---------- init ----------
+function init() {
+  readColors();
+  const imgs = INDEX.images;
+  $('#imgSel').innerHTML = imgs.map((x, i) => { const nh = (x.mentions || []).filter(m => m.hallucinated).length; return `<option value="${x.image_id}">${i + 1}. ${x.image_id} · ${(x.mentions || []).length} obj, ${nh} hall.</option>`; }).join('');
+  $('#nodes').innerHTML = INDEX.nodes.map(n => `<option value="${esc(n)}">`).join('');
+  const h = readHash();
+  if (h.l) st.l = +h.l; if (h.k) st.k = +h.k; if (h.m) st.metric = h.m; if (h.tab) st.tab = h.tab; if (h.top) st.topN = +h.top; if (h.pm) st.patchMode = h.pm; if (h.both) st.both = h.both === '1';
+  if (h.x) st.range = h.x;
+  $('#metric').value = st.metric; $('#topn').value = String(st.topN); $('#patchMode').value = st.patchMode; $('#both').checked = st.both; $('#range').value = st.range;
+  document.querySelectorAll('#tabs .tab').forEach(t => t.classList.toggle('on', t.dataset.tab === st.tab));
+  if (h.t) setTrack(h.t, true);
+  const id = h.id && imgs.some(x => x.image_id === +h.id) ? +h.id : imgs[0].image_id;
+  if (h.p) st.p = +h.p;
+  openImage(id, !!h.p);
+
+  // header
+  $('#lensSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) select({ k: +b.dataset.k }); });
+  $('#metric').addEventListener('change', e => { st.metric = e.target.value; select({}); });
+  $('#both').addEventListener('change', e => { st.both = e.target.checked; select({}); });
+  $('#range').addEventListener('change', e => { st.range = e.target.value; select({}); });
+  $('#topn').addEventListener('change', e => { st.topN = +e.target.value; select({}); });
+  $('#track').addEventListener('change', e => setTrack(e.target.value));
+  $('#track').addEventListener('keydown', e => { if (e.key === 'Enter') { setTrack(e.target.value); e.target.blur(); } e.stopPropagation(); });
+  $('#trackClear').addEventListener('click', () => setTrack(''));
+  $('#helpBtn').addEventListener('click', () => $('#help').style.display = 'flex');
+  $('#helpClose').addEventListener('click', () => $('#help').style.display = 'none');
+  $('#help').addEventListener('click', e => { if (e.target.id === 'help') $('#help').style.display = 'none'; });
+  // left
+  const step = d => { const i = imgs.findIndex(x => x.image_id === st.id); openImage(imgs[(i + d + imgs.length) % imgs.length].image_id); };
+  $('#prevImg').addEventListener('click', () => step(-1));
+  $('#nextImg').addEventListener('click', () => step(1));
+  $('#imgSel').addEventListener('change', e => openImage(+e.target.value));
+  $('#layer').addEventListener('input', e => select({ l: +e.target.value }));
+  $('#patchMode').addEventListener('change', e => { st.patchMode = e.target.value; drawPatch(); saveHash(); });
+  $('#patch').addEventListener('click', e => select({ p: patchAt(e) }));
+  $('#patch').addEventListener('mousemove', e => { if (!D) return; const p = patchAt(e); showTip(e, cellTip(p, st.l, st.k)); });
+  $('#patch').addEventListener('mouseleave', hideTip);
+  $('#gt').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) setTrack(st.track && st.track.q === c.dataset.n ? '' : c.dataset.n); });
+  $('#ments').addEventListener('click', e => { const r = e.target.closest('.m'); if (!r) return; const m = MENT[+r.dataset.i]; setTrack(m.node, true); select({ p: m.q - 1 }); renderGT(); });
+  // center
+  $('#cap').addEventListener('click', e => { const t = e.target.closest('[data-q]'); if (!t) return; const q = +t.dataset.q; const [a, b] = INFO.image_span; select({ p: (q >= a && q < b) ? q : q - 1 }); });
+  $('#heat').addEventListener('mousemove', e => { if (!D) return; const hh = heatHit(e); if (hh.l == null) return hideTip(); showTip(e, cellTip(hh.p, hh.l, hh.k)); });
+  $('#heat').addEventListener('mouseleave', hideTip);
+  $('#heat').addEventListener('click', e => { const hh = heatHit(e); select({ p: hh.p, l: hh.l ?? st.l, k: hh.k }); });
+  $('#tabs').addEventListener('click', e => { const t = e.target.closest('.tab'); if (!t) return; st.tab = t.dataset.tab; document.querySelectorAll('#tabs .tab').forEach(x => x.classList.toggle('on', x === t)); renderMain(); saveHash(); });
+  $('#main').addEventListener('click', e => {
+    const th = e.target.closest('th[data-l], th[data-p]'), td = e.target.closest('td[data-l]');
+    if (th && th.dataset.l) select({ l: +th.dataset.l });
+    else if (th && th.dataset.p) select({ p: +th.dataset.p });
+    else if (td && st.tab === 'grid') select({ p: +td.dataset.p, l: +td.dataset.l });
+    else if (td && td.dataset.l !== 'out') select({ l: +td.dataset.l });
+  });
+  $('#main').addEventListener('mouseover', e => {
+    const td = e.target.closest('td[data-j]'); if (!td || !D) return;
+    const j = +td.dataset.j, p = st.p;
+    if (td.dataset.l === 'out') { td.title = `model #${j + 1}: ${tokTitle(D.fids[p * N + j])}`; return; }
+    const l = +td.dataset.l, t = idAt(p, l, st.k, j);
+    td.title = `L${l} #${j + 1}: ${tokTitle(t)}\nlogit ${logitAt(p, l, st.k, j).toFixed(1)} (${(-D.gap[ix(p, l, st.k, j)] / 10).toFixed(1)} from top-1)`;
+  });
+  $('#main').addEventListener('mousemove', e => { const td = e.target.closest('table.g td[data-p]'); if (!td || !D) return hideTip(); showTip(e, cellTip(+td.dataset.p, +td.dataset.l, st.k)); });
+  $('#main').addEventListener('mouseleave', hideTip);
+  // keys
+  window.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || !D) return;
+    const k = e.key;
+    if (k === 'ArrowRight') select({ p: st.p + (e.shiftKey ? 10 : 1) });
+    else if (k === 'ArrowLeft') select({ p: st.p - (e.shiftKey ? 10 : 1) });
+    else if (k === 'ArrowUp') select({ l: st.l + 1 });
+    else if (k === 'ArrowDown') select({ l: st.l - 1 });
+    else if (k === ']') step(1); else if (k === '[') step(-1);
+    else if (k === 'j' || k === 'J') select({ k: 1 - st.k });
+    else if (k === 'n' || k === 'N' || k === 'm' || k === 'M') {
+      if (!MENT.length) return;
+      const fwd = k.toLowerCase() === 'n', cur = st.p + 1;
+      const m = fwd ? (MENT.find(x => x.q > cur) || MENT[0]) : ([...MENT].reverse().find(x => x.q < cur) || MENT[MENT.length - 1]);
+      setTrack(m.node, true); select({ p: m.q - 1 }); renderGT();
+    }
+    else if (k === '/') { e.preventDefault(); $('#track').focus(); $('#track').select(); }
+    else if (k === 'Escape') $('#help').style.display = 'none';
+    else return;
+    e.preventDefault();
+  });
+  window.addEventListener('resize', () => { drawHeat(); drawChart(); if (st.tab === 'grid') renderGrid(); });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColors(); select({}); });
+}
+if (!window.INDEX || !window.VOCAB) {
+  document.getElementById('status').textContent = 'index.js / vocab.js missing next to index.html';
+} else init();
+</script>
+</body>
+</html>

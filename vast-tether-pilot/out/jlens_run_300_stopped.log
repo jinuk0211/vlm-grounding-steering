@@ -1,0 +1,19 @@
+=== 05:22:23 tests
+....                                                                     [100%]
+4 passed in 23.04s
+=== 05:22:48 probe
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]Loading weights:  51%|█████     | 366/723 [00:00<00:00, 3659.61it/s]Loading weights: 100%|██████████| 723/723 [00:00<00:00, 3732.57it/s]
+JacobianLens(d_model=2560, n_prompts=8, source_layers=[0..30] (31 layers)); model layers 32; objects with tokens 62
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+0/300 4s
+25/300 93s
+50/300 183s
+75/300 273s
+100/300 364s
+125/300 454s
+150/300 544s
+175/300 635s
+200/300 725s
+225/300 816s
+250/300 906s

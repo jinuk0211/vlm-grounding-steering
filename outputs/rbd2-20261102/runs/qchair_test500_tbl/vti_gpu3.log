@@ -1,0 +1,3 @@
+17:11:58 Starting VTI on GPU 3 (250-500)
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:  79%|███████▊  | 589/750 [00:00<00:00, 5885.96it/s]Loading weights: 100%|██████████| 750/750 [00:00<00:00, 5920.02it/s]
+18:30:02 Finished VTI on GPU 3 (250-500)

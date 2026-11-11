@@ -1,0 +1,284 @@
+{
+  "scope": "Fresh Qwen2.5-VL-7B evaluation after completed Gemma: POPE adversarial 3000 and CHAIR fixed500 per profile",
+  "model": {
+    "family": "qwen2_5_vl",
+    "checkpoint": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "attn_implementation": "eager",
+    "image_size": 448,
+    "yes_token": "Yes",
+    "no_token": "No",
+    "local_files_only": true
+  },
+  "methods": [
+    "base",
+    "revis",
+    "vti",
+    "rudder_clone",
+    "grains_clone"
+  ],
+  "method_dtypes": {
+    "base": "bfloat16",
+    "revis": "bfloat16",
+    "vti": "bfloat16",
+    "rudder_clone": "bfloat16",
+    "grains_clone": "float16"
+  },
+  "base_fp32_enabled": false,
+  "mixed_precision_comparisons": [
+    "grains_clone"
+  ],
+  "gpu_indices": [
+    2,
+    3
+  ],
+  "other_gpu_fallback": false,
+  "records_per_method": {
+    "pope_adversarial": 3000,
+    "chair_coco_val2014": 500
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "use_cache": true,
+    "seed_per_example": 42,
+    "batch_size": 1,
+    "pope_max_new_tokens": 128,
+    "chair_max_new_tokens": 512
+  },
+  "method_parameters": {
+    "retained": {
+      "base": {},
+      "revis": {
+        "alpha": 1.6,
+        "risk_quantile": 0.8
+      },
+      "vti": {
+        "alpha": 0.5,
+        "vision_alpha": 0.5,
+        "vision_pooling": "position"
+      }
+    },
+    "rudder_clone": {
+      "pope": {
+        "layer": 1,
+        "alpha": 8.0
+      },
+      "chair": {
+        "layer": 25,
+        "alpha": 5.0
+      },
+      "k": 5.0,
+      "c": 1.0,
+      "clamp": [
+        0.05,
+        1.0
+      ],
+      "dtype": "bfloat16"
+    },
+    "grains_clone": {
+      "fit": 50,
+      "ig_steps": 20,
+      "top_k": 50,
+      "top": "pos",
+      "pca_layer": 27,
+      "alpha": 10.0,
+      "original_multiplier": 10,
+      "dtype": "float16",
+      "extraction_dtype": "float32",
+      "steering_vector_dtype": "float32"
+    }
+  },
+  "comparisons": {
+    "revis": "base",
+    "vti": "base",
+    "rudder_clone": "base",
+    "grains_clone": "base"
+  },
+  "dataset_provenance": {
+    "sources": {
+      "pope_commit": "08d957b917e5a378a2f99d35b6293c536a66298b",
+      "mmhal_commit": "f5f49a938f45ed99e235b8519ba28f76832a2add",
+      "coco_pope_random.json": {
+        "sha256": "ac25245170b975a5bdf9080b23fd431dfe6be458bc038259c1f4f09a6bef7994",
+        "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_random.json"
+      },
+      "coco_pope_popular.json": {
+        "sha256": "72c1a8ad45d0c13514f5f22598261df41d3b533854d29682e924db50ed8aa753",
+        "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_popular.json"
+      },
+      "coco_pope_adversarial.json": {
+        "sha256": "420b3407db1fa9f1187a805dca41cb7b97fd91504e6c2179706188c107fb8ef8",
+        "url": "https://raw.githubusercontent.com/RUCAIBox/POPE/08d957b917e5a378a2f99d35b6293c536a66298b/output/coco/coco_pope_adversarial.json"
+      },
+      "mmhal_template_sha256": "28ed24e19ffef292597c35f1dad37760b2e0a088b3b40ca3b50f105fc1b951bb",
+      "coco_annotations": {
+        "url": "https://s3.amazonaws.com/images.cocodataset.org/annotations/annotations_trainval2014.zip",
+        "sha256": "031296bbc80c45a1d1f76bf9a90ead27e94e99ec629208449507a4917a3bf009"
+      }
+    },
+    "records": {
+      "pope": 9000,
+      "pope_unique": 5127,
+      "chair": 500,
+      "mmhal": 96
+    },
+    "chair_selection": {
+      "population": "COCO val2014 excluding fixed development image IDs",
+      "count": 500,
+      "seed": 42,
+      "algorithm": "random.Random(42).sample(sorted_by_image_id, 500)",
+      "fixed_metric_cohort": true,
+      "entire_COCO_validation": false
+    },
+    "development": {
+      "source": "/home/project-b/LJW/vlm-grounding-steering/data/mmvp-full",
+      "fit_images": 32,
+      "calibration_images": 32,
+      "image_id_overlap": 0,
+      "exact_image_hash_overlap": 0
+    },
+    "prompt_and_decoding": {
+      "caption": "Please describe this image in detail.",
+      "pope_suffix": "Please answer yes or no.",
+      "do_sample": false,
+      "num_beams": 1,
+      "pope_max_new_tokens": 128,
+      "caption_mmhal_max_new_tokens": 512
+    },
+    "mmhal_scoring": "official GPT-4 scoring deferred at explicit user request; generation only",
+    "completed_at": 1793083202.853687
+  },
+  "chair_scoring": {
+    "port_commit": "4087a26211aa2339b9a76307cb8f0321ef691d0a",
+    "cohort_images": 500,
+    "seed": 42
+  },
+  "deferred": [
+    "POPE random/popular",
+    "MMHal additional generation and official judging"
+  ],
+  "source_commit": "1683e86223cdc491a2223d61ec63403bf37f7513",
+  "source_hashes": {
+    "src/vlm_grounding/backend.py": "b696d4bbd478800b7b8becd338745a78f652fdade678ff5e0194b1937887d4c9",
+    "src/vlm_grounding/baselines.py": "6f694520a98a44ba609443b49b2dd25cf2f0aa03ba16678fb2468bf384f88141",
+    "src/vlm_grounding/cli.py": "f932abdcd46f3c97b6e93428c63134e76dcdefc1409e181d1ee13d982be298f6",
+    "src/vlm_grounding/evaluation.py": "b6a7e9994601d0e579fd46b9e961804f79a238f6b29bcaaf2ca9ed5644993265",
+    "scripts/author_clone_bridge.py": "fbd67ccd5517eca9c3c339752deb4767884b9a990dd9eb1f7b84fab236143ddb",
+    "scripts/qwen_author_compat.py": "32f2825ed394f683b587091a6eb6bac7e7548f0388816412c01da938c124ded3",
+    "scripts/qwen_gpu23_adapter.py": "732703369e33cc24385cf9b397554320484d994deef89617aed260d33258a6ba",
+    "scripts/qwen_five_profile_api.py": "c24cb70b2466f4adf1028c548b7671df0868d198664e03596dc10a4e1a270170",
+    "scripts/qwen_five_profile_stage.py": "6433b6060d517fb1117a0452d016a5b22865157c5bc7a271e5d6138ed66a7a2f",
+    "scripts/preflight_qwen_authors.py": "716f2aa13017031891e536e9abd76f641c6049a1eb9674ca5350b9b951c20e02",
+    "scripts/fit_qwen_retained.py": "6ea2db25303660f078307a5586cc899c07c61e3d48f5c70b2e112c1ad5c42ecb",
+    "scripts/extract_qwen_author_grains.py": "b0569d0b48a55e0e1318f2b9ca51740f1a6f6ec1c5f83f24c7259a7dcf420f34",
+    "scripts/run_qwen_five_profile_worker.py": "1507dffb4804659373b1efd053d7cf49d06fada4628ddddca866f3433bc99618",
+    "scripts/run_qwen_five_profile_suite.py": "987c05f2a128d551c7d00faab7ba90f0c66b413a6dbfee5988b7c5b93d09d981",
+    "scripts/audit_qwen_five_profile_suite.py": "2d0f42a083ed946a270045b33500f50de1b70dd2427678d9ea16bb02ec5d207b",
+    "scripts/audit_hallucination_suite.py": "b620f4f7e56d2064cd9351e73469d67410db9e4f329bf9dd4055e1189765661f",
+    "data/hallucination-suite/sources/pope_evaluate.py": "f0371dcec5f1bdbde017d1a02f5a9a04c53cb561a2874f3fb8f0718ce3d87036",
+    "upstream/chair/chair.py": "98728cd2b7fb8b97420b5f3bf14789dcad1d7d980de9c089b82856217387770d"
+  },
+  "author_sources": {
+    "RUDDER": {
+      "commit": "bd149d8dbde6a9097dd02aea80f83d0bd8876761",
+      "files": {
+        "Idefics2/ide_chair.py": "c1a55174247eb2b07bc63f4c5d5d42d13b4da620e4cdca12132a886668a8ae20",
+        "Idefics2/ide_methods.py": "4219232962feac9aec1201534f700e6b59b63b4cc88bb7cfc6b22711185dc806",
+        "Idefics2/ide_pope.py": "3b4ecdcc86e03c19f528f81631310e962d2a3b220cda398d0c242f4015b7a522",
+        "InstructBlip/blip_chair.py": "abbfe41f538346663bb2cf1f58bbc7bac16eb6943cd859df851196c581b5d1a8",
+        "InstructBlip/blip_methods.py": "fab88feff5a8ee170ab0d71c95305d888be8a300c3b8d81c28632957ba7e8b57",
+        "InstructBlip/blip_pope.py": "6653a79ecf3167275da44519c2523b60b98ac794c222cecc9e398f39ecad7fcb",
+        "LLaVA/llava_chair.py": "b3b1e5b525004406bd6be5a1a6d21553c044e635e8a8797079434a6101ea710a",
+        "LLaVA/llava_methods.py": "a358178aa9b766f77666c80cfd64b3edd653807d9530977ad44ec35245f40fd9",
+        "LLaVA/llava_pope.py": "c8d6364ff0cf2c41b98c403595a79a95c27746e6ed5ebeb24c4bc35ea4b9a321",
+        "Qwen/qwen_chair.py": "d0225162009a6d7eaebdefcd6898429582ba34cd64e63ee39804c7110c230ae8",
+        "Qwen/qwen_methods.py": "c1740661f1fecfd4f7bb3150f9af947c439800699231e3e2d0d664dfd54bdee6",
+        "Qwen/qwen_pope.py": "b7883b2e149eb9bb5967c277924b9427721933f0e3b9e6476d35cdff9d65f321",
+        "README.md": "28eff5b6d8502a301c2a1ea83ad719a186c2d139b3fcf9a2b0aa169e8ae03078",
+        "assets/method_overview.png": "5e028d7c63d3eca6c0cd4a774d788717c1609aa04a568bdba20de1206a1cfba5",
+        "assets/teaser.png": "c80caf9f39e751e8e29b40bffd1f2bb6bdb9d1d3b9b37c6919104808268746da",
+        "config.py": "d3e0ee679079cdedca28939657e3f6c02f11f5d6a0aa62f62427b04d70a17c78",
+        "environment.yml": "3ef36fd03c381afaf784560fb203c90cd05f41923da4cda66afea26d185b623b"
+      }
+    },
+    "GrAInS": {
+      "commit": "8ad78db3040fbb7b0aec9e544a3dcc7b9c050b5b",
+      "files": {
+        ".gitignore": "48b33f9f89ef24f8a66f461ea9278e7ecf21b4660c26088989d231e53c578724",
+        "LICENSE": "12d4b61215247637acd71a0722d221e252c373dc8a7cc4704a13154b7f1edeec",
+        "README.md": "a509a6ee903feb0384dbc2a22b43e6f0441775bc6c81d1168ac3e62195b642d7",
+        "assets/overall.png": "86207a06892ac7a3c46386fe18dc4eae0892888f75e2135ce7271c214a7932de",
+        "requirements.txt": "059c6a5bd91d257bbfadff5587b5290c4a511c12dcfd9c97c32e61ee07b7475e",
+        "src/attribution/gradient/llm_grad.py": "e7092200a944f88c9bfdd360091c782786c247c3b12530649af53c298cae919e",
+        "src/attribution/gradient/utils.py": "57b8fa0f6e56e1f87690c3c657935e61dabe076089a9c133b8df1fd6cb7e143b",
+        "src/attribution/gradient/vlm_grad.py": "c1671d04d04cfd1c8991c859fd9fa98631c93f4a3bf674403cfdb79d42cf8aa0",
+        "src/data/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/results/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/scripts/llm/run_steering_generation.sh": "a9103f56f201deb5c104535264dbc7d1688eded6e8c450b980c7d060b6d066fe",
+        "src/scripts/llm/run_steering_mc.sh": "4641f164a4ebf135b560607af132e7dc49f83ea89f4d51ebab600df44013934c",
+        "src/scripts/llm/run_token_ablation.sh": "9ac8db9dd0eb559920eecb3c9bdea1f13e5697897208d2ea743bb8d4064eaffe",
+        "src/scripts/vlm/run_steering_generation_vlm.sh": "90398cb976dba599ea59d9153dd3c16dbd3640cae7d9bbdf32734d23fb0aa726",
+        "src/scripts/vlm/run_steering_mc_vlm.sh": "ba3f68009733abfb5b64a8a344f6e3e80e53719e249814f32814ed62d8a629ef",
+        "src/scripts/vlm/run_token_ablation_vlm.sh": "9cdf11dbb239293a09c611f58e2e912ffbeb10fcdeac88337d9a8be9c5965412",
+        "src/steering_generation.py": "219ae3997a5a87eec0a6769189268462af4e603f103968d8bce8da94e1fcb01f",
+        "src/steering_generation_vlm.py": "618d39ac624e4bd516af0d7609d656edd4052d33b6029436e3f7e4a9e8941f90",
+        "src/steering_mc.py": "6e2832e3c31242a6697e9d26ee56a28df6e3b109ab1944b5b06963e7ddc7c7dd",
+        "src/steering_mc_vlm.py": "666294dc9f31da3e72b03811a24d346f8e8a4464ba2ba7ebc135d5c26373e5bf",
+        "src/token_ablation.py": "7ed4286b8b232b5c2a5dfd08e070926d6ffc80ba70347a127280cdea2d2b8384",
+        "src/token_ablation_vlm.py": "37ce2fe9535806b09c425fba1d228e347ea329cc39c260bc6d7e519ea3589fba",
+        "src/utils/config.py": "b656c1e2e8f9b0efa4f05ad77212f143e85e537a6a59536525cb4fce35863016",
+        "src/utils/data.py": "4ddd852f00fada333ff50c0dbf5f8a128e79aee0209f97a3a74046777ef6e301",
+        "src/utils/model.py": "5db31fa6dbe4c9ca1993f6a34a712442d99eca6e4aaa27bcaa2efe81b0377fc1",
+        "src/utils/steering.py": "dac1ec2143b085b8fcb8558241cc1f1d9fca7de9f594b22c1352babb4b8ca297"
+      }
+    }
+  },
+  "manifest_hashes": {
+    "calibration.jsonl": "22140f25d7638885437f6b4d87db66e51c80a175b997a78e597c32ee6533cc68",
+    "fit.jsonl": "5669848c741d7195ea3b06f02a970bbf4ea158d3f9f3a21c041a191348bd2123",
+    "chair.jsonl": "0bd0957cd66e1e4e00d2272b9ed0f237255d75c027bcc58ea33f33f67c0fc278",
+    "pope.jsonl": "6fa6d2250989c94e7163f9f9f837968d5195d1bc2ce5af7e259cf361cc0ad7d6",
+    "fit50.jsonl": "ea75b355a8051a5e301852cdcdc8882879f4fd9e27de187615b03154f94a8417"
+  },
+  "tasks_sha256": "94f38d52440c615dda3dfb4cd4d5658ea79aeeacb05fb8e6e0207b9badaef13a",
+  "config_sha256": "3f7577dcb0752a65abcfaddcf662724352961b99394900c5608c23070c5acd60",
+  "preflight_hashes": {
+    "bf16": "cf6ea8dd3ae52ec6309506dfc2299ea96714f25cd179864747a0a9ca5ab90434",
+    "fp32": "0f89ecce1e5c750d672191107d4216c4a7de7f01406f62381e3bb51bb944c465"
+  },
+  "dependency_versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2",
+    "accelerate": "1.15.0",
+    "captum": "0.9.0",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.2"
+  },
+  "cached_weight_verification_sha256": "4fa9156ff617b307dd5ab9ac72054fc78a52e405a52c79f1a19b4c2ba8670016",
+  "gemma_verified_report_sha256": "d30697455426c6af12772ade56464b04332661bb5cbed5e8dcb231e028c2deed",
+  "development_test_hash_overlap": 0,
+  "all_predictions_fresh": true,
+  "method_labels": {
+    "vti": "VTI local adaptation, not original-author reproduction",
+    "revis": "REVIS retained local adaptation",
+    "rudder_clone": "Pinned original author functions with native Qwen adapter",
+    "grains_clone": "Pinned original author functions with native Qwen adapter"
+  },
+  "gemma_vectors_reused": false,
+  "author_reproduction_complete": false,
+  "author_core_functions_called": true,
+  "architecture_compatibility": [
+    "Native Qwen image-first chat input and native multimodal generation",
+    "Original token-only IG/ablation, 20 Gauss-Legendre nodes, PCA layer27, sequence-axis norm and multiplier10 retained",
+    "Hidden-state output device coalescing for original cross-layer stack only; no full visual-path IG claim"
+  ],
+  "protocol_overrides": [
+    "Same user-selected common image448, POPE cap128 and CHAIR cap512",
+    "Fresh Qwen-specific vectors from the fixed disjoint 64-image development cohort"
+  ],
+  "created_at": 1793253213.5084443,
+  "sha256": "b8e8fb12e2ddcd1d71bf0021a1b541ae40197df866f9de50199ecbc7fdbf07b7"
+}

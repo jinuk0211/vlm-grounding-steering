@@ -1,0 +1,56 @@
+{
+ "stage": "complete",
+ "pid": 2369946,
+ "model": "gemma",
+ "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+ "argv": [
+  "scripts/visual_decay_collect.py",
+  "--model",
+  "gemma",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/visual-decay-20261030",
+  "--start",
+  "0",
+  "--end",
+  "180"
+ ],
+ "config": {
+  "family": "gemma4",
+  "checkpoint": "google/gemma-4-E4B-it",
+  "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attn_implementation": "eager",
+  "image_size": 448,
+  "yes_token": "Yes",
+  "no_token": "No",
+  "local_files_only": true
+ },
+ "updated_at": 1793360361.0394697,
+ "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+ "n_layers": 42,
+ "probe_layers": [
+  10,
+  21,
+  32,
+  42
+ ],
+ "conditions": [
+  "swap",
+  "ko0",
+  "ko32",
+  "ko64",
+  "ko128",
+  "ko0_early",
+  "ko0_late"
+ ],
+ "softcap": 30.0,
+ "repetition_penalty": 1.0,
+ "done": 180,
+ "sec_per_caption": 4.757606302785595,
+ "max_gpu_gb": 17.731069087982178,
+ "lens_last_layer_max_err": 0.14151287078857422,
+ "greedy_reproduced_mean": 0.9846137507617125,
+ "greedy_reproduced_min": 0.9668367505073547,
+ "records": 180
+}

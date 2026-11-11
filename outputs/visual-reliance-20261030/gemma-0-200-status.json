@@ -1,0 +1,9 @@
+{
+ "stage": "running",
+ "pid": 2298380,
+ "model": "gemma",
+ "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+ "updated_at": 1793359316.1180105,
+ "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+ "done": 121
+}

@@ -1,0 +1,17 @@
+{
+ "stage": "complete",
+ "pid": 3225839,
+ "conds": [
+  "probe_away_16",
+  "probe_away_32",
+  "random_16",
+  "random_32"
+ ],
+ "layer": 23,
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "updated_at": 1793362813.636818,
+ "gpu_name": "NVIDIA RTX A5000",
+ "sigma": 6.276924133300781,
+ "done": 100,
+ "sec_per_caption": 1.3415747448638244
+}
