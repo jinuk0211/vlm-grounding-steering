@@ -1,0 +1,15 @@
+22:36:36 start qwen3-grains_clone-0-60
+23:18:16 end qwen3-grains_clone-0-60
+23:18:30 start qwen3-vddbase-60-100
+23:41:59 end qwen3-vddbase-60-100
+23:42:11 start qwen3-vti-60-100
+23:58:51 end qwen3-vti-60-100
+23:59:07 start gemma-s24a1bl1p05-0-60
+00:26:06 end gemma-s24a1bl1p05-0-60
+00:26:26 start gemma-vti-0-60
+00:59:16 end gemma-vti-0-60
+00:59:28 start gemma-rudder_clone-60-100
+01:21:27 end gemma-rudder_clone-60-100
+01:21:45 start gemma-vti-60-100
+01:42:36 end gemma-vti-60-100
+01:42:36 POOL_DONE

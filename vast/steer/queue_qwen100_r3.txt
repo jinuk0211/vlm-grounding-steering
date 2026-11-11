@@ -1,0 +1,8 @@
+# Round 3 (fixed 2026-11-10 before any round-3 run): an16_r05 developed toward no recall loss. Belief/penalty unchanged.
+# full and nosteer are the round-1 runs (same box, same images); selection is among these 6 only.
+an16_r03       --steer anchornorm --layers 16 --alpha 1 --rho 0.3 --anchor-steps 16
+an16_r04       --steer anchornorm --layers 16 --alpha 1 --rho 0.4 --anchor-steps 16
+an16_r04_k32   --steer anchornorm --layers 16 --alpha 1 --rho 0.4 --anchor-steps 32
+an16_r05_k32   --steer anchornorm --layers 16 --alpha 1 --rho 0.5 --anchor-steps 32
+full_an16_r02  --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.2 --anchor-steps 16
+full_an16_r03  --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16

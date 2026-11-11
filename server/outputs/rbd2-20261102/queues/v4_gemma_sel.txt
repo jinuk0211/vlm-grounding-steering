@@ -1,0 +1,17 @@
+# vdd4 selection: throne_full1000 rows 0-199 (first 200 test images)
+throne_full1000 gemma_cf_t200 cf_a1bl2p1 0 50 --attn eager --alpha 1 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a2bl2p1 0 50 --attn eager --alpha 2 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a3bl2p1 0 50 --attn eager --alpha 3 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a1bl3p1 0 50 --attn eager --alpha 1 --layer 24 --lam 3 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a1bl2p1 50 100 --attn eager --alpha 1 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a2bl2p1 50 100 --attn eager --alpha 2 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a3bl2p1 50 100 --attn eager --alpha 3 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a1bl3p1 50 100 --attn eager --alpha 1 --layer 24 --lam 3 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a1bl2p1 100 150 --attn eager --alpha 1 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a2bl2p1 100 150 --attn eager --alpha 2 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a3bl2p1 100 150 --attn eager --alpha 3 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a1bl3p1 100 150 --attn eager --alpha 1 --layer 24 --lam 3 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a1bl2p1 150 200 --attn eager --alpha 1 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a2bl2p1 150 200 --attn eager --alpha 2 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a3bl2p1 150 200 --attn eager --alpha 3 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+throne_full1000 gemma_cf_t200 cf_a1bl3p1 150 200 --attn eager --alpha 1 --layer 24 --lam 3 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json

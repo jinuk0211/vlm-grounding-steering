@@ -1,0 +1,21 @@
+=== 20:49:44 gemma_ours_fix.sh start
+=== 21:26:44 dev decoded; dev judges on GPU 4
+=== 21:57:27 dev pick (2 judges)
+base          P  84.4 R  79.0 F1  86.1 F0.5  88.7  
+s24a1bl2p1    P  80.3 R  73.5 F1  87.8 F0.5  90.9  dP[-10.3,+1.1] dR[-12.7,+0.9] dF0.5[-0.6,+5.1]
+s20a1bl2p1    P  85.8 R  78.8 F1  86.7 F0.5  89.7  dP[-5.0,+8.1] dR[-7.7,+7.0] dF0.5[-2.2,+4.4]
+s28a1bl2p1    P  86.9 R  77.5 F1  86.5 F0.5  90.2  dP[-3.9,+9.2] dR[-7.9,+4.0] dF0.5[-2.0,+5.0]
+bl2p1         P  80.6 R  70.8 F1  85.6 F0.5  89.7  dP[-11.4,+3.3] dR[-15.4,-2.4] dF0.5[-2.0,+4.4]
+picked s24a1bl2p1
+=== 21:57:35 picked s24a1bl2p1; queues/gemma_ours.txt written, PICK_FAILED removed
+s24a1bl2p1   1000 rows  tok 363  @512 23
+=== 01:43:41 s24a1bl2p1 1000 rows joined; judges on GPU 4
+=== 03:09:31 judged s24a1bl2p1; waiting for the baseline tags
+=== 09:14:32 gemma_throne1000 with ours (s24a1bl2p1), 2 judges (flan-t5 base+large, threshold 6), paired bootstrap vs Base (gemma_bench)
+base          P  75.0 R  70.7 F1  82.8 F0.5  85.2  
+s24a1bl2p1    P  77.5 R  69.7 F1  83.3 F0.5  86.8  dP[+0.5,+4.6] dR[-2.9,+0.9] dF0.5[+0.4,+2.7]
+rudder_clone  P  75.6 R  69.6 F1  83.0 F0.5  85.9  dP[-1.2,+2.7] dR[-2.8,+0.5] dF0.5[-0.2,+1.7]
+grains_clone  P  78.5 R  70.8 F1  82.3 F0.5  85.7  dP[+1.2,+5.8] dR[-2.1,+2.1] dF0.5[-0.7,+1.7]
+revis         P  76.9 R  70.0 F1  83.2 F0.5  86.5  dP[-0.4,+4.2] dR[-3.0,+1.4] dF0.5[+0.1,+2.4]
+vti           P  77.4 R  70.4 F1  83.1 F0.5  86.3  dP[+0.5,+4.4] dR[-2.2,+1.5] dF0.5[+0.1,+2.2]
+=== 09:14:43 GEMMA_OURS_DONE

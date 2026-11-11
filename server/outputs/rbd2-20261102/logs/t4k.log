@@ -1,0 +1,42 @@
+=== 11-09 17:31:19 t4k_chain.sh start (pid 3950583)
+throne_r4000 4000 throne:119365 .. throne:581781
+repro units 14 decode units 640 judge units 168
+=== 11-09 17:34:19 slots: decode d0a d0b (GPU 0), d5a d5b (GPU 5); light judges j0, j5; pids 3950598 3952171 3953874 3955916 3957760 3957761
+qwen  base          throne:139    identical  gpu NVIDIA RTX A6000  9s
+qwen  base          throne:285    identical  gpu NVIDIA RTX A6000  3s
+qwen  revis         throne:139    identical  gpu NVIDIA RTX A6000  9s
+qwen  revis         throne:285    identical  gpu NVIDIA RTX A6000  3s
+qwen  rudder_clone  throne:139    identical  gpu NVIDIA RTX A6000  9s
+qwen  rudder_clone  throne:285    identical  gpu NVIDIA RTX A6000  4s
+qwen  grains_clone  throne:139    identical  gpu NVIDIA RTX A6000  11s
+qwen  grains_clone  throne:285    identical  gpu NVIDIA RTX A6000  5s
+qwen  vti_author    throne:9914   identical  gpu NVIDIA RTX A6000  30s
+qwen  vti_author    throne:10092  identical  gpu NVIDIA RTX A6000  29s
+qwen  s16a1bl2p1    throne:57027  identical  gpu -  10s
+qwen  s16a1bl2p1    throne:57149  identical  gpu -  11s
+qwen  cf_a3bl2p1    throne:25593  identical  gpu -  8s
+qwen  cf_a3bl2p1    throne:25603  identical  gpu -  7s
+gemma base          throne:9914   identical  gpu NVIDIA RTX A6000  25s
+gemma base          throne:10092  identical  gpu NVIDIA RTX A6000  31s
+gemma revis         throne:9914   identical  gpu NVIDIA RTX A6000  22s
+gemma revis         throne:10092  identical  gpu NVIDIA RTX A6000  31s
+gemma rudder_clone  throne:9914   identical  gpu NVIDIA RTX A6000  30s
+gemma rudder_clone  throne:10092  identical  gpu NVIDIA RTX A6000  31s
+gemma grains_clone  throne:9914   identical  gpu NVIDIA RTX A6000  14s
+gemma grains_clone  throne:10092  identical  gpu NVIDIA RTX A6000  35s
+gemma vti           throne:9914   identical  gpu NVIDIA RTX A6000  25s
+gemma vti           throne:10092  identical  gpu NVIDIA RTX A6000  29s
+gemma s24a1bl2p1    throne:139    identical  gpu -  46s
+gemma s24a1bl2p1    throne:285    identical  gpu -  28s
+gemma cf_a3bl2p1    throne:38210  identical  gpu -  33s
+gemma cf_a3bl2p1    throne:38576  identical  gpu -  24s
+REPRO_OK
+=== 11-09 17:39:20 repro identical on every method
+=== 11-09 18:10:11 light judge slots j0, j5 now also take xl (gate 11000 MiB; 13.6 GB free next to two Gemma decoders)
+=== 11-10 11:38:05 user asked for interim results: block-0 Base units (qwen, gemma) moved to the front of t4k_decode.txt (orig kept as t4k_decode.orig.txt); interim scores logs/t4k_interim_b1.txt
+11-10 17:56:21 GPU 5 slots d5a d5b j5 stopped at user request (GPU 5 freed); gemma revis 0-100,100-200 released to GPU 0 workers
+=== 11-10 18:17:57 queues: baselines first, ours (s16/s24/cf_a3) removed (full queues *.full-20261110.txt); GPUs 1,2 join after CDM (t4k_after_cdm.sh, workers d1 d2)
+=== 11-10 18:41:47 GPU 2 waiter (d2) cancelled: user keeps GPU 2 free; only GPU 1 (d1) joins t4k after CDM
+=== 11-10 19:43:02 PAUSED at user request ("throne 다 멈추고 여기에", ㄱㄱ 19:42): t4k/STOP, decoders killed (resumable), d1 waiter cancelled. Resume: rm t4k/STOP, clear fail marks of killed units, start t4k_pool/t4k_jpool by hand (NOT t4k_chain.sh: its prep rewrites the baselines-first queues)
+=== 11-10 19:43:44 cleared fail marks of the killed units gemma revis 0-100 100-200 200-300 300-400 (fail marks of revis 500-600, 600-700 are older, kept)
+=== 11-10 19:44:02 T5K_STOPPED (t4k/STOP)

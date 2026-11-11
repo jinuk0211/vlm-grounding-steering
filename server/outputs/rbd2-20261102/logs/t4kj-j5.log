@@ -1,0 +1,52 @@
+11-09 20:32:35 start gemma-s24a1bl2p1-b0-large
+11-09 21:56:17 end gemma-s24a1bl2p1-b0-large
+11-09 22:41:07 start qwen-s16a1bl2p1-b0-base
+11-09 23:07:48 end qwen-s16a1bl2p1-b0-base
+11-09 23:08:16 start qwen-s16a1bl2p1-b0-large
+11-10 00:13:36 end qwen-s16a1bl2p1-b0-large
+11-10 02:45:13 start gemma-cf_a3bl2p1-b0-large
+11-10 03:29:10 end gemma-cf_a3bl2p1-b0-large
+11-10 06:25:01 start qwen-vti_author-b0-large
+11-10 08:11:06 end qwen-vti_author-b0-large
+11-10 08:11:35 start qwen-vti_author-b0-xl
+11-10 08:11:49 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:14:46 start qwen-vti_author-b0-xl
+11-10 08:15:01 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:17:27 start qwen-vti_author-b0-xl
+11-10 08:17:41 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:20:31 start qwen-vti_author-b0-xl
+11-10 08:20:45 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:23:35 start qwen-vti_author-b0-xl
+11-10 08:23:50 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:25:25 start qwen-vti_author-b0-xl
+11-10 08:25:39 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:30:31 start qwen-vti_author-b0-xl
+11-10 08:30:46 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:33:25 start qwen-vti_author-b0-xl
+11-10 08:33:40 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:35:20 start qwen-vti_author-b0-xl
+11-10 08:35:34 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:38:49 start qwen-vti_author-b0-xl
+11-10 08:39:03 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:41:12 start qwen-vti_author-b0-xl
+11-10 08:41:27 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:44:17 start qwen-vti_author-b0-xl
+11-10 08:44:31 OOM qwen-vti_author-b0-xl (not counted)
+11-10 08:51:38 start qwen-vti_author-b0-xl
+11-10 08:51:52 OOM qwen-vti_author-b0-xl (not counted)
+11-10 09:04:58 start gemma-rudder_clone-b0-base
+11-10 09:36:35 end gemma-rudder_clone-b0-base
+11-10 09:37:01 start gemma-rudder_clone-b0-large
+11-10 11:00:37 end gemma-rudder_clone-b0-large
+11-10 11:01:04 start gemma-rudder_clone-b0-xl
+11-10 14:02:39 end gemma-rudder_clone-b0-xl
+11-10 14:13:00 start gemma-base-b0-base
+11-10 14:45:31 end gemma-base-b0-base
+11-10 14:45:44 start gemma-base-b0-large
+11-10 15:57:37 end gemma-base-b0-large
+11-10 15:58:06 start qwen-base-b0-base
+11-10 16:17:27 end qwen-base-b0-base
+11-10 16:17:50 start qwen-base-b0-large
+11-10 16:17:54 FAILED qwen-base-b0-large rc 1
+11-10 16:22:59 start qwen-base-b0-large
+11-10 17:10:59 end qwen-base-b0-large

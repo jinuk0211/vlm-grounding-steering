@@ -1,0 +1,21 @@
+16:35:15 start r_l8 --steer resid --layers 8 --alpha 2
+16:35:42 done r_l8
+16:35:42 start r_l22 --steer resid --layers 22 --alpha 2
+16:36:17 done r_l22
+16:36:17 start r_multi --steer resid --layers 8,12,16,20,24 --alpha 0.5
+16:36:41 done r_multi
+16:36:41 start r_norm --steer norm --layers 16 --alpha 1 --rho 0.5
+16:37:08 done r_norm
+16:37:08 start r_anchor --steer anchor --layers 16 --alpha 2 --anchor-steps 16
+16:37:35 done r_anchor
+16:37:35 start r_dose4 --steer resid --layers 16 --alpha 4
+16:38:07 done r_dose4
+16:38:07 start attn_mid --steer attn --layers 12,14,16,18,20 --alpha 1
+16:38:31 done attn_mid
+16:38:31 start pai_mid --steer pai --layers 8,10,12,14,16,18,20 --beta 1
+16:39:01 done pai_mid
+16:39:01 start blur16 --steer resid --layers 16 --alpha 2 --ctrl blur --blur-radius 12
+16:39:33 done blur16
+16:39:33 start sel24 --steer sel --layers 24 --alpha 1 --rho 0.1
+16:40:02 done sel24
+16:40:02 QUEUE_DONE

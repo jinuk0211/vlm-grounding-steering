@@ -1,0 +1,7 @@
+# User 11-10 20:50 ("A로가자"): Qwen3-VL-8B CHAIR 500 ablation with the anchor steering, as the Qwen2.5 table. Full = the stored Qwen3
+# Full (vdd_decode s20a1bl1p05: layer 20, alpha 1, lam 1, pen 0.5, sdpa) + anchornorm layer 20 rho 0.3 K 16, unchanged from the Qwen2.5
+# pick. All four rows on GPUs 1 and 2 (both RTX A5000); Base = stored qchair_test500_all/base (49.2/9.63/77.2, mixed A5000/A6000).
+anchor_qwen3 0 500 --steer resid --layers 20 --alpha 1 --steer2 anchornorm --layers2 20 --alpha2 1 --rho2 0.3 --anchor-steps 16
+abl_nosteer_qwen3 0 500 --steer none
+abl_nobelief_qwen3 0 500 --steer resid --layers 20 --alpha 1 --steer2 anchornorm --layers2 20 --alpha2 1 --rho2 0.3 --anchor-steps 16 --lam 0
+abl_nopen_qwen3 0 500 --steer resid --layers 20 --alpha 1 --steer2 anchornorm --layers2 20 --alpha2 1 --rho2 0.3 --anchor-steps 16 --pen 0

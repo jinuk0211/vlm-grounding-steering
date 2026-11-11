@@ -1,0 +1,29 @@
+{
+ "stage": "complete",
+ "pid": 3598333,
+ "args": {
+  "model": "gemma",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/chair_dev100.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/chair_dev100_gemma",
+  "tag": "s24a1bl1p05",
+  "start": "60",
+  "end": "100",
+  "lam": "1.0",
+  "clip": "5.0",
+  "pen": "0.5",
+  "bsched": "decay",
+  "alpha": "1.0",
+  "layer": "24",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "eager",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False",
+  "vobj": "None"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793895853.8673763,
+ "vobj": 4435,
+ "done": 40
+}

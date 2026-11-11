@@ -1,0 +1,3 @@
+11-10 19:45:38 start qwen3 GPU 0 (GPU-c27bc2d7-aa8a-5d1e-7d0a-6a4fe5cd6303) layer 20 alpha 1 attn sdpa
+port check (vdd_steer resid alone vs stored vdd_decode Full): identical 0 of 2; tokens new/stored [(312, 301), (462, 447)]
+11-10 19:49:16 stopped by hand (user: final belief setting from dev first, then one test run); rows so far kept

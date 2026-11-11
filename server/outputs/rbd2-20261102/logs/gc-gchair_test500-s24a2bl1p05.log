@@ -1,0 +1,311 @@
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  28%|██▊       | 571/2076 [00:00<00:00, 5611.01it/s]Loading weights:  55%|█████▌    | 1145/2076 [00:00<00:00, 5685.75it/s]Loading weights:  97%|█████████▋| 2021/2076 [00:00<00:00, 7082.52it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6819.43it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  26%|██▋       | 550/2076 [00:00<00:00, 5498.21it/s]Loading weights:  53%|█████▎    | 1100/2076 [00:00<00:00, 3732.69it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5807.99it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 108, in main
+    o=m.generate(**batch,do_sample=False,num_beams=1,use_cache=True,max_new_tokens=int(ref['max_new_tokens']),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 2891, in generate
+    model_kwargs = self._maybe_prepare_encoder_kwargs_for_generation(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 978, in _maybe_prepare_encoder_kwargs_for_generation
+    return self._prepare_multimodal_encoder_kwargs_for_generation(model_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 1048, in _prepare_multimodal_encoder_kwargs_for_generation
+    model_kwargs["mm_encoder_outputs"][modality] = encoder_fn(**encoder_kwargs)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2192, in get_image_features
+    vision_outputs = self.vision_tower(
+                     ^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2023, in forward
+    output = self.encoder(
+             ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1049, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 997, in forward
+    hidden_states, _ = self.self_attn(
+                       ^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 956, in forward
+    attn_output, attn_weights = attention_interface(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 830, in eager_attention_forward
+    attn_weights = torch.matmul(query, key_states.transpose(2, 3)) * scaling
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 292.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 63.69 MiB is free. Process 512050 has 17.03 GiB memory in use. Including non-PyTorch memory, this process has 15.23 GiB memory in use. Process 847720 has 15.05 GiB memory in use. Of the allocated memory 14.90 GiB is allocated by PyTorch, and 23.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 104, in main
+    t0=time.perf_counter();batch={k:v.to(adapter.device) for k,v in pair(adapter,ref).items()};pl=batch['input_ids'].shape[1]
+                                                                    ^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 79, in pair
+    assert b0.keys()==b1.keys() and torch.equal(b0['input_ids'],b1['input_ids'])
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  25%|██▍       | 513/2076 [00:00<00:00, 4994.47it/s]Loading weights:  49%|████▉     | 1013/2076 [00:00<00:00, 4948.32it/s]Loading weights:  91%|█████████ | 1888/2076 [00:00<00:00, 6664.28it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6598.94it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 691/2076 [00:00<00:00, 6908.64it/s]Loading weights:  67%|██████▋   | 1382/2076 [00:00<00:00, 4942.42it/s]Loading weights:  96%|█████████▌| 1998/2076 [00:00<00:00, 5382.36it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5415.42it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 108, in main
+    o=m.generate(**batch,do_sample=False,num_beams=1,use_cache=True,max_new_tokens=int(ref['max_new_tokens']),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 2891, in generate
+    model_kwargs = self._maybe_prepare_encoder_kwargs_for_generation(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 978, in _maybe_prepare_encoder_kwargs_for_generation
+    return self._prepare_multimodal_encoder_kwargs_for_generation(model_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 1048, in _prepare_multimodal_encoder_kwargs_for_generation
+    model_kwargs["mm_encoder_outputs"][modality] = encoder_fn(**encoder_kwargs)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2192, in get_image_features
+    vision_outputs = self.vision_tower(
+                     ^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2023, in forward
+    output = self.encoder(
+             ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1049, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 997, in forward
+    hidden_states, _ = self.self_attn(
+                       ^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 956, in forward
+    attn_output, attn_weights = attention_interface(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 830, in eager_attention_forward
+    attn_weights = torch.matmul(query, key_states.transpose(2, 3)) * scaling
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 292.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 43.69 MiB is free. Process 512050 has 17.03 GiB memory in use. Including non-PyTorch memory, this process has 15.23 GiB memory in use. Process 851500 has 15.07 GiB memory in use. Of the allocated memory 14.90 GiB is allocated by PyTorch, and 23.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 104, in main
+    t0=time.perf_counter();batch={k:v.to(adapter.device) for k,v in pair(adapter,ref).items()};pl=batch['input_ids'].shape[1]
+                                                                    ^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 79, in pair
+    assert b0.keys()==b1.keys() and torch.equal(b0['input_ids'],b1['input_ids'])
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  41%|████      | 844/2076 [00:00<00:00, 8430.10it/s]Loading weights:  81%|████████▏ | 1688/2076 [00:00<00:00, 6384.82it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6398.46it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 108, in main
+    o=m.generate(**batch,do_sample=False,num_beams=1,use_cache=True,max_new_tokens=int(ref['max_new_tokens']),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 2891, in generate
+    model_kwargs = self._maybe_prepare_encoder_kwargs_for_generation(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 978, in _maybe_prepare_encoder_kwargs_for_generation
+    return self._prepare_multimodal_encoder_kwargs_for_generation(model_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/generation/utils.py", line 1048, in _prepare_multimodal_encoder_kwargs_for_generation
+    model_kwargs["mm_encoder_outputs"][modality] = encoder_fn(**encoder_kwargs)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2192, in get_image_features
+    vision_outputs = self.vision_tower(
+                     ^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 2022, in forward
+    inputs_embeds = self.patch_embedder(pixel_values, pixel_position_ids, padding_positions)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 625, in forward
+    hidden_states = self.input_proj(pixel_values)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 37, in _rowsplit_linear
+    return _linear(x,w,b)
+           ^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 5.69 MiB is free. Process 512050 has 17.03 GiB memory in use. Process 855042 has 15.20 GiB memory in use. Including non-PyTorch memory, this process has 15.15 GiB memory in use. Of the allocated memory 14.83 GiB is allocated by PyTorch, and 9.88 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 687/2076 [00:00<00:00, 6865.72it/s]Loading weights:  66%|██████▌   | 1374/2076 [00:00<00:00, 4726.57it/s]Loading weights:  93%|█████████▎| 1939/2076 [00:00<00:00, 5047.12it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5169.09it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 665/2076 [00:00<00:00, 6647.34it/s]Loading weights:  64%|██████▍   | 1330/2076 [00:00<00:00, 4942.28it/s]Loading weights:  97%|█████████▋| 2007/2076 [00:00<00:00, 5644.44it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5608.31it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 97, in main
+    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/src/vlm_grounding/backend.py", line 206, in load_adapter
+    ).to(device)
+      ^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3710, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  [Previous line repeated 4 more times]
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 16.25 MiB is free. Process 880901 has 8.72 GiB memory in use. Including non-PyTorch memory, this process has 14.80 GiB memory in use. Of the allocated memory 14.60 GiB is allocated by PyTorch, and 3.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  25%|██▌       | 526/2076 [00:00<00:00, 5209.87it/s]Loading weights:  52%|█████▏    | 1080/2076 [00:00<00:00, 5401.51it/s]Loading weights:  78%|███████▊  | 1621/2076 [00:00<00:00, 4984.29it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 4947.38it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 97, in main
+    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/src/vlm_grounding/backend.py", line 206, in load_adapter
+    ).to(device)
+      ^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3710, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  [Previous line repeated 4 more times]
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 4.25 MiB is free. Process 882218 has 8.55 GiB memory in use. Including non-PyTorch memory, this process has 14.98 GiB memory in use. Of the allocated memory 14.77 GiB is allocated by PyTorch, and 11.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  27%|██▋       | 559/2076 [00:00<00:00, 5574.60it/s]Loading weights:  88%|████████▊ | 1822/2076 [00:00<00:00, 9718.87it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 9866.61it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  40%|████      | 836/2076 [00:00<00:00, 8351.98it/s]Loading weights:  81%|████████  | 1672/2076 [00:00<00:00, 7012.32it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6919.75it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 667/2076 [00:00<00:00, 6635.77it/s]Loading weights:  64%|██████▍   | 1331/2076 [00:00<00:00, 5074.03it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5942.77it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 675/2076 [00:00<00:00, 6741.23it/s]Loading weights:  65%|██████▌   | 1350/2076 [00:00<00:00, 4916.57it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5955.33it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  44%|████▍     | 917/2076 [00:00<00:00, 9164.96it/s]Loading weights:  88%|████████▊ | 1834/2076 [00:00<00:00, 5235.90it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5931.60it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  30%|███       | 632/2076 [00:00<00:00, 6162.07it/s]Loading weights:  60%|██████    | 1249/2076 [00:00<00:00, 5045.83it/s]Loading weights:  85%|████████▌ | 1771/2076 [00:00<00:00, 5109.33it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5253.35it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  31%|███       | 636/2076 [00:00<00:00, 6334.72it/s]Loading weights:  61%|██████    | 1270/2076 [00:00<00:00, 5577.89it/s]Loading weights:  88%|████████▊ | 1834/2076 [00:00<00:00, 5591.69it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5662.66it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  30%|███       | 632/2076 [00:00<00:00, 6317.61it/s]Loading weights:  61%|██████    | 1264/2076 [00:00<00:00, 3962.12it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5486.73it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  53%|█████▎    | 1103/2076 [00:00<00:00, 10965.31it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 11473.95it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 691/2076 [00:00<00:00, 6761.06it/s]Loading weights:  66%|██████▌   | 1368/2076 [00:00<00:00, 5316.42it/s]Loading weights:  95%|█████████▌| 1979/2076 [00:00<00:00, 5618.05it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5666.14it/s]

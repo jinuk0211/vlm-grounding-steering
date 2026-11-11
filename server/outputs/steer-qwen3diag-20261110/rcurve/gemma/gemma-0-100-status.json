@@ -1,0 +1,35 @@
+{
+ "stage": "complete",
+ "model": "gemma",
+ "config": {
+  "family": "gemma4",
+  "checkpoint": "google/gemma-4-E4B-it",
+  "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attn_implementation": "eager",
+  "image_size": 448,
+  "yes_token": "Yes",
+  "no_token": "No",
+  "local_files_only": true
+ },
+ "n_layers": 42,
+ "gray": "/home/project-b/LJW/vlm-grounding-steering/outputs/visual-decay-20261030/gray448.png",
+ "rows": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/gchair_test500_all/base-0-500.jsonl",
+ "gpu": "NVIDIA RTX A5000",
+ "argv": [
+  "scripts/steer_vast/rcurve_collect.py",
+  "--model",
+  "gemma",
+  "--rows",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/gchair_test500_all/base-0-500.jsonl",
+  "--start",
+  "0",
+  "--end",
+  "100",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/steer-qwen3diag-20261110/rcurve/gemma"
+ ],
+ "done": 100,
+ "sec_per_caption": 0.571759488582611
+}

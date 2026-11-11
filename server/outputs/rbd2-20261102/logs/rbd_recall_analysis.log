@@ -1,0 +1,146 @@
+
+#### Qwen2.5-VL RBD s16a2bl1p05
+recall 69.8 -> 68.9; true objects lost 90 gained 76 (net -14 of 1587); hallucinated (image,class) 196 -> 167 (removed 95, new 66); captions with hal 152 -> 128; hal removed per true lost 1.06, net hal per net true 2.07
+Base first-mention word index: bucket kept lost lost% | hal removed hal kept removed%
+  <20           447    0   0.0% |    2   12  14.3%
+  <50           201   17   7.8% |   11   20  35.5%
+  <100          216   27  11.1% |   39   31  55.7%
+  <200          137   37  21.3% |   34   33  50.7%
+  <1000000000    17    9  34.6% |    9    5  64.3%
+Mention order among the true objects in Base: rank kept lost lost%
+  1    476   13   2.7%
+  2    338   35   9.4%
+  3    137   26  16.0%
+  4+     67   16  19.3%
+Lost object: {'rbd_long_enough': 81, 'lost_rbd<512': 90, 'rbd_ended_before_base_position': 9}
+Classes by net true lost: class gt hit_b hit_d lost gained | hal_removed hal_new | Base mention precision
+  person         302  271  265  14   8 |  16   6 |  92.2%
+  bottle          35   25   20   7   2 |   2   0 |  83.3%
+  remote          11   11    7   4   0 |   3   4 |  73.3%
+  sink            20   17   13   4   0 |   0   1 |  94.4%
+  bowl            32   14   11   4   1 |   9   6 |  42.4%
+  suitcase        14   12   10   2   0 |   1   0 |  92.3%
+  wine glass      10    2    0   2   0 |   0   0 | 100.0%
+  oven            17   13   11   2   0 |   0   1 |  92.9%
+  hot dog          2    2    0   2   0 |   0   0 | 100.0%
+  cell phone      32   21   20   3   2 |   3   1 |  75.0%
+  boat             8    6    5   1   0 |   1   1 |  85.7%
+  car             73   39   38   6   5 |   2   1 |  86.7%
+  book            25   12   11   2   1 |   3   0 |  70.6%
+  sports ball     31   27   26   2   1 |   0   0 |  96.4%
+Classes grouped by Base mention precision: group classes lost gained hal_removed hal_new
+  [0.9,1.01) n=44 lost   39 gained   33 hal_removed   22 hal_new   27
+  [0.7,0.90) n=24 lost   40 gained   34 hal_removed   45 hal_new   26
+  [0.4,0.70) n= 3 lost    5 gained    2 hal_removed   15 hal_new    9
+  [0.0,0.40) n= 1 lost    1 gained    5 hal_removed   12 hal_new    2
+Word shift, RBD down: [('body', 63, 24), ('detailed', 26, 9), ('bushes', 22, 8), ('tiles', 28, 11), ('beyond', 25, 10), ('pitcher', 23, 11), ('conveys', 98, 54), ('bridge', 22, 11), ('nature', 26, 14), ('giving', 59, 35), ('box', 25, 14), ('indicating', 266, 167), ('city', 39, 23), ('ready', 20, 11), ('batter', 40, 24), ('jacket', 52, 32), ('resort', 21, 12), ('golden', 21, 12), ('shades', 24, 14), ('showing', 30, 18), ('accents', 36, 22), ('sense', 89, 57)]
+Word shift, RBD up: [('arm', 11, 23), ('aesthetic', 14, 28), ('model', 10, 21), ('mood', 24, 45), ('pedestrians', 11, 21), ('indicated', 30, 51), ('patterns', 17, 30), ('texture', 17, 30), ('calm', 58, 90), ('set', 24, 37), ('effect', 13, 21), ('few', 45, 67), ('nearby', 18, 28), ('others', 30, 44), ('hanging', 28, 41), ('dim', 13, 20), ('small', 168, 233), ('shrubs', 20, 29), ('point', 23, 33), ('being', 18, 26), ('hands', 21, 30), ('somewhat', 21, 30)]
+@512: Base 1 RBD 0; repeated-sentence share in RBD@512 mean 0.00, RBD<512 mean 0.00, Base@512 0.00
+CHAIR_s on RBD@512 images: RBD 0.0 Base 0.0 (n 0); on RBD<512 images: RBD 25.6 Base 30.4 (n 500)
+
+#### Gemma E4B RBD s24a1bl1p05
+recall 64.7 -> 63.6; true objects lost 92 gained 74 (net -18 of 1587); hallucinated (image,class) 225 -> 175 (removed 122, new 72); captions with hal 173 -> 131; hal removed per true lost 1.33, net hal per net true 2.78
+Base first-mention word index: bucket kept lost lost% | hal removed hal kept removed%
+  <20           288    1   0.3% |    2    3  40.0%
+  <50           161    6   3.6% |    8    3  72.7%
+  <100          130   14   9.7% |   24   17  58.5%
+  <200          206   22   9.6% |   36   41  46.8%
+  <1000000000   150   49  24.6% |   52   39  57.1%
+Mention order among the true objects in Base: rank kept lost lost%
+  1    463   15   3.1%
+  2    303   34  10.1%
+  3    121   24  16.6%
+  4+     48   19  28.4%
+Lost object: {'rbd_long_enough': 90, 'lost_rbd<512': 85, 'lost_in_rbd@512': 7, 'rbd_ended_before_base_position': 2}
+Classes by net true lost: class gt hit_b hit_d lost gained | hal_removed hal_new | Base mention precision
+  chair           58   31   23   9   1 |   4   4 |  83.8%
+  person         302  271  266  16  11 |   3   4 |  96.8%
+  cup             34   10    5   5   0 |   1   1 |  90.9%
+  truck           29   13    8   6   1 |   4   2 |  76.5%
+  dining table    73   50   47   7   4 |   4   5 |  76.9%
+  orange          23   19   16   4   1 |  27  10 |  28.4%
+  bottle          35   19   17   4   2 |   1   2 |  86.4%
+  sheep            9    9    7   2   0 |   1   0 |  81.8%
+  sandwich         8    5    4   2   1 |   0   1 | 100.0%
+  boat             8    7    6   1   0 |   5   0 |  53.8%
+  scissors         5    3    2   1   0 |   0   0 | 100.0%
+  car             73   40   39   5   4 |   2   3 |  88.9%
+  bench           32   17   16   1   0 |   2   0 |  85.0%
+  suitcase        14    8    7   1   0 |   0   1 | 100.0%
+Classes grouped by Base mention precision: group classes lost gained hal_removed hal_new
+  [0.9,1.01) n=35 lost   33 gained   33 hal_removed   10 hal_new   13
+  [0.7,0.90) n=27 lost   47 gained   33 hal_removed   46 hal_new   34
+  [0.4,0.70) n= 7 lost    2 gained    4 hal_removed   16 hal_new    7
+  [0.0,0.40) n= 2 lost    6 gained    2 hal_removed   50 hal_new   15
+Word shift, RBD down: [('patches', 44, 8), ('drawing', 38, 7), ('greens', 43, 12), ('uniform', 45, 13), ('counter', 55, 18), ('cream', 56, 19), ('here', 30, 11), ('container', 38, 15), ('touch', 25, 10), ('board', 41, 18), ('wood', 92, 46), ('arms', 23, 10), ('body', 79, 41), ('horizon', 48, 25), ('setup', 25, 12), ('rests', 25, 12), ('chest', 32, 16), ('backdrop', 98, 54), ('entrance', 21, 10), ('paneling', 26, 13), ('key', 50, 27), ('face', 55, 30)]
+Word shift, RBD up: [('platter', 5, 29), ('walkway', 14, 41), ('item', 17, 47), ('retaining', 13, 32), ('leafy', 10, 24), ('deciduous', 9, 22), ('countertop', 30, 62), ('distant', 29, 57), ('dominates', 26, 51), ('skater', 13, 27), ('surfboard', 12, 25), ('material', 27, 51), ('been', 13, 26), ('gear', 47, 81), ('serving', 18, 33), ('shadow', 15, 28), ('metallic', 32, 56), ('leading', 20, 36), ('jersey', 17, 30), ('collared', 12, 22), ('stack', 12, 22), ('reflective', 12, 22)]
+@512: Base 9 RBD 13; repeated-sentence share in RBD@512 mean 0.00, RBD<512 mean 0.00, Base@512 0.01
+CHAIR_s on RBD@512 images: RBD 46.2 Base 61.5 (n 13); on RBD<512 images: RBD 25.7 Base 33.9 (n 487)
+tail of a RBD@512 caption: 'ectural elements and lighting are visible, suggesting a well-designed commercial space.\n\n**Overall Impression:**\nThe image conveys a sense of luxury, artistry, and meticulous curation. The combination of the sculptural white elements, the elegant ceramic vases'
+
+#### Qwen3-VL RBD s20a1bl1p05
+recall 77.2 -> 75.2; true objects lost 87 gained 55 (net -32 of 1587); hallucinated (image,class) 381 -> 289 (removed 198, new 106); captions with hal 246 -> 209; hal removed per true lost 2.28, net hal per net true 2.88
+Base first-mention word index: bucket kept lost lost% | hal removed hal kept removed%
+  <20           337    0   0.0% |    1    6  14.3%
+  <50           157    5   3.1% |   10   19  34.5%
+  <100          205   10   4.7% |   27   22  55.1%
+  <200          226   24   9.6% |   54   59  47.8%
+  <1000000000   213   48  18.4% |  106   77  57.9%
+Mention order among the true objects in Base: rank kept lost lost%
+  1    481    9   1.8%
+  2    359   26   6.8%
+  3    182   23  11.2%
+  4+    116   29  20.0%
+Lost object: {'rbd_long_enough': 82, 'lost_in_rbd@512': 32, 'lost_rbd<512': 55, 'rbd_ended_before_base_position': 5}
+Classes by net true lost: class gt hit_b hit_d lost gained | hal_removed hal_new | Base mention precision
+  cup             34   15    7   8   0 |   4   1 |  75.0%
+  person         302  281  274  12   5 |  13  11 |  90.6%
+  book            25   13    7   6   0 |   3   0 |  76.5%
+  bench           32   25   22   4   1 |   2   1 |  92.6%
+  bottle          35   30   27   4   1 |   4   2 |  81.1%
+  potted plant    15    6    3   3   0 |   1   1 |  85.7%
+  truck           29   14   11   3   0 |   4   1 |  73.7%
+  dining table    73   57   55   3   1 |   3   3 |  76.0%
+  car             73   58   56   5   3 |   6   1 |  80.6%
+  chair           58   37   35   6   4 |  12   7 |  66.1%
+  orange          23   21   19   2   0 |  41   6 |  22.1%
+  umbrella        24   23   21   2   0 |   3   1 |  85.2%
+  wine glass      10    5    3   2   0 |   0   0 | 100.0%
+  scissors         5    4    3   1   0 |   0   0 | 100.0%
+Classes grouped by Base mention precision: group classes lost gained hal_removed hal_new
+  [0.9,1.01) n=28 lost   25 gained   17 hal_removed   19 hal_new   29
+  [0.7,0.90) n=30 lost   44 gained   19 hal_removed   51 hal_new   27
+  [0.4,0.70) n=14 lost   12 gained   10 hal_removed   60 hal_new   35
+  [0.0,0.40) n= 4 lost    6 gained    6 hal_removed   68 hal_new   14
+Word shift, RBD down: [('conveys', 157, 6), ('drawing', 75, 1), ('facade', 34, 2), ('lettering', 32, 3), ('counter', 55, 10), ('foliage', 59, 13), ('pavement', 27, 6), ('beauty', 45, 13), ('palette', 41, 12), ('patch', 38, 11), ('container', 27, 7), ('patches', 54, 18), ('backdrop', 69, 27), ('cream', 36, 14), ('arms', 36, 14), ('grainy', 25, 9), ('conveying', 24, 9), ('plastic', 108, 50), ('wood', 97, 45), ('bent', 37, 16), ('stove', 23, 9), ('figures', 36, 16)]
+Word shift, RBD up: [('mesh', 6, 24), ('piece', 30, 87), ('type', 10, 34), ('hoodie', 9, 30), ('individual', 7, 23), ('section', 22, 55), ('item', 15, 38), ('greenery', 27, 62), ('photographer', 11, 28), ('suv', 10, 25), ('gear', 32, 68), ('making', 26, 56), ('unit', 17, 38), ('material', 17, 38), ('protective', 16, 36), ('metallic', 34, 71), ('paint', 13, 30), ('brownish', 10, 24), ('planter', 9, 22), ('safety', 21, 45), ('beanie', 11, 25), ('structure', 73, 141)]
+@512: Base 44 RBD 103; repeated-sentence share in RBD@512 mean 0.01, RBD<512 mean 0.00, Base@512 0.01
+CHAIR_s on RBD@512 images: RBD 52.4 Base 60.2 (n 103); on RBD<512 images: RBD 39.0 Base 46.3 (n 397)
+tail of a RBD@512 caption: 'ally obscured. The text reads: “The Glass Eye of Charles Burrell / A Portfolio of 100 images / A Retrospective of Images celebrating the 100th Anniversary of the...” (the rest is cut off). This suggests the display may be part of an exhibition or retrospective'
+
+==== Qwen2.5 ablation (accounting only)
+
+#### abl_steer
+recall 69.8 -> 69.8; true objects lost 77 gained 77 (net 0 of 1587); hallucinated (image,class) 196 -> 203 (removed 68, new 75); captions with hal 152 -> 158; hal removed per true lost 0.88, net hal per net true -7.00
+
+#### abl_pen
+recall 69.8 -> 69.8; true objects lost 53 gained 52 (net -1 of 1587); hallucinated (image,class) 196 -> 195 (removed 54, new 53); captions with hal 152 -> 149; hal removed per true lost 1.02, net hal per net true 1.00
+
+#### abl_belief
+recall 69.8 -> 68.4; true objects lost 71 gained 49 (net -22 of 1587); hallucinated (image,class) 196 -> 176 (removed 68, new 48); captions with hal 152 -> 135; hal removed per true lost 0.96, net hal per net true 0.91
+
+#### abl_nosteer
+recall 69.8 -> 67.4; true objects lost 85 gained 47 (net -38 of 1587); hallucinated (image,class) 196 -> 180 (removed 78, new 62); captions with hal 152 -> 138; hal removed per true lost 0.92, net hal per net true 0.42
+
+#### abl_nopen
+recall 69.8 -> 68.9; true objects lost 93 gained 79 (net -14 of 1587); hallucinated (image,class) 196 -> 181 (removed 92, new 77); captions with hal 152 -> 141; hal removed per true lost 0.99, net hal per net true 1.07
+
+#### abl_nobelief
+recall 69.8 -> 69.3; true objects lost 82 gained 73 (net -9 of 1587); hallucinated (image,class) 196 -> 194 (removed 79, new 77); captions with hal 152 -> 148; hal removed per true lost 0.96, net hal per net true 0.22
+
+#### abl_const
+recall 69.8 -> 68.3; true objects lost 106 gained 82 (net -24 of 1587); hallucinated (image,class) 196 -> 169 (removed 101, new 74); captions with hal 152 -> 135; hal removed per true lost 0.95, net hal per net true 1.12
+
+#### rbd_full
+recall 69.8 -> 68.9; true objects lost 90 gained 76 (net -14 of 1587); hallucinated (image,class) 196 -> 167 (removed 95, new 66); captions with hal 152 -> 128; hal removed per true lost 1.06, net hal per net true 2.07
+ANALYSIS_DONE

@@ -1,0 +1,17 @@
+17:26:56 start qwen_cf_t200-cf_a1bl2p1-0-50
+17:35:09 end qwen_cf_t200-cf_a1bl2p1-0-50
+17:35:36 start qwen_cf_t200-cf_a1bl3p1-0-50
+17:43:56 end qwen_cf_t200-cf_a1bl3p1-0-50
+17:44:34 start qwen_cf_t200-cf_a3bl2p1-50-100
+17:52:24 end qwen_cf_t200-cf_a3bl2p1-50-100
+17:52:37 start qwen_cf_t200-cf_a1bl3p1-50-100
+18:00:50 end qwen_cf_t200-cf_a1bl3p1-50-100
+18:01:09 start qwen_cf_t200-cf_a3bl2p1-100-150
+18:09:23 end qwen_cf_t200-cf_a3bl2p1-100-150
+18:09:53 start qwen_cf_t200-cf_a1bl3p1-100-150
+18:18:50 end qwen_cf_t200-cf_a1bl3p1-100-150
+18:19:01 start qwen_cf_t200-cf_a3bl2p1-150-200
+18:26:40 end qwen_cf_t200-cf_a3bl2p1-150-200
+18:27:08 start qwen_cf_t200-cf_a1bl3p1-150-200
+18:35:53 end qwen_cf_t200-cf_a1bl3p1-150-200
+18:35:53 POOL_DONE

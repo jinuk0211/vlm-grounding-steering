@@ -1,0 +1,3 @@
+base                         CHAIR   5.4 Cover  63.4 Hal  30.8 Cog   1.6  tok  101 @512  0  
+mainMed                      CHAIR   4.8 Cover  62.6 Hal  26.9 Cog   1.2  tok  100 @512  0  dCHAIR[-1.2,-0.1] dCover[-1.8,-0.0] dHal[-7.0,-0.8] dCog[-0.8,+0.0]
+PARTIAL_DONE

@@ -1,0 +1,7 @@
+11-10 20:04:44 start GPU 2 (GPU-4c593ff4-fcc4-39c9-d7b4-981dabee1cb3)
+11-10 20:04:44 start dev_base --steer none --lam 0 --pen 0
+11-10 20:21:37 done dev_base
+11-10 20:21:37 start dev_nosteer --steer none
+11-10 20:38:53 done dev_nosteer
+11-10 20:38:53 start dev_full --layers 16 --alpha 2 --layers2 16 --steer resid --steer2 anchornorm --alpha2 1 --rho2 0.3 --anchor-steps 16
+11-10 20:45:27 stopped by hand (user 20:45 "A로가자": GPUs 1,2 go to the Qwen3 test ablation); rows so far kept

@@ -1,0 +1,19 @@
+# 21:40 user: after the 150-image runs, the existing baselines on the same images. BF16 methods sdpa (the eager BF16
+# CHAIR rows have addCriterion in 13/150 REVIS, 26/150 RUDDER captions), FP16 methods eager + FP32 attention scores as before.
+# CHAIR GrAInS/VTI reuse the existing test-run rows. Longest units first.
+revis sdpa throne_test150 throne_test150_bl 0 75
+rudder_clone sdpa throne_test150 throne_test150_bl 0 75
+grains_clone eager throne_test150 throne_test150_bl 0 75
+vti_author eager throne_test150 throne_test150_bl 0 75
+revis sdpa throne_test150 throne_test150_bl 75 150
+rudder_clone sdpa throne_test150 throne_test150_bl 75 150
+grains_clone eager throne_test150 throne_test150_bl 75 150
+vti_author eager throne_test150 throne_test150_bl 75 150
+revis sdpa chair_test150 chair_test150_bl 0 75
+rudder_clone sdpa chair_test150 chair_test150_bl 0 75
+revis sdpa chair_test150 chair_test150_bl 75 150
+rudder_clone sdpa chair_test150 chair_test150_bl 75 150
+revis sdpa amber_test150 amber_test150_bl 0 150
+rudder_clone sdpa amber_test150 amber_test150_bl 0 150
+grains_clone eager amber_test150 amber_test150_bl 0 150
+vti_author eager amber_test150 amber_test150_bl 0 150

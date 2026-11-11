@@ -1,0 +1,29 @@
+{
+ "stage": "complete",
+ "pid": 906245,
+ "args": {
+  "model": "gemma",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/throne_full1000.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/gemma_cf_t200",
+  "tag": "cf_a1bl3p1",
+  "start": "150",
+  "end": "200",
+  "lam": "3.0",
+  "clip": "5.0",
+  "pen": "1.0",
+  "bsched": "decay",
+  "alpha": "1.0",
+  "layer": "24",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "eager",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False",
+  "vobj": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793798614.6018023,
+ "vobj": 4427,
+ "done": 50
+}

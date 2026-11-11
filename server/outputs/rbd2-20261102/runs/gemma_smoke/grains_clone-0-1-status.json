@@ -1,0 +1,13 @@
+{
+ "stage": "complete",
+ "pid": 104049,
+ "method": "grains_clone",
+ "set": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/gsmoke2.jsonl",
+ "dtype": "float16",
+ "attn": "eager",
+ "total": 1,
+ "done": 1,
+ "resumed_from": 0,
+ "updated_at": 1793701043.3980355,
+ "gpu": "NVIDIA RTX A6000"
+}

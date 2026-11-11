@@ -1,0 +1,2 @@
+RCURVE /home/project-b/LJW/vlm-grounding-steering/outputs/steer-qwen3diag-20261110/qwen3-rcurve-measured.json r(t) at 0, 8, 24, 100, 300, 450: [1.0, 0.981, 0.398, 0.245, 0.167, 0.08]
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:  59%|█████▉    | 445/750 [00:00<00:00, 4412.53it/s]Loading weights: 100%|██████████| 750/750 [00:00<00:00, 6190.37it/s]

@@ -1,0 +1,5 @@
+chair_test500 rows 0-499, n=500. Differences are run minus reference, 95% CI (Bonferroni 97.5% CI).
+nosteer        CHAIR_s  27.2 CHAIR_i  8.02 recall  68.4 tok  191 words  159
+full_an16_r03  CHAIR_s  24.4 CHAIR_i  6.45 recall  67.0 tok  162 words  136
+   vs nosteer      dCHAIR_s [-6.4,+1.0] (97.5%: [-7.0,+1.8])  dCHAIR_i [-2.7,-0.5] (97.5%: [-2.9,-0.3])  drecall [-3.1,+0.2] (97.5%: [-3.3,+0.4])
+   vs cut nosteer  (CHAIR_s 22.2, recall 62.9)  dCHAIR_s [-1.4,+6.2] (97.5%: [-1.8,+6.8])  drecall [+2.3,+5.9] (97.5%: [+2.2,+6.2])

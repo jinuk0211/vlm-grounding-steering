@@ -1,0 +1,15 @@
+n images 800 | reference base
+tag                    | ALL  P    R   F1  F0.5 | CLS  P    R   F1  F0.5 | orangeFP | F0.5_ALL w/o orange
+base                   |  75.5  71.5  83.0  85.2 |  82.2  64.3  70.6  76.5 |   81 |  88.3
+cf_a3bl2p1             |  77.3  71.7  82.7  85.6 |  82.7  64.0  70.6  77.4 |   81 |  88.4
+    CI vs base: dP_ALL [-0.8,+4.2] dR_ALL [-1.9,+2.2] dF0.5_ALL [-1.0,+1.6] | dP_CLS [-2.5,+3.8] dR_CLS [-3.3,+2.5] dF0.5_CLS [-2.2,+3.4] | dF0.5_ALL w/o orange [-1.1,+1.3]
+old_s24a1bl2p1         |  77.9  70.4  83.5  86.8 |  83.0  64.6  69.9  76.5 |   49 |  88.9
+    CI vs base: dP_ALL [+0.1,+4.8] dR_ALL [-3.3,+1.1] dF0.5_ALL [+0.4,+2.8] | dP_CLS [-2.1,+4.2] dR_CLS [-3.7,+2.2] dF0.5_CLS [-3.1,+2.5] | dF0.5_ALL w/o orange [-0.6,+1.6]
+revis                  |  77.1  70.6  83.1  86.2 |  82.2  62.7  70.3  76.7 |   56 |  88.4
+    CI vs base: dP_ALL [-1.0,+4.1] dR_ALL [-3.1,+1.2] dF0.5_ALL [-0.4,+2.3] | dP_CLS [-2.7,+4.0] dR_CLS [-4.2,+1.9] dF0.5_CLS [-3.0,+2.5] | dF0.5_ALL w/o orange [-1.1,+1.3]
+rudder_clone           |  75.9  70.2  83.3  86.1 |  84.9  63.1  71.5  78.6 |   67 |  88.8
+    CI vs base: dP_ALL [-1.7,+2.4] dR_ALL [-3.1,+0.4] dF0.5_ALL [-0.2,+1.8] | dP_CLS [+0.3,+5.7] dR_CLS [-3.5,+1.4] dF0.5_CLS [-1.2,+3.1] | dF0.5_ALL w/o orange [-0.4,+1.5]
+grains_clone           |  78.7  71.1  81.9  85.3 |  81.7  64.1  68.6  74.6 |   66 |  87.8
+    CI vs base: dP_ALL [+0.7,+5.7] dR_ALL [-2.6,+1.7] dF0.5_ALL [-1.4,+1.5] | dP_CLS [-4.1,+3.1] dR_CLS [-4.3,+2.3] dF0.5_CLS [-5.5,+0.8] | dF0.5_ALL w/o orange [-1.7,+0.8]
+vti                    |  77.5  71.2  83.0  85.9 |  84.1  65.5  71.8  78.1 |   63 |  88.4
+    CI vs base: dP_ALL [-0.3,+4.0] dR_ALL [-2.4,+1.8] dF0.5_ALL [-0.4,+1.8] | dP_CLS [-1.0,+4.8] dR_CLS [-1.7,+3.2] dF0.5_CLS [-1.8,+3.0] | dF0.5_ALL w/o orange [-0.9,+1.2]

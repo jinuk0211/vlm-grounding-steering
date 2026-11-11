@@ -1,0 +1,5 @@
+11-10 20:45:27 q1 worker start GPU 1 (GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde) units scripts/steer_vast/qwen3_abl_units.txt
+11-10 20:45:27 q1 start anchor_qwen3-0-500 --steer resid --layers 20 --alpha 1 --steer2 anchornorm --layers2 20 --alpha2 1 --rho2 0.3 --anchor-steps 16
+11-10 20:46:07 q2 worker start GPU 2 (GPU-4c593ff4-fcc4-39c9-d7b4-981dabee1cb3) units scripts/steer_vast/qwen3_abl_units.txt
+11-10 20:46:07 q2 start abl_nosteer_qwen3-0-500 --steer none
+11-10 21:06:16 stopped by hand (user 21:05: stop Qwen3, finish Gemma first, find why Qwen3 does not work); rows kept

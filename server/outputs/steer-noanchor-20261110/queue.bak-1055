@@ -1,0 +1,8 @@
+# 10:21 NEW LOOP (user): GPU 5 only, Gemma E4B only, CHAIR test only, no anchor, formula may change slightly if needed; belief weak (lam .5 pen .25,
+# our ns = reference for the steering effect); goal: Full better than stored Base AND clear steering effect (Full vs ns). Qwen units dropped.
+gemma zzsmoke_blur 0 2 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L24a2 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L18a2bl 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L18a2bl 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L18a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3
+gemma L18a3 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3

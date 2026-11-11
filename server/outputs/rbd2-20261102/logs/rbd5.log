@@ -1,0 +1,16 @@
+=== 18:13:13 rbd5_chain.sh start
+qwen: V_obj 3167 -> gate80 3014, cf 3159 -> cfgate80 3006; 153 tokens removed, 28 classes exempt
+  exempt: ['airplane', 'banana', 'baseball glove', 'bird', 'cat', 'clock', 'couch', 'cup', 'dog', 'elephant', 'fork', 'horse', 'hot dog', 'knife', 'motorcycle', 'mouse', 'parking meter', 'person', 'pizza', 'refrigerator', 'sheep', 'suitcase', 'toilet', 'truck', 'tv', 'umbrella', 'vase', 'wine glass']
+  still suppressed: ['apple', 'baseball bat', 'bed', 'bench', 'bicycle', 'boat', 'book', 'bottle', 'bowl', 'bus', 'cake', 'car', 'cell phone', 'chair', 'cow', 'dining table', 'hair drier', 'handbag', 'keyboard', 'laptop', 'microwave', 'orange', 'oven', 'potted plant', 'sandwich', 'spoon', 'sports ball', 'traffic light']
+  sample removed: ['Ġman', 'Ġchild', 'Ġperson', 'Ġplayer', 'Ġair', 'Ġgirl', 'Ġstudents', 'Ġplayers', 'Ġwoman', 'Ġstudent', 'Ġdog', 'Ġdriver', 'Ġcop', 'Ġmother', 'Ġadult', 'Ġpatients', 'Ġkids', 'Ġfather', 'Ġworkers', 'Ġguy', 'Ġgirls', 'Ġguys', 'Ġsuit', 'Ġboy']
+gemma: V_obj 4435 -> gate80 4246, cf 4427 -> cfgate80 4238; 189 tokens removed, 30 classes exempt
+  exempt: ['airplane', 'banana', 'baseball bat', 'baseball glove', 'bird', 'book', 'bottle', 'bus', 'cake', 'cat', 'clock', 'couch', 'dog', 'elephant', 'handbag', 'hot dog', 'knife', 'motorcycle', 'mouse', 'parking meter', 'person', 'pizza', 'potted plant', 'sandwich', 'sheep', 'spoon', 'suitcase', 'toilet', 'umbrella', 'wine glass']
+  still suppressed: ['apple', 'bed', 'bench', 'bicycle', 'boat', 'bowl', 'car', 'cell phone', 'chair', 'cow', 'cup', 'dining table', 'fork', 'hair drier', 'horse', 'keyboard', 'laptop', 'microwave', 'orange', 'oven', 'refrigerator', 'sports ball', 'toothbrush', 'traffic light', 'truck', 'tv', 'vase']
+  sample removed: ['▁man', '▁person', '▁bus', '▁child', '▁book', '▁air', '▁students', '▁plant', '▁woman', '▁girl', '▁player', '▁patients', '▁dog', '▁glass', '▁student', '▁players', '▁cat', '▁mother', '▁patient', '▁kids', '▁books', '▁father', '▁motor', '▁plants']
+qwen3: V_obj 3167 -> gate80 3013, cf 3159 -> cfgate80 3005; 154 tokens removed, 30 classes exempt
+  exempt: ['airplane', 'banana', 'baseball bat', 'baseball glove', 'bird', 'book', 'cake', 'cat', 'clock', 'couch', 'cup', 'dog', 'elephant', 'horse', 'hot dog', 'knife', 'motorcycle', 'mouse', 'parking meter', 'person', 'pizza', 'potted plant', 'refrigerator', 'sheep', 'suitcase', 'toilet', 'tv', 'umbrella', 'vase', 'wine glass']
+  still suppressed: ['apple', 'bed', 'bench', 'bicycle', 'boat', 'bottle', 'bowl', 'bus', 'car', 'cell phone', 'chair', 'cow', 'dining table', 'fork', 'hair drier', 'handbag', 'keyboard', 'laptop', 'microwave', 'orange', 'oven', 'sandwich', 'spoon', 'sports ball', 'traffic light', 'truck']
+  sample removed: ['Ġman', 'Ġchild', 'Ġperson', 'Ġbook', 'Ġplayer', 'Ġair', 'Ġgirl', 'Ġstudents', 'Ġplayers', 'Ġwoman', 'Ġstudent', 'Ġdog', 'Ġdriver', 'Ġplant', 'Ġcop', 'Ġbooks', 'Ġmother', 'Ġadult', 'Ġpatients', 'Ġkids', 'Ġfather', 'Ġworkers', 'Ġguy', 'Ġgirls']
+PREP_DONE
+=== 18:14:09 queue 60 units
+18:24:35 rbd5 stopped by user (no class gate; layer/hyperparameter search instead)

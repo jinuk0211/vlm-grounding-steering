@@ -1,0 +1,1 @@
+chair_test500 gabl_repro s24a1bl1p05 0 5 --attn eager --alpha 1 --layer 24 --lam 1 --pen 0.5

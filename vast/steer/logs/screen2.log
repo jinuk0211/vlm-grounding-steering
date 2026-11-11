@@ -1,0 +1,23 @@
+01:17:23 start n16_r03 --steer norm --layers 16 --alpha 1 --rho 0.3
+01:39:58 done n16_r03
+01:39:58 start n16_r08 --steer norm --layers 16 --alpha 1 --rho 0.8
+02:02:08 done n16_r08
+02:02:08 start n12_r05 --steer norm --layers 12 --alpha 1 --rho 0.5
+02:24:07 done n12_r05
+02:24:07 start an16_r05 --steer anchornorm --layers 16 --alpha 1 --rho 0.5 --anchor-steps 16
+02:48:32 done an16_r05
+02:48:32 start sel24_r03 --steer sel --layers 24 --alpha 1 --rho 0.3
+03:12:01 done sel24_r03
+03:12:01 start selm24_r02 --steer sel --layers 24 --alpha 1 --rho 0.2 --sel-belief median
+03:35:23 done selm24_r02
+03:35:23 start seln24_r02 --steer sel --layers 24 --alpha 1 --rho 0.2 --sel-sign neg
+04:00:38 done seln24_r02
+04:00:38 start selm20_r02 --steer sel --layers 20 --alpha 1 --rho 0.2 --sel-belief median
+04:25:19 done selm20_r02
+04:25:19 start full_selm24 --steer resid --layers 16 --alpha 2 --steer2 sel --layers2 24 --rho2 0.2 --sel-belief median
+04:47:50 done full_selm24
+04:47:50 start n16_selm24 --steer norm --layers 16 --alpha 1 --rho 0.5 --steer2 sel --layers2 24 --rho2 0.2 --sel-belief median
+05:10:58 done n16_selm24
+05:10:58 QUEUE_DONE
+05:11:32 SCREEN2_DONE
+05:11:32 no round-2 variant carried to confirmation

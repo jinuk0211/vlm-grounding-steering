@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/baseline_bench.py", line 113, in <module>
+    p.add_argument('--start',type=int,default=0);p.add_argument('--end',type=int,default=60);main(p.parse_args())
+                                                                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/baseline_bench.py", line 83, in main
+    update(stage='loading',pid=os.getpid(),method=m,set=str(a.set),dtype=cfg['dtype'],attn=a.attn,
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/baseline_bench.py", line 81, in update
+    s=json.loads(status.read_text()) if status.exists() else {}
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 12 column 11 (char 296)
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  77%|███████▋  | 560/729 [00:00<00:00, 5596.50it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5631.26it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  64%|██████▎   | 463/729 [00:00<00:00, 4629.76it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5997.57it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  51%|█████     | 369/729 [00:00<00:00, 3680.12it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5173.12it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  83%|████████▎ | 607/729 [00:00<00:00, 6068.76it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 6131.83it/s]

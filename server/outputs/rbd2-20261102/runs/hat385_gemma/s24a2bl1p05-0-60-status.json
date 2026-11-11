@@ -1,0 +1,29 @@
+{
+ "stage": "complete",
+ "pid": 3539593,
+ "args": {
+  "model": "gemma",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/hat385.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/hat385_gemma",
+  "tag": "s24a2bl1p05",
+  "start": "0",
+  "end": "60",
+  "lam": "1.0",
+  "clip": "5.0",
+  "pen": "0.5",
+  "bsched": "decay",
+  "alpha": "2.0",
+  "layer": "24",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "eager",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False",
+  "vobj": "None"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793895390.2914329,
+ "vobj": 4435,
+ "done": 60
+}

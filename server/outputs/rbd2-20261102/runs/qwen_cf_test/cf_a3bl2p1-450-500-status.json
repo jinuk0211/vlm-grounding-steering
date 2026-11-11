@@ -1,0 +1,29 @@
+{
+ "stage": "complete",
+ "pid": 480083,
+ "args": {
+  "model": "qwen",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/throne_full1000.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/qwen_cf_test",
+  "tag": "cf_a3bl2p1",
+  "start": "450",
+  "end": "500",
+  "lam": "2.0",
+  "clip": "5.0",
+  "pen": "1.0",
+  "bsched": "decay",
+  "alpha": "3.0",
+  "layer": "16",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False",
+  "vobj": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793794494.8401034,
+ "vobj": 3159,
+ "done": 50
+}

@@ -1,0 +1,2 @@
+RCURVE /home/project-b/LJW/vlm-grounding-steering/outputs/visual-decay-20261030/qwen3-visual-decay-summary.json r(t) at 0, 8, 24, 100, 300, 450: [1.0, 0.981, 0.392, 0.249, 0.083, 0.019]
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:  80%|███████▉  | 597/750 [00:00<00:00, 5968.75it/s]Loading weights: 100%|██████████| 750/750 [00:00<00:00, 5983.08it/s]

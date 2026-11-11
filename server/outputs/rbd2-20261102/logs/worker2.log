@@ -1,0 +1,46 @@
+12:30:16 start chair_test60 base 
+12:40:06 end chair_test60 base
+12:40:06 start amber_test60 base 
+12:45:29 end amber_test60 base
+12:45:29 start throne_test60 base 
+12:55:30 end throne_test60 base
+12:55:30 start amber_test60L base 
+13:20:32 start chair_test60 s16a3 --alpha 3 --layer 16
+13:29:05 end chair_test60 s16a3
+13:29:05 start chair_test60 bpos_s16a3 --alpha 3 --layer 16 --lam 1 --bpos
+13:37:43 end chair_test60 bpos_s16a3
+13:37:43 start chair_test60 s16a1bl1 --alpha 1 --layer 16 --lam 1
+13:46:53 end chair_test60 s16a1bl1
+13:46:53 start chair_test60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+13:55:24 end chair_test60 s16a3bl1
+13:55:24 start chair_test60 bl1 --lam 1
+14:04:52 end chair_test60 bl1
+14:04:52 start chair_test60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5
+14:13:52 end chair_test60 s16a2bl1p05
+14:13:52 QUEUE_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/sweep_q0.txt
+14:13:53 start amber_test60 s16a3 --alpha 3 --layer 16
+14:19:22 end amber_test60 s16a3
+14:19:22 start amber_test60 bpos_s16a3 --alpha 3 --layer 16 --lam 1 --bpos
+14:24:54 end amber_test60 bpos_s16a3
+14:24:54 start amber_test60 s16a1bl1 --alpha 1 --layer 16 --lam 1
+14:30:21 end amber_test60 s16a1bl1
+14:30:21 start amber_test60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+14:35:48 end amber_test60 s16a3bl1
+14:35:48 start amber_test60 bl1 --lam 1
+14:41:25 end amber_test60 bl1
+14:41:25 start amber_test60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5
+14:46:59 end amber_test60 s16a2bl1p05
+14:46:59 start throne_test60 s16a3 --alpha 3 --layer 16
+14:55:52 end throne_test60 s16a3
+14:55:52 start throne_test60 bpos_s16a3 --alpha 3 --layer 16 --lam 1 --bpos
+15:04:46 end throne_test60 bpos_s16a3
+15:04:46 start throne_test60 s16a1bl1 --alpha 1 --layer 16 --lam 1
+15:14:23 end throne_test60 s16a1bl1
+15:14:23 start throne_test60 s16a3bl1 --alpha 3 --layer 16 --lam 1
+15:23:38 end throne_test60 s16a3bl1
+15:23:38 start throne_test60 bl1 --lam 1
+15:33:48 end throne_test60 bl1
+15:33:48 start throne_test60 s16a2bl1p05 --alpha 2 --layer 16 --lam 1 --pen 0.5
+15:43:26 end throne_test60 s16a2bl1p05
+15:43:26 QUEUE_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/q0d.txt
+16:58:13 start chair_dev60 base 

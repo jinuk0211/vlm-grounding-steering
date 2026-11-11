@@ -1,0 +1,47 @@
+loading annotations into memory...
+Done (t=0.44s)
+creating index...
+index created!
+voting threshold: 5
+micro-averaging (at image level)
+F1: 0.825
+F0.5: 0.833
+P: 0.831
+R:0.827
+N:60
+NaNs: 1
+voting threshold: 8
+micro-averaging (at image level)
+F1: 0.884
+F0.5: 0.893
+P: 0.861
+R:0.852
+N:60
+NaNs: 3
+voting threshold: 9
+micro-averaging (at image level)
+F1: 0.896
+F0.5: 0.899
+P: 0.820
+R:0.826
+N:60
+NaNs: 6
+loading annotations into memory...
+Done (t=0.40s)
+creating index...
+index created!
+voting threshold: 5
+F1 (classwise): 0.815
+F0.5 (classwise): 0.834
+P (classwise): 0.807
+R (classwise):0.785
+voting threshold: 8
+F1 (classwise): 0.882
+F0.5 (classwise): 0.901
+P (classwise): 0.878
+R (classwise):0.809
+voting threshold: 9
+F1 (classwise): 0.885
+F0.5 (classwise): 0.906
+P (classwise): 0.868
+R (classwise):0.810

@@ -1,0 +1,14 @@
+# Steering-variant screen, Qwen2.5-VL-7B, chair_test100 (= chair_test500 rows 0-99). Belief/penalty fixed: --lam 1 --pen 0.5 (decay).
+# TAG          ARGS (vdd_steer.py; defaults --lam 1 --pen 0.5 --bsched decay --ssched decay --r measured --attn sdpa)
+full           --steer resid --layers 16 --alpha 2
+nosteer        --steer none
+r_l8           --steer resid --layers 8 --alpha 2
+r_l22          --steer resid --layers 22 --alpha 2
+r_multi        --steer resid --layers 8,12,16,20,24 --alpha 0.5
+r_norm         --steer norm --layers 16 --alpha 1 --rho 0.5
+r_anchor       --steer anchor --layers 16 --alpha 2 --anchor-steps 16
+r_dose4        --steer resid --layers 16 --alpha 4
+attn_mid       --steer attn --layers 12,14,16,18,20 --alpha 1
+pai_mid        --steer pai --layers 8,10,12,14,16,18,20 --beta 1
+blur16         --steer resid --layers 16 --alpha 2 --ctrl blur --blur-radius 12
+sel24          --steer sel --layers 24 --alpha 1 --rho 0.1

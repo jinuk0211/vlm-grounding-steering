@@ -1,0 +1,6 @@
+# dev: Base and the four candidates of gemma_pick.py
+vdd throne_gdev60 gemma_throne_dev60 base 0 60
+vdd throne_gdev60 gemma_throne_dev60 s24a1bl2p1 0 60 --alpha 1 --layer 24 --lam 2 --pen 1
+vdd throne_gdev60 gemma_throne_dev60 s20a1bl2p1 0 60 --alpha 1 --layer 20 --lam 2 --pen 1
+vdd throne_gdev60 gemma_throne_dev60 s28a1bl2p1 0 60 --alpha 1 --layer 28 --lam 2 --pen 1
+vdd throne_gdev60 gemma_throne_dev60 bl2p1 0 60 --lam 2 --pen 1

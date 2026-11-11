@@ -1,0 +1,16 @@
+19:10:07 start gemma_cf_t200-cf_a3bl2p1-0-50
+19:43:32 end gemma_cf_t200-cf_a3bl2p1-0-50
+19:44:02 start gemma_cf_t200-cf_a2bl2p1-50-100
+20:18:08 end gemma_cf_t200-cf_a2bl2p1-50-100
+20:18:35 start gemma_cf_t200-cf_a1bl2p1-100-150
+20:54:15 end gemma_cf_t200-cf_a1bl2p1-100-150
+20:54:41 start gemma_cf_t200-cf_a1bl3p1-100-150
+21:31:08 end gemma_cf_t200-cf_a1bl3p1-100-150
+21:31:29 start gemma_cf_t200-cf_a3bl2p1-150-200
+22:04:33 end gemma_cf_t200-cf_a3bl2p1-150-200
+22:24:34 POOL_DONE
+23:04:13 start gemma_cf_test-cf_a3bl2p1-400-450
+23:37:24 end gemma_cf_test-cf_a3bl2p1-400-450
+23:37:45 start gemma_cf_test-cf_a3bl2p1-600-650
+00:12:12 end gemma_cf_test-cf_a3bl2p1-600-650
+00:44:13 POOL_DONE

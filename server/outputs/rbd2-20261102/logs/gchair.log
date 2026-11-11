@@ -1,0 +1,28 @@
+=== 19:16:45 gchair_chain.sh start
+sets ok: chair_test500 = Gemma table CHAIR ids/prompt/512 tokens; chair_dev60 disjoint; 'Please describe this image in detail.'
+smoke rc 0, GPU 2 memory 2 -> peak 17381 MiB; worker gate 18879 MiB
+--- base-0-1.jsonl
+358 41 'This is a photograph of the upper portion of a classical or neoclassical building, featuring a prominent clock tower structure against a clear, bright blue sky.'
+--- s24a2bl1p05-0-1.jsonl
+409 47 'This is a photograph of the upper portion of a classical or neoclassical building, featuring a prominent clock tower structure against a clear, light blue sky.\n'
+=== 19:18:57 smoke ok
+=== 19:18:57 GPU 3 worker c3 joins
+=== 19:18:57 GPU 2 worker c2 joins
+=== 20:01:59 GPU 5 worker c5a joins
+=== 20:04:29 GPU 5 worker c5b joins
+=== 20:38:03 gchair_finish.sh: dev stopped (user), s24a2bl1p05 fixed; test 500 (ours + vdd Base)
+=== 01:00:13 decoded
+join base 500 / 500 complete
+join s24a2bl1p05 500 / 500 complete
+=== 01:00:13 chair_test500 Gemma: ours vs vdd Base (paired bootstrap)
+base                         CHAIR_s  34.6 CHAIR_i   7.0 recall  64.7 F1  76.3  tok  370 @512  9  
+s24a2bl1p05                  CHAIR_s  30.8 CHAIR_i   6.0 recall  61.9 F1  74.7  tok  381 @512 14  dCHAIR_s[-7.6,+0.0] drecall[-4.4,-1.1]
+=== 01:00:38 chair_test500 Gemma: table rows (base = table Base) + vddbase + ours
+base                         CHAIR_s  36.2 CHAIR_i   7.6 recall  65.0 F1  76.3  tok  371 @512 13  
+grains_clone                 CHAIR_s  27.4 CHAIR_i   6.2 recall  60.7 F1  73.7  tok  299 @512  3  dCHAIR_s[-13.2,-4.6] drecall[-5.9,-2.6]
+revis                        CHAIR_s  26.8 CHAIR_i   6.2 recall  59.7 F1  73.0  tok  355 @512 10  dCHAIR_s[-13.4,-5.4] drecall[-6.9,-3.4]
+rudder_clone                 CHAIR_s  35.2 CHAIR_i   7.3 recall  65.0 F1  76.4  tok  376 @512 12  dCHAIR_s[-4.4,+2.4] drecall[-1.2,+1.4]
+s24a2bl1p05                  CHAIR_s  30.8 CHAIR_i   6.0 recall  61.9 F1  74.7  tok  381 @512 14  dCHAIR_s[-9.2,-1.8] drecall[-4.6,-1.4]
+vddbase                      CHAIR_s  34.6 CHAIR_i   7.0 recall  64.7 F1  76.3  tok  370 @512  9  dCHAIR_s[-4.8,+1.4] drecall[-1.5,+1.0]
+vti                          CHAIR_s  33.6 CHAIR_i   7.1 recall  64.6 F1  76.2  tok  363 @512 11  dCHAIR_s[-6.2,+1.2] drecall[-1.8,+1.0]
+=== 01:01:49 GCHAIR_DONE

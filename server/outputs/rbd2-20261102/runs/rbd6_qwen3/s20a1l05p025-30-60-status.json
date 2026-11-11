@@ -1,0 +1,29 @@
+{
+ "stage": "running",
+ "pid": 1214004,
+ "args": {
+  "model": "qwen3",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/chair_test500.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/rbd6_qwen3",
+  "tag": "s20a1l05p025",
+  "start": "30",
+  "end": "60",
+  "lam": "0.5",
+  "clip": "5.0",
+  "pen": "0.25",
+  "bsched": "decay",
+  "alpha": "1.0",
+  "layer": "20",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False",
+  "vobj": "None"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793875917.0543616,
+ "vobj": 3167,
+ "done": 21
+}

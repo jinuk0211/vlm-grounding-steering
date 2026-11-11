@@ -1,0 +1,50 @@
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  79%|███████▊  | 574/729 [00:00<00:00, 5739.54it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5691.58it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  77%|███████▋  | 564/729 [00:00<00:00, 5637.13it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5682.64it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 10261.32it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  80%|███████▉  | 583/729 [00:00<00:00, 5826.02it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5896.02it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  99%|█████████▉| 723/729 [00:00<00:00, 7226.68it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 7250.54it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  78%|███████▊  | 569/729 [00:00<00:00, 5671.18it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5812.12it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  69%|██████▉   | 503/729 [00:00<00:00, 5022.58it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5826.67it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  81%|████████  | 587/729 [00:00<00:00, 5842.15it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5527.87it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  74%|███████▎  | 536/729 [00:00<00:00, 5359.14it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5521.10it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  62%|██████▏   | 449/729 [00:00<00:00, 4468.00it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 6035.90it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  77%|███████▋  | 562/729 [00:00<00:00, 5601.99it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5676.54it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  60%|██████    | 438/729 [00:00<00:00, 4375.27it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5419.05it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  80%|███████▉  | 583/729 [00:00<00:00, 5826.55it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5830.20it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  70%|██████▉   | 509/729 [00:00<00:00, 5085.48it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5947.40it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  76%|███████▌  | 552/729 [00:00<00:00, 5517.07it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5515.83it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  76%|███████▌  | 553/729 [00:00<00:00, 5528.88it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5681.60it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  79%|███████▉  | 575/729 [00:00<00:00, 5740.18it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5771.69it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  36%|███▋      | 265/729 [00:00<00:00, 2506.69it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 4543.94it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  58%|█████▊    | 420/729 [00:00<00:00, 4189.24it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 6089.15it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  72%|███████▏  | 527/729 [00:00<00:00, 5255.48it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 5957.47it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:  84%|████████▎ | 609/729 [00:00<00:00, 6089.03it/s]Loading weights: 100%|██████████| 729/729 [00:00<00:00, 6254.43it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 97, in main
+    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/vlm_grounding/backend.py", line 206, in load_adapter
+    ).to(device)
+      ^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3710, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 49.69 MiB is free. Process 2797224 has 19.96 GiB memory in use. Process 2932444 has 16.08 GiB memory in use. Including non-PyTorch memory, this process has 11.29 GiB memory in use. Of the allocated memory 10.87 GiB is allocated by PyTorch, and 170.68 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

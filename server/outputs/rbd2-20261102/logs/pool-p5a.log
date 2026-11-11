@@ -1,0 +1,17 @@
+12:00:20 start throne_test500 s16a1bl2p1 150-200
+12:19:55 end throne_test500 s16a1bl2p1 150-200
+12:19:55 start chair_test500 base 150-200
+12:38:12 end chair_test500 base 150-200
+12:38:12 start chair_test500 base 200-250
+13:01:05 end chair_test500 base 200-250
+13:01:05 start throne_test500 base 250-300
+13:28:54 end throne_test500 base 250-300
+13:28:54 start amber_test500 base 250-300
+13:45:12 end amber_test500 base 250-300
+13:45:12 start chair_test500 base 300-350
+14:10:47 end chair_test500 base 300-350
+14:10:47 start chair_test500 base 350-400
+14:40:44 end chair_test500 base 350-400
+14:40:44 start throne_test500 base 450-500
+15:09:48 end throne_test500 base 450-500
+15:09:48 POOL_DONE

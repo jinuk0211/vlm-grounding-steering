@@ -1,0 +1,20 @@
+{
+ "stage": "failed",
+ "pid": 3352054,
+ "args": {
+  "model": "qwen",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/data/chair-dev-train2014-100/chair.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/dev",
+  "tag": "qwen-b1.0",
+  "start": "0",
+  "end": "100",
+  "lam": "1.0",
+  "clip": "10.0",
+  "alpha": "0.0",
+  "layer": "16",
+  "r": "measured"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793365418.9342644,
+ "error": "Traceback (most recent call last):\n  File \"/home/project-b/LJW/vlm-grounding-steering/scripts/rbd_decode.py\", line 59, in main\n    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer\n            ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/vlm_grounding/backend.py\", line 206, in load_adapter\n    ).to(device)\n      ^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py\", line 3710, in to\n    return super().to(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1369, in to\n    return self._apply(convert)\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 928, in _apply\n    module._apply(fn)\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 955, in _apply\n    param_applied = fn(param)\n                    ^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py\", line 1355, in convert\n    return t.to(\n           ^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.02 GiB. GPU 0 has a total capacity of 94.97 GiB of which 18.62 MiB is free. Process 3350426 has 17.35 GiB memory in use. Process 3351534 has 17.35 GiB memory in use. Process 3352055 has 14.54 GiB memory in use. Process 3352052 has 15.56 GiB memory in use. Process 3352053 has 14.58 GiB memory in use. Including non-PyTorch memory, this process has 14.97 GiB memory in use. Process 3352904 has 572.00 MiB memory in use. Of the allocated memory 14.43 GiB is allocated by PyTorch, and 5.43 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"
+}

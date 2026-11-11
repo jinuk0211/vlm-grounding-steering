@@ -1,0 +1,5 @@
+11-10 21:22:01 r1 worker start GPU 1 (GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde) rcurve /home/project-b/LJW/vlm-grounding-steering/outputs/steer-qwen3diag-20261110/qwen3-rcurve-measured.json
+11-10 21:22:01 r1 start anchor_qwen3_rc --steer resid --layers 20 --alpha 1 --steer2 anchornorm --layers2 20 --alpha2 1 --rho2 0.3 --anchor-steps 16
+11-10 21:22:21 r2 worker start GPU 2 (GPU-4c593ff4-fcc4-39c9-d7b4-981dabee1cb3) rcurve /home/project-b/LJW/vlm-grounding-steering/outputs/steer-qwen3diag-20261110/qwen3-rcurve-measured.json
+11-10 21:22:21 r2 start abl_nosteer_qwen3_rc --steer none
+11-10 21:42:32 stopped by hand (user 21:35: Qwen3 효과없으면 내려줘); rows kept

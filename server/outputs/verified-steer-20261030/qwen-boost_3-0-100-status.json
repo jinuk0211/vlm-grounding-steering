@@ -1,0 +1,8 @@
+{
+ "stage": "running",
+ "pid": 3351534,
+ "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+ "updated_at": 1793365485.1663308,
+ "done": 32,
+ "sec_per_caption": 2.420039214193821
+}

@@ -1,0 +1,6 @@
+11-10 19:51:52 start qwen3 GPU 0 (GPU-c27bc2d7-aa8a-5d1e-7d0a-6a4fe5cd6303) variants: base full bpos2
+11-10 19:51:52 start dev_base --steer none --lam 0 --pen 0
+11-10 20:23:34 stopped by hand (user 20:20: Gemma ablation on GPU 0; Qwen3 dev moves to GPU 1)
+11-10 20:24:14 start qwen3 GPU 1 (GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde) variants: base full bpos2
+11-10 20:24:14 start dev_base --steer none --lam 0 --pen 0
+11-10 20:45:27 stopped by hand (user 20:45 "A로가자": GPUs 1,2 go to the Qwen3 test ablation); rows so far kept

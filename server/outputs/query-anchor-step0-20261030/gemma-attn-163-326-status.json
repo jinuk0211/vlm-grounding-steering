@@ -1,0 +1,21 @@
+{
+ "stage": "complete",
+ "pid": 3268618,
+ "captions": 163,
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "updated_at": 1793363686.1101232,
+ "gpu_name": "NVIDIA RTX A5000",
+ "n_layers": 42,
+ "full_attention_layers": [
+  5,
+  11,
+  17,
+  23,
+  29,
+  35,
+  41
+ ],
+ "done": 163,
+ "sec_per_caption": 0.46559863505156146,
+ "records": 163
+}

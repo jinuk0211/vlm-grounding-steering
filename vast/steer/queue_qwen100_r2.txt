@@ -1,0 +1,12 @@
+# Round 2 (fixed 2026-11-10 after round 1, before any round-2 run). Belief/penalty unchanged (--lam 1 --pen 0.5, raw belief).
+# full and nosteer are the round-1 runs (same box, same images); selection is among these 10 only.
+n16_r03      --steer norm --layers 16 --alpha 1 --rho 0.3
+n16_r08      --steer norm --layers 16 --alpha 1 --rho 0.8
+n12_r05      --steer norm --layers 12 --alpha 1 --rho 0.5
+an16_r05     --steer anchornorm --layers 16 --alpha 1 --rho 0.5 --anchor-steps 16
+sel24_r03    --steer sel --layers 24 --alpha 1 --rho 0.3
+selm24_r02   --steer sel --layers 24 --alpha 1 --rho 0.2 --sel-belief median
+seln24_r02   --steer sel --layers 24 --alpha 1 --rho 0.2 --sel-sign neg
+selm20_r02   --steer sel --layers 20 --alpha 1 --rho 0.2 --sel-belief median
+full_selm24  --steer resid --layers 16 --alpha 2 --steer2 sel --layers2 24 --rho2 0.2 --sel-belief median
+n16_selm24   --steer norm --layers 16 --alpha 1 --rho 0.5 --steer2 sel --layers2 24 --rho2 0.2 --sel-belief median

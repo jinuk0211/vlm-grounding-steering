@@ -1,0 +1,59 @@
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  31%|███       | 635/2076 [00:00<00:00, 6290.57it/s]Loading weights:  61%|██████    | 1265/2076 [00:00<00:00, 4176.65it/s]Loading weights:  96%|█████████▋| 2000/2076 [00:00<00:00, 5298.00it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5174.41it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 97, in main
+    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/src/vlm_grounding/backend.py", line 206, in load_adapter
+    ).to(device)
+      ^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3710, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 30.25 MiB is free. Process 874222 has 9.13 GiB memory in use. Including non-PyTorch memory, this process has 14.38 GiB memory in use. Of the allocated memory 14.17 GiB is allocated by PyTorch, and 3.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  55%|█████▌    | 1147/2076 [00:00<00:00, 11463.81it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 10642.01it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 133, in <module>
+    main(p.parse_args())
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py", line 97, in main
+    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/src/vlm_grounding/backend.py", line 206, in load_adapter
+    ).to(device)
+      ^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3710, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 30.25 MiB is free. Process 877655 has 9.13 GiB memory in use. Including non-PyTorch memory, this process has 14.38 GiB memory in use. Of the allocated memory 14.17 GiB is allocated by PyTorch, and 3.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  26%|██▌       | 535/2076 [00:00<00:00, 5339.48it/s]Loading weights:  51%|█████▏    | 1069/2076 [00:00<00:00, 4597.88it/s]Loading weights:  74%|███████▍  | 1536/2076 [00:00<00:00, 4496.61it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5141.79it/s]

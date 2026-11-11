@@ -1,0 +1,7 @@
+dev_base --steer none --lam 0 --pen 0
+dev_full --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16
+dev_bpos2 --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16 --bpos --lam 2
+dev_bpos1 --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16 --bpos
+dev_bpos3 --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16 --bpos --lam 3
+dev_lam2 --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16 --lam 2
+dev_nobelief --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16 --lam 0

@@ -1,0 +1,31 @@
+11-11 07:25:25 worker start
+11-11 07:25:25 start zzsmoke 0-2 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 07:25:28 FAILED zzsmoke 0-2
+11-11 07:25:28 start zzsmoke 0-2 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 07:25:32 FAILED zzsmoke 0-2
+11-11 07:25:32 start L24a2m 0-100 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 07:25:35 FAILED L24a2m 0-100
+11-11 07:25:35 start L24a2m 0-100 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 07:25:38 FAILED L24a2m 0-100
+11-11 07:25:38 start nsm 0-100 --lam 0.75 --pen 0.35 --steer none
+11-11 07:25:41 FAILED nsm 0-100
+11-11 07:25:41 start nsm 0-100 --lam 0.75 --pen 0.35 --steer none
+11-11 07:25:44 FAILED nsm 0-100
+11-11 07:25:44 start L24a2m 100-200 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 07:25:48 FAILED L24a2m 100-200
+11-11 07:25:48 start L24a2m 100-200 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 07:25:51 FAILED L24a2m 100-200
+11-11 07:25:51 start nsm 100-200 --lam 0.75 --pen 0.35 --steer none
+11-11 07:25:54 FAILED nsm 100-200
+11-11 07:25:54 start nsm 100-200 --lam 0.75 --pen 0.35 --steer none
+11-11 07:25:58 FAILED nsm 100-200
+11-11 07:46:21 config.json copied from server, fail markers cleared
+11-11 07:46:58 start zzsmoke 0-2 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 07:49:05 done zzsmoke 0-2
+11-11 07:49:05 start L24a2m 0-100 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 09:33:10 done L24a2m 0-100
+11-11 09:33:10 start nsm 0-100 --lam 0.75 --pen 0.35 --steer none
+11-11 11:12:51 done nsm 0-100
+11-11 11:12:51 start L24a2m 100-200 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+11-11 11:19:07 FAILED L24a2m 100-200
+11-11 11:19:07 start abl_nopen_L24a2 0-100 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2

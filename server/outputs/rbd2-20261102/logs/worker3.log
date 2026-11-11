@@ -1,0 +1,59 @@
+12:30:16 start chair_test60 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+12:39:59 end chair_test60 main
+12:39:59 start amber_test60 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+12:45:26 end amber_test60 main
+12:45:26 start throne_test60 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+12:55:15 end throne_test60 main
+12:55:15 start amber_test60L main --alpha 1 --layer 16 --lam 1 --pen 0.5
+13:03:45 start chair_test60 bpos_s16a1 --alpha 1 --layer 16 --lam 1 --bpos
+13:12:54 end chair_test60 bpos_s16a1
+13:12:54 start chair_test60 s16a1 --alpha 1 --layer 16
+13:22:11 end chair_test60 s16a1
+13:22:11 start chair_test60 pen1 --pen 1
+13:31:45 end chair_test60 pen1
+13:31:45 start chair_test60 s16a2bl1 --alpha 2 --layer 16 --lam 1
+13:41:00 end chair_test60 s16a2bl1
+13:41:00 start chair_test60 s20a2bl1 --alpha 2 --layer 20 --lam 1
+13:50:42 end chair_test60 s20a2bl1
+13:50:42 start chair_test60 s16a1bl2p1 --alpha 1 --layer 16 --lam 2 --pen 1
+14:00:17 end chair_test60 s16a1bl2p1
+14:00:17 QUEUE_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/sweep_q1.txt
+14:00:17 start amber_test60 bpos_s16a1 --alpha 1 --layer 16 --lam 1 --bpos
+14:05:47 end amber_test60 bpos_s16a1
+14:05:47 start amber_test60 s16a1 --alpha 1 --layer 16
+14:11:13 end amber_test60 s16a1
+14:11:13 start amber_test60 pen1 --pen 1
+14:16:48 end amber_test60 pen1
+14:16:48 start amber_test60 s16a2bl1 --alpha 2 --layer 16 --lam 1
+14:22:20 end amber_test60 s16a2bl1
+14:22:20 start amber_test60 s20a2bl1 --alpha 2 --layer 20 --lam 1
+14:27:52 end amber_test60 s20a2bl1
+14:27:52 start amber_test60 s16a1bl2p1 --alpha 1 --layer 16 --lam 2 --pen 1
+14:33:24 end amber_test60 s16a1bl2p1
+14:33:24 start throne_test60 bpos_s16a1 --alpha 1 --layer 16 --lam 1 --bpos
+14:43:02 end throne_test60 bpos_s16a1
+14:43:02 start throne_test60 s16a1 --alpha 1 --layer 16
+14:52:31 end throne_test60 s16a1
+14:52:31 start throne_test60 pen1 --pen 1
+15:02:33 end throne_test60 pen1
+15:02:33 start throne_test60 s16a2bl1 --alpha 2 --layer 16 --lam 1
+15:11:58 end throne_test60 s16a2bl1
+15:11:58 start throne_test60 s20a2bl1 --alpha 2 --layer 20 --lam 1
+15:22:37 end throne_test60 s20a2bl1
+15:22:37 start throne_test60 s16a1bl2p1 --alpha 1 --layer 16 --lam 2 --pen 1
+15:32:35 end throne_test60 s16a1bl2p1
+15:32:35 QUEUE_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/q1d.txt
+16:58:13 start amber_dev60 base 
+17:03:48 end amber_dev60 base
+17:03:48 start amber_dev60 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+17:09:23 end amber_dev60 main
+17:09:23 start amber_dev60 mainMed --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+17:14:53 end amber_dev60 mainMed
+17:14:53 QUEUE_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/dev_q3.txt
+17:15:11 start chair_dev60 base 
+17:18:47 end chair_dev60 base
+17:18:47 start chair_dev60 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+17:28:45 end chair_dev60 main
+17:28:45 start chair_dev60 mainMed --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+17:38:49 end chair_dev60 mainMed
+17:38:49 QUEUE_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/dev_q2.txt

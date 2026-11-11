@@ -1,0 +1,9 @@
+17:00:31 Starting rudder_clone on GPU 4 (range 0-250)
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:  76%|███████▌  | 571/750 [00:00<00:00, 5706.32it/s]Loading weights: 100%|██████████| 750/750 [00:00<00:00, 5746.63it/s]
+18:44:53 Finished rudder_clone on GPU 4 (range 0-250)
+18:44:53 Starting revis on GPU 4 (range 0-250)
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:  59%|█████▉    | 445/750 [00:00<00:00, 4430.24it/s]Loading weights: 100%|██████████| 750/750 [00:00<00:00, 6017.27it/s]
+18:45:06 Finished revis on GPU 4 (range 0-250)
+18:45:06 Starting vti on GPU 4 (range 0-250)
+Loading weights:   0%|          | 0/750 [00:00<?, ?it/s]Loading weights:  59%|█████▉    | 441/750 [00:00<00:00, 4385.14it/s]Loading weights: 100%|██████████| 750/750 [00:00<00:00, 6379.80it/s]
+18:45:19 Finished vti on GPU 4 (range 0-250)

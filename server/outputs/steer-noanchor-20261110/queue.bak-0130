@@ -1,0 +1,45 @@
+# CONFIRMATION (00:27): screen winners by the rule (CHAIR_s < ns, recall >= ns-1): qwen L12a6 (100 rows), gemma L18a2 (72/100 at decision)
+# rows 100-499 in 100-row chunks; ns at the same weak belief on the same rows
+qwen ns 100 200 --lam 0.5 --pen 0.25 --steer none
+qwen L12a6 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+gemma ns 100 200 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+qwen ns 200 300 --lam 0.5 --pen 0.25 --steer none
+qwen L12a6 200 300 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+gemma ns 200 300 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 200 300 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+qwen ns 300 400 --lam 0.5 --pen 0.25 --steer none
+qwen L12a6 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+gemma ns 300 400 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+qwen ns 400 500 --lam 0.5 --pen 0.25 --steer none
+qwen L12a6 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+gemma ns 400 500 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+# round 1 screen, rows 0-99, weak belief lam 0.5 pen 0.25
+qwen ns 0 100 --lam 0.5 --pen 0.25 --steer none
+gemma ns 0 100 --lam 0.5 --pen 0.25 --steer none
+qwen L16a2 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2
+gemma L24a1 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 1
+qwen L16a4 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 4
+qwen L12a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 3
+gemma L24a2 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+qwen L20a2 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 20 --alpha 2
+qwen L16a2c 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2 --ssched const
+gemma L18a2 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+qwen L12a6 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+gemma L24a1c 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 1 --ssched const
+# round 1b (added 22:52 after interim: qwen L16a2 raised CHAIR_s, gemma L24a1 raised recall only)
+qwen L8a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 8 --alpha 3
+qwen L16a1 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 1
+gemma L12a2 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 2
+gemma L32a1 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 32 --alpha 1
+# round 1c (23:58): early schedule s(t) = r(t) (steer while the image is still read; vdd_steer.py patched, decay/const unchanged)
+qwen L16a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2 --ssched early
+qwen L12a3e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 3 --ssched early
+gemma L24a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2 --ssched early
+# round 2 neighbours of the winners (rows 0-99)
+qwen L12a8 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 8
+qwen L10a6 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 10 --alpha 6
+gemma L18a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3
+gemma L15a2 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 15 --alpha 2

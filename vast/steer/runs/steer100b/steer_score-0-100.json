@@ -1,0 +1,763 @@
+{
+ "vs_nosteer": {
+  "ref:nosteer": {
+   "CHAIR_s": 27.0,
+   "CHAIR_i": 8.986928104575163,
+   "recall": 66.76829268292683,
+   "F1": 77.02794862403859
+  },
+  "an16_r05": {
+   "CHAIR_s": 17.0,
+   "CHAIR_i": 5.818181818181818,
+   "recall": 62.5,
+   "F1": 75.13780098636495,
+   "ci": {
+    "CHAIR_s": [
+     -18.0,
+     -2.9999999999999973
+    ],
+    "recall": [
+     -8.23529411764705,
+     0.0
+    ]
+   }
+  },
+  "full": {
+   "CHAIR_s": 25.0,
+   "CHAIR_i": 8.112582781456954,
+   "recall": 67.07317073170732,
+   "F1": 77.54350311190144,
+   "ci": {
+    "CHAIR_s": [
+     -9.000000000000002,
+     5.000000000000002
+    ],
+    "recall": [
+     -2.6846138435340037,
+     3.798350460900624
+    ]
+   }
+  },
+  "full_selm24": {
+   "CHAIR_s": 28.000000000000004,
+   "CHAIR_i": 10.066006600660065,
+   "recall": 66.46341463414635,
+   "F1": 76.43758765778402,
+   "ci": {
+    "CHAIR_s": [
+     -5.000000000000004,
+     7.000000000000001
+    ],
+    "recall": [
+     -3.5598945579211114,
+     2.882145537774394
+    ]
+   }
+  },
+  "n12_r05": {
+   "CHAIR_s": 28.000000000000004,
+   "CHAIR_i": 8.19964349376114,
+   "recall": 64.32926829268293,
+   "F1": 75.64803631161436,
+   "ci": {
+    "CHAIR_s": [
+     -5.000000000000002,
+     7.0000000000000036
+    ],
+    "recall": [
+     -6.268705975075128,
+     1.270044119884381
+    ]
+   }
+  },
+  "n16_r03": {
+   "CHAIR_s": 36.0,
+   "CHAIR_i": 10.385259631490786,
+   "recall": 65.85365853658537,
+   "F1": 75.91843170231776,
+   "ci": {
+    "CHAIR_s": [
+     1.9999999999999991,
+     17.0
+    ],
+    "recall": [
+     -3.57142857142857,
+     1.7915858772602289
+    ]
+   }
+  },
+  "n16_r08": {
+   "CHAIR_s": 20.0,
+   "CHAIR_i": 7.118055555555555,
+   "recall": 61.58536585365854,
+   "F1": 74.06315962608623,
+   "ci": {
+    "CHAIR_s": [
+     -15.000000000000002,
+     1.9999999999999991
+    ],
+    "recall": [
+     -8.517484585603674,
+     -1.834308046231883
+    ]
+   }
+  },
+  "n16_selm24": {
+   "CHAIR_s": 27.0,
+   "CHAIR_i": 7.628524046434494,
+   "recall": 64.63414634146342,
+   "F1": 76.05270954362192,
+   "ci": {
+    "CHAIR_s": [
+     -8.000000000000002,
+     8.000000000000002
+    ],
+    "recall": [
+     -5.090586898492173,
+     0.9524567788898962
+    ]
+   }
+  },
+  "sel24_r03": {
+   "CHAIR_s": 32.0,
+   "CHAIR_i": 10.214168039538714,
+   "recall": 66.15853658536585,
+   "F1": 76.18228608054007,
+   "ci": {
+    "CHAIR_s": [
+     -1.9999999999999962,
+     12.0
+    ],
+    "recall": [
+     -4.4322763854513285,
+     2.9156175457195843
+    ]
+   }
+  },
+  "selm20_r02": {
+   "CHAIR_s": 32.0,
+   "CHAIR_i": 9.135399673735726,
+   "recall": 65.54878048780488,
+   "F1": 76.15798226340341,
+   "ci": {
+    "CHAIR_s": [
+     -3.9999999999999982,
+     13.024999999999867
+    ],
+    "recall": [
+     -3.934657123066273,
+     1.3377926421404673
+    ]
+   }
+  },
+  "selm24_r02": {
+   "CHAIR_s": 28.999999999999996,
+   "CHAIR_i": 8.760330578512397,
+   "recall": 64.02439024390245,
+   "F1": 75.24683063620962,
+   "ci": {
+    "CHAIR_s": [
+     -4.999999999999999,
+     9.0
+    ],
+    "recall": [
+     -5.621394230769226,
+     0.0
+    ]
+   }
+  },
+  "seln24_r02": {
+   "CHAIR_s": 28.000000000000004,
+   "CHAIR_i": 8.143322475570033,
+   "recall": 67.07317073170732,
+   "F1": 77.5325551750856,
+   "ci": {
+    "CHAIR_s": [
+     -4.999999999999999,
+     7.000000000000001
+    ],
+    "recall": [
+     -2.752717007762874,
+     3.2448856453281243
+    ]
+   }
+  }
+ },
+ "vs_full": {
+  "ref:full": {
+   "CHAIR_s": 25.0,
+   "CHAIR_i": 8.112582781456954,
+   "recall": 67.07317073170732,
+   "F1": 77.54350311190144
+  },
+  "an16_r05": {
+   "CHAIR_s": 17.0,
+   "CHAIR_i": 5.818181818181818,
+   "recall": 62.5,
+   "F1": 75.13780098636495,
+   "ci": {
+    "CHAIR_s": [
+     -15.0,
+     -1.9999999999999991
+    ],
+    "recall": [
+     -7.438150258097309,
+     -1.5922303103831772
+    ]
+   }
+  },
+  "full_selm24": {
+   "CHAIR_s": 28.000000000000004,
+   "CHAIR_i": 10.066006600660065,
+   "recall": 66.46341463414635,
+   "F1": 76.43758765778402,
+   "ci": {
+    "CHAIR_s": [
+     -3.0,
+     9.000000000000002
+    ],
+    "recall": [
+     -2.9513066060704505,
+     1.898734177215189
+    ]
+   }
+  },
+  "n12_r05": {
+   "CHAIR_s": 28.000000000000004,
+   "CHAIR_i": 8.19964349376114,
+   "recall": 64.32926829268293,
+   "F1": 75.64803631161436,
+   "ci": {
+    "CHAIR_s": [
+     -5.000000000000002,
+     10.999999999999998
+    ],
+    "recall": [
+     -6.431386785603156,
+     0.9678202317569757
+    ]
+   }
+  },
+  "n16_r03": {
+   "CHAIR_s": 36.0,
+   "CHAIR_i": 10.385259631490786,
+   "recall": 65.85365853658537,
+   "F1": 75.91843170231776,
+   "ci": {
+    "CHAIR_s": [
+     3.9999999999999982,
+     18.0
+    ],
+    "recall": [
+     -4.438199041314769,
+     1.9433471499707806
+    ]
+   }
+  },
+  "n16_r08": {
+   "CHAIR_s": 20.0,
+   "CHAIR_i": 7.118055555555555,
+   "recall": 61.58536585365854,
+   "F1": 74.06315962608623,
+   "ci": {
+    "CHAIR_s": [
+     -11.999999999999996,
+     1.0000000000000009
+    ],
+    "recall": [
+     -8.490720187446046,
+     -2.5345269106803947
+    ]
+   }
+  },
+  "n16_selm24": {
+   "CHAIR_s": 27.0,
+   "CHAIR_i": 7.628524046434494,
+   "recall": 64.63414634146342,
+   "F1": 76.05270954362192,
+   "ci": {
+    "CHAIR_s": [
+     -5.025,
+     9.000000000000002
+    ],
+    "recall": [
+     -4.918032786885251,
+     0.0
+    ]
+   }
+  },
+  "nosteer": {
+   "CHAIR_s": 27.0,
+   "CHAIR_i": 8.986928104575163,
+   "recall": 66.76829268292683,
+   "F1": 77.02794862403859,
+   "ci": {
+    "CHAIR_s": [
+     -5.000000000000002,
+     9.000000000000002
+    ],
+    "recall": [
+     -3.798350460900629,
+     2.6846138435340037
+    ]
+   }
+  },
+  "sel24_r03": {
+   "CHAIR_s": 32.0,
+   "CHAIR_i": 10.214168039538714,
+   "recall": 66.15853658536585,
+   "F1": 76.18228608054007,
+   "ci": {
+    "CHAIR_s": [
+     0.0,
+     14.000000000000002
+    ],
+    "recall": [
+     -4.242897727272722,
+     2.5001959247648915
+    ]
+   }
+  },
+  "selm20_r02": {
+   "CHAIR_s": 32.0,
+   "CHAIR_i": 9.135399673735726,
+   "recall": 65.54878048780488,
+   "F1": 76.15798226340341,
+   "ci": {
+    "CHAIR_s": [
+     -1.0000000000000009,
+     15.000000000000002
+    ],
+    "recall": [
+     -4.573520362497196,
+     1.515151515151514
+    ]
+   }
+  },
+  "selm24_r02": {
+   "CHAIR_s": 28.999999999999996,
+   "CHAIR_i": 8.760330578512397,
+   "recall": 64.02439024390245,
+   "F1": 75.24683063620962,
+   "ci": {
+    "CHAIR_s": [
+     -2.0000000000000018,
+     10.0
+    ],
+    "recall": [
+     -6.0523104729223185,
+     -0.28731527093596326
+    ]
+   }
+  },
+  "seln24_r02": {
+   "CHAIR_s": 28.000000000000004,
+   "CHAIR_i": 8.143322475570033,
+   "recall": 67.07317073170732,
+   "F1": 77.5325551750856,
+   "ci": {
+    "CHAIR_s": [
+     -3.0,
+     9.000000000000002
+    ],
+    "recall": [
+     -3.1152647975077885,
+     3.170143177347788
+    ]
+   }
+  }
+ },
+ "selection": {
+  "rule": "recall >= nosteer - 1.0, then lowest CHAIR_s, ties by CHAIR_i; confirm only if CHAIR_s < full",
+  "eligible": [
+   "full_selm24",
+   "n16_r03",
+   "sel24_r03",
+   "seln24_r02"
+  ],
+  "picked": "seln24_r02",
+  "carry_to_confirmation": false
+ },
+ "info": {
+  "an16_r05": {
+   "tokens": 157.6,
+   "at512": 0,
+   "setting": {
+    "steer": "anchornorm",
+    "layers": [
+     16
+    ],
+    "alpha": 1.0,
+    "rho": 0.5,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "raw",
+    "sel_sign": "both",
+    "steer2": "none",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "full": {
+   "tokens": 173.9,
+   "at512": 0,
+   "setting": {
+    "steer": "resid",
+    "layers": [
+     16
+    ],
+    "alpha": 2.0,
+    "rho": 0.3,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "full_selm24": {
+   "tokens": 172.46,
+   "at512": 0,
+   "setting": {
+    "steer": "resid",
+    "layers": [
+     16
+    ],
+    "alpha": 2.0,
+    "rho": 0.3,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "median",
+    "sel_sign": "both",
+    "steer2": "sel",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "n12_r05": {
+   "tokens": 169.13,
+   "at512": 0,
+   "setting": {
+    "steer": "norm",
+    "layers": [
+     12
+    ],
+    "alpha": 1.0,
+    "rho": 0.5,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "raw",
+    "sel_sign": "both",
+    "steer2": "none",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "n16_r03": {
+   "tokens": 173.1,
+   "at512": 0,
+   "setting": {
+    "steer": "norm",
+    "layers": [
+     16
+    ],
+    "alpha": 1.0,
+    "rho": 0.3,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "raw",
+    "sel_sign": "both",
+    "steer2": "none",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "n16_r08": {
+   "tokens": 165.28,
+   "at512": 0,
+   "setting": {
+    "steer": "norm",
+    "layers": [
+     16
+    ],
+    "alpha": 1.0,
+    "rho": 0.8,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "raw",
+    "sel_sign": "both",
+    "steer2": "none",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "n16_selm24": {
+   "tokens": 170.32,
+   "at512": 0,
+   "setting": {
+    "steer": "norm",
+    "layers": [
+     16
+    ],
+    "alpha": 1.0,
+    "rho": 0.5,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "median",
+    "sel_sign": "both",
+    "steer2": "sel",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "nosteer": {
+   "tokens": 187.32,
+   "at512": 0,
+   "setting": {
+    "steer": "none",
+    "layers": [
+     16
+    ],
+    "alpha": 2.0,
+    "rho": 0.3,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "sel24_r03": {
+   "tokens": 180.11,
+   "at512": 0,
+   "setting": {
+    "steer": "sel",
+    "layers": [
+     24
+    ],
+    "alpha": 1.0,
+    "rho": 0.3,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "raw",
+    "sel_sign": "both",
+    "steer2": "none",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "selm20_r02": {
+   "tokens": 185.8,
+   "at512": 0,
+   "setting": {
+    "steer": "sel",
+    "layers": [
+     20
+    ],
+    "alpha": 1.0,
+    "rho": 0.2,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "median",
+    "sel_sign": "both",
+    "steer2": "none",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "selm24_r02": {
+   "tokens": 182.05,
+   "at512": 0,
+   "setting": {
+    "steer": "sel",
+    "layers": [
+     24
+    ],
+    "alpha": 1.0,
+    "rho": 0.2,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "median",
+    "sel_sign": "both",
+    "steer2": "none",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  },
+  "seln24_r02": {
+   "tokens": 181.9,
+   "at512": 0,
+   "setting": {
+    "steer": "sel",
+    "layers": [
+     24
+    ],
+    "alpha": 1.0,
+    "rho": 0.2,
+    "beta": 1.0,
+    "anchor_steps": 16,
+    "ctrl": "gray",
+    "blur_radius": 12.0,
+    "sel_belief": "raw",
+    "sel_sign": "neg",
+    "steer2": "none",
+    "layers2": [
+     24
+    ],
+    "alpha2": 1.0,
+    "rho2": 0.2,
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw"
+   }
+  }
+ }
+}

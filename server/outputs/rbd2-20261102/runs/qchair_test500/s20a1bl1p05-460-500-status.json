@@ -1,0 +1,29 @@
+{
+ "stage": "complete",
+ "pid": 3641663,
+ "args": {
+  "model": "qwen3",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/chair_test500.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/qchair_test500",
+  "tag": "s20a1bl1p05",
+  "start": "460",
+  "end": "500",
+  "lam": "1.0",
+  "clip": "5.0",
+  "pen": "0.5",
+  "bsched": "decay",
+  "alpha": "1.0",
+  "layer": "20",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793866157.6147432,
+ "error": "Traceback (most recent call last):\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/hub.py\", line 537, in cached_files\n    hf_hub_download(\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py\", line 89, in _inner_fn\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py\", line 276, in _inner\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py\", line 1047, in hf_hub_download\n    return _hf_hub_download_to_cache_dir(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py\", line 1194, in _hf_hub_download_to_cache_dir\n    _raise_on_head_call_error(head_call_error, force_download, local_files_only)\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py\", line 1944, in _raise_on_head_call_error\n    raise LocalEntryNotFoundError(\nhuggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/vdd_decode.py\", line 97, in main\n    adapter=load_adapter(config);m=adapter.model;tok=adapter.processor.tokenizer\n            ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/src/vlm_grounding/backend.py\", line 200, in load_adapter\n    processor = AutoProcessor.from_pretrained(checkpoint, **shared)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/auto/processing_auto.py\", line 307, in from_pretrained\n    config = AutoConfig.from_pretrained(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py\", line 397, in from_pretrained\n    config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/configuration_utils.py\", line 919, in get_config_dict\n    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/configuration_utils.py\", line 971, in _get_config_dict\n    resolved_config_file = cached_file(\n                           ^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/hub.py\", line 370, in cached_file\n    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/utils/hub.py\", line 620, in cached_files\n    raise OSError(\nOSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.\n",
+ "vobj": 3167,
+ "done": 40
+}

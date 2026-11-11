@@ -1,0 +1,3 @@
+11-10 19:52:02 start gemma GPU 0 (GPU-c27bc2d7-aa8a-5d1e-7d0a-6a4fe5cd6303) variants: base full bpos2
+11-10 19:52:02 start dev_base --steer none --lam 0 --pen 0
+11-10 20:23:34 stopped by hand (user 20:20: Gemma ablation on GPU 0; Qwen3 dev moves to GPU 1)

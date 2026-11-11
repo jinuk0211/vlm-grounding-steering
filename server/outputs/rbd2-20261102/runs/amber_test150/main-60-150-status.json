@@ -1,0 +1,28 @@
+{
+ "stage": "complete",
+ "pid": 1408584,
+ "args": {
+  "model": "qwen",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/amber_test150.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/amber_test150",
+  "tag": "main",
+  "start": "60",
+  "end": "150",
+  "lam": "1.0",
+  "clip": "5.0",
+  "pen": "0.5",
+  "bsched": "decay",
+  "alpha": "1.0",
+  "layer": "16",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False"
+ },
+ "resumed_from": 8,
+ "updated_at": 1793620935.1936595,
+ "vobj": 3167,
+ "done": 90
+}

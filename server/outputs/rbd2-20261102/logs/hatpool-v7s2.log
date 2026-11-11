@@ -1,0 +1,19 @@
+16:35:07 start qwen-v7_a2bl2p1-0-50
+16:50:14 end qwen-v7_a2bl2p1-0-50
+16:50:34 start qwen-v7_blur_a2bl2p1-0-50
+17:06:37 end qwen-v7_blur_a2bl2p1-0-50
+17:07:01 start qwen-v7_pw_a2bl2p1-0-50
+17:21:20 end qwen-v7_pw_a2bl2p1-0-50
+17:21:40 start qwen-v7_s14a2bl1p05-0-50
+17:36:54 end qwen-v7_s14a2bl1p05-0-50
+17:37:06 start qwen-v7_a2bl1p05-50-100
+17:52:47 end qwen-v7_a2bl1p05-50-100
+17:52:58 start qwen-v7_blur_a2bl1p05-50-100
+18:10:03 end qwen-v7_blur_a2bl1p05-50-100
+18:10:30 start qwen-v7_pw_a2bl1p05-50-100
+18:26:22 end qwen-v7_pw_a2bl1p05-50-100
+18:26:39 start qwen-v7_blurpw_a2bl2p1-50-100
+18:43:31 end qwen-v7_blurpw_a2bl2p1-50-100
+18:43:46 start qwen-v7_s18a2bl1p05-50-100
+18:59:06 end qwen-v7_s18a2bl1p05-50-100
+18:59:06 POOL_DONE

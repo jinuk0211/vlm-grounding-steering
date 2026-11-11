@@ -1,0 +1,2103 @@
+judged qwen vti_author 0 base
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1455350 has 16.10 GiB memory in use. Process 1501415 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1455350 has 16.10 GiB memory in use. Process 1501415 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1455350 has 16.10 GiB memory in use. Process 1501415 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1455350 has 16.10 GiB memory in use. Process 1501415 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1501415 has 16.10 GiB memory in use. Process 1621655 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1501415 has 16.10 GiB memory in use. Process 1621655 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1501415 has 16.10 GiB memory in use. Process 1621655 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1501415 has 16.10 GiB memory in use. Process 1621655 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1501415 has 16.10 GiB memory in use. Process 1621655 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1501415 has 16.10 GiB memory in use. Process 1621655 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1501415 has 16.10 GiB memory in use. Process 1621655 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1501415 has 16.10 GiB memory in use. Process 1621655 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 655.75 MiB is free. Process 1621655 has 16.10 GiB memory in use. Process 1693556 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+judged qwen vti_author 0 large
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 679.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.08 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1693556 has 16.10 GiB memory in use. Process 1795643 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 647.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.11 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1693556 has 16.10 GiB memory in use. Process 1795643 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 647.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.11 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1693556 has 16.10 GiB memory in use. Process 1795643 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 647.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.11 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1693556 has 16.10 GiB memory in use. Process 1795643 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 647.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.11 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 647.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.11 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1693556 has 16.10 GiB memory in use. Process 1795643 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 657.75 MiB is free. Process 1693556 has 16.10 GiB memory in use. Process 1795643 has 16.10 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 647.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.11 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 525.75 MiB is free. Process 1795643 has 16.10 GiB memory in use. Process 1834315 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 647.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.11 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 525.75 MiB is free. Process 1795643 has 16.10 GiB memory in use. Process 1834315 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 647.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1796327 has 16.11 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 525.75 MiB is free. Process 1795643 has 16.10 GiB memory in use. Process 1834315 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 525.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1846326 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 523.75 MiB is free. Process 1795643 has 16.10 GiB memory in use. Process 1834315 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 525.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1846326 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 523.75 MiB is free. Process 1795643 has 16.10 GiB memory in use. Process 1834315 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 525.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1846326 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 523.75 MiB is free. Process 1795643 has 16.10 GiB memory in use. Process 1834315 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 523.75 MiB is free. Process 1795643 has 16.10 GiB memory in use. Process 1834315 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/t4k_judge.py", line 24, in <module>
+    S.judge(gpu,d);print('judged',M,tag,b,J,flush=True)
+    ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/score_throne.py", line 28, in judge
+    assert out.returncode==0,out.stderr[-3000:]
+           ^^^^^^^^^^^^^^^^^
+AssertionError: ct-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 1110, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    self_attention_outputs = self.layer[0](
+                             ^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 601, in forward
+    attention_output = self.SelfAttention(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py", line 561, in forward
+    attn_weights = nn.functional.softmax(scores.float(), dim=-1).type_as(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/venvs/throne/lib/python3.12/site-packages/torch/nn/functional.py", line 2137, in softmax
+    ret = input.softmax(dim)
+          ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.81 GiB. GPU 0 has a total capacity of 47.40 GiB of which 525.75 MiB is free. Process 1785827 has 16.10 GiB memory in use. Process 1846326 has 16.23 GiB memory in use. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.54 GiB is allocated by PyTorch, and 697.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+judged qwen vti_author 0 xl

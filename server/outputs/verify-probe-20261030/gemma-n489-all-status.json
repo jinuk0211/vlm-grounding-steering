@@ -1,0 +1,28 @@
+{
+ "stage": "complete",
+ "pid": 3194120,
+ "model": "gemma",
+ "captions": 489,
+ "pool": 489,
+ "seed": 0,
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "argv": [
+  "scripts/verify_probe_collect.py",
+  "--model",
+  "gemma",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/verify-probe-20261030",
+  "--n",
+  "0",
+  "--all-images"
+ ],
+ "updated_at": 1793362416.7805507,
+ "gpu_name": "NVIDIA RTX A5000",
+ "n_layers": 42,
+ "done": 489,
+ "mentions": 4440,
+ "sec_per_caption": 0.6901802952225143,
+ "max_gpu_gb": 15.760765552520752,
+ "first_mentions": 1269,
+ "unmatched": 0
+}

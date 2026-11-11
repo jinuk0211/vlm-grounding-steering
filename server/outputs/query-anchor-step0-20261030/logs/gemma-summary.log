@@ -1,0 +1,14 @@
+== gemma: 1269 first mentions (238 hallucinated), 489 captions, main layers 7
+  mass     hall 0.2441 correct 0.3084  pos-matched diff -0.0167 [-0.0317,-0.0021]  adj AUROC 0.434
+  entropy  hall 0.7080 correct 0.7243  pos-matched diff -0.0020 [-0.0120,+0.0079]  adj AUROC 0.491
+  top1pct  hall 0.3102 correct 0.2912  pos-matched diff +0.0003 [-0.0114,+0.0123]  adj AUROC 0.485
+  sink     hall 0.1099 correct 0.1008  pos-matched diff +0.0028 [-0.0046,+0.0108]  adj AUROC 0.489
+  trend mass     0-15:0.286 16-31:0.234 32-63:0.249 64-95:0.233 96-127:0.218 128-191:0.210 192-255:0.190 256-383:0.135 384-512:0.095
+  trend entropy  0-15:0.780 16-31:0.790 32-63:0.767 64-95:0.755 96-127:0.759 128-191:0.756 192-255:0.756 256-383:0.762 384-512:0.766
+  trend top1pct  0-15:0.236 16-31:0.224 32-63:0.240 64-95:0.256 96-127:0.252 128-191:0.255 192-255:0.256 256-383:0.258 384-512:0.261
+  trend sink     0-15:0.089 16-31:0.097 32-63:0.097 64-95:0.105 96-127:0.109 128-191:0.109 192-255:0.108 256-383:0.113 384-512:0.114
+  heads entropy: 39% outside 0.45-0.55; top L36H0 0.31, L36H2 0.32, L40H3 0.33, L39H0 0.33, L32H4 0.34
+  heads top1pct: 41% outside 0.45-0.55; top L36H0 0.69, L40H3 0.68, L20H5 0.67, L36H2 0.67, L39H0 0.66
+  heads sink: 51% outside 0.45-0.55; top L36H0 0.70, L36H2 0.69, L34H3 0.68, L20H5 0.68, L39H0 0.67
+  verdict: no difference in entropy or sink share -> drop the design
+wrote /home/project-b/LJW/vlm-grounding-steering/outputs/query-anchor-step0-20261030/gemma-attn-summary.json

@@ -1,0 +1,25 @@
+# vdd3 dev: AMBER ids 101-300 = rows 100-300 of amber_full1004
+amber_full1004 amber_v3_dev g1 100 150 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0
+amber_full1004 amber_v3_dev g2 100 150 --alpha 1 --layer 16 --norm median --gpen 4 --tau 1.0
+amber_full1004 amber_v3_dev g3 100 150 --alpha 1 --layer 16 --norm median --gpen 2 --tau 0.5
+amber_full1004 amber_v3_dev g4 100 150 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --stuff exempt
+amber_full1004 amber_v3_dev g5 100 150 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --hedge 2
+amber_full1004 amber_v3_dev g6 100 150 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --stuff exempt --hedge 2
+amber_full1004 amber_v3_dev g1 150 200 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0
+amber_full1004 amber_v3_dev g2 150 200 --alpha 1 --layer 16 --norm median --gpen 4 --tau 1.0
+amber_full1004 amber_v3_dev g3 150 200 --alpha 1 --layer 16 --norm median --gpen 2 --tau 0.5
+amber_full1004 amber_v3_dev g4 150 200 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --stuff exempt
+amber_full1004 amber_v3_dev g5 150 200 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --hedge 2
+amber_full1004 amber_v3_dev g6 150 200 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --stuff exempt --hedge 2
+amber_full1004 amber_v3_dev g1 200 250 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0
+amber_full1004 amber_v3_dev g2 200 250 --alpha 1 --layer 16 --norm median --gpen 4 --tau 1.0
+amber_full1004 amber_v3_dev g3 200 250 --alpha 1 --layer 16 --norm median --gpen 2 --tau 0.5
+amber_full1004 amber_v3_dev g4 200 250 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --stuff exempt
+amber_full1004 amber_v3_dev g5 200 250 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --hedge 2
+amber_full1004 amber_v3_dev g6 200 250 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --stuff exempt --hedge 2
+amber_full1004 amber_v3_dev g1 250 300 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0
+amber_full1004 amber_v3_dev g2 250 300 --alpha 1 --layer 16 --norm median --gpen 4 --tau 1.0
+amber_full1004 amber_v3_dev g3 250 300 --alpha 1 --layer 16 --norm median --gpen 2 --tau 0.5
+amber_full1004 amber_v3_dev g4 250 300 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --stuff exempt
+amber_full1004 amber_v3_dev g5 250 300 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --hedge 2
+amber_full1004 amber_v3_dev g6 250 300 --alpha 1 --layer 16 --norm median --gpen 2 --tau 1.0 --stuff exempt --hedge 2

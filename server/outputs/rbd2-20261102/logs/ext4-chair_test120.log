@@ -1,0 +1,9 @@
+14:54:04 start chair_test120 base 
+15:13:13 end chair_test120 base
+15:13:13 start chair_test120 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+17:00:42 start chair_test120 main --alpha 1 --layer 16 --lam 1 --pen 0.5
+17:01:12 start chair_test120 s16a2bl1 --alpha 2 --layer 16 --lam 1
+17:02:39 end chair_test120 main
+17:02:39 start chair_test120 s16a1bl1 --alpha 1 --layer 16 --lam 1
+17:22:25 end chair_test120 s16a1bl1
+17:22:25 EXT_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/ext_A.txt

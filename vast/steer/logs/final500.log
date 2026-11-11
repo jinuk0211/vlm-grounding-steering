@@ -1,0 +1,14 @@
+05:18:30 GPU free
+05:19:03 round-2 scored: runs/steer100b/score.txt
+05:19:03 start full_an16_r03 --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16
+05:19:26 done full_an16_r03
+05:19:26 QUEUE_DONE
+smoke ok: steer_calls 137 steer2_calls 137 tokens 138
+05:19:26 start full_an16_r03 --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16
+07:13:34 done full_an16_r03
+07:13:34 QUEUE_DONE
+07:15:00 FINAL500_SCORED
+07:15:00 start nosteer --steer none
+08:57:00 done nosteer
+08:57:00 QUEUE_DONE
+08:57:22 SAMEBOX_SCORED

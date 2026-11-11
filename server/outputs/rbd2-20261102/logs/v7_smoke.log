@@ -1,0 +1,18 @@
+=== 16:30:25 vdd4
+=== 16:31:26 vdd7 defaults
+=== 16:32:00 vdd7 blur + prob
+=== 16:32:23 compare
+vdd7 defaults == vdd4 (same GPU): [True, True, True]
+vdd7 defaults == stored HAT cf_a2bl1p05 rows: [False, False, False]
+settings {'lam': 1.0, 'clip': 5.0, 'pen': 0.5, 'bsched': 'decay', 'alpha': 2.0, 'layer': 16, 'ssched': 'decay', 'r': 'measured', 'attn': 'sdpa', 'bpos': False, 'norm': 'raw', 'cf': 'gray', 'blur': 0.03, 'ew': 'r', 'w0': 0.1, 'vobj': '/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json'}
+--- bpw 139 tok, identical to default: False blur prob
+The image shows a red and black traffic sign with the word "DETOUR" written in bold, black capital letters. Below the text is a large black arrow pointing to the right, indicating the direction of the detour route. The sign is mounted on a metal pole that appears to be part of a road or street infrastructure. The sky in the background is partly cloudy with patches of blue visible through the gaps in the clouds. There are trees with green foliage partially framing the sides of the image, suggesting an outdoor setting, possibly near a road or a public area where such signs are commonly placed. T
+belief top [128, [[' framing', 3.49], [' trees', 3.09], [' road', 2.46], [' sky', 2.06], [' gaps', 1.43], [' system', 1.35], [' tree', 1.16], [' metal', 1.08], [' street', 0.79], [' route', 0.76], [' pathway', 0.6], [' showcases', 0.56]]]
+--- bpw 121 tok, identical to default: False blur prob
+The image shows a young child sitting on a carpeted staircase indoors. The child is wearing a red hoodie with white stripes on the arms and a yellow shirt underneath featuring a bat symbol, suggesting a costume or themed outfit. The child also has on sneakers that match the casual setting. The child is holding an orange tennis racket with a black grip, which contrasts with their bright red hoodie. The background includes a stairway with beige carpeting and a white-painted wall. The floor appears to be tiled with a pattern of small diamond shapes. The child's expression conveys a playful and ch
+belief top [32, [[' staircase', 7.68], [' carpet', 4.22], [' stair', 3.81], [' shirt', 3.67], [' arms', 1.45], [' stripe', 1.33], [' hood', 1.02], [' shoulders', 0.85], [' stairs', 0.73], [' shoulder', 0.46], [' steps', 0.4], [' arm', 0.26]]]
+total 288
+drwxrwxr-x  2 project-b project-b   4096 Nov  8 16:32 .
+drwxrwxr-x 29 project-b project-b   4096 Nov  8 16:32 ..
+-rw-rw-r--  1 project-b project-b 152428 Nov  8 16:32 COCO_val2014_000000016903-blur0.03.png
+=== 16:32:23 SMOKE_END

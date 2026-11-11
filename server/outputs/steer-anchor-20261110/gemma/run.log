@@ -1,0 +1,3 @@
+11-10 19:43:44 start gemma GPU 0 (GPU-c27bc2d7-aa8a-5d1e-7d0a-6a4fe5cd6303) layer 24 alpha 1 attn eager
+port check (vdd_steer resid alone vs stored vdd_decode Full): identical 2 of 2; tokens new/stored [(277, 277), (377, 377)]
+11-10 19:49:16 stopped by hand (user: final belief setting from dev first, then one test run); rows so far kept

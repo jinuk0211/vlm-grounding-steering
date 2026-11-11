@@ -1,0 +1,10 @@
+=== 18:27:41 rbd6 start
+=== 18:27:42 GPU 2 worker r2 joins
+=== 18:30:12 GPU 3 worker r3 joins
+=== 18:45:43 GPU 4 worker r4a joins
+=== 18:46:43 GPU 5 worker r5a joins
+=== 18:48:13 GPU 4 worker r4b joins
+=== 18:49:13 GPU 5 worker r5b joins
+=== 19:38:58 user: Qwen3-VL only; Gemma and Qwen2.5 dropped (no units ran), 4 Qwen3 candidates added; controller restarted
+=== 19:39:02 rbd6 start
+=== 19:52:35 rbd6 STOPPED by user (GrAInS and REVIS first). No RBD6_CHAIN_END: GPUs 4,5 stay with the baseline work; rows kept, resumable

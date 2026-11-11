@@ -1,0 +1,7 @@
+n images 1000 | reference base
+tag                    | ALL  P    R   F1  F0.5 | CLS  P    R   F1  F0.5 | orangeFP | F0.5_ALL w/o orange
+base                   |  75.0  70.7  82.8  85.2 |  81.4  63.8  70.4  76.6 |   95 |  88.1
+cf_a3bl2p1             |  77.1  71.0  82.8  85.9 |  83.3  64.3  69.8  76.7 |   96 |  88.6
+    CI vs base: dP_ALL [-0.1,+4.4] dR_ALL [-1.6,+2.3] dF0.5_ALL [-0.5,+1.9] | dP_CLS [-1.2,+4.8] dR_CLS [-2.7,+2.7] dF0.5_CLS [-2.1,+2.8] | dF0.5_ALL w/o orange [-0.6,+1.6]
+old_s24a1bl2p1         |  77.5  69.7  83.3  86.8 |  83.5  64.6  69.1  75.7 |   61 |  88.7
+    CI vs base: dP_ALL [+0.5,+4.6] dR_ALL [-2.9,+0.9] dF0.5_ALL [+0.4,+2.7] | dP_CLS [-0.9,+5.3] dR_CLS [-2.9,+2.4] dF0.5_CLS [-2.8,+2.0] | dF0.5_ALL w/o orange [-0.4,+1.6]

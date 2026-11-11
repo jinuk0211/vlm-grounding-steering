@@ -1,0 +1,120 @@
+{
+ "set": "chair_dev60",
+ "n": 30,
+ "results": {
+  "base": {
+   "CHAIR_s": 36.666666666666664,
+   "CHAIR_i": 6.4,
+   "recall": 60.204081632653065,
+   "F1": 73.27636537338783,
+   "setting": {
+    "lam": 0.0,
+    "clip": 5.0,
+    "pen": 0.0,
+    "bsched": "decay",
+    "alpha": 0.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "eager",
+    "bpos": false,
+    "norm": "raw"
+   },
+   "tokens": 379.8666666666667,
+   "at512": 1
+  },
+  "s20a2bl1p05": {
+   "CHAIR_s": 30.0,
+   "CHAIR_i": 4.633204633204633,
+   "recall": 58.16326530612245,
+   "F1": 72.25743539736713,
+   "ci": {
+    "CHAIR_s": [
+     -26.666666666666668,
+     13.333333333333334
+    ],
+    "recall": [
+     -7.072510822510823,
+     3.8461538461538436
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 2.0,
+    "layer": 20,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "eager",
+    "bpos": false,
+    "norm": "raw"
+   },
+   "tokens": 402.8,
+   "at512": 4
+  },
+  "s24a2bl1p05": {
+   "CHAIR_s": 23.333333333333332,
+   "CHAIR_i": 4.128440366972478,
+   "recall": 62.244897959183675,
+   "F1": 75.4825340438129,
+   "ci": {
+    "CHAIR_s": [
+     -33.333333333333336,
+     6.666666666666665
+    ],
+    "recall": [
+     -5.0524475524475525,
+     8.79420084865628
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 2.0,
+    "layer": 24,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "eager",
+    "bpos": false,
+    "norm": "raw"
+   },
+   "tokens": 384.4,
+   "at512": 0
+  },
+  "s28a2bl1p05": {
+   "CHAIR_s": 33.33333333333333,
+   "CHAIR_i": 6.2015503875969,
+   "recall": 57.14285714285714,
+   "F1": 71.019809244314,
+   "ci": {
+    "CHAIR_s": [
+     -26.666666666666668,
+     19.999999999999996
+    ],
+    "recall": [
+     -7.692307692307687,
+     2.2988505747126413
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 2.0,
+    "layer": 28,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "eager",
+    "bpos": false,
+    "norm": "raw"
+   },
+   "tokens": 421.7,
+   "at512": 2
+  }
+ }
+}

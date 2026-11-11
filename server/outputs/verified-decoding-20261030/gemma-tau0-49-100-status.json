@@ -1,0 +1,35 @@
+{
+ "stage": "complete",
+ "pid": 2132977,
+ "model": "gemma",
+ "tau": 0.0,
+ "range": [
+  49,
+  100
+ ],
+ "resumed_from": 0,
+ "gpu_uuid": "GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde",
+ "updated_at": 1793356457.7772708,
+ "gpu_name": "NVIDIA RTX A5000",
+ "variants": {
+  "yes": [
+   4443,
+   8438,
+   10784,
+   11262
+  ],
+  "no": [
+   951,
+   1904,
+   2301,
+   3771
+  ]
+ },
+ "eos": [
+  1,
+  50,
+  106
+ ],
+ "done": 51,
+ "last": 99
+}

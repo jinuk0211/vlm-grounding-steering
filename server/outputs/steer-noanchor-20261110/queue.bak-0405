@@ -1,0 +1,22 @@
+# 03:31 qwen restore L16: k1 200 rows S 26.5 vs 28.0, recall +1.5; k1.5 132 rows recall +3.4 [+0.5,+6.6] -> k1.5 to rows 200-499; k2 and L12 k1.5 screened on 0-199
+gemma R24k1 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 24 --alpha 1 --rho 6
+gemma R24k1 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 24 --alpha 1 --rho 6
+qwen R16k15 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+qwen R16k15 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+qwen R16k15 200 300 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+qwen ns 300 400 --lam 0.5 --pen 0.25 --steer none
+qwen R16k15 300 400 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+qwen ns 400 500 --lam 0.5 --pen 0.25 --steer none
+qwen R16k15 400 500 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+gemma L18a2 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+gemma ns 400 500 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+qwen R16k2 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 2 --rho 6
+qwen R16k2 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 2 --rho 6
+qwen R12k15 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 12 --alpha 1.5 --rho 6
+qwen R12k15 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 12 --alpha 1.5 --rho 6
+gemma R18k1 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 18 --alpha 1 --rho 6
+gemma R18k1 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 18 --alpha 1 --rho 6
+qwen L16a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2 --ssched early
+qwen L12a3e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 3 --ssched early
+gemma L24a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2 --ssched early

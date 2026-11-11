@@ -1,0 +1,12 @@
+# 10:55 gemma L24a2 rows 0-147: 28.4 vs ns 35.8 [-13.5,-1.4] -> rows 200-499 confirmation next (decided before rows 148-199 are in)
+gemma zzsmoke_blur 0 2 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L24a2 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L18a2bl 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L24a2 200 300 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L24a2 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L24a2 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L18a2bl 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L24a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3
+gemma L24a3 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3
+gemma L18a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3
+gemma L18a3 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3

@@ -1,0 +1,275 @@
+{
+ "set": "chair_test500",
+ "n": 500,
+ "results": {
+  "base": {
+   "CHAIR_s": 30.4,
+   "CHAIR_i": 8.396443859071452,
+   "recall": 69.81726528040328,
+   "F1": 79.24020858531394,
+   "setting": {
+    "lam": 0.0,
+    "clip": 5.0,
+    "pen": 0.0,
+    "bsched": "decay",
+    "alpha": 0.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa"
+   },
+   "tokens": 189.312,
+   "at512": 1
+  },
+  "abl_belief": {
+   "CHAIR_s": 27.0,
+   "CHAIR_i": 7.256461232604374,
+   "recall": 68.43100189035917,
+   "F1": 78.75354570033193,
+   "ci": {
+    "CHAIR_s": [
+     -6.6000000000000005,
+     0.0
+    ],
+    "recall": [
+     -2.6580991299357652,
+     -0.18482303845412618
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.0,
+    "bsched": "decay",
+    "alpha": 0.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false
+   },
+   "tokens": 190.816,
+   "at512": 1
+  },
+  "abl_const": {
+   "CHAIR_s": 27.0,
+   "CHAIR_i": 7.722007722007722,
+   "recall": 68.30497794580971,
+   "F1": 78.50205060533385,
+   "ci": {
+    "CHAIR_s": [
+     -7.0050000000000034,
+     0.40000000000000036
+    ],
+    "recall": [
+     -3.1408146488243363,
+     0.13291054577292288
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "const",
+    "alpha": 2.0,
+    "layer": 16,
+    "ssched": "const",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw",
+    "vobj": "vobj2"
+   },
+   "tokens": 167.396,
+   "at512": 0
+  },
+  "abl_nobelief": {
+   "CHAIR_s": 29.599999999999998,
+   "CHAIR_i": 8.193979933110368,
+   "recall": 69.25015752993069,
+   "F1": 78.94861838511186,
+   "ci": {
+    "CHAIR_s": [
+     -4.599999999999999,
+     2.9999999999999973
+    ],
+    "recall": [
+     -2.020265869823394,
+     1.003795640687752
+    ]
+   },
+   "setting": {
+    "lam": 0.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 2.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw",
+    "vobj": "vobj2"
+   },
+   "tokens": 174.866,
+   "at512": 0
+  },
+  "abl_nopen": {
+   "CHAIR_s": 28.199999999999996,
+   "CHAIR_i": 7.468739438999663,
+   "recall": 68.93509766855702,
+   "F1": 79.00904626954801,
+   "ci": {
+    "CHAIR_s": [
+     -6.0,
+     1.4000000000000012
+    ],
+    "recall": [
+     -2.4749428618329623,
+     0.7007153889099433
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.0,
+    "bsched": "decay",
+    "alpha": 2.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false
+   },
+   "tokens": 177.462,
+   "at512": 0
+  },
+  "abl_nosteer": {
+   "CHAIR_s": 27.6,
+   "CHAIR_i": 7.790463398253862,
+   "recall": 67.42281033396345,
+   "F1": 77.89180847896748,
+   "ci": {
+    "CHAIR_s": [
+     -6.2,
+     0.8000000000000007
+    ],
+    "recall": [
+     -3.7555462315774575,
+     -0.9041212401029246
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 0.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw",
+    "vobj": "vobj2"
+   },
+   "tokens": 190.828,
+   "at512": 0
+  },
+  "abl_pen": {
+   "CHAIR_s": 29.799999999999997,
+   "CHAIR_i": 8.02086729703293,
+   "recall": 69.75425330812854,
+   "F1": 79.3396574432019,
+   "ci": {
+    "CHAIR_s": [
+     -3.599999999999998,
+     2.599999999999997
+    ],
+    "recall": [
+     -1.3341997076275962,
+     1.1772177498346328
+    ]
+   },
+   "setting": {
+    "lam": 0.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 0.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw",
+    "vobj": "vobj2"
+   },
+   "tokens": 190.282,
+   "at512": 0
+  },
+  "abl_steer": {
+   "CHAIR_s": 31.6,
+   "CHAIR_i": 8.260577568838148,
+   "recall": 69.81726528040328,
+   "F1": 79.29099913192762,
+   "ci": {
+    "CHAIR_s": [
+     -2.2050000000000014,
+     4.799999999999999
+    ],
+    "recall": [
+     -1.4558668687663403,
+     1.4457227702930435
+    ]
+   },
+   "setting": {
+    "lam": 0.0,
+    "clip": 5.0,
+    "pen": 0.0,
+    "bsched": "decay",
+    "alpha": 2.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false,
+    "norm": "raw",
+    "vobj": "vobj2"
+   },
+   "tokens": 174.542,
+   "at512": 0
+  },
+  "rbd_full": {
+   "CHAIR_s": 25.6,
+   "CHAIR_i": 6.859083191850594,
+   "recall": 68.93509766855702,
+   "F1": 79.23045513969625,
+   "ci": {
+    "CHAIR_s": [
+     -8.400000000000002,
+     -1.200000000000001
+    ],
+    "recall": [
+     -2.4740928460743836,
+     0.8015914544510824
+    ]
+   },
+   "setting": {
+    "lam": 1.0,
+    "clip": 5.0,
+    "pen": 0.5,
+    "bsched": "decay",
+    "alpha": 2.0,
+    "layer": 16,
+    "ssched": "decay",
+    "r": "measured",
+    "attn": "sdpa",
+    "bpos": false
+   },
+   "tokens": 177.502,
+   "at512": 0
+  }
+ }
+}

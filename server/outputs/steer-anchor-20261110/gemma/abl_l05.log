@@ -1,0 +1,4 @@
+11-10 21:37:28 b1 worker start GPU 0 (GPU-c27bc2d7-aa8a-5d1e-7d0a-6a4fe5cd6303) gate 21500 MiB
+11-10 21:37:54 b1 start anchor_gemma_l05 0-500 --layers 24 --alpha 1 --layers2 24 --steer resid --steer2 anchornorm --alpha2 1 --rho2 0.3 --anchor-steps 16
+11-10 21:38:08 b2 worker start GPU 0 (GPU-c27bc2d7-aa8a-5d1e-7d0a-6a4fe5cd6303) gate 21500 MiB
+11-10 22:20:24 stopped by user request ("gemma steering 멈추고 우리가써"): GPU 0 goes to the no-anchor steering search (outputs/steer-noanchor-20261110). killed pids 3988942 3990077 3989664 3867450; partial jsonl kept.

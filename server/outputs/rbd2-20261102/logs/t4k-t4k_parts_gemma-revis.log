@@ -1,0 +1,48 @@
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 675/2076 [00:00<00:00, 6734.06it/s]Loading weights:  65%|██████▍   | 1349/2076 [00:00<00:00, 5739.79it/s]Loading weights: 100%|█████████▉| 2070/2076 [00:00<00:00, 6350.84it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6281.85it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 80, in main
+    'author_diagnostics':{k:str(v) for k,v in diag.items()}})+'\n');f.flush()
+                                                                    ^^^^^^^^^
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 90, in <module>
+    p.add_argument('--start',type=int,default=0);p.add_argument('--end',type=int,default=60);main(p.parse_args())
+                                                                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 70, in main
+    with rows_file.open('a') as f:
+         ^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  34%|███▍      | 703/2076 [00:00<00:00, 7002.76it/s]Loading weights:  68%|██████▊   | 1404/2076 [00:00<00:00, 4890.81it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5720.32it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 80, in main
+    'author_diagnostics':{k:str(v) for k,v in diag.items()}})+'\n');f.flush()
+                                                                    ^^^^^^^^^
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 90, in <module>
+    p.add_argument('--start',type=int,default=0);p.add_argument('--end',type=int,default=60);main(p.parse_args())
+                                                                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 70, in main
+    with rows_file.open('a') as f:
+         ^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 687/2076 [00:00<00:00, 6849.02it/s]Loading weights:  66%|██████▌   | 1372/2076 [00:00<00:00, 6226.37it/s]Loading weights:  96%|█████████▋| 1999/2076 [00:00<00:00, 5877.91it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6022.53it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  43%|████▎     | 883/2076 [00:00<00:00, 8799.42it/s]Loading weights:  85%|████████▍ | 1763/2076 [00:00<00:00, 6792.23it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6939.82it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  34%|███▍      | 714/2076 [00:00<00:00, 7108.20it/s]Loading weights:  69%|██████▊   | 1425/2076 [00:00<00:00, 6161.02it/s]Loading weights:  99%|█████████▉| 2054/2076 [00:00<00:00, 6204.63it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6315.34it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 686/2076 [00:00<00:00, 6825.41it/s]Loading weights:  66%|██████▌   | 1369/2076 [00:00<00:00, 5939.52it/s]Loading weights:  95%|█████████▍| 1971/2076 [00:00<00:00, 5966.98it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6042.53it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  43%|████▎     | 894/2076 [00:00<00:00, 8890.77it/s]Loading weights:  86%|████████▌ | 1784/2076 [00:00<00:00, 6866.03it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6992.58it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  31%|███       | 647/2076 [00:00<00:00, 6465.83it/s]Loading weights:  62%|██████▏   | 1294/2076 [00:00<00:00, 5606.46it/s]Loading weights:  92%|█████████▏| 1920/2076 [00:00<00:00, 5864.59it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5915.17it/s]

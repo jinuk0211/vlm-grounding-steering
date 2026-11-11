@@ -1,0 +1,9 @@
+gemma bench base 0 60
+gemma vdd vddbase 0 60 --attn eager
+gemma vdd s24a2bl1p05 0 60 --attn eager --layer 24 --alpha 2 --lam 1 --pen 0.5
+gemma vdd s24a1bl1p05 0 60 --attn eager --layer 24 --alpha 1 --lam 1 --pen 0.5
+gemma vdd mainMed 0 60 --attn eager --layer 24 --alpha 1 --lam 1 --pen 0.5 --norm median
+gemma vdd s24a1bl2p1 0 60 --attn eager --layer 24 --alpha 1 --lam 2 --pen 1
+gemma vdd cf_a2bl1p05 0 60 --attn eager --layer 24 --alpha 2 --lam 1 --pen 0.5 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+gemma vdd cf_a1bl2p1 0 60 --attn eager --layer 24 --alpha 1 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+gemma vdd cf_a3bl2p1 0 60 --attn eager --layer 24 --alpha 3 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json

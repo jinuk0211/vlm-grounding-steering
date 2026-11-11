@@ -1,0 +1,21 @@
+{
+ "stage": "complete",
+ "pid": 3268326,
+ "captions": 163,
+ "gpu_uuid": "GPU-5cf44493-6a32-f174-b98a-c8bc5702ee73",
+ "updated_at": 1793363674.9963262,
+ "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+ "n_layers": 42,
+ "full_attention_layers": [
+  5,
+  11,
+  17,
+  23,
+  29,
+  35,
+  41
+ ],
+ "done": 163,
+ "sec_per_caption": 0.4223240325169534,
+ "records": 163
+}

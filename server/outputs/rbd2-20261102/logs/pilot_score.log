@@ -1,0 +1,7 @@
+=== 13:03:45 amber_test60L
+base                         CHAIR   6.0 Cover  66.0 Hal  36.7 Cog   3.1  tok  154 @512  0  
+main                         CHAIR   5.6 Cover  64.0 Hal  35.0 Cog   2.4  tok  153 @512  0  dCHAIR[-2.3,+1.7] dCover[-5.5,+1.5] dHal[-11.7,+8.4] dCog[-2.4,+1.0]
+=== 13:04:40 throne_test60
+base                         P  80.2 R  79.0 F1  85.7 F0.5  87.1  tok  195  
+main                         P  84.5 R  84.6 F1  90.3 F0.5  90.8  tok  185  dP[-2.4,+11.6] dR[-0.8,+12.9] dF0.5[+0.8,+6.7]
+=== 13:20:31 PILOT_SCORED

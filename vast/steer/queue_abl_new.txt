@@ -1,0 +1,2 @@
+abl_nopen_new --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16 --pen 0
+abl_nobelief_new --steer resid --layers 16 --alpha 2 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16 --lam 0

@@ -1,0 +1,22 @@
+{
+ "stage": "running",
+ "pid": 3416205,
+ "args": {
+  "model": "qwen",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/qwen25-vl7b-fiveprofiles-20261029-1793247386/original-vti-gpu1-final/chair/base.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/test100",
+  "tag": "qwen-b0.3",
+  "start": "0",
+  "end": "100",
+  "lam": "0.3",
+  "clip": "10.0",
+  "alpha": "0.0",
+  "layer": "16",
+  "r": "measured",
+  "uniform": "False"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793366834.62947,
+ "vobj": 3167,
+ "done": 10
+}

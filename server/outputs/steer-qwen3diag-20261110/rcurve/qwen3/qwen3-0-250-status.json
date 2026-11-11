@@ -1,0 +1,34 @@
+{
+ "stage": "complete",
+ "model": "qwen3",
+ "config": {
+  "family": "qwen3_vl",
+  "checkpoint": "Qwen/Qwen3-VL-8B-Instruct",
+  "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attn_implementation": "eager",
+  "image_size": 448,
+  "yes_token": "Yes",
+  "no_token": "No"
+ },
+ "n_layers": 36,
+ "gray": "/home/project-b/LJW/vlm-grounding-steering/outputs/visual-decay-20261030/gray448.png",
+ "rows": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/qchair_test500_all/base-0-500.jsonl",
+ "gpu": "NVIDIA RTX A5000",
+ "argv": [
+  "scripts/steer_vast/rcurve_collect.py",
+  "--model",
+  "qwen3",
+  "--rows",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/qchair_test500_all/base-0-500.jsonl",
+  "--start",
+  "0",
+  "--end",
+  "250",
+  "--output",
+  "/home/project-b/LJW/vlm-grounding-steering/outputs/steer-qwen3diag-20261110/rcurve/qwen3"
+ ],
+ "done": 250,
+ "sec_per_caption": 0.4987561464309692
+}

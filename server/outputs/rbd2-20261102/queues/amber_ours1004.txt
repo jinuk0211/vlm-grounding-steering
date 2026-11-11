@@ -1,0 +1,23 @@
+# 18:1x user: GPUs 2,3 idle -> base + mainMed on AMBER ids 101-200, 601-1004
+amber_full1004 amber_full1004_ours mainMed 100 150 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 100 150
+amber_full1004 amber_full1004_ours mainMed 150 200 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 150 200
+amber_full1004 amber_full1004_ours mainMed 600 650 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 600 650
+amber_full1004 amber_full1004_ours mainMed 650 700 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 650 700
+amber_full1004 amber_full1004_ours mainMed 700 750 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 700 750
+amber_full1004 amber_full1004_ours mainMed 750 800 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 750 800
+amber_full1004 amber_full1004_ours mainMed 800 850 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 800 850
+amber_full1004 amber_full1004_ours mainMed 850 900 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 850 900
+amber_full1004 amber_full1004_ours mainMed 900 950 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 900 950
+amber_full1004 amber_full1004_ours mainMed 950 1000 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 950 1000
+amber_full1004 amber_full1004_ours mainMed 1000 1004 --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+amber_full1004 amber_full1004_ours base 1000 1004

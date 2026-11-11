@@ -1,0 +1,38 @@
+gemma bench rudder_clone 0 60
+gemma bench grains_clone 0 60
+gemma bench vti 0 60
+gemma bench base 60 110
+gemma vdd vddbase 60 110 --attn eager
+gemma bench rudder_clone 60 110
+gemma bench grains_clone 60 110
+gemma bench vti 60 110
+gemma bench base 110 160
+gemma vdd vddbase 110 160 --attn eager
+gemma bench rudder_clone 110 160
+gemma bench grains_clone 110 160
+gemma bench vti 110 160
+gemma bench base 160 210
+gemma vdd vddbase 160 210 --attn eager
+gemma bench rudder_clone 160 210
+gemma bench grains_clone 160 210
+gemma bench vti 160 210
+gemma bench base 210 260
+gemma vdd vddbase 210 260 --attn eager
+gemma bench rudder_clone 210 260
+gemma bench grains_clone 210 260
+gemma bench vti 210 260
+gemma bench base 260 310
+gemma vdd vddbase 260 310 --attn eager
+gemma bench rudder_clone 260 310
+gemma bench grains_clone 260 310
+gemma bench vti 260 310
+gemma bench base 310 360
+gemma vdd vddbase 310 360 --attn eager
+gemma bench rudder_clone 310 360
+gemma bench grains_clone 310 360
+gemma bench vti 310 360
+gemma bench base 360 385
+gemma vdd vddbase 360 385 --attn eager
+gemma bench rudder_clone 360 385
+gemma bench grains_clone 360 385
+gemma bench vti 360 385

@@ -1,0 +1,13 @@
+{
+ "stage": "complete",
+ "pid": 3305489,
+ "method": "rudder_clone",
+ "set": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/chair_dev100.jsonl",
+ "dtype": "bfloat16",
+ "attn": "sdpa",
+ "total": 40,
+ "done": 40,
+ "resumed_from": 0,
+ "updated_at": 1793889127.8099608,
+ "gpu": "NVIDIA RTX A5000"
+}

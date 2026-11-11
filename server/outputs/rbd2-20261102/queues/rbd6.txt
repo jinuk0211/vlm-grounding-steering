@@ -1,0 +1,13 @@
+# MODEL ATTN SET OUTDIR TAG START END args
+qwen3 sdpa chair_test500 rbd6_qwen3 s21a1 0 30 --alpha 1 --layer 21 --lam 1 --pen 0.5
+qwen3 sdpa chair_test500 rbd6_qwen3 s21a1p0 0 30 --alpha 1 --layer 21 --lam 1 --pen 0
+qwen3 sdpa chair_test500 rbd6_qwen3 s22a1p0 0 30 --alpha 1 --layer 22 --lam 1 --pen 0
+qwen3 sdpa chair_test500 rbd6_qwen3 s22a1l15 0 30 --alpha 1 --layer 22 --lam 1.5 --pen 0.5
+qwen3 sdpa chair_test500 rbd6_qwen3 s20a1l05 30 60 --alpha 1 --layer 20 --lam 0.5 --pen 0.5
+qwen3 sdpa chair_test500 rbd6_qwen3 s20a1l05p025 30 60 --alpha 1 --layer 20 --lam 0.5 --pen 0.25
+qwen3 sdpa chair_test500 rbd6_qwen3 s20a1c2 30 60 --alpha 1 --layer 20 --lam 1 --pen 0.5 --clip 2
+qwen3 sdpa chair_test500 rbd6_qwen3 s20a1p0 30 60 --alpha 1 --layer 20 --lam 1 --pen 0
+qwen3 sdpa chair_test500 rbd6_qwen3 s21a1 30 60 --alpha 1 --layer 21 --lam 1 --pen 0.5
+qwen3 sdpa chair_test500 rbd6_qwen3 s21a1p0 30 60 --alpha 1 --layer 21 --lam 1 --pen 0
+qwen3 sdpa chair_test500 rbd6_qwen3 s22a1p0 30 60 --alpha 1 --layer 22 --lam 1 --pen 0
+qwen3 sdpa chair_test500 rbd6_qwen3 s22a1l15 30 60 --alpha 1 --layer 22 --lam 1.5 --pen 0.5

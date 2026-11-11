@@ -1,0 +1,26 @@
+# 05:45 final-phase order: gemma L18a2 at lam 1 (vs stored gabl rbd_full L24 a1 / abl_nosteer) first, then qwen lam-1 resid screens, then 2 early-schedule screens
+gemma ns 400 500 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+gemma L18a2 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+qwen R12k15 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 12 --alpha 1.5 --rho 6
+gemma L18a2b1 0 100 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+gemma L18a2b1 100 200 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+qwen L12a6b1 0 100 --lam 1 --pen 0.5 --steer resid --layers 12 --alpha 6
+qwen L12a6b1 100 200 --lam 1 --pen 0.5 --steer resid --layers 12 --alpha 6
+qwen L16a3b1 0 100 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+qwen L16a3b1 100 200 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+qwen L16a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2 --ssched early
+qwen L12a3e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 3 --ssched early
+gemma L18a2b1 200 300 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+gemma L18a2b1 300 400 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+gemma L18a2b1 400 500 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+# dropped 05:45: qwen R12k15 100-200, gemma R18k1, gemma L24a2e (restore null on qwen 500 and gemma L24 200 rows)
+# 10:12 qwen L16a3b1 (lam 1) rows 0-199: 23.5 vs stored rbd_full 26.5 / abl_nosteer 28.0, recall 68.4 vs 68.8 -> rows 200-499; dose L16a4b1 and gemma L24a2b1 screens
+qwen L16a3b1 200 300 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+qwen L16a3b1 300 400 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+qwen L16a3b1 400 500 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+qwen L16a4b1 0 100 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 4
+qwen L16a4b1 100 200 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 4
+# 10:17 user: GPU 5 only -> GPU-0 workers w0a/w0b stopped; gemma L24a2b1 moved last
+gemma L24a2b1 0 100 --lam 1 --pen 0.5 --steer resid --layers 24 --alpha 2
+gemma L24a2b1 100 200 --lam 1 --pen 0.5 --steer resid --layers 24 --alpha 2

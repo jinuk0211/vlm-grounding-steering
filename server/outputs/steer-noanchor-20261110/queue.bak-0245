@@ -1,0 +1,23 @@
+# reordered 02:03: interleave qwen round-2 screen with the remaining gemma confirmation chunks (all 4 workers were on gemma)
+gemma ns 100 200 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+gemma ns 200 300 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 200 300 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+gemma ns 300 400 --lam 0.5 --pen 0.25 --steer none
+qwen L12a8 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 8
+gemma L18a2 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+qwen L10a6 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 10 --alpha 6
+qwen L12a6c 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6 --ssched const
+gemma ns 400 500 --lam 0.5 --pen 0.25 --steer none
+qwen L16a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2 --ssched early
+qwen L12a3e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 3 --ssched early
+gemma L18a2 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+qwen ns 300 400 --lam 0.5 --pen 0.25 --steer none
+qwen L12a6 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+qwen ns 400 500 --lam 0.5 --pen 0.25 --steer none
+qwen L12a6 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+gemma L18a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3
+gemma L15a2 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 15 --alpha 2
+gemma L24a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2 --ssched early
+gemma L12a2 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 2
+gemma L32a1 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 32 --alpha 1

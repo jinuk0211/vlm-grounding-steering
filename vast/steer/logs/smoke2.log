@@ -1,0 +1,21 @@
+01:12:28 start n16_r03 --steer norm --layers 16 --alpha 1 --rho 0.3
+01:12:51 done n16_r03
+01:12:51 start n16_r08 --steer norm --layers 16 --alpha 1 --rho 0.8
+01:13:15 done n16_r08
+01:13:15 start n12_r05 --steer norm --layers 12 --alpha 1 --rho 0.5
+01:13:40 done n12_r05
+01:13:40 start an16_r05 --steer anchornorm --layers 16 --alpha 1 --rho 0.5 --anchor-steps 16
+01:14:06 done an16_r05
+01:14:06 start sel24_r03 --steer sel --layers 24 --alpha 1 --rho 0.3
+01:14:31 done sel24_r03
+01:14:31 start selm24_r02 --steer sel --layers 24 --alpha 1 --rho 0.2 --sel-belief median
+01:14:55 done selm24_r02
+01:14:55 start seln24_r02 --steer sel --layers 24 --alpha 1 --rho 0.2 --sel-sign neg
+01:15:20 done seln24_r02
+01:15:20 start selm20_r02 --steer sel --layers 20 --alpha 1 --rho 0.2 --sel-belief median
+01:15:46 done selm20_r02
+01:15:46 start full_selm24 --steer resid --layers 16 --alpha 2 --steer2 sel --layers2 24 --rho2 0.2 --sel-belief median
+01:16:09 done full_selm24
+01:16:09 start n16_selm24 --steer norm --layers 16 --alpha 1 --rho 0.5 --steer2 sel --layers2 24 --rho2 0.2 --sel-belief median
+01:16:33 done n16_selm24
+01:16:33 QUEUE_DONE

@@ -1,0 +1,20 @@
+snapshot 11-05 18:36:11 /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/qchair_report_1836
+== all 500
+  vdd Base      n 500 CHAIR_s  49.2 no-orange  40.2 CHAIR_i  9.63 recall  77.2 F1  83.3 tok  397 @512  44 
+  RBD           n 500 CHAIR_s  41.8 no-orange  37.0 CHAIR_i  7.44 recall  75.2 F1  83.0 tok  431 @512 103 vs Base s[-11.4,-3.2] no-orange[-7.0,+1.0] r[-3.5,-0.6]
+== rudder_clone n=440 INTERIM dup 0
+  vdd Base      n 440 CHAIR_s  48.0 no-orange  39.8 CHAIR_i  9.66 recall  77.4 F1  83.3 tok  397 @512  38 
+  RBD           n 440 CHAIR_s  40.9 no-orange  36.6 CHAIR_i  7.48 recall  75.2 F1  83.0 tok  431 @512  93 vs Base s[-11.6,-2.5] no-orange[-7.7,+1.1] r[-3.7,-0.7]
+  rudder_clone  n 440 CHAIR_s  47.5 no-orange  39.5 CHAIR_i  9.14 recall  76.6 F1  83.1 tok  396 @512  39 vs Base s[-3.6,+2.7] no-orange[-3.6,+3.2] r[-1.8,+0.5] | vs RBD s[+2.0,+11.1] no-orange[-1.1,+7.3] r[-0.1,+3.2]
+  captions: addCriterion 0 (Base 0), loop 3 (Base 3), empty 0, same as vdd Base 1
+== revis n=500 FINAL dup 0
+  vdd Base      n 500 CHAIR_s  49.2 no-orange  40.2 CHAIR_i  9.63 recall  77.2 F1  83.3 tok  397 @512  44 
+  RBD           n 500 CHAIR_s  41.8 no-orange  37.0 CHAIR_i  7.44 recall  75.2 F1  83.0 tok  431 @512 103 vs Base s[-11.4,-3.2] no-orange[-7.0,+1.0] r[-3.5,-0.6]
+  revis         n 500 CHAIR_s  52.2 no-orange  44.4 CHAIR_i 10.43 recall  75.6 F1  82.0 tok  383 @512  43 vs Base s[-1.0,+7.0] no-orange[+0.0,+8.4] r[-3.2,-0.1] | vs RBD s[+6.0,+14.8] no-orange[+3.0,+11.8] r[-1.2,+1.9]
+  captions: addCriterion 0 (Base 0), loop 4 (Base 3), empty 0, same as vdd Base 0
+== vti n=500 FINAL dup 0
+  vdd Base      n 500 CHAIR_s  49.2 no-orange  40.2 CHAIR_i  9.63 recall  77.2 F1  83.3 tok  397 @512  44 
+  RBD           n 500 CHAIR_s  41.8 no-orange  37.0 CHAIR_i  7.44 recall  75.2 F1  83.0 tok  431 @512 103 vs Base s[-11.4,-3.2] no-orange[-7.0,+1.0] r[-3.5,-0.6]
+  vti           n 500 CHAIR_s  49.0 no-orange  41.8 CHAIR_i  9.56 recall  76.2 F1  82.7 tok  388 @512  54 vs Base s[-4.0,+4.0] no-orange[-2.2,+5.6] r[-2.5,+0.4] | vs RBD s[+2.8,+11.6] no-orange[+0.4,+9.2] r[-0.7,+2.6]
+  captions: addCriterion 0 (Base 0), loop 2 (Base 3), empty 0, same as vdd Base 0
+REPORT_DONE

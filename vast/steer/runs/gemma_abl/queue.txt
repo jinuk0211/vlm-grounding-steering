@@ -1,0 +1,18 @@
+# 11-11 20:25 user: lam .75 stopped (99 rows: Full 35.4 vs w/o steering 29.3). Now the ablation of the GPU-5 setting (lam .5 pen .25, L24 a2):
+#   -penalty = lam .5 pen 0 ; -belief = lam 0 pen .25 (penalty kept, as the stored paper ablations). Full and -steering = GPU 5 500-row runs.
+abl_nopen_L24a2 0 100 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+abl_nobelief_L24a2 0 100 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+abl_nopen_L24a2 100 200 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+abl_nobelief_L24a2 100 200 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+abl_nopen_L24a2 200 300 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+abl_nobelief_L24a2 200 300 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+abl_nopen_L24a2 300 400 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+abl_nobelief_L24a2 300 400 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+abl_nopen_L24a2 400 500 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+abl_nobelief_L24a2 400 500 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+# 11-11 15:5x user plan on vast 2080 Ti: belief a bit stronger (lam .75 pen .35) + L24 a2 steering, then ablation. Step 1: Full vs w/o steering rows 0-199
+#stopped-2025 zzsmoke 0 2 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+#stopped-2025 L24a2m 0 100 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+#stopped-2025 nsm 0 100 --lam 0.75 --pen 0.35 --steer none
+#stopped-2025 L24a2m 100 200 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+#stopped-2025 nsm 100 200 --lam 0.75 --pen 0.35 --steer none

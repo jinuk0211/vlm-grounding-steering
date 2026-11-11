@@ -1,0 +1,7 @@
+17:40:54 start amber_test60 mainMed --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+17:46:24 end amber_test60 mainMed
+17:46:24 start chair_test60 mainMed --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+18:05:04 end chair_test60 mainMed
+18:05:04 start throne_test60 mainMed --alpha 1 --layer 16 --lam 1 --pen 0.5 --norm median
+18:29:33 end throne_test60 mainMed
+18:29:33 QUEUE_DONE /home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/queues/test_med.txt

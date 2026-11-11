@@ -1,0 +1,28 @@
+{
+ "stage": "complete",
+ "pid": 497770,
+ "args": {
+  "model": "qwen",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/throne_test500.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/runs/throne_test500",
+  "tag": "s16a1bl2p1",
+  "start": "150",
+  "end": "200",
+  "lam": "2.0",
+  "clip": "5.0",
+  "pen": "1.0",
+  "bsched": "decay",
+  "alpha": "1.0",
+  "layer": "16",
+  "ssched": "decay",
+  "r": "measured",
+  "attn": "sdpa",
+  "bpos": "False",
+  "norm": "raw",
+  "log_belief": "False"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793675993.889263,
+ "vobj": 3167,
+ "done": 50
+}

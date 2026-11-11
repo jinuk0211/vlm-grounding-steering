@@ -1,0 +1,7 @@
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  25%|██▍       | 517/2076 [00:00<00:00, 5163.38it/s]Loading weights:  50%|████▉     | 1034/2076 [00:00<00:00, 4448.89it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6469.05it/s]
+fast vs slow on image 0: max|diff| 0.364 mean|diff| 0.130 sign agreement 1.000
+1/100 18.61s/image
+21/100 1.69s/image
+41/100 1.31s/image
+61/100 1.03s/image
+81/100 0.88s/image

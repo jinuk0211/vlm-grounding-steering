@@ -1,0 +1,82 @@
+11-09 17:33:18 start t4k_repro_qwen-grains_clone-0-2
+11-09 17:33:47 end t4k_repro_qwen-grains_clone-0-2
+11-09 17:35:24 start t4k_repro_gemma-cf_a3bl2p1-350-352
+11-09 17:36:32 end t4k_repro_gemma-cf_a3bl2p1-350-352
+11-09 17:37:19 start t4k_repro_gemma-vti-100-102
+11-09 17:38:26 end t4k_repro_gemma-vti-100-102
+11-09 17:38:26 POOL_DONE t4k_repro.txt
+11-09 17:38:46 start t4k_parts_gemma-s24a1bl2p1-50-100
+11-09 18:12:09 end t4k_parts_gemma-s24a1bl2p1-50-100
+11-09 18:12:30 start t4k_parts_gemma-s24a1bl2p1-250-300
+11-09 18:45:56 end t4k_parts_gemma-s24a1bl2p1-250-300
+11-09 18:46:22 start t4k_parts_gemma-s24a1bl2p1-450-500
+11-09 19:21:14 end t4k_parts_gemma-s24a1bl2p1-450-500
+11-09 19:21:53 start t4k_parts_gemma-s24a1bl2p1-700-750
+11-09 19:56:08 end t4k_parts_gemma-s24a1bl2p1-700-750
+11-09 19:56:19 start t4k_parts_gemma-s24a1bl2p1-950-1000
+11-09 20:30:29 end t4k_parts_gemma-s24a1bl2p1-950-1000
+11-09 20:31:17 start t4k_parts_qwen-s16a1bl2p1-150-200
+11-09 20:54:51 end t4k_parts_qwen-s16a1bl2p1-150-200
+11-09 20:55:25 start t4k_parts_qwen-s16a1bl2p1-350-400
+11-09 21:20:59 end t4k_parts_qwen-s16a1bl2p1-350-400
+11-09 21:21:26 start t4k_parts_qwen-s16a1bl2p1-500-550
+11-09 21:45:23 end t4k_parts_qwen-s16a1bl2p1-500-550
+11-09 21:45:47 start t4k_parts_qwen-s16a1bl2p1-650-700
+11-09 22:12:21 end t4k_parts_qwen-s16a1bl2p1-650-700
+11-09 22:12:43 start t4k_parts_qwen-s16a1bl2p1-850-900
+11-09 22:38:55 end t4k_parts_qwen-s16a1bl2p1-850-900
+11-09 22:39:10 start t4k_parts_gemma-cf_a3bl2p1-100-150
+11-09 23:22:45 end t4k_parts_gemma-cf_a3bl2p1-100-150
+11-09 23:23:03 start t4k_parts_gemma-cf_a3bl2p1-350-400
+11-10 00:07:02 end t4k_parts_gemma-cf_a3bl2p1-350-400
+11-10 00:07:21 start t4k_parts_gemma-cf_a3bl2p1-550-600
+11-10 00:51:50 end t4k_parts_gemma-cf_a3bl2p1-550-600
+11-10 00:52:19 start t4k_parts_qwen-vti_author-50-100
+11-10 02:10:07 end t4k_parts_qwen-vti_author-50-100
+11-10 02:10:45 start t4k_parts_qwen-vti_author-100-150
+11-10 02:56:32 end t4k_parts_qwen-vti_author-100-150
+11-10 02:56:53 start t4k_parts_qwen-vti_author-300-350
+11-10 04:42:07 end t4k_parts_qwen-vti_author-300-350
+11-10 04:42:20 start t4k_parts_qwen-vti_author-650-700
+11-10 05:18:21 end t4k_parts_qwen-vti_author-650-700
+11-10 05:18:51 start t4k_parts_qwen-vti_author-850-900
+11-10 05:54:47 end t4k_parts_qwen-vti_author-850-900
+11-10 05:55:05 start t4k_parts_gemma-rudder_clone-100-200
+11-10 06:47:36 end t4k_parts_gemma-rudder_clone-100-200
+11-10 06:48:00 start t4k_parts_gemma-rudder_clone-400-500
+11-10 07:42:36 end t4k_parts_gemma-rudder_clone-400-500
+11-10 07:42:52 start t4k_parts_gemma-rudder_clone-700-800
+11-10 08:30:05 end t4k_parts_gemma-rudder_clone-700-800
+11-10 08:30:25 start t4k_parts_qwen-cf_a3bl2p1-0-100
+11-10 08:54:14 end t4k_parts_qwen-cf_a3bl2p1-0-100
+11-10 08:54:24 start t4k_parts_qwen-cf_a3bl2p1-200-300
+11-10 08:54:33 OOM t4k_parts_qwen-cf_a3bl2p1-200-300 (not counted)
+11-10 11:16:16 start t4k_parts_gemma-s24a1bl2p1-1700-1750
+11-10 11:49:35 end t4k_parts_gemma-s24a1bl2p1-1700-1750
+11-10 11:50:04 start t4k_parts_gemma-base-200-300
+11-10 12:42:02 end t4k_parts_gemma-base-200-300
+11-10 12:42:23 start t4k_parts_gemma-base-600-700
+11-10 13:33:19 end t4k_parts_gemma-base-600-700
+11-10 14:11:42 start t4k_parts_qwen-s16a1bl2p1-1450-1500
+11-10 14:11:52 OOM t4k_parts_qwen-s16a1bl2p1-1450-1500 (not counted)
+11-10 14:47:08 start t4k_parts_gemma-vti-3900-4000
+11-10 14:47:24 OOM t4k_parts_gemma-vti-3900-4000 (not counted)
+11-10 16:21:39 start t4k_parts_qwen-s16a1bl2p1-1900-1950
+11-10 16:21:45 FAILED t4k_parts_qwen-s16a1bl2p1-1900-1950 rc 1
+11-10 16:35:07 start t4k_parts_qwen-grains_clone-600-800
+11-10 16:35:09 FAILED t4k_parts_qwen-grains_clone-600-800 rc 1
+11-10 16:35:24 start t4k_parts_qwen-grains_clone-800-1000
+11-10 16:35:25 FAILED t4k_parts_qwen-grains_clone-800-1000 rc 1
+11-10 16:35:45 start t4k_parts_qwen-rudder_clone-0-200
+11-10 16:35:47 FAILED t4k_parts_qwen-rudder_clone-0-200 rc 1
+11-10 16:36:09 start t4k_parts_qwen-rudder_clone-200-400
+11-10 17:35:40 end t4k_parts_qwen-rudder_clone-200-400
+11-10 17:35:58 start t4k_parts_qwen-rudder_clone-600-800
+11-10 18:35:59 end t4k_parts_qwen-rudder_clone-600-800
+11-10 18:36:31 start t4k_parts_qwen-revis-0-200
+11-10 19:11:13 end t4k_parts_qwen-revis-0-200
+11-10 19:11:26 start t4k_parts_gemma-revis-100-200
+11-10 19:18:44 end t4k_parts_gemma-revis-100-200
+11-10 19:19:02 start t4k_parts_gemma-revis-300-400
+11-10 19:43:03 FAILED t4k_parts_gemma-revis-300-400 rc 143
+11-10 19:43:03 POOL_DONE t4k_decode.txt

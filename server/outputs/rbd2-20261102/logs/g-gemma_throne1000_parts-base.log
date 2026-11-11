@@ -1,0 +1,73 @@
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  36%|███▌      | 745/2076 [00:00<00:00, 7444.79it/s]Loading weights:  72%|███████▏  | 1490/2076 [00:00<00:00, 5619.39it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5845.66it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 90, in <module>
+    p.add_argument('--start',type=int,default=0);p.add_argument('--end',type=int,default=60);main(p.parse_args())
+                                                                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 59, in main
+    _seed(config);adapter=load_adapter(config['model']);assert adapter.model_type=='gemma4' and len(adapter.layers)==42
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/src/vlm_grounding/backend.py", line 206, in load_adapter
+    ).to(device)
+      ^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3710, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 50.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 16.25 MiB is free. Including non-PyTorch memory, this process has 8.72 GiB memory in use. Process 880887 has 14.80 GiB memory in use. Of the allocated memory 8.52 GiB is allocated by PyTorch, and 679.00 KiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  34%|███▍      | 702/2076 [00:00<00:00, 7010.35it/s]Loading weights:  68%|██████▊   | 1404/2076 [00:00<00:00, 5535.80it/s]Loading weights:  95%|█████████▌| 1982/2076 [00:00<00:00, 5627.69it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5788.47it/s]
+Traceback (most recent call last):
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 90, in <module>
+    p.add_argument('--start',type=int,default=0);p.add_argument('--end',type=int,default=60);main(p.parse_args())
+                                                                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/scripts/rbd2/gemma_bench.py", line 59, in main
+    _seed(config);adapter=load_adapter(config['model']);assert adapter.model_type=='gemma4' and len(adapter.layers)==42
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/src/vlm_grounding/backend.py", line 206, in load_adapter
+    ).to(device)
+      ^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3710, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/project-b/LJW/vlm-grounding-steering/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 50.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 24.25 MiB is free. Including non-PyTorch memory, this process has 8.55 GiB memory in use. Process 882144 has 14.98 GiB memory in use. Of the allocated memory 8.35 GiB is allocated by PyTorch, and 3.19 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 668/2076 [00:00<00:00, 6672.75it/s]Loading weights:  64%|██████▍   | 1336/2076 [00:00<00:00, 5968.72it/s]Loading weights:  93%|█████████▎| 1938/2076 [00:00<00:00, 5976.10it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6050.62it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  31%|███▏      | 653/2076 [00:00<00:00, 6527.72it/s]Loading weights:  63%|██████▎   | 1306/2076 [00:00<00:00, 5098.21it/s]Loading weights:  88%|████████▊ | 1835/2076 [00:00<00:00, 5069.23it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5260.38it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  37%|███▋      | 766/2076 [00:00<00:00, 7657.03it/s]Loading weights:  74%|███████▍  | 1532/2076 [00:00<00:00, 5635.72it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5795.96it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  31%|███       | 644/2076 [00:00<00:00, 6415.11it/s]Loading weights:  62%|██████▏   | 1286/2076 [00:00<00:00, 5294.73it/s]Loading weights:  88%|████████▊ | 1828/2076 [00:00<00:00, 5107.49it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5283.66it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  31%|███       | 644/2076 [00:00<00:00, 6429.84it/s]Loading weights:  62%|██████▏   | 1287/2076 [00:00<00:00, 5335.25it/s]Loading weights:  89%|████████▊ | 1838/2076 [00:00<00:00, 5403.42it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5502.11it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 680/2076 [00:00<00:00, 6793.72it/s]Loading weights:  66%|██████▌   | 1360/2076 [00:00<00:00, 5191.53it/s]Loading weights:  92%|█████████▏| 1902/2076 [00:00<00:00, 5203.21it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5447.69it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 681/2076 [00:00<00:00, 6783.71it/s]Loading weights:  66%|██████▌   | 1360/2076 [00:00<00:00, 5249.10it/s]Loading weights:  93%|█████████▎| 1930/2076 [00:00<00:00, 5423.96it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5483.90it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  26%|██▌       | 535/2076 [00:00<00:00, 5339.36it/s]Loading weights:  51%|█████▏    | 1069/2076 [00:00<00:00, 4878.43it/s]Loading weights:  79%|███████▉  | 1643/2076 [00:00<00:00, 5250.81it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5420.49it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  34%|███▍      | 708/2076 [00:00<00:00, 7068.80it/s]Loading weights:  68%|██████▊   | 1415/2076 [00:00<00:00, 6194.63it/s]Loading weights:  99%|█████████▉| 2056/2076 [00:00<00:00, 6275.85it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6343.65it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  23%|██▎       | 468/2076 [00:00<00:00, 4671.50it/s]Loading weights:  48%|████▊     | 1000/2076 [00:00<00:00, 5047.20it/s]Loading weights:  77%|███████▋  | 1601/2076 [00:00<00:00, 5484.57it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 5699.26it/s]
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:  35%|███▌      | 735/2076 [00:00<00:00, 7294.61it/s]Loading weights:  71%|███████   | 1465/2076 [00:00<00:00, 5232.52it/s]Loading weights: 100%|██████████| 2076/2076 [00:00<00:00, 6222.94it/s]

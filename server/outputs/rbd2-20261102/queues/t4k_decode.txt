@@ -1,0 +1,362 @@
+# t4k_prep.py: THRONE rows 1000-4999 (sets/throne_r4000.jsonl), block-major
+# 11-10 18:16 user: baselines first, our method (s16/s24/cf_a3) removed for now; full queue in t4k_decode.full-20261110.txt
+qb throne_r4000 t4k_parts_qwen vti_author 0 50 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 50 100 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 100 150 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 150 200 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 200 250 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 250 300 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 300 350 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 350 400 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 400 450 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 450 500 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 500 550 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 550 600 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 600 650 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 650 700 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 700 750 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 750 800 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 800 850 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 850 900 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 900 950 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 950 1000 --attn eager
+gb throne_r4000 t4k_parts_gemma rudder_clone 0 100
+gb throne_r4000 t4k_parts_gemma rudder_clone 100 200
+gb throne_r4000 t4k_parts_gemma rudder_clone 200 300
+gb throne_r4000 t4k_parts_gemma rudder_clone 300 400
+gb throne_r4000 t4k_parts_gemma rudder_clone 400 500
+gb throne_r4000 t4k_parts_gemma rudder_clone 500 600
+gb throne_r4000 t4k_parts_gemma rudder_clone 600 700
+gb throne_r4000 t4k_parts_gemma rudder_clone 700 800
+gb throne_r4000 t4k_parts_gemma rudder_clone 800 900
+gb throne_r4000 t4k_parts_gemma rudder_clone 900 1000
+qb throne_r4000 t4k_parts_qwen grains_clone 0 200 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 200 400 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 400 600 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 600 800 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 800 1000 --attn eager
+gb throne_r4000 t4k_parts_gemma revis 0 100
+gb throne_r4000 t4k_parts_gemma revis 100 200
+gb throne_r4000 t4k_parts_gemma revis 200 300
+gb throne_r4000 t4k_parts_gemma revis 300 400
+gb throne_r4000 t4k_parts_gemma revis 400 500
+gb throne_r4000 t4k_parts_gemma revis 500 600
+gb throne_r4000 t4k_parts_gemma revis 600 700
+gb throne_r4000 t4k_parts_gemma revis 700 800
+gb throne_r4000 t4k_parts_gemma revis 800 900
+gb throne_r4000 t4k_parts_gemma revis 900 1000
+qb throne_r4000 t4k_parts_qwen rudder_clone 0 200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 200 400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 400 600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 600 800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 800 1000 --attn sdpa
+gb throne_r4000 t4k_parts_gemma vti 0 100
+gb throne_r4000 t4k_parts_gemma vti 100 200
+gb throne_r4000 t4k_parts_gemma vti 200 300
+gb throne_r4000 t4k_parts_gemma vti 300 400
+gb throne_r4000 t4k_parts_gemma vti 400 500
+gb throne_r4000 t4k_parts_gemma vti 500 600
+gb throne_r4000 t4k_parts_gemma vti 600 700
+gb throne_r4000 t4k_parts_gemma vti 700 800
+gb throne_r4000 t4k_parts_gemma vti 800 900
+gb throne_r4000 t4k_parts_gemma vti 900 1000
+gb throne_r4000 t4k_parts_gemma grains_clone 0 100
+gb throne_r4000 t4k_parts_gemma grains_clone 100 200
+gb throne_r4000 t4k_parts_gemma grains_clone 200 300
+gb throne_r4000 t4k_parts_gemma grains_clone 300 400
+gb throne_r4000 t4k_parts_gemma grains_clone 400 500
+gb throne_r4000 t4k_parts_gemma grains_clone 500 600
+gb throne_r4000 t4k_parts_gemma grains_clone 600 700
+gb throne_r4000 t4k_parts_gemma grains_clone 700 800
+gb throne_r4000 t4k_parts_gemma grains_clone 800 900
+gb throne_r4000 t4k_parts_gemma grains_clone 900 1000
+qb throne_r4000 t4k_parts_qwen revis 0 200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 200 400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 400 600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 600 800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 800 1000 --attn sdpa
+qb throne_r4000 t4k_parts_qwen vti_author 1000 1050 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1050 1100 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1100 1150 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1150 1200 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1200 1250 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1250 1300 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1300 1350 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1350 1400 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1400 1450 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1450 1500 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1500 1550 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1550 1600 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1600 1650 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1650 1700 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1700 1750 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1750 1800 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1800 1850 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1850 1900 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1900 1950 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 1950 2000 --attn eager
+gb throne_r4000 t4k_parts_gemma rudder_clone 1000 1100
+gb throne_r4000 t4k_parts_gemma rudder_clone 1100 1200
+gb throne_r4000 t4k_parts_gemma rudder_clone 1200 1300
+gb throne_r4000 t4k_parts_gemma rudder_clone 1300 1400
+gb throne_r4000 t4k_parts_gemma rudder_clone 1400 1500
+gb throne_r4000 t4k_parts_gemma rudder_clone 1500 1600
+gb throne_r4000 t4k_parts_gemma rudder_clone 1600 1700
+gb throne_r4000 t4k_parts_gemma rudder_clone 1700 1800
+gb throne_r4000 t4k_parts_gemma rudder_clone 1800 1900
+gb throne_r4000 t4k_parts_gemma rudder_clone 1900 2000
+qb throne_r4000 t4k_parts_qwen grains_clone 1000 1200 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 1200 1400 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 1400 1600 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 1600 1800 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 1800 2000 --attn eager
+gb throne_r4000 t4k_parts_gemma revis 1000 1100
+gb throne_r4000 t4k_parts_gemma revis 1100 1200
+gb throne_r4000 t4k_parts_gemma revis 1200 1300
+gb throne_r4000 t4k_parts_gemma revis 1300 1400
+gb throne_r4000 t4k_parts_gemma revis 1400 1500
+gb throne_r4000 t4k_parts_gemma revis 1500 1600
+gb throne_r4000 t4k_parts_gemma revis 1600 1700
+gb throne_r4000 t4k_parts_gemma revis 1700 1800
+gb throne_r4000 t4k_parts_gemma revis 1800 1900
+gb throne_r4000 t4k_parts_gemma revis 1900 2000
+qb throne_r4000 t4k_parts_qwen rudder_clone 1000 1200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 1200 1400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 1400 1600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 1600 1800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 1800 2000 --attn sdpa
+gb throne_r4000 t4k_parts_gemma vti 1000 1100
+gb throne_r4000 t4k_parts_gemma vti 1100 1200
+gb throne_r4000 t4k_parts_gemma vti 1200 1300
+gb throne_r4000 t4k_parts_gemma vti 1300 1400
+gb throne_r4000 t4k_parts_gemma vti 1400 1500
+gb throne_r4000 t4k_parts_gemma vti 1500 1600
+gb throne_r4000 t4k_parts_gemma vti 1600 1700
+gb throne_r4000 t4k_parts_gemma vti 1700 1800
+gb throne_r4000 t4k_parts_gemma vti 1800 1900
+gb throne_r4000 t4k_parts_gemma vti 1900 2000
+gb throne_r4000 t4k_parts_gemma grains_clone 1000 1100
+gb throne_r4000 t4k_parts_gemma grains_clone 1100 1200
+gb throne_r4000 t4k_parts_gemma grains_clone 1200 1300
+gb throne_r4000 t4k_parts_gemma grains_clone 1300 1400
+gb throne_r4000 t4k_parts_gemma grains_clone 1400 1500
+gb throne_r4000 t4k_parts_gemma grains_clone 1500 1600
+gb throne_r4000 t4k_parts_gemma grains_clone 1600 1700
+gb throne_r4000 t4k_parts_gemma grains_clone 1700 1800
+gb throne_r4000 t4k_parts_gemma grains_clone 1800 1900
+gb throne_r4000 t4k_parts_gemma grains_clone 1900 2000
+qb throne_r4000 t4k_parts_qwen revis 1000 1200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 1200 1400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 1400 1600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 1600 1800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 1800 2000 --attn sdpa
+qb throne_r4000 t4k_parts_qwen vti_author 2000 2050 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2050 2100 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2100 2150 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2150 2200 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2200 2250 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2250 2300 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2300 2350 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2350 2400 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2400 2450 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2450 2500 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2500 2550 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2550 2600 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2600 2650 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2650 2700 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2700 2750 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2750 2800 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2800 2850 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2850 2900 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2900 2950 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 2950 3000 --attn eager
+gb throne_r4000 t4k_parts_gemma rudder_clone 2000 2100
+gb throne_r4000 t4k_parts_gemma rudder_clone 2100 2200
+gb throne_r4000 t4k_parts_gemma rudder_clone 2200 2300
+gb throne_r4000 t4k_parts_gemma rudder_clone 2300 2400
+gb throne_r4000 t4k_parts_gemma rudder_clone 2400 2500
+gb throne_r4000 t4k_parts_gemma rudder_clone 2500 2600
+gb throne_r4000 t4k_parts_gemma rudder_clone 2600 2700
+gb throne_r4000 t4k_parts_gemma rudder_clone 2700 2800
+gb throne_r4000 t4k_parts_gemma rudder_clone 2800 2900
+gb throne_r4000 t4k_parts_gemma rudder_clone 2900 3000
+qb throne_r4000 t4k_parts_qwen grains_clone 2000 2200 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 2200 2400 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 2400 2600 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 2600 2800 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 2800 3000 --attn eager
+gb throne_r4000 t4k_parts_gemma revis 2000 2100
+gb throne_r4000 t4k_parts_gemma revis 2100 2200
+gb throne_r4000 t4k_parts_gemma revis 2200 2300
+gb throne_r4000 t4k_parts_gemma revis 2300 2400
+gb throne_r4000 t4k_parts_gemma revis 2400 2500
+gb throne_r4000 t4k_parts_gemma revis 2500 2600
+gb throne_r4000 t4k_parts_gemma revis 2600 2700
+gb throne_r4000 t4k_parts_gemma revis 2700 2800
+gb throne_r4000 t4k_parts_gemma revis 2800 2900
+gb throne_r4000 t4k_parts_gemma revis 2900 3000
+qb throne_r4000 t4k_parts_qwen rudder_clone 2000 2200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 2200 2400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 2400 2600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 2600 2800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 2800 3000 --attn sdpa
+gb throne_r4000 t4k_parts_gemma vti 2000 2100
+gb throne_r4000 t4k_parts_gemma vti 2100 2200
+gb throne_r4000 t4k_parts_gemma vti 2200 2300
+gb throne_r4000 t4k_parts_gemma vti 2300 2400
+gb throne_r4000 t4k_parts_gemma vti 2400 2500
+gb throne_r4000 t4k_parts_gemma vti 2500 2600
+gb throne_r4000 t4k_parts_gemma vti 2600 2700
+gb throne_r4000 t4k_parts_gemma vti 2700 2800
+gb throne_r4000 t4k_parts_gemma vti 2800 2900
+gb throne_r4000 t4k_parts_gemma vti 2900 3000
+gb throne_r4000 t4k_parts_gemma grains_clone 2000 2100
+gb throne_r4000 t4k_parts_gemma grains_clone 2100 2200
+gb throne_r4000 t4k_parts_gemma grains_clone 2200 2300
+gb throne_r4000 t4k_parts_gemma grains_clone 2300 2400
+gb throne_r4000 t4k_parts_gemma grains_clone 2400 2500
+gb throne_r4000 t4k_parts_gemma grains_clone 2500 2600
+gb throne_r4000 t4k_parts_gemma grains_clone 2600 2700
+gb throne_r4000 t4k_parts_gemma grains_clone 2700 2800
+gb throne_r4000 t4k_parts_gemma grains_clone 2800 2900
+gb throne_r4000 t4k_parts_gemma grains_clone 2900 3000
+qb throne_r4000 t4k_parts_qwen revis 2000 2200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 2200 2400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 2400 2600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 2600 2800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 2800 3000 --attn sdpa
+qb throne_r4000 t4k_parts_qwen vti_author 3000 3050 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3050 3100 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3100 3150 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3150 3200 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3200 3250 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3250 3300 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3300 3350 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3350 3400 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3400 3450 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3450 3500 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3500 3550 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3550 3600 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3600 3650 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3650 3700 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3700 3750 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3750 3800 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3800 3850 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3850 3900 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3900 3950 --attn eager
+qb throne_r4000 t4k_parts_qwen vti_author 3950 4000 --attn eager
+gb throne_r4000 t4k_parts_gemma rudder_clone 3000 3100
+gb throne_r4000 t4k_parts_gemma rudder_clone 3100 3200
+gb throne_r4000 t4k_parts_gemma rudder_clone 3200 3300
+gb throne_r4000 t4k_parts_gemma rudder_clone 3300 3400
+gb throne_r4000 t4k_parts_gemma rudder_clone 3400 3500
+gb throne_r4000 t4k_parts_gemma rudder_clone 3500 3600
+gb throne_r4000 t4k_parts_gemma rudder_clone 3600 3700
+gb throne_r4000 t4k_parts_gemma rudder_clone 3700 3800
+gb throne_r4000 t4k_parts_gemma rudder_clone 3800 3900
+gb throne_r4000 t4k_parts_gemma rudder_clone 3900 4000
+qb throne_r4000 t4k_parts_qwen grains_clone 3000 3200 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 3200 3400 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 3400 3600 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 3600 3800 --attn eager
+qb throne_r4000 t4k_parts_qwen grains_clone 3800 4000 --attn eager
+gb throne_r4000 t4k_parts_gemma revis 3000 3100
+gb throne_r4000 t4k_parts_gemma revis 3100 3200
+gb throne_r4000 t4k_parts_gemma revis 3200 3300
+gb throne_r4000 t4k_parts_gemma revis 3300 3400
+gb throne_r4000 t4k_parts_gemma revis 3400 3500
+gb throne_r4000 t4k_parts_gemma revis 3500 3600
+gb throne_r4000 t4k_parts_gemma revis 3600 3700
+gb throne_r4000 t4k_parts_gemma revis 3700 3800
+gb throne_r4000 t4k_parts_gemma revis 3800 3900
+gb throne_r4000 t4k_parts_gemma revis 3900 4000
+qb throne_r4000 t4k_parts_qwen rudder_clone 3000 3200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 3200 3400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 3400 3600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 3600 3800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen rudder_clone 3800 4000 --attn sdpa
+gb throne_r4000 t4k_parts_gemma vti 3000 3100
+gb throne_r4000 t4k_parts_gemma vti 3100 3200
+gb throne_r4000 t4k_parts_gemma vti 3200 3300
+gb throne_r4000 t4k_parts_gemma vti 3300 3400
+gb throne_r4000 t4k_parts_gemma vti 3400 3500
+gb throne_r4000 t4k_parts_gemma vti 3500 3600
+gb throne_r4000 t4k_parts_gemma vti 3600 3700
+gb throne_r4000 t4k_parts_gemma vti 3700 3800
+gb throne_r4000 t4k_parts_gemma vti 3800 3900
+gb throne_r4000 t4k_parts_gemma vti 3900 4000
+gb throne_r4000 t4k_parts_gemma grains_clone 3000 3100
+gb throne_r4000 t4k_parts_gemma grains_clone 3100 3200
+gb throne_r4000 t4k_parts_gemma grains_clone 3200 3300
+gb throne_r4000 t4k_parts_gemma grains_clone 3300 3400
+gb throne_r4000 t4k_parts_gemma grains_clone 3400 3500
+gb throne_r4000 t4k_parts_gemma grains_clone 3500 3600
+gb throne_r4000 t4k_parts_gemma grains_clone 3600 3700
+gb throne_r4000 t4k_parts_gemma grains_clone 3700 3800
+gb throne_r4000 t4k_parts_gemma grains_clone 3800 3900
+gb throne_r4000 t4k_parts_gemma grains_clone 3900 4000
+qb throne_r4000 t4k_parts_qwen revis 3000 3200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 3200 3400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 3400 3600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 3600 3800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen revis 3800 4000 --attn sdpa
+gb throne_r4000 t4k_parts_gemma base 0 100
+gb throne_r4000 t4k_parts_gemma base 100 200
+gb throne_r4000 t4k_parts_gemma base 200 300
+gb throne_r4000 t4k_parts_gemma base 300 400
+gb throne_r4000 t4k_parts_gemma base 400 500
+gb throne_r4000 t4k_parts_gemma base 500 600
+gb throne_r4000 t4k_parts_gemma base 600 700
+gb throne_r4000 t4k_parts_gemma base 700 800
+gb throne_r4000 t4k_parts_gemma base 800 900
+gb throne_r4000 t4k_parts_gemma base 900 1000
+qb throne_r4000 t4k_parts_qwen base 0 200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 200 400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 400 600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 600 800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 800 1000 --attn sdpa
+gb throne_r4000 t4k_parts_gemma base 1000 1100
+gb throne_r4000 t4k_parts_gemma base 1100 1200
+gb throne_r4000 t4k_parts_gemma base 1200 1300
+gb throne_r4000 t4k_parts_gemma base 1300 1400
+gb throne_r4000 t4k_parts_gemma base 1400 1500
+gb throne_r4000 t4k_parts_gemma base 1500 1600
+gb throne_r4000 t4k_parts_gemma base 1600 1700
+gb throne_r4000 t4k_parts_gemma base 1700 1800
+gb throne_r4000 t4k_parts_gemma base 1800 1900
+gb throne_r4000 t4k_parts_gemma base 1900 2000
+qb throne_r4000 t4k_parts_qwen base 1000 1200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 1200 1400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 1400 1600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 1600 1800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 1800 2000 --attn sdpa
+gb throne_r4000 t4k_parts_gemma base 2000 2100
+gb throne_r4000 t4k_parts_gemma base 2100 2200
+gb throne_r4000 t4k_parts_gemma base 2200 2300
+gb throne_r4000 t4k_parts_gemma base 2300 2400
+gb throne_r4000 t4k_parts_gemma base 2400 2500
+gb throne_r4000 t4k_parts_gemma base 2500 2600
+gb throne_r4000 t4k_parts_gemma base 2600 2700
+gb throne_r4000 t4k_parts_gemma base 2700 2800
+gb throne_r4000 t4k_parts_gemma base 2800 2900
+gb throne_r4000 t4k_parts_gemma base 2900 3000
+qb throne_r4000 t4k_parts_qwen base 2000 2200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 2200 2400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 2400 2600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 2600 2800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 2800 3000 --attn sdpa
+gb throne_r4000 t4k_parts_gemma base 3000 3100
+gb throne_r4000 t4k_parts_gemma base 3100 3200
+gb throne_r4000 t4k_parts_gemma base 3200 3300
+gb throne_r4000 t4k_parts_gemma base 3300 3400
+gb throne_r4000 t4k_parts_gemma base 3400 3500
+gb throne_r4000 t4k_parts_gemma base 3500 3600
+gb throne_r4000 t4k_parts_gemma base 3600 3700
+gb throne_r4000 t4k_parts_gemma base 3700 3800
+gb throne_r4000 t4k_parts_gemma base 3800 3900
+gb throne_r4000 t4k_parts_gemma base 3900 4000
+qb throne_r4000 t4k_parts_qwen base 3000 3200 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 3200 3400 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 3400 3600 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 3600 3800 --attn sdpa
+qb throne_r4000 t4k_parts_qwen base 3800 4000 --attn sdpa

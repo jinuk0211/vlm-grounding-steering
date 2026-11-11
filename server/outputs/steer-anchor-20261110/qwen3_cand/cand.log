@@ -1,0 +1,7 @@
+11-10 21:43:50 c1 worker start GPU 1 (GPU-bf42d0ab-8a2e-cc64-26df-f1b8a99ffbde) rcurve /home/project-b/LJW/vlm-grounding-steering/outputs/steer-qwen3diag-20261110/qwen3-rcurve-measured.json
+11-10 21:43:50 c1 start anchor_qwen3_rc --steer resid --layers 20 --alpha 1 --steer2 anchornorm --layers2 20 --alpha2 1 --rho2 0.3 --anchor-steps 16
+11-10 21:44:15 c2 worker start GPU 2 (GPU-4c593ff4-fcc4-39c9-d7b4-981dabee1cb3) rcurve /home/project-b/LJW/vlm-grounding-steering/outputs/steer-qwen3diag-20261110/qwen3-rcurve-measured.json
+11-10 21:44:15 c2 start abl_nosteer_qwen3_rc --steer none
+11-10 22:03:16 c1 done anchor_qwen3_rc
+11-10 22:03:16 c1 start cand_L16 --steer resid --layers 16 --alpha 1 --steer2 anchornorm --layers2 16 --alpha2 1 --rho2 0.3 --anchor-steps 16
+11-10 22:07:01 stopped by hand (user 22:05: Gemma + test set only until 11-11 10:00)

@@ -1,0 +1,74 @@
+=== 1. CHAIR_s and class orange
+Qwen2.5  CHAIR_s Base 30.4 RBD 25.6 [-8.4,-1.2] | without class orange Base 26.2 RBD 22.8 [-7.0,+0.0] | captions with hallucinated orange 30 -> 20
+   word after hallucinated "orange" in Base: [('with', 3), ('jacket', 2), ('and', 2), ('accents', 2), ('fish', 2), ('details', 1), ('shorts', 1), ('pants', 1), ('adidas', 1), ('color', 1), ('scroll', 1), ('near', 1), ('or', 1), ('patterned', 1)]
+Gemma    CHAIR_s Base 34.6 RBD 26.2 [-12.2,-4.6] | without class orange Base 28.6 RBD 22.6 [-9.6,-2.4] | captions with hallucinated orange 48 -> 31
+   word after hallucinated "orange" in Base: [('and', 13), ('or', 6), ('yellow', 3), ('carrot', 2), ('accents', 1), ('structures', 1), ('discoloration', 1), ('uniform', 1), ('streaks', 1), ('of', 1), ('shorts', 1), ('fabric', 1), ('with', 1), ('jacket', 1)]
+Qwen3    CHAIR_s Base 49.2 RBD 41.8 [-11.4,-3.2] | without class orange Base 40.2 RBD 37.0 [-7.0,+1.0] | captions with hallucinated orange 74 -> 39
+   word after hallucinated "orange" in Base: [('and', 18), ('traffic', 5), ('safety', 3), ('stripes', 2), ('accents', 2), ('patterned', 2), ('reflector', 2), ('striped', 2), ('or', 2), ('goggles', 1), ('jacket', 1), ('pink', 1), ('blue', 1), ('keychain', 1)]
+=== 2. class precision on THRONE Base captions (images not in the CHAIR test)
+qwen25 THRONE images used 978
+gemma THRONE images used 978
+Qwen2.5  classes n>=5 64: Spearman(CHAIR precision, THRONE prior) 0.49; lowest prior: [('orange', 0.1), ('dining table', 0.45), ('bowl', 0.5), ('handbag', 0.5), ('remote', 0.52), ('bus', 0.55), ('toothbrush', 0.58), ('toaster', 0.58), ('sports ball', 0.62), ('bicycle', 0.64), ('cell phone', 0.65), ('bear', 0.68)]
+Gemma    classes n>=5 61: Spearman(CHAIR precision, THRONE prior) 0.69; lowest prior: [('orange', 0.09), ('bowl', 0.39), ('bear', 0.41), ('cell phone', 0.49), ('dining table', 0.49), ('traffic light', 0.54), ('remote', 0.61), ('bicycle', 0.61), ('cow', 0.64), ('oven', 0.66), ('keyboard', 0.66), ('tie', 0.67)]
+Qwen3    classes n>=5 68: Spearman(CHAIR precision, THRONE prior) 0.76; lowest prior: [('orange', 0.09), ('bowl', 0.44), ('dining table', 0.47), ('bear', 0.5), ('remote', 0.54), ('cell phone', 0.57), ('toothbrush', 0.58), ('traffic light', 0.61), ('handbag', 0.61), ('bicycle', 0.62), ('toaster', 0.64), ('sports ball', 0.65)]
+=== 3. first-order counterfactual: classes with prior >= tau keep their Base mentions (no decoding; ignores chain effects)
+Qwen2.5 Base recall 69.8
+  tau 2    exempt classes  0: recall 68.9 CHAIR_s 25.6 (without orange 22.8)
+  tau 0.95 exempt classes 15: recall 69.1 CHAIR_s 25.8 (without orange 23.0)
+  tau 0.9  exempt classes 27: recall 69.6 CHAIR_s 26.8 (without orange 23.8)
+  tau 0.85 exempt classes 38: recall 69.3 CHAIR_s 26.6 (without orange 23.6)
+  tau 0.8  exempt classes 45: recall 69.5 CHAIR_s 27.6 (without orange 24.6)
+  tau 0.7  exempt classes 66: recall 69.6 CHAIR_s 28.4 (without orange 25.4)
+  tau 0.6  exempt classes 73: recall 69.8 CHAIR_s 28.8 (without orange 25.8)
+  tau 0    exempt classes 81: recall 69.8 CHAIR_s 30.4 (without orange 26.2)
+Gemma Base recall 64.7
+  tau 2    exempt classes  0: recall 63.6 CHAIR_s 26.2 (without orange 22.6)
+  tau 0.95 exempt classes 11: recall 63.2 CHAIR_s 26.4 (without orange 22.8)
+  tau 0.9  exempt classes 27: recall 62.9 CHAIR_s 27.2 (without orange 23.6)
+  tau 0.85 exempt classes 36: recall 63.0 CHAIR_s 27.2 (without orange 23.6)
+  tau 0.8  exempt classes 48: recall 63.3 CHAIR_s 26.6 (without orange 23.2)
+  tau 0.7  exempt classes 66: recall 64.1 CHAIR_s 27.4 (without orange 23.8)
+  tau 0.6  exempt classes 74: recall 64.3 CHAIR_s 28.8 (without orange 25.2)
+  tau 0    exempt classes 81: recall 64.7 CHAIR_s 34.6 (without orange 28.6)
+Qwen3 Base recall 77.2
+  tau 2    exempt classes  0: recall 75.2 CHAIR_s 41.8 (without orange 37.0)
+  tau 0.95 exempt classes 16: recall 75.1 CHAIR_s 40.4 (without orange 35.6)
+  tau 0.9  exempt classes 26: recall 75.4 CHAIR_s 40.4 (without orange 35.8)
+  tau 0.85 exempt classes 36: recall 75.4 CHAIR_s 41.4 (without orange 36.8)
+  tau 0.8  exempt classes 47: recall 76.3 CHAIR_s 41.8 (without orange 36.8)
+  tau 0.7  exempt classes 64: recall 76.9 CHAIR_s 45.4 (without orange 40.2)
+  tau 0.6  exempt classes 73: recall 77.1 CHAIR_s 44.8 (without orange 39.6)
+  tau 0    exempt classes 81: recall 77.2 CHAIR_s 49.2 (without orange 40.2)
+=== 4. V_obj, lost objects, generic nouns
+Qwen2.5: |V_obj| 3167; generic nouns in V_obj: ['container', 'containers', 'figure', 'figures', 'equipment', 'device']; not in V_obj: ['item', 'items', 'piece', 'pieces', 'section', 'sections', 'unit', 'units', 'structure', 'structures', 'material', 'materials', 'type', 'types', 'object', 'objects', 'gear', 'individual', 'individuals', 'thing', 'things', 'area', 'areas', 'element', 'elements', 'devices']
+  CHAIR single-word synonyms in V_obj 136/390; missing e.g. ['', 'chef', 'baker', 'people', 'children', 'biker', 'groom', 'skier', 'snowboarder', 'skater', 'skateboarder', 'foreigner', 'coworker', 'trespasser', 'grandchild', 'serviceman', 'walker', 'drinker', 'bicyclist', 'solider', 'villager', 'bike', 'bike', 'unicycle', 'minibike', 'trike', 'van', 'minivan', 'suv', 'hatchback']
+  lost true objects: Base word in V_obj 71, not in V_obj 19; generic-noun count change per caption: images with a lost object -0.06 (n 82), others +0.11 (n 418)
+  generic nouns total Base 585 RBD 628
+Gemma: |V_obj| 4435; generic nouns in V_obj: ['container', 'containers', 'figure', 'figures', 'equipment', 'device']; not in V_obj: ['item', 'items', 'piece', 'pieces', 'section', 'sections', 'unit', 'units', 'structure', 'structures', 'material', 'materials', 'type', 'types', 'object', 'objects', 'gear', 'individual', 'individuals', 'thing', 'things', 'area', 'areas', 'element', 'elements', 'devices']
+  CHAIR single-word synonyms in V_obj 159/390; missing e.g. ['', 'chef', 'baker', 'people', 'children', 'biker', 'groom', 'skier', 'snowboarder', 'skater', 'skateboarder', 'coworker', 'trespasser', 'serviceman', 'walker', 'bicyclist', 'solider', 'villager', 'bike', 'bike', 'unicycle', 'minibike', 'trike', 'van', 'minivan', 'suv', 'hatchback', 'coupe', 'taxicab', 'limo']
+  lost true objects: Base word in V_obj 80, not in V_obj 12; generic-noun count change per caption: images with a lost object +0.36 (n 80), others +0.52 (n 420)
+  generic nouns total Base 1106 RBD 1355
+Qwen3: |V_obj| 3167; generic nouns in V_obj: ['container', 'containers', 'figure', 'figures', 'equipment', 'device']; not in V_obj: ['item', 'items', 'piece', 'pieces', 'section', 'sections', 'unit', 'units', 'structure', 'structures', 'material', 'materials', 'type', 'types', 'object', 'objects', 'gear', 'individual', 'individuals', 'thing', 'things', 'area', 'areas', 'element', 'elements', 'devices']
+  CHAIR single-word synonyms in V_obj 136/390; missing e.g. ['', 'chef', 'baker', 'people', 'children', 'biker', 'groom', 'skier', 'snowboarder', 'skater', 'skateboarder', 'foreigner', 'coworker', 'trespasser', 'grandchild', 'serviceman', 'walker', 'drinker', 'bicyclist', 'solider', 'villager', 'bike', 'bike', 'unicycle', 'minibike', 'trike', 'van', 'minivan', 'suv', 'hatchback']
+  lost true objects: Base word in V_obj 72, not in V_obj 15; generic-noun count change per caption: images with a lost object +0.87 (n 75), others +0.65 (n 425)
+  generic nouns total Base 483 RBD 826
+=== examples Qwen3: Base sentence with a lost true object -> most similar RBD sentence
+[bus/bus] B: 'This is a vibrant, eye-level street photograph capturing a busy urban scene, likely in a city with a rich architectural heritage, such as Melbourne, Australia, given the presence of “METROBUS” and “ES TELER” si'
+    R: 'This is a vibrant, eye-level street photograph capturing a busy urban scene, likely in a city with a rich architectural history, such as Melbourne, Australia, given the presence of “Metrobus” and “ES TELER” sig'
+[chair/chair] B: '- A tall, dark wood chair with carved details is visible near the desk.'
+    R: '**Foreground and Center:**\n- A wooden sleigh-style bed with a polished dark wood frame is positioned in the foreground.'
+[bench/bench] B: '**Foreground Group (Sitting):**\nTo the right, a group of four other young boys are seated on the ground, likely on a bench or the dugout floor.'
+    R: '**Group (Sitting):**\nTo the right, a group of four other players are seated in a row, slightly out of focus, creating a shallow depth of field that draws attention to the standing batter.'
+[truck/truck] B: '- Further in the background, there are trees with green leaves, and parts of vehicles, including what appears to be a silver or light-colored car and possibly a truck or van.'
+    R: '- To the right, there are elements of a city street: a classic-style streetlamp, a tall building in the distance, and the blurred outlines of parked or passing cars (a silver or light-colored SUV and a dark-col'
+[chair/chair] B: '*   **The Dining Area:** In the background, a small dining table with chairs is visible.'
+    R: '- The countertops are a bright orange, matching the island, and are adorned with a few decorative items, including a small red floral arrangement on a sideboard or dining table'
+[orange/orange] B: 'The wingtip is painted in a striking red and orange gradient, featuring a white circular logo with a stylized design inside — this is the livery of the airline, which appears to be TAP Air Portugal.'
+    R: 'The airplane’s wing is white, and its tail fin is brightly colored with a bold red-orange base that transitions to blue at the edges.'
+[car/car] B: 'Behind the meter is a light-colored wooden fence, and beyond that, a grassy area with trees and a glimpse of a street with a parked car.'
+    R: 'It has a circular design with a white background and a red warning message that reads: "DON\'T LET THE PARKING METER BE THE LAST THING YOU SEE ON AN HOMELESSNESS." The coin slot is in the center.'
+[book/book] B: 'To the right of the laptop, there is a stack of two notebooks or books, and next to them lies a blue pen and a small notepad.'
+    R: '- On the floor, beneath the desk, there is a stack of white papers or folders, and a small stack of other papers or a small box sits on the floor to the left of the chair.'
+[backpack/backpack] B: 'In the foreground, another man with glasses and a backpack is seated on the grass, looking toward the woman and the kite.'
+    R: '**Surrounding People and Setting:**\nThe scene is bustling with activity:\n- To the left, a man in a blue polo shirt and sunglasses stands nearby, observing.'
+ANALYSIS2_DONE

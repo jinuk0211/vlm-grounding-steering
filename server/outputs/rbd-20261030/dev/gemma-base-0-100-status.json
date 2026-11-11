@@ -1,0 +1,22 @@
+{
+ "stage": "running",
+ "pid": 3390457,
+ "args": {
+  "model": "gemma",
+  "data": "/home/project-b/LJW/vlm-grounding-steering/data/chair-dev-train2014-100/chair.jsonl",
+  "output": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/dev",
+  "tag": "gemma-base",
+  "start": "0",
+  "end": "100",
+  "lam": "0.0",
+  "clip": "10.0",
+  "alpha": "0.0",
+  "layer": "16",
+  "r": "measured",
+  "uniform": "False"
+ },
+ "resumed_from": 0,
+ "updated_at": 1793367982.8809478,
+ "vobj": 4435,
+ "done": 57
+}

@@ -1,0 +1,13 @@
+chair_test500 rows 0-499, n=500. Differences are run minus reference, 95% CI (Bonferroni 97.5% CI).
+nosteer        CHAIR_s  27.6 CHAIR_i  7.79 recall  67.4 tok  191 words  159
+full           CHAIR_s  25.6 CHAIR_i  6.86 recall  68.9 tok  178 words  149
+   vs nosteer      dCHAIR_s [-5.8,+1.6] (97.5%: [-6.4,+2.0])  dCHAIR_i [-2.1,+0.2] (97.5%: [-2.3,+0.4])  drecall [-0.1,+3.2] (97.5%: [-0.4,+3.5])
+   vs cut nosteer  (CHAIR_s 25.0, recall 65.5)  dCHAIR_s [-3.2,+4.2] (97.5%: [-3.8,+4.8])  drecall [+1.7,+5.4] (97.5%: [+1.4,+5.7])
+base           CHAIR_s  30.4 CHAIR_i  8.40 recall  69.8 tok  189 words  158
+   vs nosteer      dCHAIR_s [-0.8,+6.2] (97.5%: [-1.4,+6.8])  dCHAIR_i [-0.4,+1.5] (97.5%: [-0.5,+1.7])  drecall [+0.9,+3.8] (97.5%: [+0.7,+3.9])
+   vs cut nosteer  (CHAIR_s 26.2, recall 66.0)  dCHAIR_s [+0.4,+7.6] (97.5%: [-0.0,+8.2])  drecall [+2.3,+5.2] (97.5%: [+2.1,+5.4])
+   vs full         dCHAIR_s [+1.2,+8.4] (97.5%: [+0.8,+9.0])  drecall [-0.8,+2.5] (97.5%: [-1.0,+2.7])
+full_an16_r03  CHAIR_s  24.4 CHAIR_i  6.45 recall  67.0 tok  162 words  136
+   vs nosteer      dCHAIR_s [-7.0,+0.4] (97.5%: [-7.6,+1.0])  dCHAIR_i [-2.5,-0.2] (97.5%: [-2.7,-0.1])  drecall [-2.0,+1.2] (97.5%: [-2.2,+1.3])
+   vs cut nosteer  (CHAIR_s 23.4, recall 62.5)  dCHAIR_s [-2.8,+4.8] (97.5%: [-3.6,+5.6])  drecall [+2.7,+6.2] (97.5%: [+2.5,+6.4])
+   vs full         dCHAIR_s [-4.8,+2.2] (97.5%: [-5.4,+2.6])  drecall [-3.4,-0.5] (97.5%: [-3.6,-0.3])

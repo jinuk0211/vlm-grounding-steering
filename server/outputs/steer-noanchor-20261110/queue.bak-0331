@@ -1,0 +1,23 @@
+# 02:45 knob search exhausted on held-out rows (qwen L12a6 200 rows +0.5, gemma L18a2 170 rows +0.5 CHAIR_s); last resort (user-approved):
+# 'restore' = Eq. steer with alpha -> alpha_t = clip(kappa m0/|d_t| - 1, 0, cap), m0 = mean |d| over caption steps 1..16 (no anchor; current d_t).
+# screen on rows 0-199 (ns exists there) to reduce selection noise; dropped: qwen L12a6 300-499, qwen L10a6/L12a6c, gemma L18a3/L15a2/L12a2/L32a1
+qwen zzsmoke_restore 0 3 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+gemma ns 200 300 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 200 300 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+gemma ns 300 400 --lam 0.5 --pen 0.25 --steer none
+qwen R16k1 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+qwen R16k1 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+gemma R24k1 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 24 --alpha 1 --rho 6
+qwen R16k15 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+qwen R16k15 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+gemma R24k1 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 24 --alpha 1 --rho 6
+qwen L16a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2 --ssched early
+qwen L12a3e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 3 --ssched early
+gemma L18a2 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+gemma ns 400 500 --lam 0.5 --pen 0.25 --steer none
+gemma L18a2 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+gemma R18k1 0 100 --lam 0.5 --pen 0.25 --steer restore --layers 18 --alpha 1 --rho 6
+gemma R18k1 100 200 --lam 0.5 --pen 0.25 --steer restore --layers 18 --alpha 1 --rho 6
+gemma L24a2e 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2 --ssched early
+#dropped qwen ns 300 400 --lam 0.5 --pen 0.25 --steer none
+#dropped qwen ns 400 500 --lam 0.5 --pen 0.25 --steer none

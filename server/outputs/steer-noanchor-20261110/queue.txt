@@ -1,0 +1,48 @@
+# 11:27 interleave: L24a2 confirmation and the blur-contrast screen (L18a2bl rows 0-69: 27.1 vs ns 35.7, recall +3.2, CHAIR_i lower)
+gemma zzsmoke_blur 0 2 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L24a2 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L18a2bl 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L24a2 200 300 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L18a2bl 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+gemma L24a2 300 400 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L24a2 400 500 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+gemma L24a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3
+gemma L24a3 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3
+gemma L18a3 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3
+# 14:39 two-layer variant (small formula change: Eq. steer applied at layers 18 and 24, alpha 1.5 each)
+# 15:38 user plan: belief a bit stronger (lam .75 pen .35) + this steering, then full ablation (w/o steering / belief / penalty).
+#   step 1: Full and w/o steering at lam .75 pen .35 on rows 0-199 (does the steering gap survive?)
+#moved-to-vast-1545 gemma L24a2m 0 100 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma nsm 0 100 --lam 0.75 --pen 0.35 --steer none
+#moved-to-vast-1545 gemma L24a2m 100 200 --lam 0.75 --pen 0.35 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma nsm 100 200 --lam 0.75 --pen 0.35 --steer none
+#   fallback ablation at the current setting (lam .5 pen .25): w/o belief, w/o penalty (Full=L24a2, w/o steering=ns exist, 500 rows)
+#moved-to-vast-1545 gemma abl_nobelief_L24a2 0 100 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nobelief_L24a2 100 200 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nobelief_L24a2 200 300 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nobelief_L24a2 300 400 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nobelief_L24a2 400 500 --lam 0 --pen 0.25 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nopen_L24a2 0 100 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nopen_L24a2 100 200 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nopen_L24a2 200 300 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nopen_L24a2 300 400 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1545 gemma abl_nopen_L24a2 400 500 --lam 0.5 --pen 0 --steer resid --layers 24 --alpha 2
+# 15:35 user: weak belief was deliberate; with the paper belief the steering effect should carry over -> test it: gemma L24 alpha 2 with lam 1 pen 0.5 on all 500 rows,
+#   compared with the stored paper runs (abl_nosteer = -steering, rbd_full = TETHER L24 a1, base); placed before the gate screen
+#moved-to-vast-1550 gemma L24a2b1 0 100 --lam 1 --pen 0.5 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1550 gemma L24a2b1 100 200 --lam 1 --pen 0.5 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1550 gemma L24a2b1 200 300 --lam 1 --pen 0.5 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1550 gemma L24a2b1 300 400 --lam 1 --pen 0.5 --steer resid --layers 24 --alpha 2
+#moved-to-vast-1550 gemma L24a2b1 400 500 --lam 1 --pen 0.5 --steer resid --layers 24 --alpha 2
+# 15:13 gate schedule (small change of s(t)): s = 1 - r(t) only where the previous step read the image less than the caption average (KL real||gray)
+gemma zzsmoke_gate 0 2 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3 --ssched gate
+gemma L24a3g 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3 --ssched gate
+#dropped-1543 gemma L18a3 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3
+gemma L24a3g 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3 --ssched gate
+gemma L1824a15 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 18,24 --alpha 1.5
+gemma L1824a15 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 18,24 --alpha 1.5
+# 17:53 gate L24a3g rows 0-199: 37.5 vs ns 37.0 -> null. Next exploration: blur contrast at L24, then belief-guided direction (sel) at L24
+gemma L24a2bl 0 100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2 --ctrl blur
+gemma L24a2bl 100 200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2 --ctrl blur
+gemma sel24r02 0 100 --lam 0.5 --pen 0.25 --steer sel --layers 24 --rho 0.2 --alpha 1
+gemma sel24r02 100 200 --lam 0.5 --pen 0.25 --steer sel --layers 24 --rho 0.2 --alpha 1

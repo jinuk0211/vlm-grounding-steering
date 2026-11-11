@@ -1,0 +1,50 @@
+{
+  "qwen-dev-base": {
+    "CHAIR_s": 0.23,
+    "CHAIR_i": 0.06866952789699571,
+    "recall": 0.5479041916167665,
+    "object_F1": 0.6899241641112955,
+    "mean_tokens": 220.4,
+    "rejections": 0
+  },
+  "qwen-dev-node-t0": {
+    "CHAIR_s": 0.05,
+    "CHAIR_i": 0.014527845036319613,
+    "recall": 0.5029940119760479,
+    "object_F1": 0.6660367617693185,
+    "mean_tokens": 221.89,
+    "rejections": 108
+  },
+  "qwen-dev-word-t0": {
+    "CHAIR_s": 0.1,
+    "CHAIR_i": 0.03464203233256351,
+    "recall": 0.5179640718562875,
+    "object_F1": 0.6741904056013164,
+    "mean_tokens": 219.28,
+    "rejections": 48
+  },
+  "qwen-dev-word-tm1": {
+    "CHAIR_s": 0.16,
+    "CHAIR_i": 0.05429864253393665,
+    "recall": 0.5329341317365269,
+    "object_F1": 0.6817049036135747,
+    "mean_tokens": 217.28,
+    "rejections": 21
+  },
+  "qwen-dev-wn-t0": {
+    "CHAIR_s": 0.09,
+    "CHAIR_i": 0.03140096618357488,
+    "recall": 0.5419161676646707,
+    "object_F1": 0.6949939674818546,
+    "mean_tokens": 204.69,
+    "rejections": 414
+  },
+  "qwen-dev-wn-tm1": {
+    "CHAIR_s": 0.15,
+    "CHAIR_i": 0.05747126436781609,
+    "recall": 0.5449101796407185,
+    "object_F1": 0.6905742445976585,
+    "mean_tokens": 207.06,
+    "rejections": 282
+  }
+}

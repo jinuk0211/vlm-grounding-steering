@@ -1,0 +1,14 @@
+chair_test100 rows 0-100, n=100; d* = run minus nosteer [95% CI]
+ref:nosteer    CHAIR_s  27.0 CHAIR_i  8.99 recall  66.8 tok   187
+an16_r05       CHAIR_s  17.0 CHAIR_i  5.82 recall  62.5 tok   158  dCHAIR_s[-18.0,-3.0] drecall[-8.2,+0.0]  vs full dCHAIR_s[-15.0,-2.0]
+full           CHAIR_s  25.0 CHAIR_i  8.11 recall  67.1 tok   174  dCHAIR_s[-9.0,+5.0] drecall[-2.7,+3.8]
+full_selm24    CHAIR_s  28.0 CHAIR_i 10.07 recall  66.5 tok   172  dCHAIR_s[-5.0,+7.0] drecall[-3.6,+2.9]  vs full dCHAIR_s[-3.0,+9.0]
+n12_r05        CHAIR_s  28.0 CHAIR_i  8.20 recall  64.3 tok   169  dCHAIR_s[-5.0,+7.0] drecall[-6.3,+1.3]  vs full dCHAIR_s[-5.0,+11.0]
+n16_r03        CHAIR_s  36.0 CHAIR_i 10.39 recall  65.9 tok   173  dCHAIR_s[+2.0,+17.0] drecall[-3.6,+1.8]  vs full dCHAIR_s[+4.0,+18.0]
+n16_r08        CHAIR_s  20.0 CHAIR_i  7.12 recall  61.6 tok   165  dCHAIR_s[-15.0,+2.0] drecall[-8.5,-1.8]  vs full dCHAIR_s[-12.0,+1.0]
+n16_selm24     CHAIR_s  27.0 CHAIR_i  7.63 recall  64.6 tok   170  dCHAIR_s[-8.0,+8.0] drecall[-5.1,+1.0]  vs full dCHAIR_s[-5.0,+9.0]
+sel24_r03      CHAIR_s  32.0 CHAIR_i 10.21 recall  66.2 tok   180  dCHAIR_s[-2.0,+12.0] drecall[-4.4,+2.9]  vs full dCHAIR_s[+0.0,+14.0]
+selm20_r02     CHAIR_s  32.0 CHAIR_i  9.14 recall  65.5 tok   186  dCHAIR_s[-4.0,+13.0] drecall[-3.9,+1.3]  vs full dCHAIR_s[-1.0,+15.0]
+selm24_r02     CHAIR_s  29.0 CHAIR_i  8.76 recall  64.0 tok   182  dCHAIR_s[-5.0,+9.0] drecall[-5.6,+0.0]  vs full dCHAIR_s[-2.0,+10.0]
+seln24_r02     CHAIR_s  28.0 CHAIR_i  8.14 recall  67.1 tok   182  dCHAIR_s[-5.0,+7.0] drecall[-2.8,+3.2]  vs full dCHAIR_s[-3.0,+9.0]
+selection: {"rule": "recall >= nosteer - 1.0, then lowest CHAIR_s, ties by CHAIR_i; confirm only if CHAIR_s < full", "eligible": ["full_selm24", "n16_r03", "sel24_r03", "seln24_r02"], "picked": "seln24_r02", "carry_to_confirmation": false}

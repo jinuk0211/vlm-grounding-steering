@@ -1,0 +1,9 @@
+11-10 21:26:34 start qwen GPU 5 (GPU-e6c6cfdf-7256-4b93-c0e4-461f39682ec2) variants: base full nobelief bpos2_r45
+11-10 21:26:34 start dev_base --steer none --lam 0 --pen 0
+11-10 21:26:46 start qwen GPU 5 (GPU-e6c6cfdf-7256-4b93-c0e4-461f39682ec2) variants: nosteer bpos2 nosteer_bpos2 bpos1
+11-10 21:26:46 start dev_nosteer --steer none
+11-10 21:59:18 FAILED dev_base
+11-10 21:59:18 start dev_full --layers 16 --alpha 2 --layers2 16 --steer resid --steer2 anchornorm --alpha2 1 --rho2 0.3 --anchor-steps 16
+11-10 22:02:15 done dev_nosteer
+11-10 22:02:15 start dev_bpos2 --layers 16 --alpha 2 --layers2 16 --steer resid --steer2 anchornorm --alpha2 1 --rho2 0.3 --anchor-steps 16 --bpos --lam 2
+11-10 22:07:01 stopped by hand (user 22:05: Gemma + test set only until 11-11 10:00)

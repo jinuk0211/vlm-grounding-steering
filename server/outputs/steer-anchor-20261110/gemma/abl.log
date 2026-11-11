@@ -1,0 +1,6 @@
+11-10 20:23:34 a1 worker start GPU 0 (GPU-c27bc2d7-aa8a-5d1e-7d0a-6a4fe5cd6303)
+11-10 20:23:34 a1 start anchor_gemma 0-500 
+11-10 20:24:14 a2 worker start GPU 0 (GPU-c27bc2d7-aa8a-5d1e-7d0a-6a4fe5cd6303)
+11-10 20:24:14 a2 start abl_nobelief_gemma 0-500 --lam 0
+11-10 21:37:28 user 21:35 "지금 gemma ablation 돌아가는거에 적용": lam 1 Full stopped (116 rows kept), a1/a2 loops stopped; -belief decoder (pid 3867450) keeps running; lam 0.5 units by gemma_l05.sh (abl_l05.log)
+11-10 22:20:24 stopped by user request ("gemma steering 멈추고 우리가써"): GPU 0 goes to the no-anchor steering search (outputs/steer-noanchor-20261110). killed pids 3988942 3990077 3989664 3867450; partial jsonl kept.

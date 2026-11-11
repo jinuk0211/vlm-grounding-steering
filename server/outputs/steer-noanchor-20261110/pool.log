@@ -1,0 +1,157 @@
+11-10 22:21:47 w0a worker start GPU 0 gate 21000
+11-10 22:21:47 w5a worker start GPU 5 gate 21000
+11-10 22:21:59 w0a start qwen-ns-0-100 --lam 0.5 --pen 0.25 --steer none
+11-10 22:22:15 w5a start gemma-ns-0-100 --lam 0.5 --pen 0.25 --steer none
+11-10 22:22:37 w0b worker start GPU 0 gate 21000
+11-10 22:22:37 w5b worker start GPU 5 gate 21000
+11-10 22:22:50 w0b start qwen-L16a2-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2
+11-10 22:23:07 w5b start gemma-L24a1-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 1
+11-10 22:52:42 w0b done qwen-L16a2-0-100
+11-10 22:52:45 w0a done qwen-ns-0-100
+11-10 22:53:28 w0b start qwen-L16a4-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 4
+11-10 22:53:45 w0a start qwen-L12a3-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 3
+11-10 23:22:15 w0b done qwen-L16a4-0-100
+11-10 23:23:07 w0b start gemma-L24a2-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+11-10 23:23:11 w0a done qwen-L12a3-0-100
+11-10 23:24:03 w0a start qwen-L20a2-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 20 --alpha 2
+11-10 23:28:50 w5a done gemma-ns-0-100
+11-10 23:29:46 w5b done gemma-L24a1-0-100
+11-10 23:29:49 w5a start qwen-L16a2c-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2 --ssched const
+11-10 23:30:41 w5b start gemma-L18a2-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+11-10 23:51:39 w0a done qwen-L20a2-0-100
+11-10 23:52:32 w0a start qwen-L12a6-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+11-10 23:53:46 w5a done qwen-L16a2c-0-100
+11-10 23:54:38 w5a start gemma-L24a1c-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 1 --ssched const
+11-11 00:16:04 w0a done qwen-L12a6-0-100
+11-11 00:16:53 w0a start qwen-L8a3-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 8 --alpha 3
+11-11 00:36:00 w0b done gemma-L24a2-0-100
+11-11 00:36:57 w0b start qwen-ns-100-200 --lam 0.5 --pen 0.25 --steer none
+11-11 00:42:19 w0a done qwen-L8a3-0-100
+11-11 00:43:09 w0a start qwen-L12a6-100-200 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+11-11 00:47:35 w5b done gemma-L18a2-0-100
+11-11 00:48:31 w5b start gemma-ns-100-200 --lam 0.5 --pen 0.25 --steer none
+11-11 01:02:59 w5a done gemma-L24a1c-0-100
+11-11 01:03:44 w5a start gemma-L18a2-100-200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+11-11 01:08:00 w0b done qwen-ns-100-200
+11-11 01:09:00 w0b start qwen-ns-200-300 --lam 0.5 --pen 0.25 --steer none
+11-11 01:09:49 w0a done qwen-L12a6-100-200
+11-11 01:10:35 w0a start qwen-L12a6-200-300 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 6
+11-11 01:39:31 w0a done qwen-L12a6-200-300
+11-11 01:40:21 w0a start gemma-ns-200-300 --lam 0.5 --pen 0.25 --steer none
+11-11 01:40:32 w0b done qwen-ns-200-300
+11-11 01:41:26 w0b start gemma-L18a2-200-300 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+11-11 01:56:18 w5b done gemma-ns-100-200
+11-11 01:57:16 w5b start gemma-ns-300-400 --lam 0.5 --pen 0.25 --steer none
+11-11 02:20:41 w5a done gemma-L18a2-100-200
+11-11 02:21:40 w5a start qwen-L12a8-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 8
+11-11 02:44:10 w5a done qwen-L12a8-0-100
+11-11 02:45:01 w5a start qwen-zzsmoke_restore-0-3 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 02:45:53 w5a done qwen-zzsmoke_restore-0-3
+11-11 02:46:43 w5a start qwen-R16k1-0-100 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 02:48:54 w0a done gemma-ns-200-300
+11-11 02:49:48 w0a start qwen-R16k1-100-200 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 02:59:47 w0b done gemma-L18a2-200-300
+11-11 03:00:35 w0b start gemma-R24k1-0-100 --lam 0.5 --pen 0.25 --steer restore --layers 24 --alpha 1 --rho 6
+11-11 03:04:06 w5b done gemma-ns-300-400
+11-11 03:04:54 w5b start qwen-R16k15-0-100 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+11-11 03:13:50 w5a done qwen-R16k1-0-100
+11-11 03:14:36 w5a start qwen-R16k15-100-200 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+11-11 03:16:04 w0a done qwen-R16k1-100-200
+11-11 03:17:02 w0a start gemma-R24k1-100-200 --lam 0.5 --pen 0.25 --steer restore --layers 24 --alpha 1 --rho 6
+11-11 03:34:20 w5b done qwen-R16k15-0-100
+11-11 03:35:16 w5b start qwen-R16k15-200-300 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1.5 --rho 6
+11-11 03:44:00 w5a done qwen-R16k15-100-200
+11-11 03:44:47 w5a start qwen-ns-300-400 --lam 0.5 --pen 0.25 --steer none
+11-11 04:06:28 w5b done qwen-R16k15-200-300
+11-11 04:07:27 w5b start qwen-ns-400-500 --lam 0.5 --pen 0.25 --steer none
+11-11 04:08:56 w0b done gemma-R24k1-0-100
+11-11 04:09:50 w0b start qwen-R16k1-200-300 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 04:15:58 w5a done qwen-ns-300-400
+11-11 04:16:52 w5a start qwen-R16k1-300-400 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 04:26:00 w0a done gemma-R24k1-100-200
+11-11 04:26:49 w0a start qwen-R16k1-400-500 --lam 0.5 --pen 0.25 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 04:39:21 w0b done qwen-R16k1-200-300
+11-11 04:39:44 w5b done qwen-ns-400-500
+11-11 04:40:16 w0b start gemma-L18a2-300-400 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+11-11 04:40:37 w5b start qwen-R16k1b1-0-100 --lam 1 --pen 0.5 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 04:47:29 w5a done qwen-R16k1-300-400
+11-11 04:48:24 w5a start qwen-R16k1b1-100-200 --lam 1 --pen 0.5 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 04:55:39 w0a done qwen-R16k1-400-500
+11-11 04:56:35 w0a start qwen-R16k1b1-200-300 --lam 1 --pen 0.5 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 05:10:44 w5b done qwen-R16k1b1-0-100
+11-11 05:11:43 w5b start qwen-R16k1b1-300-400 --lam 1 --pen 0.5 --steer restore --layers 16 --alpha 1 --rho 6
+11-11 05:19:09 w5a done qwen-R16k1b1-100-200
+11-11 05:19:56 w5a start gemma-ns-400-500 --lam 0.5 --pen 0.25 --steer none
+11-11 05:25:21 w0a done qwen-R16k1b1-200-300
+11-11 05:26:09 w0a start gemma-L18a2-400-500 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2
+11-11 05:39:16 w5b done qwen-R16k1b1-300-400
+11-11 05:40:07 w5b start qwen-R12k15-0-100 --lam 0.5 --pen 0.25 --steer restore --layers 12 --alpha 1.5 --rho 6
+11-11 05:58:47 w0b done gemma-L18a2-300-400
+11-11 05:59:36 w0b start gemma-L18a2b1-0-100 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+11-11 06:05:57 w5b done qwen-R12k15-0-100
+11-11 06:06:43 w5b start gemma-L18a2b1-100-200 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+11-11 06:29:56 w5a done gemma-ns-400-500
+11-11 06:30:41 w5a start qwen-L12a6b1-0-100 --lam 1 --pen 0.5 --steer resid --layers 12 --alpha 6
+11-11 06:43:13 w0a done gemma-L18a2-400-500
+11-11 06:44:10 w0a start qwen-L12a6b1-100-200 --lam 1 --pen 0.5 --steer resid --layers 12 --alpha 6
+11-11 06:54:22 w5a done qwen-L12a6b1-0-100
+11-11 06:55:11 w5a start qwen-L16a3b1-0-100 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+11-11 07:07:53 w0a done qwen-L12a6b1-100-200
+11-11 07:08:39 w0a start qwen-L16a3b1-100-200 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+11-11 07:18:46 w0b done gemma-L18a2b1-0-100
+11-11 07:19:46 w0b start qwen-L16a2e-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 16 --alpha 2 --ssched early
+11-11 07:20:10 w5a done qwen-L16a3b1-0-100
+11-11 07:21:01 w5a start qwen-L12a3e-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 12 --alpha 3 --ssched early
+11-11 07:26:35 w5b done gemma-L18a2b1-100-200
+11-11 07:27:23 w5b start gemma-L18a2b1-200-300 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+11-11 07:35:24 w0a done qwen-L16a3b1-100-200
+11-11 07:36:14 w0a start gemma-L18a2b1-300-400 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+11-11 07:45:40 w5a done qwen-L12a3e-0-100
+11-11 07:46:34 w5a start gemma-L18a2b1-400-500 --lam 1 --pen 0.5 --steer resid --layers 18 --alpha 2
+11-11 07:47:52 w0b done qwen-L16a2e-0-100
+11-11 08:45:50 w5b done gemma-L18a2b1-200-300
+11-11 08:49:49 w0a done gemma-L18a2b1-300-400
+11-11 09:03:06 w5a done gemma-L18a2b1-400-500
+11-11 10:14:43 w0a start qwen-L16a3b1-200-300 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+11-11 10:15:04 w5b start qwen-L16a3b1-300-400 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+11-11 10:15:16 w5a start qwen-L16a3b1-400-500 --lam 1 --pen 0.5 --steer resid --layers 16 --alpha 3
+11-11 10:15:36 w0b start gemma-L24a2b1-0-100 --lam 1 --pen 0.5 --steer resid --layers 24 --alpha 2
+11-11 10:16:18 user: GPU 5 only -> w0a w0b stopped (their 2 just-started units reset)
+11-11 10:20:24 w5a FAILED qwen-L16a3b1-400-500
+11-11 10:20:24 w5b FAILED qwen-L16a3b1-300-400
+11-11 10:20:29 user: Gemma only -> qwen L16a3b1 300-499 stopped (partial rows removed); queue = gemma only
+11-11 10:21:09 w5a start gemma-zzsmoke_blur-0-2 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+11-11 10:21:30 w5b start gemma-L24a2-100-200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+11-11 10:23:01 w5a done gemma-zzsmoke_blur-0-2
+11-11 10:25:01 w5a start gemma-L18a2bl-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+11-11 11:31:14 w5b done gemma-L24a2-100-200
+11-11 11:32:11 w5b start gemma-L24a2-200-300 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+11-11 11:54:14 w5a done gemma-L18a2bl-0-100
+11-11 11:55:01 w5a start gemma-L18a2bl-100-200 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 2 --ctrl blur
+11-11 12:43:39 w5b done gemma-L24a2-200-300
+11-11 12:44:33 w5b start gemma-L24a2-300-400 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+11-11 13:26:04 w5a done gemma-L18a2bl-100-200
+11-11 13:26:51 w5a start gemma-L24a2-400-500 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2
+11-11 13:53:30 w5b done gemma-L24a2-300-400
+11-11 13:54:23 w5b start gemma-L24a3-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3
+11-11 14:36:13 w5a done gemma-L24a2-400-500
+11-11 14:37:10 w5a start gemma-L24a3-100-200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3
+11-11 15:03:20 w5b done gemma-L24a3-0-100
+11-11 15:04:09 w5b start gemma-L18a3-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 18 --alpha 3
+11-11 15:47:08 w5a done gemma-L24a3-100-200
+11-11 15:48:02 w5a start gemma-zzsmoke_gate-0-2 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3 --ssched gate
+11-11 15:49:35 w5a done gemma-zzsmoke_gate-0-2
+11-11 15:50:32 w5a start gemma-L24a3g-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3 --ssched gate
+11-11 16:29:11 w5b done gemma-L18a3-0-100
+11-11 16:30:10 w5b start gemma-L24a3g-100-200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 3 --ssched gate
+11-11 17:01:51 w5a done gemma-L24a3g-0-100
+11-11 17:02:43 w5a start gemma-L1824a15-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 18,24 --alpha 1.5
+11-11 17:42:01 w5b done gemma-L24a3g-100-200
+11-11 17:42:55 w5b start gemma-L1824a15-100-200 --lam 0.5 --pen 0.25 --steer resid --layers 18,24 --alpha 1.5
+11-11 18:22:13 w5a done gemma-L1824a15-0-100
+11-11 18:23:00 w5a start gemma-L24a2bl-0-100 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2 --ctrl blur
+11-11 19:03:43 w5b done gemma-L1824a15-100-200
+11-11 19:04:31 w5b start gemma-L24a2bl-100-200 --lam 0.5 --pen 0.25 --steer resid --layers 24 --alpha 2 --ctrl blur
+11-11 19:42:38 w5a done gemma-L24a2bl-0-100
+11-11 19:43:25 w5a start gemma-sel24r02-0-100 --lam 0.5 --pen 0.25 --steer sel --layers 24 --rho 0.2 --alpha 1
+11-11 20:24:40 user 20:2x: stop the Gemma loop, Qwen ablation first -> pool workers w5a/w5b and their gemma units (L24a2bl-100-200, sel24r02-0-100) killed; STOP file set (other session's queue lines untouched)

@@ -1,0 +1,13 @@
+{
+ "stage": "complete",
+ "pid": 3508796,
+ "method": "vti",
+ "set": "/home/project-b/LJW/vlm-grounding-steering/outputs/rbd2-20261102/sets/chair_dev100.jsonl",
+ "dtype": "bfloat16",
+ "attn": "eager",
+ "total": 60,
+ "done": 60,
+ "resumed_from": 0,
+ "updated_at": 1793894354.3130245,
+ "gpu": "NVIDIA RTX A6000"
+}

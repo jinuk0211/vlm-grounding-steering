@@ -1,0 +1,54 @@
+# 21:45 user: Base + existing baselines on full THRONE (5000 COCO val2017 images); CHAIR keeps the existing rows, no AMBER.
+# BF16 methods sdpa (eager BF16 writes addCriterion), FP16 methods eager + FP32 attention scores as in the verified test run.
+# 100-image chunks in id order, all methods per chunk, so any finished prefix is complete for every method.
+# 21:50 user: 5000 is too many, first 1000 images only (ids in ascending order, = throne_full1000).
+vti_author eager throne_full throne_full_bl 0 100
+rudder_clone sdpa throne_full throne_full_bl 0 100
+base sdpa throne_full throne_full_bl 0 100
+grains_clone eager throne_full throne_full_bl 0 100
+revis sdpa throne_full throne_full_bl 0 100
+vti_author eager throne_full throne_full_bl 100 200
+rudder_clone sdpa throne_full throne_full_bl 100 200
+base sdpa throne_full throne_full_bl 100 200
+grains_clone eager throne_full throne_full_bl 100 200
+revis sdpa throne_full throne_full_bl 100 200
+vti_author eager throne_full throne_full_bl 200 300
+rudder_clone sdpa throne_full throne_full_bl 200 300
+base sdpa throne_full throne_full_bl 200 300
+grains_clone eager throne_full throne_full_bl 200 300
+revis sdpa throne_full throne_full_bl 200 300
+vti_author eager throne_full throne_full_bl 300 400
+rudder_clone sdpa throne_full throne_full_bl 300 400
+base sdpa throne_full throne_full_bl 300 400
+grains_clone eager throne_full throne_full_bl 300 400
+revis sdpa throne_full throne_full_bl 300 400
+vti_author eager throne_full throne_full_bl 400 500
+rudder_clone sdpa throne_full throne_full_bl 400 500
+base sdpa throne_full throne_full_bl 400 500
+grains_clone eager throne_full throne_full_bl 400 500
+revis sdpa throne_full throne_full_bl 400 500
+vti_author eager throne_full throne_full_bl 500 600
+rudder_clone sdpa throne_full throne_full_bl 500 600
+base sdpa throne_full throne_full_bl 500 600
+grains_clone eager throne_full throne_full_bl 500 600
+revis sdpa throne_full throne_full_bl 500 600
+vti_author eager throne_full throne_full_bl 600 700
+rudder_clone sdpa throne_full throne_full_bl 600 700
+base sdpa throne_full throne_full_bl 600 700
+grains_clone eager throne_full throne_full_bl 600 700
+revis sdpa throne_full throne_full_bl 600 700
+vti_author eager throne_full throne_full_bl 700 800
+rudder_clone sdpa throne_full throne_full_bl 700 800
+base sdpa throne_full throne_full_bl 700 800
+grains_clone eager throne_full throne_full_bl 700 800
+revis sdpa throne_full throne_full_bl 700 800
+vti_author eager throne_full throne_full_bl 800 900
+rudder_clone sdpa throne_full throne_full_bl 800 900
+base sdpa throne_full throne_full_bl 800 900
+grains_clone eager throne_full throne_full_bl 800 900
+revis sdpa throne_full throne_full_bl 800 900
+vti_author eager throne_full throne_full_bl 900 1000
+rudder_clone sdpa throne_full throne_full_bl 900 1000
+base sdpa throne_full throne_full_bl 900 1000
+grains_clone eager throne_full throne_full_bl 900 1000
+revis sdpa throne_full throne_full_bl 900 1000
