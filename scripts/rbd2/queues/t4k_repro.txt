@@ -1,0 +1,14 @@
+qv throne_full1000 t4k_repro_qwen s16a1bl2p1 500 502 --alpha 1 --layer 16 --lam 2 --pen 1
+qb throne_full1000 t4k_repro_qwen vti_author 100 102 --attn eager
+v4q throne_full1000 t4k_repro_qwen cf_a3bl2p1 250 252 --attn sdpa --alpha 3 --layer 16 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/qwen-vobj2cf.json
+qb throne_full1000 t4k_repro_qwen grains_clone 0 2 --attn eager
+qb throne_full1000 t4k_repro_qwen rudder_clone 0 2 --attn sdpa
+qb throne_full1000 t4k_repro_qwen base 0 2 --attn sdpa
+qb throne_full1000 t4k_repro_qwen revis 0 2 --attn sdpa
+gv throne_full1000 t4k_repro_gemma s24a1bl2p1 0 2 --alpha 1 --layer 24 --lam 2 --pen 1
+v4g throne_full1000 t4k_repro_gemma cf_a3bl2p1 350 352 --attn eager --alpha 3 --layer 24 --lam 2 --pen 1 --vobj /home/project-b/LJW/vlm-grounding-steering/outputs/rbd-20261030/collect/gemma-vobj2cf.json
+gb throne_full1000 t4k_repro_gemma rudder_clone 100 102
+gb throne_full1000 t4k_repro_gemma base 100 102
+gb throne_full1000 t4k_repro_gemma revis 100 102
+gb throne_full1000 t4k_repro_gemma vti 100 102
+gb throne_full1000 t4k_repro_gemma grains_clone 100 102

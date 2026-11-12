@@ -3,13 +3,14 @@
 `final.tex`(2026-11-11 16:46)의 표, 그림, 본문 수치를 만든 실험의 **코드와 결과만** 모은 브랜치입니다.
 `paper-code-results-20261109-draft3`에서 이 원고에 나오는 실험만 남겼고, 그 뒤에 원고에 들어온 실험을 더했습니다.
 추가한 실험은 Qwen2.5-VL TETHER 행, Gemma ablation 두 행, 그림 `fig:jacobian`입니다.
+11-12에 THRONE 코드를 원고 캡션의 5,000장 판으로 바꿨습니다. 1,000장 실행에 나머지 4,000장을 돌리는 `t4k_*`를 더했고, 5,000장 실행은 아직 끝나지 않았습니다(아래 `tab:throne_full` 절).
 이전 브랜치의 이력을 가져오지 않은 orphan 브랜치라서 커밋은 이 브랜치의 것만 있습니다.
 
 **넣은 기준:** 원고에 숫자, 표, 그림으로 나오는 실험만 넣었습니다. 다음은 넣지 않았습니다.
 
 - 설정을 고를 때 돌린 후보들
 - 60·120·150장 단위의 중간 실행
-- 원고에서 빠진 실험: HAT + ALOHa, AMBER 1,004장, 예전 Gemma ablation, THRONE 5,000장 확장, 초기 탐색 표 `tab:dev2` 등
+- 원고에서 빠진 실험: HAT + ALOHa, AMBER 1,004장, 예전 Gemma ablation, 초기 탐색 표 `tab:dev2` 등
 
 전체 목록은 맨 아래 「넣지 않은 것」에 있습니다.
 
@@ -56,7 +57,7 @@
 | 10 | 같은 표 Qwen2.5 REVIS·RUDDER | — | BF16 eager 실행이라 일부 캡션에 ` addCriterion` 반복이 있습니다. REVIS 43개, RUDDER 74개, 같은 경로 Base 77개(각 500개 중)입니다. 비교 대상인 Base 30.4에는 없습니다 |
 | 11 | `tab:ablation_study` Qwen2.5 | −penalty 26.2 / 7.5 / 68.9, −belief 27.6 / 8.2 / 68.3 | **−penalty 28.2 / 7.5 / 68.9, −belief 29.6 / 8.2 / 69.3**입니다. `R/logs/abl_chair.log`. Full, −steering, Base의 CHAIR 값은 맞습니다 |
 | 12 | `tab:ablation_study` Gemma | Full 31.8 / 6.2 / 63.3 / 377, −steering 34.0 / 6.9 / 63.2 / 370 | 숫자는 맞습니다. 다만 출처는 no-anchor steering 탐색(L24, α 2 대 α 0, λ 0.5, π 0.25)이고, 본표의 Gemma TETHER `s24a1bl1p05`(λ 1, π 0.5)가 아닙니다. Base 행 36.2는 표의 bench Base입니다. 이 실행과 같은 코드 경로의 Base는 34.6 / 7.00 / 64.7 / 370입니다 |
-| 13 | 5.1절, `tab:throne_full` 캡션, 5.2절 | THRONE "5,000 images" | 표 숫자는 throne_full **rows 200–999, 800장**입니다. rows 0–199는 최종 설정 `cf_a3bl2p1`을 고르는 데 썼습니다. `R/logs/v4_{qwen,gemma}_t800_table.txt`, `R/logs/throne_xl_table.txt` |
+| 13 | 5.1절, `tab:throne_full` 캡션, 5.2절 | THRONE "5,000 images" | 표 숫자는 throne_full **rows 200–999, 800장**입니다. rows 0–199는 최종 설정 `cf_a3bl2p1`을 고르는 데 썼습니다. `R/logs/v4_{qwen,gemma}_t800_table.txt`, `R/logs/throne_xl_table.txt`. 5,000장 코드(`t4k_*`)는 이 브랜치에 있지만, 실행이 끝나지 않아서 5,000장 숫자는 아직 없습니다(아래 `tab:throne_full` 절) |
 | 14 | 부록 B.2 | bootstrap 10,000회 | 모든 CI는 **2,000회**(seed 0)입니다 |
 | 15 | 4.5·4.6절 | "development images에서 짧게 탐색해 정함" | 표의 설정은 테스트 행에서 골랐습니다. Qwen2.5 `s16a2bl1p05`는 CHAIR 테스트 rows 0–149, `L16a3b1`은 같은 설정의 rows 0–199 결과(project-b A6000, 23.5)를 본 뒤 정했습니다. Gemma `s24a1bl1p05`와 Qwen3 `s20a1bl1p05`는 rows 0–59, THRONE `cf_a3bl2p1`은 THRONE rows 0–199, Gemma ablation의 L24 α 2는 rows 0–99의 탐색 결과입니다. Gemma THRONE 첫 번째 설정 `s24a1bl2p1`은 throne_full rows 4940–4999에서 골랐고, 이 행은 원고가 말하는 5,000장 안에 있습니다 |
 | 16 | 4.3절, 부록 B.3 | "schedule은 백본마다 한 번 측정" | Qwen3-VL은 Qwen2.5-VL의 r(t)를 썼습니다. 서버의 `qwen3-visual-decay-summary.json`이 Qwen2.5 파일의 복사본입니다 |
@@ -171,17 +172,44 @@ REVIS는 `after_v7.sh` 1단계(`hat_pool.sh`가 큐 `queues/chair_dev100_revis.t
 
 ### `tab:throne_full`
 
+원고 캡션의 5,000장은 THRONE의 COCO val2017 이미지 5,000장 전체입니다. 코드는 두 부분입니다.
+
+- rows 0–999: 아래 표 위쪽의 1,000장 실행입니다. 지금 표의 숫자는 이 가운데 rows 200–999에서 나왔습니다.
+- rows 1000–4999: 아래 표 마지막 두 줄의 `t4k_*`입니다. 1,000장 실행과 같은 디코더와 인자로 나머지 4,000장을 돌리고, rows 0–999의 판정과 합쳐 5,000장을 채점합니다.
+
 | 단계 | 코드 | 결과 |
 |---|---|---|
-| 세트, 이미지 | `pb_make_throne_full.py`, `pb_get_throne_images.py` | `R/sets/throne_full.jsonl`(5,000장 순서), `throne_full1000.jsonl`, 표의 800장 `throne_t800.jsonl` |
+| 세트, 이미지 | `pb_make_throne_full.py`, `pb_get_throne_images.py`, `t4k_prep.py sets` | `R/sets/throne_full.jsonl`(5,000장 순서), `throne_full1000.jsonl`, 표의 800장 `throne_t800.jsonl`, 나머지 4,000장 `throne_r4000.jsonl` |
 | Qwen2.5 Base, RUDDER, GrAInS, VTI‖(원래 데모), REVIS(Base와 1,000/1,000 같은 캡션이라 표에서 뺌) | `pb_bl_chain.sh` → `pb_bl_pool.sh` → `baseline_bench.py` → `pb_bl_join.py`/`pb_bl_full_join.py` → `pb_bl_full_score.sh` | `R/runs/throne_full1000/` (캡션, `eval/*/` 판정) |
 | Gemma Base, REVIS†, RUDDER, GrAInS, VTI†, "TETHER, first try." `s24a1bl2p1` | `gemma_chain.sh`(선택 `gemma_pick.py`) → `gemma_pool.sh`, `gemma_bench.py`, `gemma_ours_fix.sh`, `gemma_split.sh`, `gemma_join.py`, 판정 `gemma_bl_judge.sh` | `R/runs/gemma_throne1000/` |
 | TETHER `cf_a3bl2p1` (두 백본) | `vdd4_setup.py`(V_obj) → `vdd4_chain.sh` → `vdd4_prep.py`·`vdd4_pool.sh`·`vdd4_decode.py`, `vdd4_qwen_resume.sh`, 채점 `vdd4_score.py` | `R/runs/{qwen,gemma}_cf_test_all/`, 표 `R/logs/v4_{qwen,gemma}_t800_table.txt` (원고의 2-judge 열과 같음) |
 | 판정 (Flan-T5 base, large, 임계값 6) | `pb_throne_judge.py`(`RBD2_JUDGES`), `score_throne.py`, `pb_throne_partial.py` | `R/diag/*_2judges/` (공식 채점기에 넣은 base·large 판정) |
 | xl 열 (base, large, xl, 임계값 9) | `after_v7.sh` 2단계 `xl_pool.sh` → `xl_judge.py` → `xl_score.py` | `R/runs/*/eval/*/combined/*flan-t5-xl.json`, 표 `R/logs/throne_xl_table.txt` |
 | ALL, CLS 지표 | `analysis/throne_all_metrics.sh`, `throne_official_scorer.sh`(공식 `throne_score_aqa.py`), `throne_classwise_ci.sh` | 표에 직접 |
+| 5,000장: 나머지 4,000장의 디코딩과 판정 | `t4k_chain.sh` → `t4k_prep.py`(sets, queues, repro, join, status) → `t4k_pool.sh`(디코딩) → `t4k_jpool.sh` → `t4k_judge.py`(1,000장 블록마다 판정기 하나씩) | 큐 `scripts/rbd2/queues/t4k_{repro,decode,judge}.txt`. 캡션과 판정은 실행이 끝나지 않아서 아직 없습니다 |
+| 5,000장 채점 | `t4k_score.py` (THRONE venv, CPU) | 위와 같음 |
 
-`v4_qwen_t800_table.txt`와 `throne_xl_table.txt`에는 Qwen2.5의 첫 번째 설정 `s16a1bl2p1` 행이 있습니다. 원고에서 이 행은 주석 처리되어 있어서 캡션은 넣지 않았습니다.
+`v4_qwen_t800_table.txt`와 `throne_xl_table.txt`에는 Qwen2.5의 첫 번째 설정 `s16a1bl2p1` 행이 있습니다. 원고에서 이 행은 주석 처리되어 있어서 캡션은 넣지 않았습니다. `t4k_*`는 이 설정도 4,000장에서 돌리고 채점합니다.
+
+`t4k_*`의 내용:
+
+- 실행 단위는 백본마다 7개 실행(Base, REVIS, RUDDER, GrAInS, VTI, 첫 번째 설정, TETHER `cf_a3bl2p1`) × 1,000장 블록 4개입니다. 블록 순서로 돌기 때문에 블록 하나가 끝나면 모든 방법을 그 블록까지 채점할 수 있습니다.
+- 디코딩 전에 방법마다 저장된 A6000 캡션 2개를 다시 만들어 비교합니다(`t4k_prep.py repro`). 하나라도 다르면 모든 작업이 멈춥니다. 11-09 실행에서는 28개가 모두 같았습니다.
+- `t4k_score.py`는 네 범위를 냅니다.
+  - rows 200–999: 확인용이고, 지금 표와 같아야 합니다.
+  - rows 200–N: 보고용이고, 설정 선택에 쓴 rows 0–199를 뺍니다.
+  - rows 0–N
+  - rows 1000–N
+- N은 1,000 + 1,000 × (판정이 끝난 블록 수)이고, `--blocks K`로 정할 수도 있습니다.
+- 2-judge 임계값 6(본 열)과 3-judge 임계값 9(xl 열)를 둘 다 내고, CI는 Base 대비 paired bootstrap 2,000회입니다.
+- 11-09에 `--blocks 0`으로 `tab:throne_full`의 모든 숫자(본 열, Tok, xl)를 재현했습니다. 11-12 중간 채점의 rows 200–999 2-judge 행도 원고 표와 같습니다.
+- Gemma 첫 번째 설정 `s24a1bl2p1`은 rows 4940–4999에서 골랐습니다(위 15번). 이 60장은 5,000장 채점(rows 200–N)에 들어갑니다.
+- 큐 파일은 `t4k_prep.py queues`가 만든 원본 그대로이고, 다시 만들어 같은 것을 확인했습니다. 서버의 지금 `t4k_decode.txt`·`t4k_judge.txt`는 고친 판입니다. 11-10에 사용자 지시로 우리 방법(첫 번째 설정, TETHER) 줄을 빼고 베이스라인을 먼저 돌리게 했습니다.
+- 진행 상황(11-12 13:20 중간 채점 기준):
+  - rows 1000–1999는 14개 실행 모두 디코딩과 base·large 판정이 끝났습니다. xl 판정은 5개 실행(Qwen REVIS·RUDDER, Gemma REVIS·GrAInS·VTI)에 남아 있습니다.
+  - rows 2000–4999는 끝나지 않았습니다.
+- rows 1000–1999의 일부는 vast 박스(RTX 3080, RTX 2080 Ti)에서 디코딩했습니다. 행마다 GPU가 기록되어 있습니다. 같은 설정이라도 GPU 종류가 다르면 greedy 캡션이 달라집니다.
+- 블록 0에 GPU를 더 붙인 배치 스크립트는 넣지 않았습니다(`t4k_after_cdm.sh`, `t4k_b0_after.sh`, `t4k_jpool_q.sh`, vast 박스의 `t4k_v*.sh`, `judge_v.sh`). 같은 큐 단위를 다른 GPU에 나눌 뿐이고 디코더와 인자는 같습니다.
 
 ### VCD
 
@@ -209,10 +237,11 @@ REVIS는 `after_v7.sh` 1단계(`hat_pool.sh`가 큐 `queues/chair_dev100_revis.t
 - 부록 A.9의 초반 증거 테스트와 `tab:steer`의 TETHER 두 행: 원고에도 pending이고, 코드와 결과가 없습니다.
 - 재감사(`sec:reaudit`): 원고에서 빠졌고, 결과가 없습니다.
 - Object HalBench: 위 표의 21번을 보세요.
+- THRONE rows 1000–4999: 코드(`t4k_*`)만 있고, 실행이 끝나지 않았습니다(`tab:throne_full` 절).
 
 ## 넣지 않은 것
 
-- **원고에 없는 실험:** HAT + ALOHa(v7, 집계 수정 포함), AMBER 생성형 1,004장, 예전 Gemma CHAIR ablation(`gabl`), THRONE 5,000장 확장(`t4k`, 진행 중이며 표에 숫자 없음),
+- **원고에 없는 실험:** HAT + ALOHa(v7, 집계 수정 포함), AMBER 생성형 1,004장, 예전 Gemma CHAIR ablation(`gabl`),
   self-verification 디코딩, MMVP, MMHal-Bench, five-profile POPE, AMBER vdd3, Qwen3 탐색 `rbd5`·`rbd6`, Gemma CHAIR 재선택 `gchair2`, VTI-ws THRONE 100장,
   anchor steering(`full_an16_r03`)과 그 ablation, VCD와 같이 돌린 M3ID, HAT 파일럿, recall 분석, 진단 스크립트(`diag_*`, `pb_diag_*`)
 - **초기 탐색과 설정 선택용 실행:**
@@ -223,7 +252,7 @@ REVIS는 `after_v7.sh` 1단계(`hat_pool.sh`가 큐 `queues/chair_dev100_revis.t
 - **원고에서 주석 처리된 행:** THRONE Qwen2.5 첫 번째 설정 `s16a1bl2p1`의 캡션과 판정(rows 0–999)
 - **중간 산출물:** 부분 실행 폴더, 스모크 테스트, 원래 VTI 실행 폴더의 샤드·장애 기록. 원래 VTI 실행 폴더에서는 `protocol.json`, `demo-manifest.json`만 남겼습니다.
 - **첫 번째 변형 dev의 기타 결과:** Gemma, dev 베이스라인, 부분 채점 폴더
-- **코드:** 위 실험의 스크립트(`hat_*`, `pb_amber_*`, `gabl_*`, `t4k_*`, `vdd7_decode.py`, `cloud_dev/`, `sweep_decode.py`, `rbd_offline.py`, orange 분석 등)와 그 큐.
+- **코드:** 위 실험의 스크립트(`hat_*`, `pb_amber_*`, `gabl_*`, `vdd7_decode.py`, `cloud_dev/`, `sweep_decode.py`, `rbd_offline.py`, orange 분석 등)와 그 큐.
   `pb_worker.sh`의 sweep 모드는 빠진 `sweep_decode.py`를 부릅니다.
 
 옛 베이스라인 파이프라인(Gemma 5방법, Qwen five-profile)은 실행할 때 서로의 소스 해시를 검사합니다. 그래서 그 검사 목록에 있는 스크립트는 모두 남겼습니다.
